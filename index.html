@@ -70,6 +70,149 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-From Mr8god：hexo轻松搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/28/From%20Mr8god%EF%BC%9Ahexo%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="article-date">
+  <time datetime="2020-03-28T10:54:20.067Z" itemprop="datePublished">2020-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/28/From%20Mr8god%EF%BC%9Ahexo%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">From Mr8god：hexo轻松搭建博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="From-Mr8god：hexo轻松搭建博客"><a href="#From-Mr8god：hexo轻松搭建博客" class="headerlink" title="From Mr8god：hexo轻松搭建博客"></a>From Mr8god：hexo轻松搭建博客</h1><h2 id="环境概述"><a href="#环境概述" class="headerlink" title="环境概述"></a>环境概述</h2><p>我粗略估计了一下哈，大概需要以下东西</p>
+<ul>
+<li>win10系统</li>
+<li>hexo运行环境：nodejs</li>
+<li>下载包管理工具：npm</li>
+<li>版本控制工具：git</li>
+<li>IDE：vscode</li>
+<li>主题：我就暂时用初始的landscape了</li>
+</ul>
+<p>当然ide是可以随便换的啦，用记事本也行呢。这种博客后期都是要靠Markdown来上传自己的文章的，且为了要让博客更加的适合自己，做出个性化的博客，需要你们去了解css、js等一些知识。</p>
+<p>如果你学过git，那么这个教程就更简单了，纯粹就是帮你复习一遍git而已啦。</p>
+<p>废话不多说，开始进入正题。</p>
+<h2 id="搭建博客流程"><a href="#搭建博客流程" class="headerlink" title="搭建博客流程"></a>搭建博客流程</h2><h3 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h3><p>node.js需要下载好，官网下载即可</p>
+<p>git也需要提前下载好，官网下载即可</p>
+<h3 id="二、使用hexo博客搭建工具"><a href="#二、使用hexo博客搭建工具" class="headerlink" title="二、使用hexo博客搭建工具"></a>二、使用hexo博客搭建工具</h3><h4 id="Step1-本地新建文件夹"><a href="#Step1-本地新建文件夹" class="headerlink" title="Step1 本地新建文件夹"></a>Step1 本地新建文件夹</h4><p>这个文件夹会存储你博客之后所有的Markdown文件以及你生成的HTML文件</p>
+<h4 id="Step2-进入目录让我们git-bash一下"><a href="#Step2-进入目录让我们git-bash一下" class="headerlink" title="Step2 进入目录让我们git bash一下"></a>Step2 进入目录让我们git bash一下</h4><p>这边我建立了名为“教程演示用博客”的文件夹，右击bash一下</p>
+<p><img src="https://i.loli.net/2020/03/28/sybeN7tziCJREgU.jpg" alt="1.jpg"></p>
+<h4 id="Step3-安装hexo"><a href="#Step3-安装hexo" class="headerlink" title="Step3 安装hexo"></a>Step3 安装hexo</h4><p>命令就是</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>如果网速慢的话可以采取cnpm安装，这边推荐一个博客讲解cnpm源更改哈：<a href="https://blog.csdn.net/cungudafa/article/details/98739459" target="_blank" rel="noopener">https://blog.csdn.net/cungudafa/article/details/98739459</a></p>
+<p><img src="https://i.loli.net/2020/03/28/FHAVas5SlvbK8XB.jpg" alt="2.jpg"></p>
+<h4 id="Step4-初始化hexo模板"><a href="#Step4-初始化hexo模板" class="headerlink" title="Step4 初始化hexo模板"></a>Step4 初始化hexo模板</h4><p>命令是</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://i.loli.net/2020/03/28/FEs67nYOLIJpVTN.jpg" alt="3.jpg"></p>
+<p>在这边你或许会遇到一个问题，初始化速度极慢，令人难以忍受，咳咳，仔细思考哈。这个是有npm安装的，那问题自然出在npm上面，咱们换个源就行了，刚刚上一步你换过了的话这里就不用换啦，这边可以换阿里或者淘宝的源，蛮好的，继续偷懒，放上链接：<a href="https://blog.csdn.net/cungudafa/article/details/98739459" target="_blank" rel="noopener">https://blog.csdn.net/cungudafa/article/details/98739459</a></p>
+<h4 id="Step5-初始化后的文件树"><a href="#Step5-初始化后的文件树" class="headerlink" title="Step5 初始化后的文件树"></a>Step5 初始化后的文件树</h4><p><img src="https://i.loli.net/2020/03/28/xwJP2vzKDOsGWVo.png" alt="43.png"></p>
+<p>其中source_posts里边存放的都是Markdown格式文件，也就是咱们日后的博客文件哟</p>
+<h4 id="Step6-hexo使用教程"><a href="#Step6-hexo使用教程" class="headerlink" title="Step6 hexo使用教程"></a>Step6 hexo使用教程</h4><p>hexo日常三命令</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean <span class="comment"># 清空已有hexo网站文件</span></span><br><span class="line">hexo generate(<span class="keyword">or</span> g) <span class="comment"># 依据网页文本与新的CSS样式生成新网站文件</span></span><br><span class="line">hexo server(<span class="keyword">or</span> s) <span class="comment"># 启动本地服务器，可以在localhost:4000查看网站修改效果</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="hexo入门教学"><a href="#hexo入门教学" class="headerlink" title="hexo入门教学"></a>hexo入门教学</h5><ol>
+<li>老规矩，在博客页面下git bash一下，直接上面三连，在访问localhost:4000即可看到网站效果</li>
+<li>一般咱们都是默认的landscape主题，后期当提交新文章或者新的样式的时候，往往都是从本地看好结果，确认无误后再部署到服务器上的，当然我在本地记录了各个版本。其实git版本控制器就是有这一部分的命令的，不过我暂时没有完全掌握哈，只能用老办法复制粘贴备份本地的博客</li>
+<li>这边要注意了hexo有很多 主题，各种主题都很好请自己选择，官网主题：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></li>
+<li>主题配置，在博客文件夹下主目录找到_config.yml，打开后，修改theme:landscape为自己选择的主题就行了</li>
+</ol>
+<h5 id="部署服务器教学"><a href="#部署服务器教学" class="headerlink" title="部署服务器教学"></a>部署服务器教学</h5><p>部署服务器呢，这里有这三种方案</p>
+<ol>
+<li>部署到github上<br>好处：免费，且安全，而且受众度广，知名度高<br>缺点：由于服务器不在国内，所以访问速度会慢</li>
+<li>部署到gitee上：<br>楼上说的全部反过来就行了<br>好处：访问速度快<br>缺点：绑定自己家的域名居然还要我花钱？？？？害白嫖党不理解，不安全，发生过事故，而且仓库里的代码居然是保存在人家的服务器（阿里云，腾讯云）上的 你敢信？！！！<br>不过还是挺好的，嗯呢，说心里话呢，鼓励他</li>
+<li>既部署到GitHub上又部署到gitee上：<br>嘿嘿嘿，想不到吧，我还能白嫖，取两家之长处，助自己之力，哈哈哈，<br>自主研发，别人还真没有（网上找不到哦）</li>
+</ol>
+<h6 id="部署到github上"><a href="#部署到github上" class="headerlink" title="部署到github上"></a>部署到github上</h6><ol>
+<li><p>首先申请github账号</p>
+</li>
+<li><p>然后开始建仓库，这个建仓库很有讲究</p>
+<p>仓库名应该是账号名加.github.io<br>比方说我github账号为mr8god，我的仓库名就是mr8god.github.io<br>仓库地址就是Mr8god/Mr8god.github.io<br>然后选择public公开就行了其他就OK了</p>
+</li>
+<li><img src="https://i.loli.net/2020/03/28/d34ShBQy2JCUgp7.jpg" alt="5.jpg" style="zoom: 50%;" />
+</li>
+<li><p>建完仓库后你会看到这个页面<br>复制http后边那个ssh的地址，待会用得到这边为了演示，我就创建了我的mr6god仓库哈<br>地址就是：<a href="mailto:git@github.com">git@github.com</a>:Mr8god/mr6god.github.io.git</p>
+</li>
+<li><p>这边我需要插一句，本地上传到服务器的工具就是Git版本控制工具，如果你能够熟练掌握git的使用，那么做这个博客很简单，也就是复习一下git的使用方法而已，但是如果你不熟悉的话，就略微麻烦而已。</p>
+</li>
+<li><p>这边将本地博客推送到githubpage（就是我刚刚说的服务器）之前，需要用到一个命令，在命令行（gitbash）运行这行命令：$ npm install hexo-deployer-git –save</p>
+</li>
+<li><p>然后咱们就可以使用hexo deployer进行推送，在推送的时候会遇到要求输入账号密码，照着输入就行了。<br>但是我们日后推送的话总不能每一次都输入密码吧，这边推荐SSH key秘钥连接，这边就不赘述了哈，自行百度</p>
+</li>
+<li><p>来了来了，最重要的就是这一步修改文件，还是刚刚的_config.yml文件，在文件末尾修改为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:&lt;Github账号名称&gt;/&lt;Github账号名称&gt;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意了，上面仓库填ssh地址，不是HTTP地址，就是这样，这边可以写<a href="mailto:git@github.com">git@github.com</a>:Mr8god/mr6god.github.io.git</p>
+</li>
+<li><p>然后返回我们的gitbash 输入下面两行代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>过一会访问域名：<br>https://&lt;Github账号名称&gt;.github.io<br>就可以咯，然后就会是你本地的博客页面了</p>
+</li>
+</ol>
+<h6 id="部署到gitee上"><a href="#部署到gitee上" class="headerlink" title="部署到gitee上"></a>部署到gitee上</h6><ol>
+<li><p>老规矩，申请码云账户，新建仓库</p>
+</li>
+<li><p>仓库名字必须和你注册githee的注册名相同，不然css路径会读错</p>
+</li>
+<li><p>得到咱们的仓库地址，复制下来</p>
+</li>
+<li><p>接下来就是和github不同的一点了，码云需要到它的服务页面打开page功能</p>
+<img src="https://i.loli.net/2020/03/28/eiyDRVu9GHqQbB1.jpg" alt="6.jpg" style="zoom:50%;" />
+
+<img src="https://i.loli.net/2020/03/28/QsxBjbqgwpt6uI3.jpg" alt="7.jpg" style="zoom:50%;" />
+
+<p>启动部署即可</p>
+</li>
+<li><p>返回咱们的本地博客目录，修改主目录下的_config.yml文件，在文件末尾修改为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:&lt;Github账号名称&gt;/&lt;Github账号名称&gt;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这边将本地博客推送到码云仓库之前（就是我刚刚说的服务器），需要用到一个命令，在命令行（gitbash）运行这行命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后返回我们的gitbash 输入下面两行代码：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后输入<br> http://&lt;码云用户名&gt;.gitee.io/<br> 就可以 看到我们本地的博客样子了</p>
+</li>
+</ol>
+<h6 id="既部署到GitHub上又部署到gitee上"><a href="#既部署到GitHub上又部署到gitee上" class="headerlink" title="既部署到GitHub上又部署到gitee上"></a>既部署到GitHub上又部署到gitee上</h6><p>在我们干完上面的两件事之后，其实很多都是重复工作，我们只需要修改一个配置文件就行了，就是咱们的网站配置文件_config.yml</p>
+<p><img src="https://i.loli.net/2020/03/28/kqI9ngwjXp2531O.jpg" alt="8.jpg"></p>
+<p>改成上面这个样子就可以了</p>
+<p>我想讲一下为什么会有第三种方案的诞生哈，因为考虑到github的服务器搭在国外，所以我们日常访问上面的博客的时候它会很慢，于是我们可以靠这种方法去分流哈。分流的意思是，当我访问一个域名（这个域名同时解析了我两个博客page的地址）的时候，会自动根据我们离哪个服务器更近而自动去选择访问哪个服务器。</p>
+<p>其实这种做法有专门的名词，叫做负载均衡。可以使用cdn服务来达到同样一个效果。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>emmmm，说一下之后的发展，已经在搭其他框架了，打算用回归老本行，重拾Django，用这个框架做更细致的博客哈。</p>
+<p>然后gitee肯定是要淘汰掉的，因为他居然要付费才能让我选择自定义的域名，每年一百，啧啧啧，害。而且它也不安全嘛，思来想去，换掉它指日可待。</p>
+<p>暂时就写这么多啦。然后呢，有啥问题要交流的，暂时我就放我的QQ啦：1803357141。因为还没做其他功能。害，就是这样。欢迎交流！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://justtchachv.cn/2020/03/28/From%20Mr8god%EF%BC%9Ahexo%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" data-id="ck8bhzu850000q0to00625tgo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-lalala" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/26/lalala/" class="article-date">
@@ -96,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://justtchachv.cn/2020/03/26/lalala/" data-id="ck8bbugvr000558to7mob08ta" class="article-share-link">Share</a>
+      <a data-url="https://justtchachv.cn/2020/03/26/lalala/" data-id="ck8bhzu8g0005q0tohilz5gc8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -192,7 +335,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://justtchachv.cn/2020/03/25/%E7%AC%AC7%E7%AB%A0%20%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94C++%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97/" data-id="ck8bbugwe000i58togi20gxiu" class="article-share-link">Share</a>
+      <a data-url="https://justtchachv.cn/2020/03/25/%E7%AC%AC7%E7%AB%A0%20%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94C++%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97/" data-id="ck8bhzu8w000jq0to6ugshgwb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -235,7 +378,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay7/" data-id="ck8bbugwd000h58to6wb66anc" class="article-share-link">Share</a>
+      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay7/" data-id="ck8bhzu8q000hq0to22sp2ve8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -278,7 +421,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/" data-id="ck8bbugwc000g58toacnlc8op" class="article-share-link">Share</a>
+      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/" data-id="ck8bhzu8v000iq0to7w8w2li8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -322,7 +465,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/" data-id="ck8bbugw9000e58to56fwen5o" class="article-share-link">Share</a>
+      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/" data-id="ck8bhzu8o000eq0todahv7j3i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -361,7 +504,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay4/" data-id="ck8bbugw7000d58tof6oihb0j" class="article-share-link">Share</a>
+      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay4/" data-id="ck8bhzu8m000cq0toc3nl9l76" class="article-share-link">Share</a>
       
       
     </footer>
@@ -404,7 +547,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/" data-id="ck8bbugwb000f58to6mhne5ad" class="article-share-link">Share</a>
+      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/" data-id="ck8bhzu8o000fq0to6p1l4zvr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -448,7 +591,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/" data-id="ck8bbugw5000b58to4r7xbscf" class="article-share-link">Share</a>
+      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/" data-id="ck8bhzu8n000dq0to1vqj3cni" class="article-share-link">Share</a>
       
       
     </footer>
@@ -494,78 +637,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay1/" data-id="ck8bbugvt000a58todk5vbe97" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-URI URL统一资源标识符" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/22/URI%20URL%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E8%AF%86%E7%AC%A6/" class="article-date">
-  <time datetime="2020-03-22T05:04:38.809Z" itemprop="datePublished">2020-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/22/URI%20URL%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E8%AF%86%E7%AC%A6/">URI URL统一资源标识符</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="URI-URL统一资源标识符"><a href="#URI-URL统一资源标识符" class="headerlink" title="URI URL统一资源标识符"></a>URI URL统一资源标识符</h1><h2 id="URI（Uniform-Resource-Identifier"><a href="#URI（Uniform-Resource-Identifier" class="headerlink" title="URI（Uniform Resource Identifier)"></a>URI（Uniform Resource Identifier)</h2><p>采用一种特定语法标识一个资源的字符串</p>
-<p><strong>格式：</strong></p>
-<p>模式：模式特定部分（模式特定部分的语法取决于所用的模式）</p>
-<p>模式包括：</p>
-<p>由小写字母、数字和加号、点及连号符组成</p>
-<p>data链接中直接包含的Base64编码数据</p>
-<p>file本地磁盘的文件</p>
-<p>ftp FTP服务器</p>
-<p>HTTP使用超文本传输协议的国际互联网服务器</p>
-<p>mailto电子邮件地址</p>
-<p>magnet可以通过对等网络下载的资源</p>
-<p>Telnet与基于Telnet的服务连接</p>
-<p><strong>模式特定部分包扩：</strong></p>
-<p><strong>//authority/path?query(//授权机构/路径？查询字符串)</strong></p>
-<p>由ASCII字母数字符号组成，还可以使用标点符号-、_、·、!、~</p>
-<p>定界符（/、？、&amp;、=）可以有其预定义用途</p>
-<p>所有其他字符及内容中需用到的定界符也应用%转义（空格%20/%2F)</p>
-<p><strong>authority</strong>:负责解析该URI其余部分的授权机构 授权机构是Internet主机，还可提供可选的用户名和端口 如：<a href="ftp://mp3:mp3@ci43198-a.ashvill.nc.home.com:33/VanHalen-Jump.mp3">ftp://mp3:mp3@ci43198-a.ashvill.nc.home.com:33/VanHalen-Jump.mp3</a></p>
-<p><strong>path</strong>:授权机构用来确定所标识资源的字符串</p>
-<h2 id="URL最常见的URI"><a href="#URL最常见的URI" class="headerlink" title="URL最常见的URI"></a>URL最常见的URI</h2><p>两者区别：URI表示资源是什么，URL表示资源的具体位置，URI是URL的抽象。Java中URL对象对应网络获取的应用层协议的一个表示，而URI对象纯粹用于解析和处理字符串。</p>
-<h3 id="绝对URL"><a href="#绝对URL" class="headerlink" title="绝对URL"></a>绝对URL</h3><p><strong>protocol://userInfo@host.port/path?query#fragment</strong></p>
-<p>host 提供所需资源服务区的名字（主机/服务器ip地址）</p>
-<p>userInfo 可选，服务器登录信息</p>
-<p>port 可选，服务在其默认端口运行，无需此部分</p>
-<p>path 指定服务器上的一个特定目录文件系统，路径相对于服务器的文档跟目录，向公众开放的服务器不会将其整个文件系统展示给客户端，而只是展示指定目录中的内容</p>
-<p>query 向服务器提供附加参数，一般只在http URL中使用，其中包含表单数据，作为输入提供给服务端的运行程序</p>
-<p>fragment 指向远程资源的某个特定部分 HTML 锚 XML XPointer  段  ref     片段标识符在HTML文档中用id属性创建 </p>
-<p>包含片段标识符的是URL引用，不是URL</p>
-<h3 id="相对URL继承了-父文档部分信息的URL"><a href="#相对URL继承了-父文档部分信息的URL" class="headerlink" title="相对URL继承了 父文档部分信息的URL"></a>相对URL继承了 父文档部分信息的URL</h3><p>在相对URL中，缺少的各部分都与所在文档的URL中对应的部分相同</p>
-<p>例如浏览<a href="http://www.ibiblio.org/java/faq/javatutoial.html时" target="_blank" rel="noopener">http://www.ibiblio.org/java/faq/javatutoial.html时</a></p>
-<p><strong>若无”/“开头</strong> 例如<a href="javafaq.html"></p>
-<p>相当于http://www.ibiblio.org/java/faq/javafaq.html</p>
-<p><strong>若以”/“开头</strong> 如<a href="/projects/ipv61"></p>
-<p>则相当于http://www.ibiblio.org/projects/ipv61</p>
-<p>相对URL允许用多种协议来提供一个文档树，且相对URL允许将整个文档树从一个网站移动或复制到另一个网站，而不会破坏所有的内部连接。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://justtchachv.cn/2020/03/22/URI%20URL%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E8%AF%86%E7%AC%A6/" data-id="ck8bbugvp000358tocsmh7hba" class="article-share-link">Share</a>
+      <a data-url="https://justtchachv.cn/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay1/" data-id="ck8bhzu8l000bq0toa0lngrdo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -625,6 +697,10 @@
       <ul>
         
           <li>
+            <a href="/2020/03/28/From%20Mr8god%EF%BC%9Ahexo%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">From Mr8god：hexo轻松搭建博客</a>
+          </li>
+        
+          <li>
             <a href="/2020/03/26/lalala/">lalala</a>
           </li>
         
@@ -638,10 +714,6 @@
         
           <li>
             <a href="/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/">每天和Dell客服学一招Day6</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/">每天和Dell客服学一招Day3</a>
           </li>
         
       </ul>
