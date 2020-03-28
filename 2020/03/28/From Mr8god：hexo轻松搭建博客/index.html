@@ -7,12 +7,12 @@
   
   <title>From Mr8god：hexo轻松搭建博客 | Mr8god&#39;s website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From Mr8god：hexo轻松搭建博客环境概述我粗略估计了一下哈，大概需要以下东西  win10系统 hexo运行环境：nodejs 下载包管理工具：npm 版本控制工具：git IDE：vscode 主题：我就暂时用初始的landscape了  当然ide是可以随便换的啦，用记事本也行呢。这种博客后期都是要靠Markdown来上传自己的文章的，且为了要让博客更加的适合自己，做出个性化的博客">
+  <meta name="description" content="From Mr8god：hexo轻松搭建博客环境概述我粗略估计了一下哈，大概需要以下东西  win10系统 hexo运行环境：node.js 下载包管理工具：npm 版本控制工具：git IDE：vscode 主题：我就暂时用初始的landscape了  当然ide是可以随便换的啦，用记事本也行呢。这种博客后期都是要靠Markdown来上传自己的文章的，且为了要让博客更加的适合自己，做出个性化的博">
 <meta property="og:type" content="article">
 <meta property="og:title" content="From Mr8god：hexo轻松搭建博客">
 <meta property="og:url" content="https://justtchachv.cn/2020/03/28/From%20Mr8god%EF%BC%9Ahexo%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="Mr8god&#39;s website">
-<meta property="og:description" content="From Mr8god：hexo轻松搭建博客环境概述我粗略估计了一下哈，大概需要以下东西  win10系统 hexo运行环境：nodejs 下载包管理工具：npm 版本控制工具：git IDE：vscode 主题：我就暂时用初始的landscape了  当然ide是可以随便换的啦，用记事本也行呢。这种博客后期都是要靠Markdown来上传自己的文章的，且为了要让博客更加的适合自己，做出个性化的博客">
+<meta property="og:description" content="From Mr8god：hexo轻松搭建博客环境概述我粗略估计了一下哈，大概需要以下东西  win10系统 hexo运行环境：node.js 下载包管理工具：npm 版本控制工具：git IDE：vscode 主题：我就暂时用初始的landscape了  当然ide是可以随便换的啦，用记事本也行呢。这种博客后期都是要靠Markdown来上传自己的文章的，且为了要让博客更加的适合自己，做出个性化的博">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2020/03/28/sybeN7tziCJREgU.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/03/28/FHAVas5SlvbK8XB.jpg">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/03/28/QsxBjbqgwpt6uI3.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/03/28/kqI9ngwjXp2531O.jpg">
 <meta property="article:published_time" content="2020-03-28T10:54:20.067Z">
-<meta property="article:modified_time" content="2020-03-28T10:54:20.067Z">
+<meta property="article:modified_time" content="2020-03-28T10:57:16.304Z">
 <meta property="article:author" content="Mr8god">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2020/03/28/sybeN7tziCJREgU.jpg">
@@ -104,7 +104,7 @@
         <h1 id="From-Mr8god：hexo轻松搭建博客"><a href="#From-Mr8god：hexo轻松搭建博客" class="headerlink" title="From Mr8god：hexo轻松搭建博客"></a>From Mr8god：hexo轻松搭建博客</h1><h2 id="环境概述"><a href="#环境概述" class="headerlink" title="环境概述"></a>环境概述</h2><p>我粗略估计了一下哈，大概需要以下东西</p>
 <ul>
 <li>win10系统</li>
-<li>hexo运行环境：nodejs</li>
+<li>hexo运行环境：node.js</li>
 <li>下载包管理工具：npm</li>
 <li>版本控制工具：git</li>
 <li>IDE：vscode</li>
@@ -119,7 +119,7 @@
 <h4 id="Step2-进入目录让我们git-bash一下"><a href="#Step2-进入目录让我们git-bash一下" class="headerlink" title="Step2 进入目录让我们git bash一下"></a>Step2 进入目录让我们git bash一下</h4><p>这边我建立了名为“教程演示用博客”的文件夹，右击bash一下</p>
 <p><img src="https://i.loli.net/2020/03/28/sybeN7tziCJREgU.jpg" alt="1.jpg"></p>
 <h4 id="Step3-安装hexo"><a href="#Step3-安装hexo" class="headerlink" title="Step3 安装hexo"></a>Step3 安装hexo</h4><p>命令就是</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 
 <p>如果网速慢的话可以采取cnpm安装，这边推荐一个博客讲解cnpm源更改哈：<a href="https://blog.csdn.net/cungudafa/article/details/98739459" target="_blank" rel="noopener">https://blog.csdn.net/cungudafa/article/details/98739459</a></p>
 <p><img src="https://i.loli.net/2020/03/28/FHAVas5SlvbK8XB.jpg" alt="2.jpg"></p>
@@ -208,11 +208,12 @@
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>emmmm，说一下之后的发展，已经在搭其他框架了，打算用回归老本行，重拾Django，用这个框架做更细致的博客哈。</p>
 <p>然后gitee肯定是要淘汰掉的，因为他居然要付费才能让我选择自定义的域名，每年一百，啧啧啧，害。而且它也不安全嘛，思来想去，换掉它指日可待。</p>
 <p>暂时就写这么多啦。然后呢，有啥问题要交流的，暂时我就放我的QQ啦：1803357141。因为还没做其他功能。害，就是这样。欢迎交流！</p>
+<p>对了对了，最后感谢一位程序媛的博客对我的帮助，放上她的博客地址哈：<a href="https://cungudafa.gitee.io/" target="_blank" rel="noopener">https://cungudafa.gitee.io/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://justtchachv.cn/2020/03/28/From%20Mr8god%EF%BC%9Ahexo%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" data-id="ck8bhzu850000q0to00625tgo" class="article-share-link">Share</a>
+      <a data-url="https://justtchachv.cn/2020/03/28/From%20Mr8god%EF%BC%9Ahexo%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" data-id="ck8bi32w200006gtoezn19hy4" class="article-share-link">Share</a>
       
       
     </footer>
