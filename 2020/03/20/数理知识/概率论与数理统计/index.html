@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js ? id=UA-162074438-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162074438-1');
+</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"justtchachv.cn","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="第一章：随机事件及其概率（1）第一部分样本空间，随机事件来自百度百科样本空间####### 随机事件E的所有基本结果组成的集合为E的样本空间。样本空间的元素称为样本点或基本事件 ####### 举个例子：设随机试验E是”抛一颗骰子，观察出现的点数”。那么E的样本空间就是S：{1,2,3,4,5,6,}。 ####### 有些实验有两个或多个可能的样本空间。 ######## 举个例子：从52张扑克">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率论与数理统计">
+<meta property="og:url" content="https://justtchachv.cn/2020/03/20/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/index.html">
+<meta property="og:site_name" content="Mr8god&#39;s blog">
+<meta property="og:description" content="第一章：随机事件及其概率（1）第一部分样本空间，随机事件来自百度百科样本空间####### 随机事件E的所有基本结果组成的集合为E的样本空间。样本空间的元素称为样本点或基本事件 ####### 举个例子：设随机试验E是”抛一颗骰子，观察出现的点数”。那么E的样本空间就是S：{1,2,3,4,5,6,}。 ####### 有些实验有两个或多个可能的样本空间。 ######## 举个例子：从52张扑克">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-20T12:40:15.739Z">
+<meta property="article:modified_time" content="2020-03-29T14:17:24.869Z">
+<meta property="article:author" content="Mr8god">
+<meta property="article:tag" content="概率论">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://justtchachv.cn/2020/03/20/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>概率论与数理统计 | Mr8god's blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162074438-1# <app_id>"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-162074438-1# <app_id>');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Mr8god's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a href="https://github.com/Mr8god/Mr8god.github.io" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Mr8god's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">coding,coding,always coding!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://justtchachv.cn/2020/03/20/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          概率论与数理统计
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-20 20:40:15" itemprop="dateCreated datePublished" datetime="2020-03-20T20:40:15+08:00">2020-03-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-29 22:17:24" itemprop="dateModified" datetime="2020-03-29T22:17:24+08:00">2020-03-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">数理知识</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="第一章：随机事件及其概率（1）"><a href="#第一章：随机事件及其概率（1）" class="headerlink" title="第一章：随机事件及其概率（1）"></a>第一章：随机事件及其概率（1）</h2><h3 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h3><h4 id="样本空间，随机事件"><a href="#样本空间，随机事件" class="headerlink" title="样本空间，随机事件"></a>样本空间，随机事件</h4><h5 id="来自百度百科"><a href="#来自百度百科" class="headerlink" title="来自百度百科"></a>来自百度百科</h5><h6 id="样本空间"><a href="#样本空间" class="headerlink" title="样本空间"></a>样本空间</h6><p>####### 随机事件E的所有基本结果组成的集合为E的样本空间。样本空间的元素称为样本点或基本事件</p>
+<p>####### 举个例子：设随机试验E是”抛一颗骰子，观察出现的点数”。那么E的样本空间就是S：{1,2,3,4,5,6,}。</p>
+<p>####### 有些实验有两个或多个可能的样本空间。</p>
+<p>######## 举个例子：从52张扑克牌中随机抽出一张，一个可能的样本空间是数字（A到K），另外一个可能的样本空间是花色（黑桃，红桃，梅花，方块）。 如果要完整地描述一张牌，就需要同时给出数字和花色，这时的样本空间可以通过构建上述两个样本空间的笛卡尔乘积来得到。</p>
+<h6 id="随机事件"><a href="#随机事件" class="headerlink" title="随机事件"></a>随机事件</h6><p>####### 子主题 4</p>
+<p>######## 随机事件是指在随机试验中，可能出现也可能不出现，而在大量重复试验中具有某种规律性的事件叫做随机事件（简称事件）</p>
+<p>######## 随机试验中的每一个可能出现的试验结果称为这个试验的一个样本点，全体样本点组成的集合称为这个试验的样本空间。</p>
+<p>######## 仅含一个样本点的随机事件称为基本事件 含有多个样本点的随机事件称为复合事件</p>
+<p>####### </p>
+<p>####### 特点</p>
+<p>######## 1、可以在相同的条件下重复进行</p>
+<p>######## 2、每个试验的可能结果不止一个，并且能实现预测试验的所有可能结果</p>
+<p>######## 3、进行一次试验之前不能确定哪一个结果会出现</p>
+<p>####### 特殊事件</p>
+<p>######## 必然事件</p>
+<p>######### 必然事件记作Ω，样本空间Ω也是其自身的一个子集，Ω也是一个”随机”事件，每次试验中必定有Ω中的一个样本点出现，必然发生。</p>
+<p>######## 不可能事件</p>
+<p>######### 不可能事件记作Φ，空集Φ也是样本空间的一个子集，Φ也是一个特殊的”随机”事件，不包含任何样本点，不可能发生。</p>
+<p>####### 事件关系</p>
+<p>######## 事件A是事件B的子事件，事件A发生必然导致事件B发生，事件A的样本点都是事件B的样本点，记作A⊂B。</p>
+<p>######## 若A⊂B且B⊂A，那么A=B，称A和B为相等事件，事件A与事件B含有相同的样本点。</p>
+<p>######## 和事件发生，即事件A发生或事件B发生，事件A与事件B至少一个发生，由事件A与事件B所有样本点组成，记作A∪B。</p>
+<p>######## 积事件发生，即事件A和事件B同时发生，由事件A与事件B的公共样本点组成，记作AB或A∩B。</p>
+<p>####### 事件种类</p>
+<p>######## 互斥事件</p>
+<p>######### 互斥事件（互不相容事件）事件A与事件B，AB=Φ，事件A与事件B不能同时发生，事件A与事件B没有公共的样本点。</p>
+<p>######## 对立事件</p>
+<p>######### 事件A的对立事件，事件A不发生，事件A的对立事件是由不属于事件A的样本点组成，记作ā。</p>
+<p>######## 差事件</p>
+<p>######### 差事件发生，即事件A发生且事件B不发生，是由属于事件A但不属于事件B的样本点组成，记作A－B。</p>
+<h5 id="来自维基百科"><a href="#来自维基百科" class="headerlink" title="来自维基百科"></a>来自维基百科</h5><h6 id="1-例子"><a href="#1-例子" class="headerlink" title="1.例子"></a>1.例子</h6><p>####### 假设我们有一堆52张的扑克牌，并闭着眼睛在这堆牌中抽取一张牌，那么用概率论的术语来说，我们实际上是在做一个随机试验。这时，我们的样本空间是一个有着52个元素的集合，因为任意一张牌都是一个可能的结果。而一个随机事件，则是这个样本空间的任意一个子集（这个任意子集包括空集，一个元素的集合及多个元素的集合）。运用组合知识可以知道，随机事件一共有2^52种。当这个事件仅仅包括样本空间的一个元素（或者说它是一个单元素集合）的时候，称这个事件为一个基本事件。比如说事件”抽到的牌是黑桃7”。当事件是空集时，称这个事件为不可能事件。当事件是全集时，则称事件是必然事件。其它还有各种各样的事件，比如： “抽到的牌是小丑”（也是不可能事件） “抽到的牌是红桃3”（基本事件） “抽到的牌数字是9”（包含4个元素） “抽到的牌是方块”（包含13个元素） “抽到的牌是红颜色的并且数字小于等于10”（包含20个元素） “抽到的牌不是红桃3”（包含51个元素） 由于事件是样本空间的子集，所以也可以写成集合的形式。有时候写成集合的形式可能会很困难。有时候也可以用文氏图来表示事件，这时可以用事件所代表图形的面积来按比例显示事件的概率。</p>
+<h4 id="事件的相互关系及运算"><a href="#事件的相互关系及运算" class="headerlink" title="事件的相互关系及运算"></a>事件的相互关系及运算</h4><h4 id="频率"><a href="#频率" class="headerlink" title="频率"></a>频率</h4><h4 id="概率"><a href="#概率" class="headerlink" title="概率"></a>概率</h4><h3 id="第二部分"><a href="#第二部分" class="headerlink" title="第二部分"></a>第二部分</h3><h4 id="等可能概型（古典概型）"><a href="#等可能概型（古典概型）" class="headerlink" title="等可能概型（古典概型）"></a>等可能概型（古典概型）</h4><h5 id="基本描述"><a href="#基本描述" class="headerlink" title="基本描述"></a>基本描述</h5><h6 id="定义：古典概型也叫传统概率，其定义是由法国数学家拉普拉斯-Laplace-提出的。如果一个随机试验所包含的单位事件是有限的，且每个单位事件发生的可能性均相等，则这个随机试验叫做拉普拉斯试验，这种条件下的概率模型就叫古典概型。"><a href="#定义：古典概型也叫传统概率，其定义是由法国数学家拉普拉斯-Laplace-提出的。如果一个随机试验所包含的单位事件是有限的，且每个单位事件发生的可能性均相等，则这个随机试验叫做拉普拉斯试验，这种条件下的概率模型就叫古典概型。" class="headerlink" title="定义：古典概型也叫传统概率，其定义是由法国数学家拉普拉斯 (Laplace ) 提出的。如果一个随机试验所包含的单位事件是有限的，且每个单位事件发生的可能性均相等，则这个随机试验叫做拉普拉斯试验，这种条件下的概率模型就叫古典概型。"></a>定义：古典概型也叫传统概率，其定义是由法国数学家拉普拉斯 (Laplace ) 提出的。如果一个随机试验所包含的单位事件是有限的，且每个单位事件发生的可能性均相等，则这个随机试验叫做拉普拉斯试验，这种条件下的概率模型就叫古典概型。</h6><h6 id="在这个模型下，随机实验所有可能的结果是有限的，并且每个基本结果发生的概率是相同的。古典概型是概率论中最直观和最简单的模型，概率的许多运算规则，也首先是在这种模型下得到的。"><a href="#在这个模型下，随机实验所有可能的结果是有限的，并且每个基本结果发生的概率是相同的。古典概型是概率论中最直观和最简单的模型，概率的许多运算规则，也首先是在这种模型下得到的。" class="headerlink" title="在这个模型下，随机实验所有可能的结果是有限的，并且每个基本结果发生的概率是相同的。古典概型是概率论中最直观和最简单的模型，概率的许多运算规则，也首先是在这种模型下得到的。"></a>在这个模型下，随机实验所有可能的结果是有限的，并且每个基本结果发生的概率是相同的。古典概型是概率论中最直观和最简单的模型，概率的许多运算规则，也首先是在这种模型下得到的。</h6><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><h6 id="（1）-试验中所有可能出现的基本事件只有有限个；"><a href="#（1）-试验中所有可能出现的基本事件只有有限个；" class="headerlink" title="（1） 试验中所有可能出现的基本事件只有有限个；"></a>（1） 试验中所有可能出现的基本事件只有有限个；</h6><p>####### 有限性</p>
+<h6 id="（2）-试验中每个基本事件出现的可能性相等。"><a href="#（2）-试验中每个基本事件出现的可能性相等。" class="headerlink" title="（2） 试验中每个基本事件出现的可能性相等。"></a>（2） 试验中每个基本事件出现的可能性相等。</h6><p>####### 等可能性</p>
+<h6 id="具有以上两个特点的概率模型是大量存在的，这种概率模型称为古典概率模型，简称古典概型，也叫等可能概型。"><a href="#具有以上两个特点的概率模型是大量存在的，这种概率模型称为古典概率模型，简称古典概型，也叫等可能概型。" class="headerlink" title="具有以上两个特点的概率模型是大量存在的，这种概率模型称为古典概率模型，简称古典概型，也叫等可能概型。"></a>具有以上两个特点的概率模型是大量存在的，这种概率模型称为古典概率模型，简称古典概型，也叫等可能概型。</h6><h5 id="古典概型的判断"><a href="#古典概型的判断" class="headerlink" title="古典概型的判断"></a>古典概型的判断</h5><h6 id="一个试验是否为古典概型，在于这个试验是否具有古典概型的两个特征——有限性和等可能性，只有同时具备这两个特点的概型才是古典概型。"><a href="#一个试验是否为古典概型，在于这个试验是否具有古典概型的两个特征——有限性和等可能性，只有同时具备这两个特点的概型才是古典概型。" class="headerlink" title="一个试验是否为古典概型，在于这个试验是否具有古典概型的两个特征——有限性和等可能性，只有同时具备这两个特点的概型才是古典概型。"></a>一个试验是否为古典概型，在于这个试验是否具有古典概型的两个特征——有限性和等可能性，只有同时具备这两个特点的概型才是古典概型。</h6><h5 id="概率公式"><a href="#概率公式" class="headerlink" title="概率公式"></a>概率公式</h5><h6 id="P（A）-m-n-A包含的基本事件的个数m-基本事件的总数n"><a href="#P（A）-m-n-A包含的基本事件的个数m-基本事件的总数n" class="headerlink" title="P（A）= m/n =A包含的基本事件的个数m/基本事件的总数n"></a>P（A）= m/n =A包含的基本事件的个数m/基本事件的总数n</h6><h6 id="如果一次实验中可能出现的结果有n个，而且所有结果出现的可能性都相等，那么每一个基本事件的概率都是-1-n-；-如果某个事件A包含的结果有m个，那么事件A的概率为P（A）-m-n-A包含的基本事件的个数m-基本事件的总数n"><a href="#如果一次实验中可能出现的结果有n个，而且所有结果出现的可能性都相等，那么每一个基本事件的概率都是-1-n-；-如果某个事件A包含的结果有m个，那么事件A的概率为P（A）-m-n-A包含的基本事件的个数m-基本事件的总数n" class="headerlink" title="如果一次实验中可能出现的结果有n个，而且所有结果出现的可能性都相等，那么每一个基本事件的概率都是 1/n ； 如果某个事件A包含的结果有m个，那么事件A的概率为P（A）= m/n =A包含的基本事件的个数m/基本事件的总数n"></a>如果一次实验中可能出现的结果有n个，而且所有结果出现的可能性都相等，那么每一个基本事件的概率都是 1/n ； 如果某个事件A包含的结果有m个，那么事件A的概率为P（A）= m/n =A包含的基本事件的个数m/基本事件的总数n</h6><h4 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h4><h4 id="全概率公式与贝叶斯公式"><a href="#全概率公式与贝叶斯公式" class="headerlink" title="全概率公式与贝叶斯公式"></a>全概率公式与贝叶斯公式</h4><h4 id="事件独立性"><a href="#事件独立性" class="headerlink" title="事件独立性"></a>事件独立性</h4><h2 id="第二章：随机变量及其分布（1）"><a href="#第二章：随机变量及其分布（1）" class="headerlink" title="第二章：随机变量及其分布（1）"></a>第二章：随机变量及其分布（1）</h2><h3 id="第一部分-1"><a href="#第一部分-1" class="headerlink" title="第一部分"></a>第一部分</h3><h4 id="随机变量"><a href="#随机变量" class="headerlink" title="随机变量"></a>随机变量</h4><h4 id="离散型随机变量"><a href="#离散型随机变量" class="headerlink" title="离散型随机变量"></a>离散型随机变量</h4><h4 id="分布函数"><a href="#分布函数" class="headerlink" title="分布函数"></a>分布函数</h4><h3 id="第二部分-1"><a href="#第二部分-1" class="headerlink" title="第二部分"></a>第二部分</h3><h4 id="连续型随机变量及其概率密度"><a href="#连续型随机变量及其概率密度" class="headerlink" title="连续型随机变量及其概率密度"></a>连续型随机变量及其概率密度</h4><h4 id="均匀分布与指数分布"><a href="#均匀分布与指数分布" class="headerlink" title="均匀分布与指数分布"></a>均匀分布与指数分布</h4><h4 id="正态分布"><a href="#正态分布" class="headerlink" title="正态分布"></a>正态分布</h4><h4 id="随机变量函数的分布"><a href="#随机变量函数的分布" class="headerlink" title="随机变量函数的分布"></a>随机变量函数的分布</h4><h3 id="第三部分"><a href="#第三部分" class="headerlink" title="第三部分"></a>第三部分</h3><h4 id="二元随机变量，离散型随机变量分布律"><a href="#二元随机变量，离散型随机变量分布律" class="headerlink" title="二元随机变量，离散型随机变量分布律"></a>二元随机变量，离散型随机变量分布律</h4><h4 id="二元离散型随机变量边际分布律与条件分布律"><a href="#二元离散型随机变量边际分布律与条件分布律" class="headerlink" title="二元离散型随机变量边际分布律与条件分布律"></a>二元离散型随机变量边际分布律与条件分布律</h4><h5 id="不用看"><a href="#不用看" class="headerlink" title="不用看"></a>不用看</h5><h4 id="二元随机变量分布函数、边际分布函数及条件分布函数"><a href="#二元随机变量分布函数、边际分布函数及条件分布函数" class="headerlink" title="二元随机变量分布函数、边际分布函数及条件分布函数"></a>二元随机变量分布函数、边际分布函数及条件分布函数</h4><h5 id="了解一下边缘分布函数即可"><a href="#了解一下边缘分布函数即可" class="headerlink" title="了解一下边缘分布函数即可"></a>了解一下边缘分布函数即可</h5><h4 id="二元连续性随机变量，联合概率密度"><a href="#二元连续性随机变量，联合概率密度" class="headerlink" title="二元连续性随机变量，联合概率密度"></a>二元连续性随机变量，联合概率密度</h4><h5 id="自个笔记"><a href="#自个笔记" class="headerlink" title="自个笔记"></a>自个笔记</h5><h6 id="子主题-1"><a href="#子主题-1" class="headerlink" title="子主题 1"></a>子主题 1</h6><h3 id="第四部分"><a href="#第四部分" class="headerlink" title="第四部分"></a>第四部分</h3><h4 id="二元连续型随机变量边际概率密度"><a href="#二元连续型随机变量边际概率密度" class="headerlink" title="二元连续型随机变量边际概率密度"></a>二元连续型随机变量边际概率密度</h4><h4 id="二元连续型随机变量条件概率密度"><a href="#二元连续型随机变量条件概率密度" class="headerlink" title="二元连续型随机变量条件概率密度"></a>二元连续型随机变量条件概率密度</h4><h5 id="不用看-1"><a href="#不用看-1" class="headerlink" title="不用看"></a>不用看</h5><h4 id="二元均匀分布，二元正态分布"><a href="#二元均匀分布，二元正态分布" class="headerlink" title="二元均匀分布，二元正态分布"></a>二元均匀分布，二元正态分布</h4><h4 id="随机变量的独立性"><a href="#随机变量的独立性" class="headerlink" title="随机变量的独立性"></a>随机变量的独立性</h4><h3 id="第五部分"><a href="#第五部分" class="headerlink" title="第五部分"></a>第五部分</h3><h4 id="二元随机变量函数的分布"><a href="#二元随机变量函数的分布" class="headerlink" title="二元随机变量函数的分布"></a>二元随机变量函数的分布</h4><h4 id="Z-X-Y的分布"><a href="#Z-X-Y的分布" class="headerlink" title="Z=X+Y的分布"></a>Z=X+Y的分布</h4><h4 id="max-X-Y-和min-X-Y-的分布"><a href="#max-X-Y-和min-X-Y-的分布" class="headerlink" title="max(X,Y)和min(X,Y)的分布"></a>max(X,Y)和min(X,Y)的分布</h4><h2 id="第三章：随机变量的数字特征"><a href="#第三章：随机变量的数字特征" class="headerlink" title="第三章：随机变量的数字特征"></a>第三章：随机变量的数字特征</h2><h3 id="第一部分-2"><a href="#第一部分-2" class="headerlink" title="第一部分"></a>第一部分</h3><h4 id="随机变量的数学期望"><a href="#随机变量的数学期望" class="headerlink" title="随机变量的数学期望"></a>随机变量的数学期望</h4><h4 id="随机变量函数的数学期望"><a href="#随机变量函数的数学期望" class="headerlink" title="随机变量函数的数学期望"></a>随机变量函数的数学期望</h4><h4 id="数学期望的性质"><a href="#数学期望的性质" class="headerlink" title="数学期望的性质"></a>数学期望的性质</h4><h4 id="方差定义和计算公式"><a href="#方差定义和计算公式" class="headerlink" title="方差定义和计算公式"></a>方差定义和计算公式</h4><h3 id="第二部分-2"><a href="#第二部分-2" class="headerlink" title="第二部分"></a>第二部分</h3><h4 id="方差的性质"><a href="#方差的性质" class="headerlink" title="方差的性质"></a>方差的性质</h4><h4 id="协方差与相关系数"><a href="#协方差与相关系数" class="headerlink" title="协方差与相关系数"></a>协方差与相关系数</h4><h4 id="不相关与独立"><a href="#不相关与独立" class="headerlink" title="不相关与独立"></a>不相关与独立</h4><h4 id="矩，协方差矩阵，多元正态分布的性质"><a href="#矩，协方差矩阵，多元正态分布的性质" class="headerlink" title="矩，协方差矩阵，多元正态分布的性质"></a>矩，协方差矩阵，多元正态分布的性质</h4>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr8god
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://justtchachv.cn/2020/03/20/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" title="概率论与数理统计">https://justtchachv.cn/2020/03/20/数理知识/概率论与数理统计/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+        
+      </div>
+
+      <div>
+        
+          
+        
+      </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" rel="tag"># 概率论</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/19/%E7%94%9F%E6%B4%BB%E9%9C%80%E8%A6%81%E4%B8%80%E4%BA%9B%E8%B6%A3%E5%91%B3%E5%93%A6%EF%BC%81/%E7%A5%9D%E6%9C%B1%E4%BA%A6%E5%AE%87%E7%94%9F%E6%97%A5%E5%BF%AB%E4%B9%90/" rel="prev" title="祝朱亦宇同学生日快乐！！！">
+      <i class="fa fa-chevron-left"></i> 祝朱亦宇同学生日快乐！！！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/20/Java/%E6%B5%85%E8%B0%88Java%E4%B8%AD%E7%9A%84%E5%B0%BE%E9%80%92%E5%BD%92%E2%80%94%E2%80%94%E5%B0%BE%E9%80%92%E5%BD%92%E4%B8%8E%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%9A%84%E6%AF%94%E8%BE%83/" rel="next" title="浅谈Java中的尾递归——尾递归与垃圾回收的比较">
+      浅谈Java中的尾递归——尾递归与垃圾回收的比较 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章：随机事件及其概率（1）"><span class="nav-number">1.</span> <span class="nav-text">第一章：随机事件及其概率（1）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一部分"><span class="nav-number">1.1.</span> <span class="nav-text">第一部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#样本空间，随机事件"><span class="nav-number">1.1.1.</span> <span class="nav-text">样本空间，随机事件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#来自百度百科"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">来自百度百科</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#样本空间"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">样本空间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#随机事件"><span class="nav-number">1.1.1.1.2.</span> <span class="nav-text">随机事件</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#来自维基百科"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">来自维基百科</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-例子"><span class="nav-number">1.1.1.2.1.</span> <span class="nav-text">1.例子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件的相互关系及运算"><span class="nav-number">1.1.2.</span> <span class="nav-text">事件的相互关系及运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#频率"><span class="nav-number">1.1.3.</span> <span class="nav-text">频率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#概率"><span class="nav-number">1.1.4.</span> <span class="nav-text">概率</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二部分"><span class="nav-number">1.2.</span> <span class="nav-text">第二部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#等可能概型（古典概型）"><span class="nav-number">1.2.1.</span> <span class="nav-text">等可能概型（古典概型）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本描述"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">基本描述</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#定义：古典概型也叫传统概率，其定义是由法国数学家拉普拉斯-Laplace-提出的。如果一个随机试验所包含的单位事件是有限的，且每个单位事件发生的可能性均相等，则这个随机试验叫做拉普拉斯试验，这种条件下的概率模型就叫古典概型。"><span class="nav-number">1.2.1.1.1.</span> <span class="nav-text">定义：古典概型也叫传统概率，其定义是由法国数学家拉普拉斯 (Laplace ) 提出的。如果一个随机试验所包含的单位事件是有限的，且每个单位事件发生的可能性均相等，则这个随机试验叫做拉普拉斯试验，这种条件下的概率模型就叫古典概型。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#在这个模型下，随机实验所有可能的结果是有限的，并且每个基本结果发生的概率是相同的。古典概型是概率论中最直观和最简单的模型，概率的许多运算规则，也首先是在这种模型下得到的。"><span class="nav-number">1.2.1.1.2.</span> <span class="nav-text">在这个模型下，随机实验所有可能的结果是有限的，并且每个基本结果发生的概率是相同的。古典概型是概率论中最直观和最简单的模型，概率的许多运算规则，也首先是在这种模型下得到的。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#定义"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（1）-试验中所有可能出现的基本事件只有有限个；"><span class="nav-number">1.2.1.2.1.</span> <span class="nav-text">（1） 试验中所有可能出现的基本事件只有有限个；</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（2）-试验中每个基本事件出现的可能性相等。"><span class="nav-number">1.2.1.2.2.</span> <span class="nav-text">（2） 试验中每个基本事件出现的可能性相等。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#具有以上两个特点的概率模型是大量存在的，这种概率模型称为古典概率模型，简称古典概型，也叫等可能概型。"><span class="nav-number">1.2.1.2.3.</span> <span class="nav-text">具有以上两个特点的概率模型是大量存在的，这种概率模型称为古典概率模型，简称古典概型，也叫等可能概型。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#古典概型的判断"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">古典概型的判断</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#一个试验是否为古典概型，在于这个试验是否具有古典概型的两个特征——有限性和等可能性，只有同时具备这两个特点的概型才是古典概型。"><span class="nav-number">1.2.1.3.1.</span> <span class="nav-text">一个试验是否为古典概型，在于这个试验是否具有古典概型的两个特征——有限性和等可能性，只有同时具备这两个特点的概型才是古典概型。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#概率公式"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">概率公式</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#P（A）-m-n-A包含的基本事件的个数m-基本事件的总数n"><span class="nav-number">1.2.1.4.1.</span> <span class="nav-text">P（A）&#x3D; m&#x2F;n &#x3D;A包含的基本事件的个数m&#x2F;基本事件的总数n</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#如果一次实验中可能出现的结果有n个，而且所有结果出现的可能性都相等，那么每一个基本事件的概率都是-1-n-；-如果某个事件A包含的结果有m个，那么事件A的概率为P（A）-m-n-A包含的基本事件的个数m-基本事件的总数n"><span class="nav-number">1.2.1.4.2.</span> <span class="nav-text">如果一次实验中可能出现的结果有n个，而且所有结果出现的可能性都相等，那么每一个基本事件的概率都是 1&#x2F;n ； 如果某个事件A包含的结果有m个，那么事件A的概率为P（A）&#x3D; m&#x2F;n &#x3D;A包含的基本事件的个数m&#x2F;基本事件的总数n</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件概率"><span class="nav-number">1.2.2.</span> <span class="nav-text">条件概率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全概率公式与贝叶斯公式"><span class="nav-number">1.2.3.</span> <span class="nav-text">全概率公式与贝叶斯公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件独立性"><span class="nav-number">1.2.4.</span> <span class="nav-text">事件独立性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章：随机变量及其分布（1）"><span class="nav-number">2.</span> <span class="nav-text">第二章：随机变量及其分布（1）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一部分-1"><span class="nav-number">2.1.</span> <span class="nav-text">第一部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#随机变量"><span class="nav-number">2.1.1.</span> <span class="nav-text">随机变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#离散型随机变量"><span class="nav-number">2.1.2.</span> <span class="nav-text">离散型随机变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分布函数"><span class="nav-number">2.1.3.</span> <span class="nav-text">分布函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二部分-1"><span class="nav-number">2.2.</span> <span class="nav-text">第二部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#连续型随机变量及其概率密度"><span class="nav-number">2.2.1.</span> <span class="nav-text">连续型随机变量及其概率密度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#均匀分布与指数分布"><span class="nav-number">2.2.2.</span> <span class="nav-text">均匀分布与指数分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正态分布"><span class="nav-number">2.2.3.</span> <span class="nav-text">正态分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#随机变量函数的分布"><span class="nav-number">2.2.4.</span> <span class="nav-text">随机变量函数的分布</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三部分"><span class="nav-number">2.3.</span> <span class="nav-text">第三部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二元随机变量，离散型随机变量分布律"><span class="nav-number">2.3.1.</span> <span class="nav-text">二元随机变量，离散型随机变量分布律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二元离散型随机变量边际分布律与条件分布律"><span class="nav-number">2.3.2.</span> <span class="nav-text">二元离散型随机变量边际分布律与条件分布律</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#不用看"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">不用看</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二元随机变量分布函数、边际分布函数及条件分布函数"><span class="nav-number">2.3.3.</span> <span class="nav-text">二元随机变量分布函数、边际分布函数及条件分布函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#了解一下边缘分布函数即可"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">了解一下边缘分布函数即可</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二元连续性随机变量，联合概率密度"><span class="nav-number">2.3.4.</span> <span class="nav-text">二元连续性随机变量，联合概率密度</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#自个笔记"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">自个笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#子主题-1"><span class="nav-number">2.3.4.1.1.</span> <span class="nav-text">子主题 1</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四部分"><span class="nav-number">2.4.</span> <span class="nav-text">第四部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二元连续型随机变量边际概率密度"><span class="nav-number">2.4.1.</span> <span class="nav-text">二元连续型随机变量边际概率密度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二元连续型随机变量条件概率密度"><span class="nav-number">2.4.2.</span> <span class="nav-text">二元连续型随机变量条件概率密度</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#不用看-1"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">不用看</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二元均匀分布，二元正态分布"><span class="nav-number">2.4.3.</span> <span class="nav-text">二元均匀分布，二元正态分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#随机变量的独立性"><span class="nav-number">2.4.4.</span> <span class="nav-text">随机变量的独立性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五部分"><span class="nav-number">2.5.</span> <span class="nav-text">第五部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二元随机变量函数的分布"><span class="nav-number">2.5.1.</span> <span class="nav-text">二元随机变量函数的分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Z-X-Y的分布"><span class="nav-number">2.5.2.</span> <span class="nav-text">Z&#x3D;X+Y的分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#max-X-Y-和min-X-Y-的分布"><span class="nav-number">2.5.3.</span> <span class="nav-text">max(X,Y)和min(X,Y)的分布</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章：随机变量的数字特征"><span class="nav-number">3.</span> <span class="nav-text">第三章：随机变量的数字特征</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一部分-2"><span class="nav-number">3.1.</span> <span class="nav-text">第一部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#随机变量的数学期望"><span class="nav-number">3.1.1.</span> <span class="nav-text">随机变量的数学期望</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#随机变量函数的数学期望"><span class="nav-number">3.1.2.</span> <span class="nav-text">随机变量函数的数学期望</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数学期望的性质"><span class="nav-number">3.1.3.</span> <span class="nav-text">数学期望的性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方差定义和计算公式"><span class="nav-number">3.1.4.</span> <span class="nav-text">方差定义和计算公式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二部分-2"><span class="nav-number">3.2.</span> <span class="nav-text">第二部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方差的性质"><span class="nav-number">3.2.1.</span> <span class="nav-text">方差的性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协方差与相关系数"><span class="nav-number">3.2.2.</span> <span class="nav-text">协方差与相关系数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不相关与独立"><span class="nav-number">3.2.3.</span> <span class="nav-text">不相关与独立</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#矩，协方差矩阵，多元正态分布的性质"><span class="nav-number">3.2.4.</span> <span class="nav-text">矩，协方差矩阵，多元正态分布的性质</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mr8god</p>
+  <div class="site-description" itemprop="description">Just learning！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr8god</span>
+</div>
+  <!-- <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+  -->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共29.5k字</span>
+</div>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
