@@ -288,6 +288,33 @@
   </entry>
   
   <entry>
+    <title>每天和Dell客服学一招Day2</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/</id>
+    <published>2020-03-19T12:01:11.000Z</published>
+    <updated>2020-03-29T13:28:47.133Z</updated>
+    
+    <content type="html"><![CDATA[<p>这第二个呢，其实和第一天是同一天啦</p><p>咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）</p><p>然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈</p><p><img src="https://i.loli.net/2020/03/25/nFqUBGHsJ1cuM3i.jpg" alt="DHCPUbuntu子系统之后的问题.jpg"></p><p>问题的解答就是</p><p>一、尝试恢复自动获取</p><p>​    重置IP：按win键（Fn和Alt中间的按键）+x键，选择命令提示符（管理员），或叫windows powershell（管理员），打开后<br>输入ipconfig空格/release 按下回车,<br>输入ipconfig空格/renew按下回车 ,<br>输入ipconfig空格/flushdns按下回车</p><p>二、更新网卡驱动</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这第二个呢，其实和第一天是同一天啦&lt;/p&gt;
+&lt;p&gt;咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）&lt;/p&gt;
+&lt;p&gt;然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每天和Dell客服学一招Day1</title>
     <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay1/"/>
     <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay1/</id>
@@ -314,22 +341,46 @@
   </entry>
   
   <entry>
-    <title>每天和Dell客服学一招Day2</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/</id>
+    <title>每天和Dell客服学一招Day3</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/</id>
     <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:47.133Z</updated>
+    <updated>2020-03-29T13:28:50.167Z</updated>
     
-    <content type="html"><![CDATA[<p>这第二个呢，其实和第一天是同一天啦</p><p>咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）</p><p>然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈</p><p><img src="https://i.loli.net/2020/03/25/nFqUBGHsJ1cuM3i.jpg" alt="DHCPUbuntu子系统之后的问题.jpg"></p><p>问题的解答就是</p><p>一、尝试恢复自动获取</p><p>​    重置IP：按win键（Fn和Alt中间的按键）+x键，选择命令提示符（管理员），或叫windows powershell（管理员），打开后<br>输入ipconfig空格/release 按下回车,<br>输入ipconfig空格/renew按下回车 ,<br>输入ipconfig空格/flushdns按下回车</p><p>二、更新网卡驱动</p>]]></content>
+    <content type="html"><![CDATA[<p>由于呢，我是突发奇想要做这一类的博客的，所以很多案例都是之前就发生的。啧啧啧，那么我就倒推来放上我的博客啦</p><p>咳咳，老样子首先问题描述：</p><p><img src="https://i.loli.net/2020/03/25/zGfm1QSMkgTapxX.jpg" alt="71c60863817d7d7da10569ff28a3f5b.jpg"></p><p><img src="https://i.loli.net/2020/03/25/P8OUtYE2bHSBQcJ.jpg" alt="第一个问题.jpg"></p><p><img src="https://i.loli.net/2020/03/25/UdZzmRVfI98Kv7G.png" alt="2e0e8cc7a92c55f9251b5f92554c05b.png"></p><p><img src="https://i.loli.net/2020/03/25/Dfe8WXRx16ZBpmg.jpg" alt="第一个问题2.jpg"></p><p><strong>好嘞 这边来看确实是驱动没有提示要更新呢 那这样哈 咱们这边尝试手动更新一下相关驱动  然后看看是否问题依旧呢  这边麻烦您复制以下链接到浏览器中打开并安装哈<br><a href="https://dell.to/2P2R3IW" target="_blank" rel="noopener">https://dell.to/2P2R3IW</a><br><a href="https://dell.to/2P2R4N0" target="_blank" rel="noopener">https://dell.to/2P2R4N0</a></strong></p><p><img src="https://i.loli.net/2020/03/25/mLZwJynECBKfOb1.png" alt="a4499a56308287f7689477617cdbc53.png"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;这第二个呢，其实和第一天是同一天啦&lt;/p&gt;
-&lt;p&gt;咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）&lt;/p&gt;
-&lt;p&gt;然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈&lt;/p&gt;
-&lt;p&gt;
+        &lt;p&gt;由于呢，我是突发奇想要做这一类的博客的，所以很多案例都是之前就发生的。啧啧啧，那么我就倒推来放上我的博客啦&lt;/p&gt;
+&lt;p&gt;咳咳，老样子首先问题描述：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/zGfm1QSMkgTapxX
+      
+    
+    </summary>
+    
+    
+    
+      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天和Dell客服学一招Day6</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/</id>
+    <published>2020-03-19T12:01:11.000Z</published>
+    <updated>2020-03-29T13:28:56.748Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个是关于显卡驱动的问题解决办法</p><p>集显链接：<a href="https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE</a><br>独显链接:<a href="https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE</a><br>更新之前请先全部下载好驱动。<br>更新集显：请到开始-设置-应用-搜索因特尔或者/intel 查找显卡驱动，卸载完成后，重启运行驱动更新<br>更新独显：请到开始-设置-应用-搜索NVIDIA查找NVIDIA开头的所有驱动，卸载完成后，重启运行驱动更新 更新过程中，选择自定义，勾选执行清洁安装即可。</p><p><img src="https://i.loli.net/2020/03/25/CylDRLnkfiYSpNG.png" alt="0f7ff960519071cdbd176f7dd710be3.png"></p><p>这个是第一张图</p><p><img src="https://i.loli.net/2020/03/25/DnjYPBadSRgFKOZ.png" alt="092b2e55f72b3355eefbf82b233c082.png"></p><p>这个是第二张图</p><p><img src="https://i.loli.net/2020/03/25/R6doXSIeCOqNLly.jpg" alt="Day6.jpg"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这个是关于显卡驱动的问题解决办法&lt;/p&gt;
+&lt;p&gt;集显链接：&lt;a href=&quot;https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EX
       
     
     </summary>
@@ -381,57 +432,6 @@
         &lt;p&gt;smartByte需要更新。启动浏览器问题&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png&quot; alt=&quot;fc1f6b7fa29f50e8656173f59335abd.png&quot;&gt;&lt;/p&gt;
 
-      
-    
-    </summary>
-    
-    
-    
-      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每天和Dell客服学一招Day6</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/</id>
-    <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:56.748Z</updated>
-    
-    <content type="html"><![CDATA[<p>这个是关于显卡驱动的问题解决办法</p><p>集显链接：<a href="https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE</a><br>独显链接:<a href="https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE</a><br>更新之前请先全部下载好驱动。<br>更新集显：请到开始-设置-应用-搜索因特尔或者/intel 查找显卡驱动，卸载完成后，重启运行驱动更新<br>更新独显：请到开始-设置-应用-搜索NVIDIA查找NVIDIA开头的所有驱动，卸载完成后，重启运行驱动更新 更新过程中，选择自定义，勾选执行清洁安装即可。</p><p><img src="https://i.loli.net/2020/03/25/CylDRLnkfiYSpNG.png" alt="0f7ff960519071cdbd176f7dd710be3.png"></p><p>这个是第一张图</p><p><img src="https://i.loli.net/2020/03/25/DnjYPBadSRgFKOZ.png" alt="092b2e55f72b3355eefbf82b233c082.png"></p><p>这个是第二张图</p><p><img src="https://i.loli.net/2020/03/25/R6doXSIeCOqNLly.jpg" alt="Day6.jpg"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这个是关于显卡驱动的问题解决办法&lt;/p&gt;
-&lt;p&gt;集显链接：&lt;a href=&quot;https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EX
-      
-    
-    </summary>
-    
-    
-    
-      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每天和Dell客服学一招Day3</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/</id>
-    <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:50.167Z</updated>
-    
-    <content type="html"><![CDATA[<p>由于呢，我是突发奇想要做这一类的博客的，所以很多案例都是之前就发生的。啧啧啧，那么我就倒推来放上我的博客啦</p><p>咳咳，老样子首先问题描述：</p><p><img src="https://i.loli.net/2020/03/25/zGfm1QSMkgTapxX.jpg" alt="71c60863817d7d7da10569ff28a3f5b.jpg"></p><p><img src="https://i.loli.net/2020/03/25/P8OUtYE2bHSBQcJ.jpg" alt="第一个问题.jpg"></p><p><img src="https://i.loli.net/2020/03/25/UdZzmRVfI98Kv7G.png" alt="2e0e8cc7a92c55f9251b5f92554c05b.png"></p><p><img src="https://i.loli.net/2020/03/25/Dfe8WXRx16ZBpmg.jpg" alt="第一个问题2.jpg"></p><p><strong>好嘞 这边来看确实是驱动没有提示要更新呢 那这样哈 咱们这边尝试手动更新一下相关驱动  然后看看是否问题依旧呢  这边麻烦您复制以下链接到浏览器中打开并安装哈<br><a href="https://dell.to/2P2R3IW" target="_blank" rel="noopener">https://dell.to/2P2R3IW</a><br><a href="https://dell.to/2P2R4N0" target="_blank" rel="noopener">https://dell.to/2P2R4N0</a></strong></p><p><img src="https://i.loli.net/2020/03/25/mLZwJynECBKfOb1.png" alt="a4499a56308287f7689477617cdbc53.png"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;由于呢，我是突发奇想要做这一类的博客的，所以很多案例都是之前就发生的。啧啧啧，那么我就倒推来放上我的博客啦&lt;/p&gt;
-&lt;p&gt;咳咳，老样子首先问题描述：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/zGfm1QSMkgTapxX
       
     
     </summary>
