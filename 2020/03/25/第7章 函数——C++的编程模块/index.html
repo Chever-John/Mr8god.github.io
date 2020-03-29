@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js ? id=UA-162074438-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162074438-1');
+</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"justtchachv.cn","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="第7章    函数——C++的编程模块C++自带一个包含函数的大型库（标准ANSI库加上多个C++类），但真正的编程乐趣在于编写自己的函数；另一方面，要提高编程效率，可以更深入地学习STL和BOOSTC++提供的功能。 7.1    复习函数的基本知识来复习一下介绍过的有关函数的知识。要使用C++函数，必须完成以下工作：  提供函数的定义 提供函数原型 调用函数  库函数是已经定义好和编译好的函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第7章 函数——C++的编程模块">
+<meta property="og:url" content="https://justtchachv.cn/2020/03/25/%E7%AC%AC7%E7%AB%A0%20%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94C++%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97/index.html">
+<meta property="og:site_name" content="Mr8god&#39;s website">
+<meta property="og:description" content="第7章    函数——C++的编程模块C++自带一个包含函数的大型库（标准ANSI库加上多个C++类），但真正的编程乐趣在于编写自己的函数；另一方面，要提高编程效率，可以更深入地学习STL和BOOSTC++提供的功能。 7.1    复习函数的基本知识来复习一下介绍过的有关函数的知识。要使用C++函数，必须完成以下工作：  提供函数的定义 提供函数原型 调用函数  库函数是已经定义好和编译好的函数">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-25T08:48:52.497Z">
+<meta property="article:modified_time" content="2020-03-25T10:01:33.563Z">
+<meta property="article:author" content="Mr8god">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://justtchachv.cn/2020/03/25/%E7%AC%AC7%E7%AB%A0%20%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94C++%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>第7章 函数——C++的编程模块 | Mr8god's website</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162074438-1# <app_id>"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-162074438-1# <app_id>');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Mr8god's website" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Mr8god's website</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">coding,coding,always coding!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://justtchachv.cn/2020/03/25/%E7%AC%AC7%E7%AB%A0%20%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94C++%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's website">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第7章 函数——C++的编程模块
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-25 16:48:52 / 修改时间：18:01:33" itemprop="dateCreated datePublished" datetime="2020-03-25T16:48:52+08:00">2020-03-25</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="第7章-函数——C-的编程模块"><a href="#第7章-函数——C-的编程模块" class="headerlink" title="第7章    函数——C++的编程模块"></a>第7章    函数——C++的编程模块</h1><p>C++自带一个包含函数的大型库（标准ANSI库加上多个C++类），但真正的编程乐趣在于编写自己的函数；另一方面，要提高编程效率，可以更深入地学习STL和BOOSTC++提供的功能。</p>
+<h2 id="7-1-复习函数的基本知识"><a href="#7-1-复习函数的基本知识" class="headerlink" title="7.1    复习函数的基本知识"></a>7.1    复习函数的基本知识</h2><p>来复习一下介绍过的有关函数的知识。要使用C++函数，必须完成以下工作：</p>
+<ul>
+<li>提供函数的定义</li>
+<li>提供函数原型</li>
+<li>调用函数</li>
+</ul>
+<p>库函数是已经定义好和编译好的函数，同时可以使用标准库头文件提供其原型，因此只需正确地调用这种函数即可。比如说strlen()函数，可以用来确定字符串的长度。相关的标准头文件cstring包含了strlen()和其他一些与字符串相关的函数的原型。</p>
+<p>然后还有一点要注意的是，咱们程序员在编写函数的时候，一定要注意三点——定义、提供原型、调用。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simple</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"main() will call the simple() function:\n"</span>;</span><br><span class="line">    simple();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"main() is finished with the simple() function.\n"</span>;</span><br><span class="line">    <span class="built_in">cin</span>.<span class="built_in">get</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simple</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"I'm but a simple function.\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面就是一个小例子。</p>
+<h3 id="7-1-1-定义函数"><a href="#7-1-1-定义函数" class="headerlink" title="7.1.1    定义函数"></a>7.1.1    定义函数</h3><p>可以将函数分为两类：没有返回值的函数和有返回值的函数。没有返回值的函数被称为void函数，其通用格式如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">functionName</span><span class="params">(parameterList)</span></span>&#123;</span><br><span class="line">	statement(s)</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中，paramterList指定了传递给函数的参数类型和数量，本章后面将更详细地介绍该列表。可选的返回语句标记了函数的结尾；否则，函数将在右花括号处结束。</p>
+<p>对于返回值，需要注意的是，</p>
+<ul>
+<li>如果原函数的数据类型是double但是返回的是int，返回值将会被强制转化为double</li>
+<li>C++对返回值的类型有一定的限制：不能是数组，但可以是其他任何类型——整数、浮点数、指针、甚至可以是结构和对象（不过我们可以将数组作为结构或对象组成部分来返回）</li>
+<li>若函数包含多条返回语句（例如，它们位于不同的ifelse选项中）则函数在执行遇到的第一条返回语句后结束。</li>
+</ul>
+<p>干货分享：虽然作为一名程序员不需要知道函数是怎么返回值的，但是对这个问题有所了解有助于澄清概念。</p>
+<p>通常函数通过将返回值复制到指定的CPU寄存器或内存单元中来将其返回。</p>
+<p>随后，调用程序将查看该存储单元。</p>
+<p>返回函数和调用函数必须就该内存单元中存储的数据的类型达成一致。</p>
+<p>函数原型将返回值类型告知调用程序，而函数定义命令被调用函数应返回什么类型的数据。</p>
+<p>在原型中提供与定义中相同的信息似乎有些多余，但这样做确实有道理。要让信差从办公室的办公桌上取走一些物品，则向信差和办公室中的同事交代自己的意图，将提高信差顺利完成这项工作的概率。</p>
+<h3 id="7-1-2-函数原型和函数调用"><a href="#7-1-2-函数原型和函数调用" class="headerlink" title="7.1.2    函数原型和函数调用"></a>7.1.2    函数原型和函数调用</h3><p>咱们对函数调用这个知识点是很熟悉的，但是对函数原型并不清楚，函数原型通常隐藏在include文件中。</p>
+<p>　<a href="https://www.baidu.com/s?wd=函数声明&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">函数声明</a>由函数返回类型、函数名和形参列表组成。形参列表必须包括形参类型,但是不必对形参命名。这三个元素被称为函数原型,函数原型描述了函数的接口。</p>
+<h4 id="1-为什么需要原型"><a href="#1-为什么需要原型" class="headerlink" title="1.为什么需要原型"></a>1.为什么需要原型</h4><p>原型描述了函数到编译器的接口，也就是说，它将函数返回值的类型（如果有的话）以及参数的类型和数量告诉编译器。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> volume = cube(side);</span><br></pre></td></tr></table></figure>
+
+<p>首先，原型告诉编译器，cube()有一个double 参数。如果程序没有提供这样的参数，原型将让编译器能够捕获这种错误。其次，cube()函数完成计算后，将把返回值放置在指定的位置——可能是CPU寄存器，也可能是内存中。然后调用函数（这里为main()）将从这个位置取得返回值。由于原型指出了cube()的类型为double，因此编译器知道应检索多少个字节以及如何解释它们。如果没有这些信息，编译器将只能进行猜测，而编译器是不会这样做的。</p>
+<p>编译器需要原型，因为这样将提高效率，让编译器在广大的文件里找有用的文件，是一件大海捞针的事儿，且编译器在搜索文件的时候将必须停止 对main()的编译。一个更严重的问题是，函数甚至可能并不在项目的文件中（C++允许将一个程序放在多个文件中，单独编译他们，然后再将它们组合起来），在这种情况下，可能导致编译器在编译main()时无权访问函数代码。如果函数位于库中，情况也将如此。</p>
+<p>综上，避免使用函数原型的唯一办法就是，在首次使用函数之前定义它，但这并不总是可行的。</p>
+<h4 id="2-原型的语法"><a href="#2-原型的语法" class="headerlink" title="2.原型的语法"></a>2.原型的语法</h4><p>函数原型是一条语句，因此必须以分号结束。获取原型的方法就是，复制函数定义中的函数头，并添加分号即可。</p>
+<h4 id="3-原型的功能"><a href="#3-原型的功能" class="headerlink" title="3.原型的功能"></a>3.原型的功能</h4><p>可以极大地降低程序出错的几率。</p>
+<p>原型应确保以下几点：</p>
+<ul>
+<li>编译器正确处理函数返回值</li>
+<li>编译器检查使用的参数数目是否正确</li>
+<li>编译器检查使用的参数类型是否正确。如果不正确，则转换为正确的类型（如果可能的话）。</li>
+</ul>
+<h4 id="讲一讲参数数目不对时将发生的情况"><a href="#讲一讲参数数目不对时将发生的情况" class="headerlink" title="讲一讲参数数目不对时将发生的情况"></a>讲一讲参数数目不对时将发生的情况</h4><p>例如，假设进行了如下调用</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> z = cube();</span><br></pre></td></tr></table></figure>
+
+<p>如果没有函数原型，编译器将允许它通过。当函数被调用时，它将找到cube()调用存放值的位置，并使用这里的值。这个正式C语言从C++借鉴原型之前的工作方式。对于ANSI C（美国国家标准规定的C语言）来讲，原型是可选的，因此有些C语言程序正是这样工作的。但在C++中，原型是不可选。因此保证了不会发生这种错误。</p>
+<p>接下来，我们假设提供了一个参数，但是它的类型不正确。在C语言中，这将造成奇怪的错误，例如，如果函数需要一个int值（假设占16位），而程序员传递了一个double值（假设占64位），则函数将只检查64位中的前16位，并试图将它们解释为一个int值。但是C++自动将传递的值转换为原型中指定的类型，条件是两者都是算数类型。</p>
+<p>这个时候我来举个例子吧</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cheers</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">cube</span><span class="params">(<span class="keyword">double</span> x)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    cheers(<span class="number">5</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Give me a number: "</span>;</span><br><span class="line">    <span class="keyword">double</span> side;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; side;</span><br><span class="line">    <span class="keyword">double</span> volume = cube(side);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"A"</span> &lt;&lt; side &lt;&lt; <span class="string">"-foot cube has a volume of "</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; volume &lt;&lt; <span class="string">" cubic feet.\n"</span>;</span><br><span class="line">    cheers(cube(<span class="number">2</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cheers</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Cheers! "</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">cube</span><span class="params">(<span class="keyword">double</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x * x * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个是C++的代码</p>
+<p>这个代码就能够应付下述语句中两次出现的类型不匹配的情况：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cheers(cube(<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+
+<p>代码讲解：首先程序将int的值2传递给cube()，而后者期望的是double类型。编译器注意到，cube()原型指定了一个double类型参数，因此将2转化为2.0（一个double值）。接下来cube()返回一个double值(8.0)，这个值被用作cheer()的参数。编译器将再一次检查原型，并发现cheer()要求一个int参数，因此它将返回值转换为整数8.通常原型自动将被传递的参数强制转换为期望的类型</p>
+<p>​    自动类型转换并不能避免所有可能的错误。例如，如果将8.33E27传递给期望一个int值的函数，则这样大的值将不能正确转换为int值。当较大的类型被自动转换为较小的类型时，有些编译器将发生警告，指出这可能丢失数据。</p>
+<p>​    仅当有意义的时候，原型才会导致类型转换。正如原型不会将整数转换为结构或指针。</p>
+<p>在编译阶段进行的原型化被称为静态类型检查(static type checking)。可以看出，静态类型检查可捕获许多在运行阶段非常难以捕获的错误。</p>
+
+    </div>
+
+    
+    
+    
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+        
+      </div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/25/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay7/" rel="prev" title="每天和Dell客服学一招Day7">
+      <i class="fa fa-chevron-left"></i> 每天和Dell客服学一招Day7
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/26/lalala/" rel="next" title="lalala">
+      lalala <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第7章-函数——C-的编程模块"><span class="nav-number">1.</span> <span class="nav-text">第7章    函数——C++的编程模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-复习函数的基本知识"><span class="nav-number">1.1.</span> <span class="nav-text">7.1    复习函数的基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-1-定义函数"><span class="nav-number">1.1.1.</span> <span class="nav-text">7.1.1    定义函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-2-函数原型和函数调用"><span class="nav-number">1.1.2.</span> <span class="nav-text">7.1.2    函数原型和函数调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-为什么需要原型"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">1.为什么需要原型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-原型的语法"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">2.原型的语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-原型的功能"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">3.原型的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#讲一讲参数数目不对时将发生的情况"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">讲一讲参数数目不对时将发生的情况</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mr8god</p>
+  <div class="site-description" itemprop="description">Just learning！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr8god</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共29.6k字</span>
+</div>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
