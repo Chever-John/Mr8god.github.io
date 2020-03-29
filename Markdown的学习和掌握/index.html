@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"justtchachv.cn","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="这是一个普通段落。 &lt;table&gt; &lt;tr&gt;     &lt;td&gt;Foo&lt;&#x2F;td&gt; &lt;&#x2F;tr&gt; &lt;&#x2F;table&gt;这是一个普通段落 http:&#x2F;&#x2F;images.google.com&#x2F;images?num&#x3D;30&amp;q&#x3D;larry+bird   http:&#x2F;&#x2F;images.google.com&#x2F;images?num&#x3D;30&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown的学习和掌握">
+<meta property="og:url" content="https://justtchachv.cn/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%8E%8C%E6%8F%A1/index.html">
+<meta property="og:site_name" content="Mr8god&#39;s website">
+<meta property="og:description" content="这是一个普通段落。 &lt;table&gt; &lt;tr&gt;     &lt;td&gt;Foo&lt;&#x2F;td&gt; &lt;&#x2F;tr&gt; &lt;&#x2F;table&gt;这是一个普通段落 http:&#x2F;&#x2F;images.google.com&#x2F;images?num&#x3D;30&amp;q&#x3D;larry+bird   http:&#x2F;&#x2F;images.google.com&#x2F;images?num&#x3D;30&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-19T12:01:11.000Z">
+<meta property="article:modified_time" content="2020-03-19T12:13:55.526Z">
+<meta property="article:author" content="Mr8god">
+<meta property="article:tag" content="个人的一些小感慨啦！！！">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://justtchachv.cn/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%8E%8C%E6%8F%A1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Markdown的学习和掌握 | Mr8god's website</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162074438-1# <app_id>"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-162074438-1# <app_id>');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Mr8god's website" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Mr8god's website</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">coding,coding,always coding!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://justtchachv.cn/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%8E%8C%E6%8F%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's website">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Markdown的学习和掌握
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-19 20:01:11 / 修改时间：20:13:55" itemprop="dateCreated datePublished" datetime="2020-03-19T20:01:11+08:00">2020-03-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这是一个普通段落。</p>
+<pre><code>&lt;table&gt;
+&lt;tr&gt;
+    &lt;td&gt;Foo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</code></pre><p>这是一个普通段落</p>
+<p><a href="http://images.google.com/images?num=30&amp;q=larry+bird" target="_blank" rel="noopener">http://images.google.com/images?num=30&amp;q=larry+bird</a>  </p>
+<p><a href="http://images.google.com/images?num=30&amp;q=larry+bird" target="_blank" rel="noopener">http://images.google.com/images?num=30&amp;q=larry+bird</a></p>
+<p>&copy;</p>
+<p>AT&amp;T</p>
+<p>AT&amp;T</p>
+<p>4 &lt; 5<br>健康减肥拉开了</p>
+<ul>
+<li><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam<br>hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla     in, laoreet vitae, risus.<br>发多少</p>
+<ul>
+<li>发多少<ul>
+<li>就是发挥<blockquote>
+<p>This is a test</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse  id sem consectetuer libero luctus adipiscing.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;include&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="1986">
+<li>What a great season</li>
+<li>What a great season</li>
+<li>fdas f adf afs </li>
+<li>fadf</li>
+</ol>
+<ol start="1996">
+<li>what a great season</li>
+</ol>
+<p>参考式链接的范例<br>I get 10 times more traffic from <a href="http://google.com/" target="_blank" rel="noopener" title="Google">Google</a> <a href="http://google.com/" target="_blank" rel="noopener" title="Google">1</a> than from <a href="http://search.yahoo.com/" target="_blank" rel="noopener" title="Yahoo Search">Yahoo</a> <a href="http://search.yahoo.com/" target="_blank" rel="noopener" title="Yahoo Search">2</a> or <a href="http://search.msn.com/" target="_blank" rel="noopener" title="MSN Search">MSN</a> <a href="http://search.msn.com/" target="_blank" rel="noopener" title="MSN Search">3</a>. </p>
+<p>如果改成用链接名称的方式写</p>
+<p>I get 10 times more traffic from <a href="http://google.com/" target="_blank" rel="noopener" title="Google">Google</a> than from <a href="http://search.yahoo.com/" target="_blank" rel="noopener" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" target="_blank" rel="noopener" title="MSN Search">MSN</a>.</p>
+<p>行内式的范例，比较实用哈！</p>
+<p>I get 10 times more traffic from <a href="http://google.com/" target="_blank" rel="noopener" title="Google">Google</a> than from <a href="http://search.yahoo.com/" target="_blank" rel="noopener" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" target="_blank" rel="noopener" title="MSN Search">MSN</a>.</p>
+<p>* 我江某人最棒 *<br><em>我江某人最棒</em><br>*我就是流批，哈哈哈哈我江某人最棒*<br><strong>我江某人最棒</strong></p>
+<p>\this text is surr<strong>ounded</strong> by literal asterisks\  </p>
+<ul>
+<li>我江某人最棒*</li>
+</ul>
+<p>*我江某人最棒*</p>
+<p><code>There is a literal backtick(`)</code></p>
+<p>``There i</p>
+<p>``There is a literal backtick()  </p>
+<p>``There is a literal backtick(`) </p>
+<p><code>There is a literal backtick(`)</code></p>
+<p>Please don’t use any <code>&lt;blink&gt;</code> tags.</p>
+<p>A single backtick in a code span: <code>`</code><br>A backtick-delimited string in a code span: <code>`foo`</code></p>
+<p>Please don’t use any <code>&lt;blink&gt;</code> tags.</p>
+<p><code>&amp;#8212;</code> is the decimal-encoded equivalent of <code>&amp;mdash;</code>.</p>
+<p>AT&amp;T</p>
+<p>「AT&amp;T」</p>
+<h1 id="This-is-an-H1"><a href="#This-is-an-H1" class="headerlink" title="This is an H1 "></a>This is an H1 </h1><h2 id="This-is-an-H2"><a href="#This-is-an-H2" class="headerlink" title="This is an H2 "></a>This is an H2 </h2><h1 id="这是-H1"><a href="#这是-H1" class="headerlink" title="这是 H1"></a>这是 H1</h1><h2 id="这是-H2"><a href="#这是-H2" class="headerlink" title="这是 H2"></a>这是 H2</h2><h3 id="这是-H3"><a href="#这是-H3" class="headerlink" title="这是 H3"></a>这是 H3</h3><blockquote>
+<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,<br>consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. &gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus. </p>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse<br>id sem consectetuer libero luctus adipiscing.</p>
+</blockquote>
+<blockquote>
+<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+</blockquote>
+<blockquote>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse id sem consectetuer libero luctus adipiscing.</p>
+</blockquote>
+<blockquote>
+<p>This is the first level of quoting. </p>
+<blockquote>
+<p>This is nested blockquote. </p>
+</blockquote>
+<p>Back to the first level.</p>
+</blockquote>
+<blockquote>
+<h2 id="这是一个标题。"><a href="#这是一个标题。" class="headerlink" title="这是一个标题。"></a>这是一个标题。</h2></blockquote>
+<ol>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ol>
+<ul>
+<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi   posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae,<br>risus. </li>
+<li>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse id sem   consectetuer libero luctus adipiscing.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+        
+      </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%B8%AA%E4%BA%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%84%9F%E6%85%A8%E5%95%A6%EF%BC%81%EF%BC%81%EF%BC%81/" rel="tag"># 个人的一些小感慨啦！！！</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E7%A5%9D%E6%9C%B1%E4%BA%A6%E5%AE%87%E7%94%9F%E6%97%A5%E5%BF%AB%E4%B9%90/" rel="next" title="祝朱亦宇生日快乐">
+      祝朱亦宇生日快乐 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#This-is-an-H1"><span class="nav-number">1.</span> <span class="nav-text">This is an H1 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#This-is-an-H2"><span class="nav-number">1.1.</span> <span class="nav-text">This is an H2 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这是-H1"><span class="nav-number">2.</span> <span class="nav-text">这是 H1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#这是-H2"><span class="nav-number">2.1.</span> <span class="nav-text">这是 H2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这是-H3"><span class="nav-number">2.1.1.</span> <span class="nav-text">这是 H3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#这是一个标题。"><span class="nav-number">2.2.</span> <span class="nav-text">这是一个标题。</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mr8god</p>
+  <div class="site-description" itemprop="description">Just learning！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr8god</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

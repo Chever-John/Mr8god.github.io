@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"justtchachv.cn","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="URI URL统一资源标识符URI（Uniform Resource Identifier)采用一种特定语法标识一个资源的字符串 格式： 模式：模式特定部分（模式特定部分的语法取决于所用的模式） 模式包括： 由小写字母、数字和加号、点及连号符组成 data链接中直接包含的Base64编码数据 file本地磁盘的文件 ftp FTP服务器 HTTP使用超文本传输协议的国际互联网服务器 mailto电">
+<meta property="og:type" content="article">
+<meta property="og:title" content="URI URL统一资源标识符">
+<meta property="og:url" content="https://justtchachv.cn/URI%20URL%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E8%AF%86%E7%AC%A6/index.html">
+<meta property="og:site_name" content="Mr8god&#39;s website">
+<meta property="og:description" content="URI URL统一资源标识符URI（Uniform Resource Identifier)采用一种特定语法标识一个资源的字符串 格式： 模式：模式特定部分（模式特定部分的语法取决于所用的模式） 模式包括： 由小写字母、数字和加号、点及连号符组成 data链接中直接包含的Base64编码数据 file本地磁盘的文件 ftp FTP服务器 HTTP使用超文本传输协议的国际互联网服务器 mailto电">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-22T05:04:38.809Z">
+<meta property="article:modified_time" content="2020-03-22T05:04:38.809Z">
+<meta property="article:author" content="Mr8god">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://justtchachv.cn/URI%20URL%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E8%AF%86%E7%AC%A6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>URI URL统一资源标识符 | Mr8god's website</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162074438-1# <app_id>"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-162074438-1# <app_id>');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Mr8god's website" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Mr8god's website</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">coding,coding,always coding!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://justtchachv.cn/URI%20URL%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E8%AF%86%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's website">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          URI URL统一资源标识符
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-22 13:04:38" itemprop="dateCreated datePublished" datetime="2020-03-22T13:04:38+08:00">2020-03-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="URI-URL统一资源标识符"><a href="#URI-URL统一资源标识符" class="headerlink" title="URI URL统一资源标识符"></a>URI URL统一资源标识符</h1><h2 id="URI（Uniform-Resource-Identifier"><a href="#URI（Uniform-Resource-Identifier" class="headerlink" title="URI（Uniform Resource Identifier)"></a>URI（Uniform Resource Identifier)</h2><p>采用一种特定语法标识一个资源的字符串</p>
+<p><strong>格式：</strong></p>
+<p>模式：模式特定部分（模式特定部分的语法取决于所用的模式）</p>
+<p>模式包括：</p>
+<p>由小写字母、数字和加号、点及连号符组成</p>
+<p>data链接中直接包含的Base64编码数据</p>
+<p>file本地磁盘的文件</p>
+<p>ftp FTP服务器</p>
+<p>HTTP使用超文本传输协议的国际互联网服务器</p>
+<p>mailto电子邮件地址</p>
+<p>magnet可以通过对等网络下载的资源</p>
+<p>Telnet与基于Telnet的服务连接</p>
+<p><strong>模式特定部分包扩：</strong></p>
+<p><strong>//authority/path?query(//授权机构/路径？查询字符串)</strong></p>
+<p>由ASCII字母数字符号组成，还可以使用标点符号-、_、·、!、~</p>
+<p>定界符（/、？、&amp;、=）可以有其预定义用途</p>
+<p>所有其他字符及内容中需用到的定界符也应用%转义（空格%20/%2F)</p>
+<p><strong>authority</strong>:负责解析该URI其余部分的授权机构 授权机构是Internet主机，还可提供可选的用户名和端口 如：<a href="ftp://mp3:mp3@ci43198-a.ashvill.nc.home.com:33/VanHalen-Jump.mp3">ftp://mp3:mp3@ci43198-a.ashvill.nc.home.com:33/VanHalen-Jump.mp3</a></p>
+<p><strong>path</strong>:授权机构用来确定所标识资源的字符串</p>
+<h2 id="URL最常见的URI"><a href="#URL最常见的URI" class="headerlink" title="URL最常见的URI"></a>URL最常见的URI</h2><p>两者区别：URI表示资源是什么，URL表示资源的具体位置，URI是URL的抽象。Java中URL对象对应网络获取的应用层协议的一个表示，而URI对象纯粹用于解析和处理字符串。</p>
+<h3 id="绝对URL"><a href="#绝对URL" class="headerlink" title="绝对URL"></a>绝对URL</h3><p><strong>protocol://userInfo@host.port/path?query#fragment</strong></p>
+<p>host 提供所需资源服务区的名字（主机/服务器ip地址）</p>
+<p>userInfo 可选，服务器登录信息</p>
+<p>port 可选，服务在其默认端口运行，无需此部分</p>
+<p>path 指定服务器上的一个特定目录文件系统，路径相对于服务器的文档跟目录，向公众开放的服务器不会将其整个文件系统展示给客户端，而只是展示指定目录中的内容</p>
+<p>query 向服务器提供附加参数，一般只在http URL中使用，其中包含表单数据，作为输入提供给服务端的运行程序</p>
+<p>fragment 指向远程资源的某个特定部分 HTML 锚 XML XPointer  段  ref     片段标识符在HTML文档中用id属性创建 </p>
+<p>包含片段标识符的是URL引用，不是URL</p>
+<h3 id="相对URL继承了-父文档部分信息的URL"><a href="#相对URL继承了-父文档部分信息的URL" class="headerlink" title="相对URL继承了 父文档部分信息的URL"></a>相对URL继承了 父文档部分信息的URL</h3><p>在相对URL中，缺少的各部分都与所在文档的URL中对应的部分相同</p>
+<p>例如浏览<a href="http://www.ibiblio.org/java/faq/javatutoial.html时" target="_blank" rel="noopener">http://www.ibiblio.org/java/faq/javatutoial.html时</a></p>
+<p><strong>若无”/“开头</strong> 例如<a href="javafaq.html"></p>
+<p>相当于http://www.ibiblio.org/java/faq/javafaq.html</p>
+<p><strong>若以”/“开头</strong> 如<a href="/projects/ipv61"></p>
+<p>则相当于http://www.ibiblio.org/projects/ipv61</p>
+<p>相对URL允许用多种协议来提供一个文档树，且相对URL允许将整个文档树从一个网站移动或复制到另一个网站，而不会破坏所有的内部连接。</p>
+
+    </div>
+
+    
+    
+    
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+        
+      </div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/HTTP%E5%8D%8F%E8%AE%AE%E9%80%9A%E4%BF%A1%E7%9A%84%E5%AD%A6%E4%B9%A0/" rel="prev" title="HTTP协议通信的学习">
+      <i class="fa fa-chevron-left"></i> HTTP协议通信的学习
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay1/" rel="next" title="每天和Dell客服学一招Day1">
+      每天和Dell客服学一招Day1 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#URI-URL统一资源标识符"><span class="nav-number">1.</span> <span class="nav-text">URI URL统一资源标识符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#URI（Uniform-Resource-Identifier"><span class="nav-number">1.1.</span> <span class="nav-text">URI（Uniform Resource Identifier)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL最常见的URI"><span class="nav-number">1.2.</span> <span class="nav-text">URL最常见的URI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#绝对URL"><span class="nav-number">1.2.1.</span> <span class="nav-text">绝对URL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相对URL继承了-父文档部分信息的URL"><span class="nav-number">1.2.2.</span> <span class="nav-text">相对URL继承了 父文档部分信息的URL</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mr8god</p>
+  <div class="site-description" itemprop="description">Just learning！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr8god</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
