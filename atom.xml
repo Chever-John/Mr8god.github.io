@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://justtchachv.cn/"/>
-  <updated>2020-03-30T08:06:43.912Z</updated>
+  <updated>2020-03-30T12:12:31.712Z</updated>
   <id>https://justtchachv.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第一次</title>
+    <link href="https://justtchachv.cn/2020/03/30/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E5%93%88/"/>
+    <id>https://justtchachv.cn/2020/03/30/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%AD%A6%E4%B9%A0%E5%93%88/</id>
+    <published>2020-03-30T12:11:08.084Z</published>
+    <updated>2020-03-30T12:12:31.712Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="我是内容"><a href="#我是内容" class="headerlink" title="我是内容"></a>我是内容</h1><h2 id="内容二"><a href="#内容二" class="headerlink" title="内容二"></a>内容二</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;我是内容&quot;&gt;&lt;a href=&quot;#我是内容&quot; class=&quot;headerlink&quot; title=&quot;我是内容&quot;&gt;&lt;/a&gt;我是内容&lt;/h1&gt;&lt;h2 id=&quot;内容二&quot;&gt;&lt;a href=&quot;#内容二&quot; class=&quot;headerlink&quot; title=&quot;内容二&quot;&gt;&lt;/a&gt;内容
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>第7章 函数——C++的编程模块（下）</title>
@@ -365,31 +387,6 @@
   </entry>
   
   <entry>
-    <title>每天和Dell客服学一招Day6</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/</id>
-    <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:56.748Z</updated>
-    
-    <content type="html"><![CDATA[<p>这个是关于显卡驱动的问题解决办法</p><p>集显链接：<a href="https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE</a><br>独显链接:<a href="https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE</a><br>更新之前请先全部下载好驱动。<br>更新集显：请到开始-设置-应用-搜索因特尔或者/intel 查找显卡驱动，卸载完成后，重启运行驱动更新<br>更新独显：请到开始-设置-应用-搜索NVIDIA查找NVIDIA开头的所有驱动，卸载完成后，重启运行驱动更新 更新过程中，选择自定义，勾选执行清洁安装即可。</p><p><img src="https://i.loli.net/2020/03/25/CylDRLnkfiYSpNG.png" alt="0f7ff960519071cdbd176f7dd710be3.png"></p><p>这个是第一张图</p><p><img src="https://i.loli.net/2020/03/25/DnjYPBadSRgFKOZ.png" alt="092b2e55f72b3355eefbf82b233c082.png"></p><p>这个是第二张图</p><p><img src="https://i.loli.net/2020/03/25/R6doXSIeCOqNLly.jpg" alt="Day6.jpg"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这个是关于显卡驱动的问题解决办法&lt;/p&gt;
-&lt;p&gt;集显链接：&lt;a href=&quot;https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EX
-      
-    
-    </summary>
-    
-    
-    
-      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每天和Dell客服学一招Day2</title>
     <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/"/>
     <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/</id>
@@ -482,6 +479,31 @@
       
       
         &lt;h2 id=&quot;使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot;&gt;&lt;a href=&quot;#使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot; class=&quot;headerlink&quot; title=&quot;使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot;&gt;&lt;/a&gt;使用预装Win10的戴尔电脑
+      
+    
+    </summary>
+    
+    
+    
+      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天和Dell客服学一招Day6</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/</id>
+    <published>2020-03-19T12:01:11.000Z</published>
+    <updated>2020-03-29T13:28:56.748Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个是关于显卡驱动的问题解决办法</p><p>集显链接：<a href="https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE</a><br>独显链接:<a href="https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE</a><br>更新之前请先全部下载好驱动。<br>更新集显：请到开始-设置-应用-搜索因特尔或者/intel 查找显卡驱动，卸载完成后，重启运行驱动更新<br>更新独显：请到开始-设置-应用-搜索NVIDIA查找NVIDIA开头的所有驱动，卸载完成后，重启运行驱动更新 更新过程中，选择自定义，勾选执行清洁安装即可。</p><p><img src="https://i.loli.net/2020/03/25/CylDRLnkfiYSpNG.png" alt="0f7ff960519071cdbd176f7dd710be3.png"></p><p>这个是第一张图</p><p><img src="https://i.loli.net/2020/03/25/DnjYPBadSRgFKOZ.png" alt="092b2e55f72b3355eefbf82b233c082.png"></p><p>这个是第二张图</p><p><img src="https://i.loli.net/2020/03/25/R6doXSIeCOqNLly.jpg" alt="Day6.jpg"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这个是关于显卡驱动的问题解决办法&lt;/p&gt;
+&lt;p&gt;集显链接：&lt;a href=&quot;https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EX
       
     
     </summary>
