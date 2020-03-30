@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://justtchachv.cn/"/>
-  <updated>2020-03-30T01:08:40.404Z</updated>
+  <updated>2020-03-30T08:06:43.912Z</updated>
   <id>https://justtchachv.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://justtchachv.cn/2020/03/30/C++/%E7%AC%AC7%E7%AB%A0-%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94C++%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
     <id>https://justtchachv.cn/2020/03/30/C++/%E7%AC%AC7%E7%AB%A0-%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94C++%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%8B%EF%BC%89/</id>
     <published>2020-03-29T16:22:27.120Z</published>
-    <updated>2020-03-30T01:08:40.404Z</updated>
+    <updated>2020-03-30T08:06:43.912Z</updated>
     
     <content type="html"><![CDATA[<h2 id="7-2-函数参数和按值传参"><a href="#7-2-函数参数和按值传参" class="headerlink" title="7.2    函数参数和按值传参"></a>7.2    函数参数和按值传参</h2><p>C++中经常性的一种操作就是，案值传递参数，这意味着将数值传递给一个函数，然后后者还会返回一个值赋给一个新的变量。</p><p>在函数中被声明的变量是函数私有的，这是他自己凭本事声明的变量。在函数被调用时，计算机会为他们（指变量）申请内存。在函数结束的时候，计算机会释放掉内存，这样的变量我们称之为<strong>局部变量</strong></p><h3 id="7-2-1-多个参数"><a href="#7-2-1-多个参数" class="headerlink" title="7.2.1    多个参数"></a>7.2.1    多个参数</h3><p>函数可以包含多个参数，例如写成这种形式：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function(<span class="string">'R'</span>, <span class="number">25</span>);</span><br></pre></td></tr></table></figure><p>上述函数调用将两个参数传递给函数function( )，</p><p>同样，在定义函数时，也在函数头中使用由逗号分割的参数声明列表</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">function</span><span class="params">(<span class="keyword">char</span> c, <span class="keyword">int</span> n)</span></span></span><br></pre></td></tr></table></figure><p>之前写的function中R传递给了c，25传递给了n</p><h3 id="7-2-2-另外一个接受两个参数的函数"><a href="#7-2-2-另外一个接受两个参数的函数" class="headerlink" title="7.2.2    另外一个接受两个参数的函数"></a>7.2.2    另外一个接受两个参数的函数</h3><p><strong>注意了注意了，这边要讲一个比较有趣的东西了</strong></p><p>Problem：美国许多州都采用某种纸牌游戏的形式来发行彩票，让参与者从卡片中选择一定数目的选项，例如从51个数字中选取6个，随后彩票管理者将随机抽取6个数，如果参与者选择的数字与这6个完全相同，将赢得大约几百万美元的奖金，我们的函数将计算中奖的几率</p><p>首先，需要一个公式。假设必须要从51个数中选取6个数，而获奖的几率是1/R，则R的计算公式如下<br>$$<br>R =\frac  {51×50×49×48×47×46}{6×5×4×3×2×1}<br>$$<br>选择6个数时，分母为前6个整数的乘积或6的阶乘分子也是6个连续整数的乘积，从51开始依次递减一,推而广之，如果从numbers个数中选取picks个数，而分母是picks的阶乘，分子为numbers开始向前的picks个整数的乘积。可以用for循环进行计算：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> <span class="keyword">double</span> result = <span class="number">1.0</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> n = numbers, p = picks; p &gt; <span class="number">0</span>; n--, p--)</span><br><span class="line">    result = result * n / p;</span><br></pre></td></tr></table></figure><p>循环不是首先将所有的分子项相乘，而是首先将1.0与第1个分子项相乘，然后除以第1个分母项，然后下一轮循环，乘以第2个分子项并除以第2个分母项，这样得到的乘积和先进行乘法运算得到的一样，例如对于(10*9)/(2×1)和(10÷2)×(9÷1)，前者将计算90÷2得到45，或者将计算5×9得到49，这两种方法得到的结果相同，但前者的中间值90大于后者，因子越多，中间值的差别就越大，当数字非常大时，这种交替进行乘除运算的策略，可以防止中间结果超过最大的浮点数。</p><h3 id="7-3-函数和数组"><a href="#7-3-函数和数组" class="headerlink" title="7.3    函数和数组"></a>7.3    函数和数组</h3>]]></content>
     
@@ -340,21 +340,45 @@
   </entry>
   
   <entry>
-    <title>每天和Dell客服学一招Day3</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/</id>
+    <title>每天和Dell客服学一招Day4</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay4/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay4/</id>
     <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:50.167Z</updated>
+    <updated>2020-03-29T13:28:52.750Z</updated>
     
-    <content type="html"><![CDATA[<p>由于呢，我是突发奇想要做这一类的博客的，所以很多案例都是之前就发生的。啧啧啧，那么我就倒推来放上我的博客啦</p><p>咳咳，老样子首先问题描述：</p><p><img src="https://i.loli.net/2020/03/25/zGfm1QSMkgTapxX.jpg" alt="71c60863817d7d7da10569ff28a3f5b.jpg"></p><p><img src="https://i.loli.net/2020/03/25/P8OUtYE2bHSBQcJ.jpg" alt="第一个问题.jpg"></p><p><img src="https://i.loli.net/2020/03/25/UdZzmRVfI98Kv7G.png" alt="2e0e8cc7a92c55f9251b5f92554c05b.png"></p><p><img src="https://i.loli.net/2020/03/25/Dfe8WXRx16ZBpmg.jpg" alt="第一个问题2.jpg"></p><p><strong>好嘞 这边来看确实是驱动没有提示要更新呢 那这样哈 咱们这边尝试手动更新一下相关驱动  然后看看是否问题依旧呢  这边麻烦您复制以下链接到浏览器中打开并安装哈<br><a href="https://dell.to/2P2R3IW" target="_blank" rel="noopener">https://dell.to/2P2R3IW</a><br><a href="https://dell.to/2P2R4N0" target="_blank" rel="noopener">https://dell.to/2P2R4N0</a></strong></p><p><img src="https://i.loli.net/2020/03/25/mLZwJynECBKfOb1.png" alt="a4499a56308287f7689477617cdbc53.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>还原点设置</p><p>好的呢   不过咱们当前的系统版本有问题的呢  咱们这边如果设置了当前为还原点可能不大好哈<br>1.在Win10系统桌面上选中这台电脑，点击右键选择“属性”<br>2.点击系统窗口左侧的“系统保护”<br>3.在系统属性窗口的系统保护选项卡里，为C盘创建还原点。由于C盘的“保护”关闭，点击“配置”启用保护<br>4.选择启用系统保护，然后点击确定<br>5.点击后返回系统属性窗口，这时C盘的“保护”启用了，点击“创建”立即给启用系统保护的C盘驱动器创建还原点<br>6.在系统保护窗口输入创建还原点的名称。然后点击”创建“<br>7.点击后，系统开始创建还原点，还原点创建完成后，系统提示“已成功创建还原点”。然后点击关闭退出</p><p><img src="https://i.loli.net/2020/03/25/PNEyRt9H1XYOImZ.jpg" alt="还原点设置.jpg"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;由于呢，我是突发奇想要做这一类的博客的，所以很多案例都是之前就发生的。啧啧啧，那么我就倒推来放上我的博客啦&lt;/p&gt;
-&lt;p&gt;咳咳，老样子首先问题描述：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/zGfm1QSMkgTapxX
+        &lt;p&gt;还原点设置&lt;/p&gt;
+&lt;p&gt;好的呢   不过咱们当前的系统版本有问题的呢  咱们这边如果设置了当前为还原点可能不大好哈&lt;br&gt;1.在Win10系统桌面上选中这台电脑，点击右键选择“属性”&lt;br&gt;2.点击系统窗口左侧的“系统保护”&lt;br&gt;3.在系统属性窗口的系统保护选项卡里，为
+      
+    
+    </summary>
+    
+    
+    
+      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天和Dell客服学一招Day6</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/</id>
+    <published>2020-03-19T12:01:11.000Z</published>
+    <updated>2020-03-29T13:28:56.748Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个是关于显卡驱动的问题解决办法</p><p>集显链接：<a href="https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE</a><br>独显链接:<a href="https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE</a><br>更新之前请先全部下载好驱动。<br>更新集显：请到开始-设置-应用-搜索因特尔或者/intel 查找显卡驱动，卸载完成后，重启运行驱动更新<br>更新独显：请到开始-设置-应用-搜索NVIDIA查找NVIDIA开头的所有驱动，卸载完成后，重启运行驱动更新 更新过程中，选择自定义，勾选执行清洁安装即可。</p><p><img src="https://i.loli.net/2020/03/25/CylDRLnkfiYSpNG.png" alt="0f7ff960519071cdbd176f7dd710be3.png"></p><p>这个是第一张图</p><p><img src="https://i.loli.net/2020/03/25/DnjYPBadSRgFKOZ.png" alt="092b2e55f72b3355eefbf82b233c082.png"></p><p>这个是第二张图</p><p><img src="https://i.loli.net/2020/03/25/R6doXSIeCOqNLly.jpg" alt="Day6.jpg"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这个是关于显卡驱动的问题解决办法&lt;/p&gt;
+&lt;p&gt;集显链接：&lt;a href=&quot;https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EX
       
     
     </summary>
@@ -393,20 +417,21 @@
   </entry>
   
   <entry>
-    <title>每天和Dell客服学一招Day4</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay4/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay4/</id>
+    <title>每天和Dell客服学一招Day3</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/</id>
     <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:52.750Z</updated>
+    <updated>2020-03-29T13:28:50.167Z</updated>
     
-    <content type="html"><![CDATA[<p>还原点设置</p><p>好的呢   不过咱们当前的系统版本有问题的呢  咱们这边如果设置了当前为还原点可能不大好哈<br>1.在Win10系统桌面上选中这台电脑，点击右键选择“属性”<br>2.点击系统窗口左侧的“系统保护”<br>3.在系统属性窗口的系统保护选项卡里，为C盘创建还原点。由于C盘的“保护”关闭，点击“配置”启用保护<br>4.选择启用系统保护，然后点击确定<br>5.点击后返回系统属性窗口，这时C盘的“保护”启用了，点击“创建”立即给启用系统保护的C盘驱动器创建还原点<br>6.在系统保护窗口输入创建还原点的名称。然后点击”创建“<br>7.点击后，系统开始创建还原点，还原点创建完成后，系统提示“已成功创建还原点”。然后点击关闭退出</p><p><img src="https://i.loli.net/2020/03/25/PNEyRt9H1XYOImZ.jpg" alt="还原点设置.jpg"></p>]]></content>
+    <content type="html"><![CDATA[<p>由于呢，我是突发奇想要做这一类的博客的，所以很多案例都是之前就发生的。啧啧啧，那么我就倒推来放上我的博客啦</p><p>咳咳，老样子首先问题描述：</p><p><img src="https://i.loli.net/2020/03/25/zGfm1QSMkgTapxX.jpg" alt="71c60863817d7d7da10569ff28a3f5b.jpg"></p><p><img src="https://i.loli.net/2020/03/25/P8OUtYE2bHSBQcJ.jpg" alt="第一个问题.jpg"></p><p><img src="https://i.loli.net/2020/03/25/UdZzmRVfI98Kv7G.png" alt="2e0e8cc7a92c55f9251b5f92554c05b.png"></p><p><img src="https://i.loli.net/2020/03/25/Dfe8WXRx16ZBpmg.jpg" alt="第一个问题2.jpg"></p><p><strong>好嘞 这边来看确实是驱动没有提示要更新呢 那这样哈 咱们这边尝试手动更新一下相关驱动  然后看看是否问题依旧呢  这边麻烦您复制以下链接到浏览器中打开并安装哈<br><a href="https://dell.to/2P2R3IW" target="_blank" rel="noopener">https://dell.to/2P2R3IW</a><br><a href="https://dell.to/2P2R4N0" target="_blank" rel="noopener">https://dell.to/2P2R4N0</a></strong></p><p><img src="https://i.loli.net/2020/03/25/mLZwJynECBKfOb1.png" alt="a4499a56308287f7689477617cdbc53.png"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;还原点设置&lt;/p&gt;
-&lt;p&gt;好的呢   不过咱们当前的系统版本有问题的呢  咱们这边如果设置了当前为还原点可能不大好哈&lt;br&gt;1.在Win10系统桌面上选中这台电脑，点击右键选择“属性”&lt;br&gt;2.点击系统窗口左侧的“系统保护”&lt;br&gt;3.在系统属性窗口的系统保护选项卡里，为
+        &lt;p&gt;由于呢，我是突发奇想要做这一类的博客的，所以很多案例都是之前就发生的。啧啧啧，那么我就倒推来放上我的博客啦&lt;/p&gt;
+&lt;p&gt;咳咳，老样子首先问题描述：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/zGfm1QSMkgTapxX
       
     
     </summary>
@@ -457,31 +482,6 @@
       
       
         &lt;h2 id=&quot;使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot;&gt;&lt;a href=&quot;#使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot; class=&quot;headerlink&quot; title=&quot;使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot;&gt;&lt;/a&gt;使用预装Win10的戴尔电脑
-      
-    
-    </summary>
-    
-    
-    
-      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每天和Dell客服学一招Day6</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/</id>
-    <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:56.748Z</updated>
-    
-    <content type="html"><![CDATA[<p>这个是关于显卡驱动的问题解决办法</p><p>集显链接：<a href="https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE</a><br>独显链接:<a href="https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE</a><br>更新之前请先全部下载好驱动。<br>更新集显：请到开始-设置-应用-搜索因特尔或者/intel 查找显卡驱动，卸载完成后，重启运行驱动更新<br>更新独显：请到开始-设置-应用-搜索NVIDIA查找NVIDIA开头的所有驱动，卸载完成后，重启运行驱动更新 更新过程中，选择自定义，勾选执行清洁安装即可。</p><p><img src="https://i.loli.net/2020/03/25/CylDRLnkfiYSpNG.png" alt="0f7ff960519071cdbd176f7dd710be3.png"></p><p>这个是第一张图</p><p><img src="https://i.loli.net/2020/03/25/DnjYPBadSRgFKOZ.png" alt="092b2e55f72b3355eefbf82b233c082.png"></p><p>这个是第二张图</p><p><img src="https://i.loli.net/2020/03/25/R6doXSIeCOqNLly.jpg" alt="Day6.jpg"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这个是关于显卡驱动的问题解决办法&lt;/p&gt;
-&lt;p&gt;集显链接：&lt;a href=&quot;https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EX
       
     
     </summary>
