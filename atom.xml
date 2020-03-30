@@ -72,11 +72,11 @@
   </entry>
   
   <entry>
-    <title>第7章 函数——C++的编程模块</title>
+    <title>第7章 函数——C++的编程模块(上)</title>
     <link href="https://justtchachv.cn/2020/03/25/C++/%E7%AC%AC7%E7%AB%A0%20%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94C++%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97/"/>
     <id>https://justtchachv.cn/2020/03/25/C++/%E7%AC%AC7%E7%AB%A0%20%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94C++%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97/</id>
     <published>2020-03-25T08:48:52.497Z</published>
-    <updated>2020-03-29T14:09:11.747Z</updated>
+    <updated>2020-03-30T01:04:45.811Z</updated>
     
     <content type="html"><![CDATA[<p>C++自带一个包含函数的大型库（标准ANSI库加上多个C++类），但真正的编程乐趣在于编写自己的函数；另一方面，要提高编程效率，可以更深入地学习STL和BOOSTC++提供的功能。</p><h2 id="7-1-复习函数的基本知识"><a href="#7-1-复习函数的基本知识" class="headerlink" title="7.1    复习函数的基本知识"></a>7.1    复习函数的基本知识</h2><p>来复习一下介绍过的有关函数的知识。要使用C++函数，必须完成以下工作：</p><ul><li>提供函数的定义</li><li>提供函数原型</li><li>调用函数</li></ul><p>库函数是已经定义好和编译好的函数，同时可以使用标准库头文件提供其原型，因此只需正确地调用这种函数即可。比如说strlen()函数，可以用来确定字符串的长度。相关的标准头文件cstring包含了strlen()和其他一些与字符串相关的函数的原型。</p><p>然后还有一点要注意的是，咱们程序员在编写函数的时候，一定要注意三点——定义、提供原型、调用。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simple</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"main() will call the simple() function:\n"</span>;</span><br><span class="line">    simple();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"main() is finished with the simple() function.\n"</span>;</span><br><span class="line">    <span class="built_in">cin</span>.<span class="built_in">get</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simple</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"I'm but a simple function.\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>上面就是一个小例子。</p><h3 id="7-1-1-定义函数"><a href="#7-1-1-定义函数" class="headerlink" title="7.1.1    定义函数"></a>7.1.1    定义函数</h3><p>可以将函数分为两类：没有返回值的函数和有返回值的函数。没有返回值的函数被称为void函数，其通用格式如下：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">functionName</span><span class="params">(parameterList)</span></span>&#123;</span><br><span class="line">statement(s)</span><br><span class="line"><span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其中，paramterList指定了传递给函数的参数类型和数量，本章后面将更详细地介绍该列表。可选的返回语句标记了函数的结尾；否则，函数将在右花括号处结束。</p><p>对于返回值，需要注意的是，</p><ul><li>如果原函数的数据类型是double但是返回的是int，返回值将会被强制转化为double</li><li>C++对返回值的类型有一定的限制：不能是数组，但可以是其他任何类型——整数、浮点数、指针、甚至可以是结构和对象（不过我们可以将数组作为结构或对象组成部分来返回）</li><li>若函数包含多条返回语句（例如，它们位于不同的ifelse选项中）则函数在执行遇到的第一条返回语句后结束。</li></ul><p>干货分享：虽然作为一名程序员不需要知道函数是怎么返回值的，但是对这个问题有所了解有助于澄清概念。</p><p>通常函数通过将返回值复制到指定的CPU寄存器或内存单元中来将其返回。</p><p>随后，调用程序将查看该存储单元。</p><p>返回函数和调用函数必须就该内存单元中存储的数据的类型达成一致。</p><p>函数原型将返回值类型告知调用程序，而函数定义命令被调用函数应返回什么类型的数据。</p><p>在原型中提供与定义中相同的信息似乎有些多余，但这样做确实有道理。要让信差从办公室的办公桌上取走一些物品，则向信差和办公室中的同事交代自己的意图，将提高信差顺利完成这项工作的概率。</p><h3 id="7-1-2-函数原型和函数调用"><a href="#7-1-2-函数原型和函数调用" class="headerlink" title="7.1.2    函数原型和函数调用"></a>7.1.2    函数原型和函数调用</h3><p>咱们对函数调用这个知识点是很熟悉的，但是对函数原型并不清楚，函数原型通常隐藏在include文件中。</p><p>　<a href="https://www.baidu.com/s?wd=函数声明&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">函数声明</a>由函数返回类型、函数名和形参列表组成。形参列表必须包括形参类型,但是不必对形参命名。这三个元素被称为函数原型,函数原型描述了函数的接口。</p><h4 id="1-为什么需要原型"><a href="#1-为什么需要原型" class="headerlink" title="1.为什么需要原型"></a>1.为什么需要原型</h4><p>原型描述了函数到编译器的接口，也就是说，它将函数返回值的类型（如果有的话）以及参数的类型和数量告诉编译器。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> volume = cube(side);</span><br></pre></td></tr></table></figure><p>首先，原型告诉编译器，cube()有一个double 参数。如果程序没有提供这样的参数，原型将让编译器能够捕获这种错误。其次，cube()函数完成计算后，将把返回值放置在指定的位置——可能是CPU寄存器，也可能是内存中。然后调用函数（这里为main()）将从这个位置取得返回值。由于原型指出了cube()的类型为double，因此编译器知道应检索多少个字节以及如何解释它们。如果没有这些信息，编译器将只能进行猜测，而编译器是不会这样做的。</p><p>编译器需要原型，因为这样将提高效率，让编译器在广大的文件里找有用的文件，是一件大海捞针的事儿，且编译器在搜索文件的时候将必须停止 对main()的编译。一个更严重的问题是，函数甚至可能并不在项目的文件中（C++允许将一个程序放在多个文件中，单独编译他们，然后再将它们组合起来），在这种情况下，可能导致编译器在编译main()时无权访问函数代码。如果函数位于库中，情况也将如此。</p><p>综上，避免使用函数原型的唯一办法就是，在首次使用函数之前定义它，但这并不总是可行的。</p><h4 id="2-原型的语法"><a href="#2-原型的语法" class="headerlink" title="2.原型的语法"></a>2.原型的语法</h4><p>函数原型是一条语句，因此必须以分号结束。获取原型的方法就是，复制函数定义中的函数头，并添加分号即可。</p><h4 id="3-原型的功能"><a href="#3-原型的功能" class="headerlink" title="3.原型的功能"></a>3.原型的功能</h4><p>可以极大地降低程序出错的几率。</p><p>原型应确保以下几点：</p><ul><li>编译器正确处理函数返回值</li><li>编译器检查使用的参数数目是否正确</li><li>编译器检查使用的参数类型是否正确。如果不正确，则转换为正确的类型（如果可能的话）。</li></ul><h4 id="讲一讲参数数目不对时将发生的情况"><a href="#讲一讲参数数目不对时将发生的情况" class="headerlink" title="讲一讲参数数目不对时将发生的情况"></a>讲一讲参数数目不对时将发生的情况</h4><p>例如，假设进行了如下调用</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> z = cube();</span><br></pre></td></tr></table></figure><p>如果没有函数原型，编译器将允许它通过。当函数被调用时，它将找到cube()调用存放值的位置，并使用这里的值。这个正式C语言从C++借鉴原型之前的工作方式。对于ANSI C（美国国家标准规定的C语言）来讲，原型是可选的，因此有些C语言程序正是这样工作的。但在C++中，原型是不可选。因此保证了不会发生这种错误。</p><p>接下来，我们假设提供了一个参数，但是它的类型不正确。在C语言中，这将造成奇怪的错误，例如，如果函数需要一个int值（假设占16位），而程序员传递了一个double值（假设占64位），则函数将只检查64位中的前16位，并试图将它们解释为一个int值。但是C++自动将传递的值转换为原型中指定的类型，条件是两者都是算数类型。</p><p>这个时候我来举个例子吧</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cheers</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">cube</span><span class="params">(<span class="keyword">double</span> x)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    cheers(<span class="number">5</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Give me a number: "</span>;</span><br><span class="line">    <span class="keyword">double</span> side;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; side;</span><br><span class="line">    <span class="keyword">double</span> volume = cube(side);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"A"</span> &lt;&lt; side &lt;&lt; <span class="string">"-foot cube has a volume of "</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; volume &lt;&lt; <span class="string">" cubic feet.\n"</span>;</span><br><span class="line">    cheers(cube(<span class="number">2</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cheers</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Cheers! "</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">cube</span><span class="params">(<span class="keyword">double</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x * x * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这个是C++的代码</p><p>这个代码就能够应付下述语句中两次出现的类型不匹配的情况：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cheers(cube(<span class="number">2</span>));</span><br></pre></td></tr></table></figure><p>代码讲解：首先程序将int的值2传递给cube()，而后者期望的是double类型。编译器注意到，cube()原型指定了一个double类型参数，因此将2转化为2.0（一个double值）。接下来cube()返回一个double值(8.0)，这个值被用作cheer()的参数。编译器将再一次检查原型，并发现cheer()要求一个int参数，因此它将返回值转换为整数8.通常原型自动将被传递的参数强制转换为期望的类型</p><p>​    自动类型转换并不能避免所有可能的错误。例如，如果将8.33E27传递给期望一个int值的函数，则这样大的值将不能正确转换为int值。当较大的类型被自动转换为较小的类型时，有些编译器将发生警告，指出这可能丢失数据。</p><p>​    仅当有意义的时候，原型才会导致类型转换。正如原型不会将整数转换为结构或指针。</p><p>在编译阶段进行的原型化被称为静态类型检查(static type checking)。可以看出，静态类型检查可捕获许多在运行阶段非常难以捕获的错误。</p>]]></content>
     
@@ -367,32 +367,6 @@
   </entry>
   
   <entry>
-    <title>每天和Dell客服学一招Day5</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/</id>
-    <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:54.635Z</updated>
-    
-    <content type="html"><![CDATA[<p>smartByte需要更新。启动浏览器问题</p><p><img src="https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png" alt="fc1f6b7fa29f50e8656173f59335abd.png"></p><p><img src="https://i.loli.net/2020/03/25/N73OVQFEemkYIo1.jpg" alt="smartbyte.jpg"></p><p><img src="https://i.loli.net/2020/03/25/OT6Buo1rcfJ3jiF.png" alt="74c17554962bcc14adca066f157b757.png"></p><p><img src="https://i.loli.net/2020/03/25/a4FvotCSGrkBX1q.png" alt="e23bbb9507808320bd5ee28593e690f.png"></p><p><img src="https://i.loli.net/2020/03/25/cRAwTgzPyZ5bOnk.png" alt="5a406f345f174e6b0e77864239a2a11.png"></p><p><img src="https://i.loli.net/2020/03/25/zX5IBYJjhspVmOM.png" alt="00bfb2e0cf79b5338a0bdb06b2994d1.png"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;smartByte需要更新。启动浏览器问题&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png&quot; alt=&quot;fc1f6b7fa29f50e8656173f59335abd.png&quot;&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每天和Dell客服学一招Day3</title>
     <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/"/>
     <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/</id>
@@ -408,6 +382,32 @@
         &lt;p&gt;由于呢，我是突发奇想要做这一类的博客的，所以很多案例都是之前就发生的。啧啧啧，那么我就倒推来放上我的博客啦&lt;/p&gt;
 &lt;p&gt;咳咳，老样子首先问题描述：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/zGfm1QSMkgTapxX
+      
+    
+    </summary>
+    
+    
+    
+      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天和Dell客服学一招Day5</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/</id>
+    <published>2020-03-19T12:01:11.000Z</published>
+    <updated>2020-03-29T13:28:54.635Z</updated>
+    
+    <content type="html"><![CDATA[<p>smartByte需要更新。启动浏览器问题</p><p><img src="https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png" alt="fc1f6b7fa29f50e8656173f59335abd.png"></p><p><img src="https://i.loli.net/2020/03/25/N73OVQFEemkYIo1.jpg" alt="smartbyte.jpg"></p><p><img src="https://i.loli.net/2020/03/25/OT6Buo1rcfJ3jiF.png" alt="74c17554962bcc14adca066f157b757.png"></p><p><img src="https://i.loli.net/2020/03/25/a4FvotCSGrkBX1q.png" alt="e23bbb9507808320bd5ee28593e690f.png"></p><p><img src="https://i.loli.net/2020/03/25/cRAwTgzPyZ5bOnk.png" alt="5a406f345f174e6b0e77864239a2a11.png"></p><p><img src="https://i.loli.net/2020/03/25/zX5IBYJjhspVmOM.png" alt="00bfb2e0cf79b5338a0bdb06b2994d1.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;smartByte需要更新。启动浏览器问题&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png&quot; alt=&quot;fc1f6b7fa29f50e8656173f59335abd.png&quot;&gt;&lt;/p&gt;
+
       
     
     </summary>
@@ -444,30 +444,6 @@
   </entry>
   
   <entry>
-    <title>每天和Dell客服学一招Day7</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay7/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay7/</id>
-    <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:58.998Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="使用预装Win10的戴尔电脑最新恢复出厂设置方法"><a href="#使用预装Win10的戴尔电脑最新恢复出厂设置方法" class="headerlink" title="使用预装Win10的戴尔电脑最新恢复出厂设置方法"></a>使用预装Win10的戴尔电脑最新恢复出厂设置方法</h2><p>这个图文教程二就是supportassit恢复系统方法<br>恢复预装win10系统的方法，您可以参考图文教程；视频教程，数据可能会被清空, 操作前请备份个人重要数据 。</p><p>如果出现本地还原还是云还原，一定要选择本地还原。</p><p>另外，恢复系统理论上会动C盘和桌面数据。<br>如果其他盘也有重要数据，也顺便备份~</p><p><a href="https://mp.weixin.qq.com/s/V8t1tNrvC1zkUHy4IXXl2Q" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/V8t1tNrvC1zkUHy4IXXl2Q</a></p><p><a href="https://v.youku.com/v_show/id_XMzkxNzIzMDY2NA==.html?spm=a2hzp.8244740.0.0" target="_blank" rel="noopener">https://v.youku.com/v_show/id_XMzkxNzIzMDY2NA==.html?spm=a2hzp.8244740.0.0</a></p><p><img src="https://i.loli.net/2020/03/25/UWESgXFLZBKhzxu.jpg" alt="恢复系统.jpg"></p><p><img src="https://i.loli.net/2020/03/25/DLMgbsKEFXBCS8u.jpg" alt="恢复系统2.jpg"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot;&gt;&lt;a href=&quot;#使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot; class=&quot;headerlink&quot; title=&quot;使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot;&gt;&lt;/a&gt;使用预装Win10的戴尔电脑
-      
-    
-    </summary>
-    
-    
-    
-      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每天和Dell客服学一招Day6</title>
     <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/"/>
     <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/</id>
@@ -482,6 +458,30 @@
       
         &lt;p&gt;这个是关于显卡驱动的问题解决办法&lt;/p&gt;
 &lt;p&gt;集显链接：&lt;a href=&quot;https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EX
+      
+    
+    </summary>
+    
+    
+    
+      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天和Dell客服学一招Day7</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay7/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay7/</id>
+    <published>2020-03-19T12:01:11.000Z</published>
+    <updated>2020-03-29T13:28:58.998Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="使用预装Win10的戴尔电脑最新恢复出厂设置方法"><a href="#使用预装Win10的戴尔电脑最新恢复出厂设置方法" class="headerlink" title="使用预装Win10的戴尔电脑最新恢复出厂设置方法"></a>使用预装Win10的戴尔电脑最新恢复出厂设置方法</h2><p>这个图文教程二就是supportassit恢复系统方法<br>恢复预装win10系统的方法，您可以参考图文教程；视频教程，数据可能会被清空, 操作前请备份个人重要数据 。</p><p>如果出现本地还原还是云还原，一定要选择本地还原。</p><p>另外，恢复系统理论上会动C盘和桌面数据。<br>如果其他盘也有重要数据，也顺便备份~</p><p><a href="https://mp.weixin.qq.com/s/V8t1tNrvC1zkUHy4IXXl2Q" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/V8t1tNrvC1zkUHy4IXXl2Q</a></p><p><a href="https://v.youku.com/v_show/id_XMzkxNzIzMDY2NA==.html?spm=a2hzp.8244740.0.0" target="_blank" rel="noopener">https://v.youku.com/v_show/id_XMzkxNzIzMDY2NA==.html?spm=a2hzp.8244740.0.0</a></p><p><img src="https://i.loli.net/2020/03/25/UWESgXFLZBKhzxu.jpg" alt="恢复系统.jpg"></p><p><img src="https://i.loli.net/2020/03/25/DLMgbsKEFXBCS8u.jpg" alt="恢复系统2.jpg"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot;&gt;&lt;a href=&quot;#使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot; class=&quot;headerlink&quot; title=&quot;使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot;&gt;&lt;/a&gt;使用预装Win10的戴尔电脑
       
     
     </summary>
