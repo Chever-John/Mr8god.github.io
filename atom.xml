@@ -340,6 +340,33 @@
   </entry>
   
   <entry>
+    <title>每天和Dell客服学一招Day2</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/</id>
+    <published>2020-03-19T12:01:11.000Z</published>
+    <updated>2020-03-29T13:28:47.133Z</updated>
+    
+    <content type="html"><![CDATA[<p>这第二个呢，其实和第一天是同一天啦</p><p>咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）</p><p>然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈</p><p><img src="https://i.loli.net/2020/03/25/nFqUBGHsJ1cuM3i.jpg" alt="DHCPUbuntu子系统之后的问题.jpg"></p><p>问题的解答就是</p><p>一、尝试恢复自动获取</p><p>​    重置IP：按win键（Fn和Alt中间的按键）+x键，选择命令提示符（管理员），或叫windows powershell（管理员），打开后<br>输入ipconfig空格/release 按下回车,<br>输入ipconfig空格/renew按下回车 ,<br>输入ipconfig空格/flushdns按下回车</p><p>二、更新网卡驱动</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这第二个呢，其实和第一天是同一天啦&lt;/p&gt;
+&lt;p&gt;咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）&lt;/p&gt;
+&lt;p&gt;然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每天和Dell客服学一招Day1</title>
     <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay1/"/>
     <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay1/</id>
@@ -392,22 +419,20 @@
   </entry>
   
   <entry>
-    <title>每天和Dell客服学一招Day2</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/</id>
+    <title>每天和Dell客服学一招Day4</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay4/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay4/</id>
     <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:47.133Z</updated>
+    <updated>2020-03-29T13:28:52.750Z</updated>
     
-    <content type="html"><![CDATA[<p>这第二个呢，其实和第一天是同一天啦</p><p>咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）</p><p>然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈</p><p><img src="https://i.loli.net/2020/03/25/nFqUBGHsJ1cuM3i.jpg" alt="DHCPUbuntu子系统之后的问题.jpg"></p><p>问题的解答就是</p><p>一、尝试恢复自动获取</p><p>​    重置IP：按win键（Fn和Alt中间的按键）+x键，选择命令提示符（管理员），或叫windows powershell（管理员），打开后<br>输入ipconfig空格/release 按下回车,<br>输入ipconfig空格/renew按下回车 ,<br>输入ipconfig空格/flushdns按下回车</p><p>二、更新网卡驱动</p>]]></content>
+    <content type="html"><![CDATA[<p>还原点设置</p><p>好的呢   不过咱们当前的系统版本有问题的呢  咱们这边如果设置了当前为还原点可能不大好哈<br>1.在Win10系统桌面上选中这台电脑，点击右键选择“属性”<br>2.点击系统窗口左侧的“系统保护”<br>3.在系统属性窗口的系统保护选项卡里，为C盘创建还原点。由于C盘的“保护”关闭，点击“配置”启用保护<br>4.选择启用系统保护，然后点击确定<br>5.点击后返回系统属性窗口，这时C盘的“保护”启用了，点击“创建”立即给启用系统保护的C盘驱动器创建还原点<br>6.在系统保护窗口输入创建还原点的名称。然后点击”创建“<br>7.点击后，系统开始创建还原点，还原点创建完成后，系统提示“已成功创建还原点”。然后点击关闭退出</p><p><img src="https://i.loli.net/2020/03/25/PNEyRt9H1XYOImZ.jpg" alt="还原点设置.jpg"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;这第二个呢，其实和第一天是同一天啦&lt;/p&gt;
-&lt;p&gt;咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）&lt;/p&gt;
-&lt;p&gt;然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈&lt;/p&gt;
-&lt;p&gt;
+        &lt;p&gt;还原点设置&lt;/p&gt;
+&lt;p&gt;好的呢   不过咱们当前的系统版本有问题的呢  咱们这边如果设置了当前为还原点可能不大好哈&lt;br&gt;1.在Win10系统桌面上选中这台电脑，点击右键选择“属性”&lt;br&gt;2.点击系统窗口左侧的“系统保护”&lt;br&gt;3.在系统属性窗口的系统保护选项卡里，为
       
     
     </summary>
@@ -445,31 +470,6 @@
   </entry>
   
   <entry>
-    <title>每天和Dell客服学一招Day6</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/</id>
-    <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:56.748Z</updated>
-    
-    <content type="html"><![CDATA[<p>这个是关于显卡驱动的问题解决办法</p><p>集显链接：<a href="https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE</a><br>独显链接:<a href="https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE</a><br>更新之前请先全部下载好驱动。<br>更新集显：请到开始-设置-应用-搜索因特尔或者/intel 查找显卡驱动，卸载完成后，重启运行驱动更新<br>更新独显：请到开始-设置-应用-搜索NVIDIA查找NVIDIA开头的所有驱动，卸载完成后，重启运行驱动更新 更新过程中，选择自定义，勾选执行清洁安装即可。</p><p><img src="https://i.loli.net/2020/03/25/CylDRLnkfiYSpNG.png" alt="0f7ff960519071cdbd176f7dd710be3.png"></p><p>这个是第一张图</p><p><img src="https://i.loli.net/2020/03/25/DnjYPBadSRgFKOZ.png" alt="092b2e55f72b3355eefbf82b233c082.png"></p><p>这个是第二张图</p><p><img src="https://i.loli.net/2020/03/25/R6doXSIeCOqNLly.jpg" alt="Day6.jpg"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这个是关于显卡驱动的问题解决办法&lt;/p&gt;
-&lt;p&gt;集显链接：&lt;a href=&quot;https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EX
-      
-    
-    </summary>
-    
-    
-    
-      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每天和Dell客服学一招Day7</title>
     <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay7/"/>
     <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay7/</id>
@@ -494,20 +494,20 @@
   </entry>
   
   <entry>
-    <title>每天和Dell客服学一招Day4</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay4/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay4/</id>
+    <title>每天和Dell客服学一招Day6</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/</id>
     <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:52.750Z</updated>
+    <updated>2020-03-29T13:28:56.748Z</updated>
     
-    <content type="html"><![CDATA[<p>还原点设置</p><p>好的呢   不过咱们当前的系统版本有问题的呢  咱们这边如果设置了当前为还原点可能不大好哈<br>1.在Win10系统桌面上选中这台电脑，点击右键选择“属性”<br>2.点击系统窗口左侧的“系统保护”<br>3.在系统属性窗口的系统保护选项卡里，为C盘创建还原点。由于C盘的“保护”关闭，点击“配置”启用保护<br>4.选择启用系统保护，然后点击确定<br>5.点击后返回系统属性窗口，这时C盘的“保护”启用了，点击“创建”立即给启用系统保护的C盘驱动器创建还原点<br>6.在系统保护窗口输入创建还原点的名称。然后点击”创建“<br>7.点击后，系统开始创建还原点，还原点创建完成后，系统提示“已成功创建还原点”。然后点击关闭退出</p><p><img src="https://i.loli.net/2020/03/25/PNEyRt9H1XYOImZ.jpg" alt="还原点设置.jpg"></p>]]></content>
+    <content type="html"><![CDATA[<p>这个是关于显卡驱动的问题解决办法</p><p>集显链接：<a href="https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE</a><br>独显链接:<a href="https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE</a><br>更新之前请先全部下载好驱动。<br>更新集显：请到开始-设置-应用-搜索因特尔或者/intel 查找显卡驱动，卸载完成后，重启运行驱动更新<br>更新独显：请到开始-设置-应用-搜索NVIDIA查找NVIDIA开头的所有驱动，卸载完成后，重启运行驱动更新 更新过程中，选择自定义，勾选执行清洁安装即可。</p><p><img src="https://i.loli.net/2020/03/25/CylDRLnkfiYSpNG.png" alt="0f7ff960519071cdbd176f7dd710be3.png"></p><p>这个是第一张图</p><p><img src="https://i.loli.net/2020/03/25/DnjYPBadSRgFKOZ.png" alt="092b2e55f72b3355eefbf82b233c082.png"></p><p>这个是第二张图</p><p><img src="https://i.loli.net/2020/03/25/R6doXSIeCOqNLly.jpg" alt="Day6.jpg"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;还原点设置&lt;/p&gt;
-&lt;p&gt;好的呢   不过咱们当前的系统版本有问题的呢  咱们这边如果设置了当前为还原点可能不大好哈&lt;br&gt;1.在Win10系统桌面上选中这台电脑，点击右键选择“属性”&lt;br&gt;2.点击系统窗口左侧的“系统保护”&lt;br&gt;3.在系统属性窗口的系统保护选项卡里，为
+        &lt;p&gt;这个是关于显卡驱动的问题解决办法&lt;/p&gt;
+&lt;p&gt;集显链接：&lt;a href=&quot;https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EX
       
     
     </summary>
