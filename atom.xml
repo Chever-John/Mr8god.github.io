@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://justtchachv.cn/"/>
-  <updated>2020-03-31T13:59:45.827Z</updated>
+  <updated>2020-03-31T15:15:47.267Z</updated>
   <id>https://justtchachv.cn/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://justtchachv.cn/2020/03/30/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/%E5%A4%A7%E6%95%B0%E5%AE%9A%E7%90%86%E5%8F%8A%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/"/>
     <id>https://justtchachv.cn/2020/03/30/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/%E5%A4%A7%E6%95%B0%E5%AE%9A%E7%90%86%E5%8F%8A%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/</id>
     <published>2020-03-30T12:11:08.084Z</published>
-    <updated>2020-03-31T13:59:45.827Z</updated>
+    <updated>2020-03-31T15:15:47.267Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="大数定理及中心极限定理"><a href="#大数定理及中心极限定理" class="headerlink" title="大数定理及中心极限定理"></a>大数定理及中心极限定理</h1><h2 id="依概率收敛、切比雪夫不等式"><a href="#依概率收敛、切比雪夫不等式" class="headerlink" title="依概率收敛、切比雪夫不等式"></a>依概率收敛、切比雪夫不等式</h2><h3 id="依概率收敛"><a href="#依概率收敛" class="headerlink" title="依概率收敛"></a>依概率收敛</h3><p><strong>定义</strong></p><p><img src="https://i.loli.net/2020/03/31/76nd8sprowBZkF3.jpg" alt="依概率收敛.jpg"></p><p>稍微解释一下哈，当存在一个任意值ε（大于0哈），当我们的n趋向于无穷大的时候，那么这个概率趋向于零。当然这么说就只是表面意思意思了，我们得详细地去了解一下呀。</p><p>这边需要举个例子了</p><p><img src="https://i.loli.net/2020/03/31/rZAgH74IonLY5CK.jpg" alt="依概率收敛的详细解释.jpg"></p><p>江某人有话说：这里看到贝努利试验，我想大家肯定会松了一大口气，因为这个东西大家肯定都懂。像咱们抛一次硬币就算一次贝努利试验，但是我们抛了n次硬币。这就叫做n重贝努利试验。</p><p>扯回正题哈，当咱们对某一件事件进行观测的时候，若事件A（为了便于解释，就把某一件事件设为事件A了）在一次试验发生的概率为P。利用n次事件中出现了na次事件A，算出事件A出现的频率（n/na）。</p><p>注意了。图中的公式是错误的。也就是，当n越大的时候，并不意味这一次事件的概率与咱们算的频率相等。我们讲的频率“稳定于”概率应该从可能性角度来讲。</p><p><img src="https://i.loli.net/2020/03/31/qaprc7XbC5zTJAf.jpg" alt="从可能性来讲概率收敛.jpg"></p><p>得出概念，只有满足以下公式</p><script type="math/tex; mode=display">\lim_{n\rightarrow+\infty}\{P|\frac{na}{n}-p|\geq ε\}=0</script><p>（楼上的公式打的不容易呀，害，真刺激！）</p><p>那么这种收敛就称为“依概率收敛”</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="大数定理及中心极限定理"><a href="#大数定理及中心极限定理" class="headerlink" title="大数定理及中心极限定理"></a>大数定理及中心极限定理</h1><h2 id="依概率收敛、切比雪夫不等式"><a href="#依概率收敛、切比雪夫不等式" class="headerlink" title="依概率收敛、切比雪夫不等式"></a>依概率收敛、切比雪夫不等式</h2><h3 id="依概率收敛"><a href="#依概率收敛" class="headerlink" title="依概率收敛"></a>依概率收敛</h3><p><strong>定义</strong></p><p><img src="https://i.loli.net/2020/03/31/76nd8sprowBZkF3.jpg" alt="依概率收敛.jpg"></p><p>稍微解释一下哈，当存在一个任意值ε（大于0哈），当我们的n趋向于无穷大的时候，那么这个概率趋向于零。当然这么说就只是表面意思意思了，我们得详细地去了解一下呀。</p><p>这边需要举个例子了</p><p><img src="https://i.loli.net/2020/03/31/rZAgH74IonLY5CK.jpg" alt="依概率收敛的详细解释.jpg"></p><p>江某人有话说：这里看到贝努利试验，我想大家肯定会松了一大口气，因为这个东西大家肯定都懂。像咱们抛一次硬币就算一次贝努利试验，但是我们抛了n次硬币。这就叫做n重贝努利试验。</p><p>扯回正题哈，当咱们对某一件事件进行观测的时候，若事件A（为了便于解释，就把某一件事件设为事件A了）在一次试验发生的概率为P。利用n次事件中出现了na次事件A，算出事件A出现的频率（n/na）。</p><p>注意了。图中的公式是错误的。也就是，当n越大的时候，并不意味这一次事件的概率与咱们算的频率相等。我们讲的频率“稳定于”概率应该从<strong>可能性角度</strong>来讲。</p><p><img src="https://i.loli.net/2020/03/31/qaprc7XbC5zTJAf.jpg" alt="从可能性来讲概率收敛.jpg"></p><p>得出概念，只有满足以下公式</p><script type="math/tex; mode=display">\lim_{n\rightarrow+\infty}P\{|\frac{na}{n}-p|\geq ε\}=0</script><p>（楼上的公式打的不容易呀，害，真刺激！）</p><p>那么这种收敛就称为“依概率收敛”</p><p><strong>依概率收敛的性质：</strong></p><p><img src="https://i.loli.net/2020/03/31/ZYroinA1RM6qgch.jpg" alt="依概率收敛的性质.jpg"></p><p>这边就由我江某人来给大家稍微讲解一下以助于理解哈：</p><p>首先前三行的意思是，当Xn依概率收敛到a，Yn依概率收敛到b，那么当n趋向于无穷是，且函数g(x,y)在点(a,b)上连续，那么g(Xn,Yn)依概率收敛到g(a,b)。</p><p>中间两行的意思是，Xn+Yn会依概率收敛到a+b，Xn/Yn会依概率收敛到a/b，XnxYn会依概率收敛到axb。</p><p>特别需要记住一点的是，最后两行，如果Xn依概率收敛到a，f(x)在a点连续，那么当n趋向于无穷的时候，f(Xn)依概率收敛到f(a)。</p><h3 id="切比雪夫不等式（Chebyshev不等式）"><a href="#切比雪夫不等式（Chebyshev不等式）" class="headerlink" title="切比雪夫不等式（Chebyshev不等式）"></a>切比雪夫不等式（Chebyshev不等式）</h3><p>设随机变量X具有数学期望，且它的数学期望E(X)=μ，方差D(X)=$σ^2$，则对于任意$ε&gt;0$，都有：</p><script type="math/tex; mode=display">P\{|X-μ|\geq ε\} \leq \frac{σ^2}{ε^2}</script><p>定理的等价形式为：</p><script type="math/tex; mode=display">P\{|X-μ| < ε\} \geq 1-\frac{σ^2}{ε^2}</script><p>// 此处明天补上证明过程。。。</p><p>X与它均值的偏差的绝对值大于等于ε的概率小于<script type="math/tex">\frac{σ^2}{ε^2}</script></p><p>适用范围广，但是结果相对来说比较粗糙。</p><p>//  此处后期补上例题解析</p><h2 id="大数定律"><a href="#大数定律" class="headerlink" title="大数定律"></a>大数定律</h2><p>频率的稳定值记为概率，这句话的意思，可以用一个公式来进行描述。</p><script type="math/tex; mode=display">\lim_{n\rightarrow+\infty}P\{|\frac{na}{n}-p|\geq ε\}=0</script><p>这个结论可以用“大数定律”来进行描述</p><p><strong>定理1（贝努力大数定律）</strong></p><p>记na为n重贝努利试验中事件A发生的次数，并记事件A在每次试验中发生的概率为p(0<p<1)，则对于$&forall ε > 0$有</p><script type="math/tex; mode=display">\lim_{n\rightarrow+\infty}P\{|\frac{na}{n}-p|\geq ε\}=0</script><p>即$\frac{na}{n}$趋向于P，当n趋向于+$\infty$</p><p>这就说明了，频率是依概率收敛的事件发生的概率的！！！</p><p>证明：略，明天补上。。。</p><p><strong>贝努力大数定律的重要意义：</strong></p><ol><li>提供了用大量重复独立试验中事件出现概率的极限值来确定概率的理论依据，使得概率的概念才有严格的意义。</li><li>提供了通过试验来确定事件概率的方法——可以通过做试验确定某事件发生的频率，并把它作为相应的概率估计，例如：想估计某产品的不合格品率p,可以随机抽取n（n较大）件，将n件产品的不合格品的比例作为p的估计。</li></ol><p><strong>大数定律(Laws of Large Numbers)</strong></p><p>内容：设X1，X2，……，Xn，……是一列随机变量，则在一定条件下，随机变量序列Yn=$\frac{X1+……+Xn}{n} $，收敛到μ，当n趋向于$\infty$的时候。</p><p>这边需要帮助理解的几个点是：</p><ol><li>随机变量序列Yn收敛到μ的含义是什么？答：依概率收敛</li><li>μ是什么？答：当Xi期望相同时，μ = E(Xi)</li><li>一定条件是什么？答：不一样的条件会得到不同的大数定律</li></ol><p><strong>定理2（切比雪夫大数定律的推论）</strong></p><p><strong>定理3（辛钦大数定律）</strong></p><p><strong>辛钦大数定律的意义：</strong></p>]]></content>
     
     <summary type="html">
     
@@ -392,21 +392,22 @@
   </entry>
   
   <entry>
-    <title>每天和Dell客服学一招Day5</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/</id>
+    <title>每天和Dell客服学一招Day2</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/</id>
     <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:54.635Z</updated>
+    <updated>2020-03-29T13:28:47.133Z</updated>
     
-    <content type="html"><![CDATA[<p>smartByte需要更新。启动浏览器问题</p><p><img src="https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png" alt="fc1f6b7fa29f50e8656173f59335abd.png"></p><p><img src="https://i.loli.net/2020/03/25/N73OVQFEemkYIo1.jpg" alt="smartbyte.jpg"></p><p><img src="https://i.loli.net/2020/03/25/OT6Buo1rcfJ3jiF.png" alt="74c17554962bcc14adca066f157b757.png"></p><p><img src="https://i.loli.net/2020/03/25/a4FvotCSGrkBX1q.png" alt="e23bbb9507808320bd5ee28593e690f.png"></p><p><img src="https://i.loli.net/2020/03/25/cRAwTgzPyZ5bOnk.png" alt="5a406f345f174e6b0e77864239a2a11.png"></p><p><img src="https://i.loli.net/2020/03/25/zX5IBYJjhspVmOM.png" alt="00bfb2e0cf79b5338a0bdb06b2994d1.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>这第二个呢，其实和第一天是同一天啦</p><p>咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）</p><p>然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈</p><p><img src="https://i.loli.net/2020/03/25/nFqUBGHsJ1cuM3i.jpg" alt="DHCPUbuntu子系统之后的问题.jpg"></p><p>问题的解答就是</p><p>一、尝试恢复自动获取</p><p>​    重置IP：按win键（Fn和Alt中间的按键）+x键，选择命令提示符（管理员），或叫windows powershell（管理员），打开后<br>输入ipconfig空格/release 按下回车,<br>输入ipconfig空格/renew按下回车 ,<br>输入ipconfig空格/flushdns按下回车</p><p>二、更新网卡驱动</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;smartByte需要更新。启动浏览器问题&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png&quot; alt=&quot;fc1f6b7fa29f50e8656173f59335abd.png&quot;&gt;&lt;/p&gt;
-
+        &lt;p&gt;这第二个呢，其实和第一天是同一天啦&lt;/p&gt;
+&lt;p&gt;咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）&lt;/p&gt;
+&lt;p&gt;然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈&lt;/p&gt;
+&lt;p&gt;
       
     
     </summary>
@@ -444,22 +445,46 @@
   </entry>
   
   <entry>
-    <title>每天和Dell客服学一招Day2</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/</id>
+    <title>每天和Dell客服学一招Day6</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/</id>
     <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:47.133Z</updated>
+    <updated>2020-03-29T13:28:56.748Z</updated>
     
-    <content type="html"><![CDATA[<p>这第二个呢，其实和第一天是同一天啦</p><p>咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）</p><p>然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈</p><p><img src="https://i.loli.net/2020/03/25/nFqUBGHsJ1cuM3i.jpg" alt="DHCPUbuntu子系统之后的问题.jpg"></p><p>问题的解答就是</p><p>一、尝试恢复自动获取</p><p>​    重置IP：按win键（Fn和Alt中间的按键）+x键，选择命令提示符（管理员），或叫windows powershell（管理员），打开后<br>输入ipconfig空格/release 按下回车,<br>输入ipconfig空格/renew按下回车 ,<br>输入ipconfig空格/flushdns按下回车</p><p>二、更新网卡驱动</p>]]></content>
+    <content type="html"><![CDATA[<p>这个是关于显卡驱动的问题解决办法</p><p>集显链接：<a href="https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE</a><br>独显链接:<a href="https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE</a><br>更新之前请先全部下载好驱动。<br>更新集显：请到开始-设置-应用-搜索因特尔或者/intel 查找显卡驱动，卸载完成后，重启运行驱动更新<br>更新独显：请到开始-设置-应用-搜索NVIDIA查找NVIDIA开头的所有驱动，卸载完成后，重启运行驱动更新 更新过程中，选择自定义，勾选执行清洁安装即可。</p><p><img src="https://i.loli.net/2020/03/25/CylDRLnkfiYSpNG.png" alt="0f7ff960519071cdbd176f7dd710be3.png"></p><p>这个是第一张图</p><p><img src="https://i.loli.net/2020/03/25/DnjYPBadSRgFKOZ.png" alt="092b2e55f72b3355eefbf82b233c082.png"></p><p>这个是第二张图</p><p><img src="https://i.loli.net/2020/03/25/R6doXSIeCOqNLly.jpg" alt="Day6.jpg"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;这第二个呢，其实和第一天是同一天啦&lt;/p&gt;
-&lt;p&gt;咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）&lt;/p&gt;
-&lt;p&gt;然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈&lt;/p&gt;
-&lt;p&gt;
+        &lt;p&gt;这个是关于显卡驱动的问题解决办法&lt;/p&gt;
+&lt;p&gt;集显链接：&lt;a href=&quot;https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EX
+      
+    
+    </summary>
+    
+    
+    
+      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天和Dell客服学一招Day5</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/</id>
+    <published>2020-03-19T12:01:11.000Z</published>
+    <updated>2020-03-29T13:28:54.635Z</updated>
+    
+    <content type="html"><![CDATA[<p>smartByte需要更新。启动浏览器问题</p><p><img src="https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png" alt="fc1f6b7fa29f50e8656173f59335abd.png"></p><p><img src="https://i.loli.net/2020/03/25/N73OVQFEemkYIo1.jpg" alt="smartbyte.jpg"></p><p><img src="https://i.loli.net/2020/03/25/OT6Buo1rcfJ3jiF.png" alt="74c17554962bcc14adca066f157b757.png"></p><p><img src="https://i.loli.net/2020/03/25/a4FvotCSGrkBX1q.png" alt="e23bbb9507808320bd5ee28593e690f.png"></p><p><img src="https://i.loli.net/2020/03/25/cRAwTgzPyZ5bOnk.png" alt="5a406f345f174e6b0e77864239a2a11.png"></p><p><img src="https://i.loli.net/2020/03/25/zX5IBYJjhspVmOM.png" alt="00bfb2e0cf79b5338a0bdb06b2994d1.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;smartByte需要更新。启动浏览器问题&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png&quot; alt=&quot;fc1f6b7fa29f50e8656173f59335abd.png&quot;&gt;&lt;/p&gt;
+
       
     
     </summary>
@@ -484,31 +509,6 @@
       
       
         &lt;h2 id=&quot;使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot;&gt;&lt;a href=&quot;#使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot; class=&quot;headerlink&quot; title=&quot;使用预装Win10的戴尔电脑最新恢复出厂设置方法&quot;&gt;&lt;/a&gt;使用预装Win10的戴尔电脑
-      
-    
-    </summary>
-    
-    
-    
-      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每天和Dell客服学一招Day6</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay6/</id>
-    <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:56.748Z</updated>
-    
-    <content type="html"><![CDATA[<p>这个是关于显卡驱动的问题解决办法</p><p>集显链接：<a href="https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EXE</a><br>独显链接:<a href="https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE" target="_blank" rel="noopener">https://dl.dell.com/FOLDER05761417M/1/nVIDIA-GeForce-GTX-1050-GTX-1050Ti-GTX-1060-with_1HM0K_WIN_26.21.14.3123_A05.EXE</a><br>更新之前请先全部下载好驱动。<br>更新集显：请到开始-设置-应用-搜索因特尔或者/intel 查找显卡驱动，卸载完成后，重启运行驱动更新<br>更新独显：请到开始-设置-应用-搜索NVIDIA查找NVIDIA开头的所有驱动，卸载完成后，重启运行驱动更新 更新过程中，选择自定义，勾选执行清洁安装即可。</p><p><img src="https://i.loli.net/2020/03/25/CylDRLnkfiYSpNG.png" alt="0f7ff960519071cdbd176f7dd710be3.png"></p><p>这个是第一张图</p><p><img src="https://i.loli.net/2020/03/25/DnjYPBadSRgFKOZ.png" alt="092b2e55f72b3355eefbf82b233c082.png"></p><p>这个是第二张图</p><p><img src="https://i.loli.net/2020/03/25/R6doXSIeCOqNLly.jpg" alt="Day6.jpg"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这个是关于显卡驱动的问题解决办法&lt;/p&gt;
-&lt;p&gt;集显链接：&lt;a href=&quot;https://dl.dell.com/FOLDER05670409M/2/Intel-UHD-Graphics-630-Driver_X6G1T_WIN_26.20.100.6860_A04.EX
       
     
     </summary>
