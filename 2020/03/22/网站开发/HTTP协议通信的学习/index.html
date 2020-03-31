@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
@@ -101,11 +101,11 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="Mr8god's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="alternate" href="/atom.xml" title="Mr8god's blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+  <div class="container use-motion">
     <div class="headband"></div>
 <a href="https://github.com/Mr8god/Mr8god.github.io" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -255,7 +255,6 @@
 <p><strong>注释：</strong>MIME Type 是该资源的媒体类型，MIME Type 不是个人指定的，是经过互联网（IETF）组织协商，以 RFC（是一系列以编号排定的文件，几乎所有的互联网标准都有收录在其中） 的形式作为建议的标准发布在网上的，大多数的 Web 服务器和用户代理都会支持这个规范 (顺便说一句，Email 附件的类型也是通过 MIME Type 指定的)。</p>
 <p>媒体类型通常通过HTTP协议，由web服务器告知浏览器的，更准确地说，是通过Content-Type来表示的。例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Type:text/HTML</span><br></pre></td></tr></table></figure>
-
 <p>通常只有一些互联网上获得广泛应用的格式才会获得一个 MIME Type，如果是某个客户端自己定义的格式，一般只能以 application/x- 开头</p>
 </li>
 <li><p>HTTP是无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</p>
@@ -287,128 +286,133 @@
 <h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>下面实例是一点典型的使用GET来传递数据的实例：</p>
 <p>客户端请求：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /hello.txt HTTP/<span class="number">1.1</span></span><br><span class="line">User-Agent: curl/<span class="number">7.16</span><span class="number">.3</span> libcurl/<span class="number">7.16</span><span class="number">.3</span> OpenSSL/<span class="number">0.9</span><span class="number">.7l</span> zlib/<span class="number">1.2</span><span class="number">.3</span></span><br><span class="line">Host: www.example.com</span><br><span class="line">Accept-Language: en, mi</span><br></pre></td></tr></table></figure>
-
 <p>服务端响应：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</span><br><span class="line">Date: Mon, <span class="number">27</span> Jul <span class="number">2009</span> <span class="number">12</span>:<span class="number">28</span>:<span class="number">53</span> GMT</span><br><span class="line">Server: Apache</span><br><span class="line">Last-Modified: Wed, <span class="number">22</span> Jul <span class="number">2009</span> <span class="number">19</span>:<span class="number">15</span>:<span class="number">56</span> GMT</span><br><span class="line">ETag: <span class="string">"34aa387-d-1568eb00"</span></span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Content-Length: <span class="number">51</span></span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">Content-Type: text/plain</span><br></pre></td></tr></table></figure>
-
 <p>输出结果：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World！ My payload includes a trailing CRLF.</span><br></pre></td></tr></table></figure>
-
 <h2 id="HTTP请求方式"><a href="#HTTP请求方式" class="headerlink" title="HTTP请求方式"></a>HTTP请求方式</h2><p>根据HTTP标准，HTTP请求可以使用多种请求方法。</p>
 <p>HTTP1.0定义了三种请求方法：GET，POST和HEAD方法。</p>
 <p>HTTP1.1新增了六种请求方法OPTIONS,PUT,PATCH,DELETE,TRACE和CONNECT方法。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">序号</th>
-<th align="left">方法</th>
-<th align="left">描述</th>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">1</td>
-<td align="left">GET</td>
-<td align="left">请求指定的页面信息，并返回实体主体。</td>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">GET</td>
+<td style="text-align:left">请求指定的页面信息，并返回实体主体。</td>
 </tr>
 <tr>
-<td align="left">2</td>
-<td align="left">HEAD</td>
-<td align="left">类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取报头</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">HEAD</td>
+<td style="text-align:left">类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取报头</td>
 </tr>
 <tr>
-<td align="left">3</td>
-<td align="left">POST</td>
-<td align="left">向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST 请求可能会导致新的资源的建立和/或已有资源的修改。</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">POST</td>
+<td style="text-align:left">向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST 请求可能会导致新的资源的建立和/或已有资源的修改。</td>
 </tr>
 <tr>
-<td align="left">4</td>
-<td align="left">PUT</td>
-<td align="left">从客户端向服务器传送的数据取代指定的文档的内容。</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">PUT</td>
+<td style="text-align:left">从客户端向服务器传送的数据取代指定的文档的内容。</td>
 </tr>
 <tr>
-<td align="left">5</td>
-<td align="left">DELETE</td>
-<td align="left">请求服务器删除指定的页面。</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">DELETE</td>
+<td style="text-align:left">请求服务器删除指定的页面。</td>
 </tr>
 <tr>
-<td align="left">6</td>
-<td align="left">CONNECT</td>
-<td align="left">HTTP/1.1 协议中预留给能够将连接改为管道方式的代理服务器。</td>
+<td style="text-align:left">6</td>
+<td style="text-align:left">CONNECT</td>
+<td style="text-align:left">HTTP/1.1 协议中预留给能够将连接改为管道方式的代理服务器。</td>
 </tr>
 <tr>
-<td align="left">7</td>
-<td align="left">OPTIONS</td>
-<td align="left">允许客户端查看服务器的性能。</td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">OPTIONS</td>
+<td style="text-align:left">允许客户端查看服务器的性能。</td>
 </tr>
 <tr>
-<td align="left">8</td>
-<td align="left">TRACE</td>
-<td align="left">回显服务器收到的请求，主要用于测试或诊断。</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">TRACE</td>
+<td style="text-align:left">回显服务器收到的请求，主要用于测试或诊断。</td>
 </tr>
 <tr>
-<td align="left">9</td>
-<td align="left">PATCH</td>
-<td align="left">是对 PUT 方法的补充，用来对已知资源进行局部更新 。</td>
+<td style="text-align:left">9</td>
+<td style="text-align:left">PATCH</td>
+<td style="text-align:left">是对 PUT 方法的补充，用来对已知资源进行局部更新 。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="HTTP响应头信息"><a href="#HTTP响应头信息" class="headerlink" title="HTTP响应头信息"></a>HTTP响应头信息</h2><p>HTTP请求头提供了关于请求，响应或者其他的发送实体的信息。</p>
 <p>在本章节中我们将具体来介绍HTTP响应头信息。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">应答头</th>
-<th align="left">说明</th>
+<th style="text-align:left">应答头</th>
+<th style="text-align:left">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">Allow</td>
-<td align="left">服务器支持哪些请求方法（如GET、POST等）。</td>
+<tbody>
+<tr>
+<td style="text-align:left">Allow</td>
+<td style="text-align:left">服务器支持哪些请求方法（如GET、POST等）。</td>
 </tr>
 <tr>
-<td align="left">Content-Encoding</td>
-<td align="left">文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档的下载时间。Java的GZIPOutputStream可以很方便地进行gzip压缩，但只有Unix上的Netscape和Windows上的IE 4、IE 5才支持它。因此，Servlet应该通过查看Accept-Encoding头（即request.getHeader(“Accept-Encoding”)）检查浏览器是否支持gzip，为支持gzip的浏览器返回经gzip压缩的HTML页面，为其他浏览器返回普通页面。</td>
+<td style="text-align:left">Content-Encoding</td>
+<td style="text-align:left">文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档的下载时间。Java的GZIPOutputStream可以很方便地进行gzip压缩，但只有Unix上的Netscape和Windows上的IE 4、IE 5才支持它。因此，Servlet应该通过查看Accept-Encoding头（即request.getHeader(“Accept-Encoding”)）检查浏览器是否支持gzip，为支持gzip的浏览器返回经gzip压缩的HTML页面，为其他浏览器返回普通页面。</td>
 </tr>
 <tr>
-<td align="left">Content-Length</td>
-<td align="left">表示内容长度。只有当浏览器使用持久HTTP连接时才需要这个数据。如果你想要利用持久连接的优势，可以把输出文档写入 ByteArrayOutputStream，完成后查看其大小，然后把该值放入Content-Length头，最后通过byteArrayStream.writeTo(response.getOutputStream()发送内容。</td>
+<td style="text-align:left">Content-Length</td>
+<td style="text-align:left">表示内容长度。只有当浏览器使用持久HTTP连接时才需要这个数据。如果你想要利用持久连接的优势，可以把输出文档写入 ByteArrayOutputStream，完成后查看其大小，然后把该值放入Content-Length头，最后通过byteArrayStream.writeTo(response.getOutputStream()发送内容。</td>
 </tr>
 <tr>
-<td align="left">Content-Type</td>
-<td align="left">表示后面的文档属于什么MIME类型。Servlet默认为text/plain，但通常需要显式地指定为text/html。由于经常要设置Content-Type，因此HttpServletResponse提供了一个专用的方法setContentType。</td>
+<td style="text-align:left">Content-Type</td>
+<td style="text-align:left">表示后面的文档属于什么MIME类型。Servlet默认为text/plain，但通常需要显式地指定为text/html。由于经常要设置Content-Type，因此HttpServletResponse提供了一个专用的方法setContentType。</td>
 </tr>
 <tr>
-<td align="left">Date</td>
-<td align="left">当前的GMT时间。你可以用setDateHeader来设置这个头以避免转换时间格式的麻烦。</td>
+<td style="text-align:left">Date</td>
+<td style="text-align:left">当前的GMT时间。你可以用setDateHeader来设置这个头以避免转换时间格式的麻烦。</td>
 </tr>
 <tr>
-<td align="left">Expires</td>
-<td align="left">应该在什么时候认为文档已经过期，从而不再缓存它？</td>
+<td style="text-align:left">Expires</td>
+<td style="text-align:left">应该在什么时候认为文档已经过期，从而不再缓存它？</td>
 </tr>
 <tr>
-<td align="left">Last-Modified</td>
-<td align="left">文档的最后改动时间。客户可以通过If-Modified-Since请求头提供一个日期，该请求将被视为一个条件GET，只有改动时间迟于指定时间的文档才会返回，否则返回一个304（Not Modified）状态。Last-Modified也可用setDateHeader方法来设置。</td>
+<td style="text-align:left">Last-Modified</td>
+<td style="text-align:left">文档的最后改动时间。客户可以通过If-Modified-Since请求头提供一个日期，该请求将被视为一个条件GET，只有改动时间迟于指定时间的文档才会返回，否则返回一个304（Not Modified）状态。Last-Modified也可用setDateHeader方法来设置。</td>
 </tr>
 <tr>
-<td align="left">Location</td>
-<td align="left">表示客户应当到哪里去提取文档。Location通常不是直接设置的，而是通过HttpServletResponse的sendRedirect方法，该方法同时设置状态代码为302。</td>
+<td style="text-align:left">Location</td>
+<td style="text-align:left">表示客户应当到哪里去提取文档。Location通常不是直接设置的，而是通过HttpServletResponse的sendRedirect方法，该方法同时设置状态代码为302。</td>
 </tr>
 <tr>
-<td align="left">Refresh</td>
-<td align="left">表示浏览器应该在多少时间之后刷新文档，以秒计。除了刷新当前文档之外，你还可以通过setHeader(“Refresh”, “5; URL=<a href="http://host/path&quot;)让浏览器读取指定的页面。" target="_blank" rel="noopener">http://host/path&quot;)让浏览器读取指定的页面。</a>  注意这种功能通常是通过设置HTML页面HEAD区的＜META HTTP-EQUIV=”Refresh” CONTENT=”5;URL=<a href="http://host/path&quot;＞实现，这是因为，自动刷新或重定向对于那些不能使用CGI或Servlet的HTML编写者十分重要。但是，对于Servlet来说，直接设置Refresh头更加方便。" target="_blank" rel="noopener">http://host/path&quot;＞实现，这是因为，自动刷新或重定向对于那些不能使用CGI或Servlet的HTML编写者十分重要。但是，对于Servlet来说，直接设置Refresh头更加方便。</a>   注意Refresh的意义是”N秒之后刷新本页面或访问指定页面”，而不是”每隔N秒刷新本页面或访问指定页面”。因此，连续刷新要求每次都发送一个Refresh头，而发送204状态代码则可以阻止浏览器继续刷新，不管是使用Refresh头还是＜META HTTP-EQUIV=”Refresh” …＞。   注意Refresh头不属于HTTP 1.1正式规范的一部分，而是一个扩展，但Netscape和IE都支持它。</td>
+<td style="text-align:left">Refresh</td>
+<td style="text-align:left">表示浏览器应该在多少时间之后刷新文档，以秒计。除了刷新当前文档之外，你还可以通过setHeader(“Refresh”, “5; URL=<a href="http://host/path&quot;)让浏览器读取指定的页面。" target="_blank" rel="noopener">http://host/path&quot;)让浏览器读取指定的页面。</a>  注意这种功能通常是通过设置HTML页面HEAD区的＜META HTTP-EQUIV=”Refresh” CONTENT=”5;URL=<a href="http://host/path&quot;＞实现，这是因为，自动刷新或重定向对于那些不能使用CGI或Servlet的HTML编写者十分重要。但是，对于Servlet来说，直接设置Refresh头更加方便。" target="_blank" rel="noopener">http://host/path&quot;＞实现，这是因为，自动刷新或重定向对于那些不能使用CGI或Servlet的HTML编写者十分重要。但是，对于Servlet来说，直接设置Refresh头更加方便。</a>   注意Refresh的意义是”N秒之后刷新本页面或访问指定页面”，而不是”每隔N秒刷新本页面或访问指定页面”。因此，连续刷新要求每次都发送一个Refresh头，而发送204状态代码则可以阻止浏览器继续刷新，不管是使用Refresh头还是＜META HTTP-EQUIV=”Refresh” …＞。   注意Refresh头不属于HTTP 1.1正式规范的一部分，而是一个扩展，但Netscape和IE都支持它。</td>
 </tr>
 <tr>
-<td align="left">Server</td>
-<td align="left">服务器名字。Servlet一般不设置这个值，而是由Web服务器自己设置。</td>
+<td style="text-align:left">Server</td>
+<td style="text-align:left">服务器名字。Servlet一般不设置这个值，而是由Web服务器自己设置。</td>
 </tr>
 <tr>
-<td align="left">Set-Cookie</td>
-<td align="left">设置和页面关联的Cookie。Servlet不应使用response.setHeader(“Set-Cookie”, …)，而是应使用HttpServletResponse提供的专用方法addCookie。参见下文有关Cookie设置的讨论。</td>
+<td style="text-align:left">Set-Cookie</td>
+<td style="text-align:left">设置和页面关联的Cookie。Servlet不应使用response.setHeader(“Set-Cookie”, …)，而是应使用HttpServletResponse提供的专用方法addCookie。参见下文有关Cookie设置的讨论。</td>
 </tr>
 <tr>
-<td align="left">WWW-Authenticate</td>
-<td align="left">客户应该在Authorization头中提供什么类型的授权信息？在包含401（Unauthorized）状态行的应答中这个头是必需的。例如，response.setHeader(“WWW-Authenticate”, “BASIC realm=＼”executives＼””)。  注意Servlet一般不进行这方面的处理，而是让Web服务器的专门机制来控制受密码保护页面的访问（例如.htaccess）。</td>
+<td style="text-align:left">WWW-Authenticate</td>
+<td style="text-align:left">客户应该在Authorization头中提供什么类型的授权信息？在包含401（Unauthorized）状态行的应答中这个头是必需的。例如，response.setHeader(“WWW-Authenticate”, “BASIC realm=＼”executives＼””)。  注意Servlet一般不进行这方面的处理，而是让Web服务器的专门机制来控制受密码保护页面的访问（例如.htaccess）。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><p>当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。</p>
 <p>HTTP状态码的英文为HTTP Status Code。</p>
 <p>下面是常见的HTTP状态码：</p>
@@ -419,35 +423,40 @@
 <li>500 - 内部服务器错误</li>
 </ul>
 <h3 id="HTTP状态码分类"><a href="#HTTP状态码分类" class="headerlink" title="HTTP状态码分类"></a>HTTP状态码分类</h3><p>HTTP状态码由三个十进制数字组成，第一个十进制数字定义了状态码的类型，后两个数字没有分类的作用。HTTP状态码共分为5种类型：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">分类</th>
-<th align="left">分类描述</th>
+<th style="text-align:left">分类</th>
+<th style="text-align:left">分类描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">1**</td>
-<td align="left">信息，服务器收到请求，需要请求者继续执行操作</td>
+<tbody>
+<tr>
+<td style="text-align:left">1**</td>
+<td style="text-align:left">信息，服务器收到请求，需要请求者继续执行操作</td>
 </tr>
 <tr>
-<td align="left">2**</td>
-<td align="left">成功，操作被成功接收并处理</td>
+<td style="text-align:left">2**</td>
+<td style="text-align:left">成功，操作被成功接收并处理</td>
 </tr>
 <tr>
-<td align="left">3**</td>
-<td align="left">重定向，需要进一步的操作以完成请求</td>
+<td style="text-align:left">3**</td>
+<td style="text-align:left">重定向，需要进一步的操作以完成请求</td>
 </tr>
 <tr>
-<td align="left">4**</td>
-<td align="left">客户端错误，请求包含语法错误或无法完成请求</td>
+<td style="text-align:left">4**</td>
+<td style="text-align:left">客户端错误，请求包含语法错误或无法完成请求</td>
 </tr>
 <tr>
-<td align="left">5**</td>
-<td align="left">服务器错误，服务器在处理请求的过程中发生了错误</td>
+<td style="text-align:left">5**</td>
+<td style="text-align:left">服务器错误，服务器在处理请求的过程中发生了错误</td>
 </tr>
-</tbody></table>
-<h3 id="HTTP状态码列表"><a href="#HTTP状态码列表" class="headerlink" title="HTTP状态码列表"></a>HTTP状态码列表</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="HTTP状态码列表"><a href="#HTTP状态码列表" class="headerlink" title="HTTP状态码列表"></a>HTTP状态码列表</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>状态码</th>
@@ -455,7 +464,8 @@
 <th>中文描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>100</td>
 <td>Continue</td>
 <td>继续。<a href="http://www.dreamdu.com/webbuild/client_vs_server/" target="_blank" rel="noopener">客户端</a>应继续其请求</td>
@@ -680,12 +690,13 @@
 <td>HTTP Version not supported</td>
 <td>服务器不支持请求的HTTP协议的版本，无法完成处理</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="HTTP-content-type"><a href="#HTTP-content-type" class="headerlink" title="HTTP content-type"></a>HTTP content-type</h2><p>Content-Type（内容类型），一般是指网页中存在的Content-Type，用于定义网络文件的类型和网页的编码，决定浏览器将以什么形式、什么编码读取这个文件，这就是经常看到一些PHP网页点击的结果却是下载一个文件或一张图片的原因。</p>
 <p>Content-Type标头告诉客户端实际返回的内容的内容类型。</p>
 <p>语法格式：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: text/html; charset=utf<span class="number">-8</span></span><br><span class="line">Content-Type: multipart/form-data; boundary=something</span><br></pre></td></tr></table></figure>
-
 <p>实例：</p>
 <p><img src="https://i.loli.net/2020/03/22/MIPzbna15prGkQ7.jpg" alt="F7E193D6-3C08-4B97-BAF2-FF340DAA5C6E_1_.jpg"></p>
 <p>常见的媒体格式类型如下：</p>
@@ -712,7 +723,8 @@
 <ul>
 <li>multipart/form-data ： 需要在表单中进行文件上传时，就需要使用该格式</li>
 </ul>
-<h3 id="HTTP-content-type对照表"><a href="#HTTP-content-type对照表" class="headerlink" title="HTTP content-type对照表"></a>HTTP content-type对照表</h3><table>
+<h3 id="HTTP-content-type对照表"><a href="#HTTP-content-type对照表" class="headerlink" title="HTTP content-type对照表"></a>HTTP content-type对照表</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>文件扩展名</th>
@@ -721,7 +733,8 @@
 <th>Content-Type(Mime-Type)</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>.*（ 二进制流，不知道下载文件类型）</td>
 <td>application/octet-stream</td>
 <td>.tif</td>
@@ -1753,7 +1766,9 @@
 <td>.xap</td>
 <td>application/x-silverlight-app</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 
     </div>
 
@@ -1967,7 +1982,7 @@
 <script src="/js/schemes/muse.js"></script>
 
 
-<script src="/js/next-boot.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/next-boot.js"></script>
 
 
 
