@@ -27,13 +27,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"justtchachv.cn","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"mr8god.cn","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="今天主要开始我的以Django框架为基础的博客开发啦说实话，前段时间由于自己的粗心，没有顾及得上，这一次正好乘着长假期，好好做出这个项目，把《Django企业开发实战》这本书看完，哦了，就这么水一天">
 <meta property="og:type" content="article">
 <meta property="og:title" content="以Django框架为基础的网站开发">
-<meta property="og:url" content="https://justtchachv.cn/2020/03/21/Python/%E4%BB%8A%E5%A4%A9%E4%B8%BB%E8%A6%81%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E4%BB%A5Django%E6%A1%86%E6%9E%B6%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E5%95%A6/index.html">
+<meta property="og:url" content="https://mr8god.cn/2020/03/21/Python/%E4%BB%8A%E5%A4%A9%E4%B8%BB%E8%A6%81%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E4%BB%A5Django%E6%A1%86%E6%9E%B6%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E5%95%A6/index.html">
 <meta property="og:site_name" content="Mr8god&#39;s blog">
 <meta property="og:description" content="今天主要开始我的以Django框架为基础的博客开发啦说实话，前段时间由于自己的粗心，没有顾及得上，这一次正好乘着长假期，好好做出这个项目，把《Django企业开发实战》这本书看完，哦了，就这么水一天">
 <meta property="og:locale" content="zh_CN">
@@ -43,7 +43,7 @@
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://justtchachv.cn/2020/03/21/Python/%E4%BB%8A%E5%A4%A9%E4%B8%BB%E8%A6%81%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E4%BB%A5Django%E6%A1%86%E6%9E%B6%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E5%95%A6/">
+<link rel="canonical" href="https://mr8god.cn/2020/03/21/Python/%E4%BB%8A%E5%A4%A9%E4%B8%BB%E8%A6%81%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E4%BB%A5Django%E6%A1%86%E6%9E%B6%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E5%95%A6/">
 
 
 <script id="page-configurations">
@@ -183,7 +183,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://justtchachv.cn/2020/03/21/Python/%E4%BB%8A%E5%A4%A9%E4%B8%BB%E8%A6%81%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E4%BB%A5Django%E6%A1%86%E6%9E%B6%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E5%95%A6/">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/03/21/Python/%E4%BB%8A%E5%A4%A9%E4%B8%BB%E8%A6%81%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E4%BB%A5Django%E6%A1%86%E6%9E%B6%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E5%95%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -252,7 +252,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://justtchachv.cn/2020/03/21/Python/%E4%BB%8A%E5%A4%A9%E4%B8%BB%E8%A6%81%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E4%BB%A5Django%E6%A1%86%E6%9E%B6%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E5%95%A6/" title="以Django框架为基础的网站开发">https://justtchachv.cn/2020/03/21/Python/今天主要开始我的以Django框架为基础的博客开发啦/</a>
+    <a href="https://mr8god.cn/2020/03/21/Python/%E4%BB%8A%E5%A4%A9%E4%B8%BB%E8%A6%81%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E4%BB%A5Django%E6%A1%86%E6%9E%B6%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E5%95%A6/" title="以Django框架为基础的网站开发">https://mr8god.cn/2020/03/21/Python/今天主要开始我的以Django框架为基础的博客开发啦/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
