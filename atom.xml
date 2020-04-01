@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://justtchachv.cn/"/>
-  <updated>2020-03-31T15:15:47.267Z</updated>
+  <updated>2020-04-01T05:23:49.692Z</updated>
   <id>https://justtchachv.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>论数理统计中统计量，常用统计量</title>
+    <link href="https://justtchachv.cn/2020/04/01/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/%E8%AE%BA%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E4%B8%AD%E7%BB%9F%E8%AE%A1%E9%87%8F%EF%BC%8C%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E9%87%8F/"/>
+    <id>https://justtchachv.cn/2020/04/01/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/%E8%AE%BA%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E4%B8%AD%E7%BB%9F%E8%AE%A1%E9%87%8F%EF%BC%8C%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E9%87%8F/</id>
+    <published>2020-04-01T05:23:07.889Z</published>
+    <updated>2020-04-01T05:23:49.692Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="论数理统计中统计量，常用统计量"><a href="#论数理统计中统计量，常用统计量" class="headerlink" title="论数理统计中统计量，常用统计量"></a>论数理统计中统计量，常用统计量</h1><p><img src="https://i.loli.net/2020/04/01/iLPZ5e413UNdvW6.jpg" alt="391.jpg"></p><h2 id="从样本中提取有用的信息来研究总体的分布及各种特征数的过程叫做构造统计量"><a href="#从样本中提取有用的信息来研究总体的分布及各种特征数的过程叫做构造统计量" class="headerlink" title="从样本中提取有用的信息来研究总体的分布及各种特征数的过程叫做构造统计量"></a>从样本中提取有用的信息来研究总体的分布及各种特征数的过程叫做构造统计量</h2><p>统计量：样本的不含任何位置参数的函数</p><p><img src="https://i.loli.net/2020/04/01/KDc79iWh8Tvz6xy.jpg" alt="392.jpg"></p><h2 id="常用统计量"><a href="#常用统计量" class="headerlink" title="常用统计量"></a>常用统计量</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>样本均值<br>样本方差<br>样本标准差<br>样本矩</p><h4 id="样本均值和总体均值的区别"><a href="#样本均值和总体均值的区别" class="headerlink" title="样本均值和总体均值的区别"></a>样本均值和总体均值的区别</h4><p><img src="https://i.loli.net/2020/04/01/oOYC6BNKpJxyRDu.jpg" alt="393.jpg"></p><p><img src="https://i.loli.net/2020/04/01/cWUvxPpwblEDnhQ.jpg" alt="394.jpg"></p><p><img src="https://i.loli.net/2020/04/01/KbjzXNJBZxSL8ht.jpg" alt="395.jpg"></p><p>从上面的例子我们可以总结出这样的结论</p><p>样本均值的平均值等于总体均值<br>样本方差的平均值等于总体均值</p><h3 id="当总体数字特征未知时，我们可以总结出以下的方法来求数字特征"><a href="#当总体数字特征未知时，我们可以总结出以下的方法来求数字特征" class="headerlink" title="当总体数字特征未知时，我们可以总结出以下的方法来求数字特征"></a>当总体数字特征未知时，我们可以总结出以下的方法来求数字特征</h3><ol><li>用样本均值估计总体均值</li><li>用样本方差估计总体方差</li><li>用样本原点矩估计总体原点矩</li><li>用样本中心矩估计总体中心矩</li></ol><h3 id="统计量的分布被称为抽样分布"><a href="#统计量的分布被称为抽样分布" class="headerlink" title="统计量的分布被称为抽样分布"></a>统计量的分布被称为抽样分布</h3><p>总体服从一般分布，如指数分布均匀，分布等要得出统计量的分布是很困难的<br>总体服从正态分布时统计量样本均值样本方差是可以计算的</p><h2 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h2><p>方法：</p><ol><li>求最大最小值，并求极差</li><li>分组定组距（一般数据个数n&gt;=50，分成10组以上；小于的时候，一般分为5组）</li><li>定分点定区间</li><li>统计数据落入各组间的概率</li><li>画出直方图</li></ol><p>作图反应数据特征</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;论数理统计中统计量，常用统计量&quot;&gt;&lt;a href=&quot;#论数理统计中统计量，常用统计量&quot; class=&quot;headerlink&quot; title=&quot;论数理统计中统计量，常用统计量&quot;&gt;&lt;/a&gt;论数理统计中统计量，常用统计量&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://
+      
+    
+    </summary>
+    
+    
+      <category term="数理知识" scheme="https://justtchachv.cn/categories/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="概率论" scheme="https://justtchachv.cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>论概率论中大数定理及中心极限定理</title>
@@ -341,6 +367,59 @@
   </entry>
   
   <entry>
+    <title>每天和Dell客服学一招Day1</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay1/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay1/</id>
+    <published>2020-03-19T12:01:11.000Z</published>
+    <updated>2020-03-29T13:28:02.935Z</updated>
+    
+    <content type="html"><![CDATA[<p>问题描述：我在每一次使用office的产品，比如说word，抑或者是ppt都会报错，报错显示</p><p>登录word报错信息为</p><p><img src="https://i.loli.net/2020/03/25/YisQv72FSe6W3od.jpg" alt="批注 2020-03-25 114256.jpg"></p><p>登录PPT报错为</p><p><img src="https://i.loli.net/2020/03/25/WMcjbHfzF7DPul5.jpg" alt="批注 2020-03-25 114238.jpg"></p><p>客服给出的解释是：</p><p><img src="https://i.loli.net/2020/03/25/DtNP54F6mKEb3yo.jpg" alt="officeDell客服有话说.jpg"></p><p>好的~您这边先修复看看，如果这边无法修复的话只能卸载重装一下office哦~如果这边激活过的话可以尝试这边的方法下载的哦~<br>1.微软账号登入：<a href="https://dell.to/2JaaMAT" target="_blank" rel="noopener">https://dell.to/2JaaMAT</a><br>2.点击“服务和订阅”模块<br>3.选择下方Pc版office家庭和学生版 对应左侧“管理订阅”<br>4.可以看到“安装office”</p><p>最后呢，我是解决了我的word的问题，但是我还有一个PPT的问题该咋办呢，这个的话我就在Google上的csdn上找到了解答，并且成功解决了问题</p><p><a href="https://blog.csdn.net/u012332816/article/details/103411273" target="_blank" rel="noopener">https://blog.csdn.net/u012332816/article/details/103411273</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;问题描述：我在每一次使用office的产品，比如说word，抑或者是ppt都会报错，报错显示&lt;/p&gt;
+&lt;p&gt;登录word报错信息为&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/YisQv72FSe6W3od.jpg&quot; alt
+      
+    
+    </summary>
+    
+    
+    
+      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天和Dell客服学一招Day2</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/</id>
+    <published>2020-03-19T12:01:11.000Z</published>
+    <updated>2020-03-29T13:28:47.133Z</updated>
+    
+    <content type="html"><![CDATA[<p>这第二个呢，其实和第一天是同一天啦</p><p>咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）</p><p>然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈</p><p><img src="https://i.loli.net/2020/03/25/nFqUBGHsJ1cuM3i.jpg" alt="DHCPUbuntu子系统之后的问题.jpg"></p><p>问题的解答就是</p><p>一、尝试恢复自动获取</p><p>​    重置IP：按win键（Fn和Alt中间的按键）+x键，选择命令提示符（管理员），或叫windows powershell（管理员），打开后<br>输入ipconfig空格/release 按下回车,<br>输入ipconfig空格/renew按下回车 ,<br>输入ipconfig空格/flushdns按下回车</p><p>二、更新网卡驱动</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这第二个呢，其实和第一天是同一天啦&lt;/p&gt;
+&lt;p&gt;咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）&lt;/p&gt;
+&lt;p&gt;然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每天和Dell客服学一招Day3</title>
     <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/"/>
     <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/</id>
@@ -392,48 +471,21 @@
   </entry>
   
   <entry>
-    <title>每天和Dell客服学一招Day2</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/</id>
+    <title>每天和Dell客服学一招Day5</title>
+    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/"/>
+    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/</id>
     <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:47.133Z</updated>
+    <updated>2020-03-29T13:28:54.635Z</updated>
     
-    <content type="html"><![CDATA[<p>这第二个呢，其实和第一天是同一天啦</p><p>咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）</p><p>然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈</p><p><img src="https://i.loli.net/2020/03/25/nFqUBGHsJ1cuM3i.jpg" alt="DHCPUbuntu子系统之后的问题.jpg"></p><p>问题的解答就是</p><p>一、尝试恢复自动获取</p><p>​    重置IP：按win键（Fn和Alt中间的按键）+x键，选择命令提示符（管理员），或叫windows powershell（管理员），打开后<br>输入ipconfig空格/release 按下回车,<br>输入ipconfig空格/renew按下回车 ,<br>输入ipconfig空格/flushdns按下回车</p><p>二、更新网卡驱动</p>]]></content>
+    <content type="html"><![CDATA[<p>smartByte需要更新。启动浏览器问题</p><p><img src="https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png" alt="fc1f6b7fa29f50e8656173f59335abd.png"></p><p><img src="https://i.loli.net/2020/03/25/N73OVQFEemkYIo1.jpg" alt="smartbyte.jpg"></p><p><img src="https://i.loli.net/2020/03/25/OT6Buo1rcfJ3jiF.png" alt="74c17554962bcc14adca066f157b757.png"></p><p><img src="https://i.loli.net/2020/03/25/a4FvotCSGrkBX1q.png" alt="e23bbb9507808320bd5ee28593e690f.png"></p><p><img src="https://i.loli.net/2020/03/25/cRAwTgzPyZ5bOnk.png" alt="5a406f345f174e6b0e77864239a2a11.png"></p><p><img src="https://i.loli.net/2020/03/25/zX5IBYJjhspVmOM.png" alt="00bfb2e0cf79b5338a0bdb06b2994d1.png"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;这第二个呢，其实和第一天是同一天啦&lt;/p&gt;
-&lt;p&gt;咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）&lt;/p&gt;
-&lt;p&gt;然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈&lt;/p&gt;
-&lt;p&gt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每天和Dell客服学一招Day1</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay1/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay1/</id>
-    <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:02.935Z</updated>
-    
-    <content type="html"><![CDATA[<p>问题描述：我在每一次使用office的产品，比如说word，抑或者是ppt都会报错，报错显示</p><p>登录word报错信息为</p><p><img src="https://i.loli.net/2020/03/25/YisQv72FSe6W3od.jpg" alt="批注 2020-03-25 114256.jpg"></p><p>登录PPT报错为</p><p><img src="https://i.loli.net/2020/03/25/WMcjbHfzF7DPul5.jpg" alt="批注 2020-03-25 114238.jpg"></p><p>客服给出的解释是：</p><p><img src="https://i.loli.net/2020/03/25/DtNP54F6mKEb3yo.jpg" alt="officeDell客服有话说.jpg"></p><p>好的~您这边先修复看看，如果这边无法修复的话只能卸载重装一下office哦~如果这边激活过的话可以尝试这边的方法下载的哦~<br>1.微软账号登入：<a href="https://dell.to/2JaaMAT" target="_blank" rel="noopener">https://dell.to/2JaaMAT</a><br>2.点击“服务和订阅”模块<br>3.选择下方Pc版office家庭和学生版 对应左侧“管理订阅”<br>4.可以看到“安装office”</p><p>最后呢，我是解决了我的word的问题，但是我还有一个PPT的问题该咋办呢，这个的话我就在Google上的csdn上找到了解答，并且成功解决了问题</p><p><a href="https://blog.csdn.net/u012332816/article/details/103411273" target="_blank" rel="noopener">https://blog.csdn.net/u012332816/article/details/103411273</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;问题描述：我在每一次使用office的产品，比如说word，抑或者是ppt都会报错，报错显示&lt;/p&gt;
-&lt;p&gt;登录word报错信息为&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/YisQv72FSe6W3od.jpg&quot; alt
+        &lt;p&gt;smartByte需要更新。启动浏览器问题&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png&quot; alt=&quot;fc1f6b7fa29f50e8656173f59335abd.png&quot;&gt;&lt;/p&gt;
+
       
     
     </summary>
@@ -470,32 +522,6 @@
   </entry>
   
   <entry>
-    <title>每天和Dell客服学一招Day5</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/</id>
-    <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:54.635Z</updated>
-    
-    <content type="html"><![CDATA[<p>smartByte需要更新。启动浏览器问题</p><p><img src="https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png" alt="fc1f6b7fa29f50e8656173f59335abd.png"></p><p><img src="https://i.loli.net/2020/03/25/N73OVQFEemkYIo1.jpg" alt="smartbyte.jpg"></p><p><img src="https://i.loli.net/2020/03/25/OT6Buo1rcfJ3jiF.png" alt="74c17554962bcc14adca066f157b757.png"></p><p><img src="https://i.loli.net/2020/03/25/a4FvotCSGrkBX1q.png" alt="e23bbb9507808320bd5ee28593e690f.png"></p><p><img src="https://i.loli.net/2020/03/25/cRAwTgzPyZ5bOnk.png" alt="5a406f345f174e6b0e77864239a2a11.png"></p><p><img src="https://i.loli.net/2020/03/25/zX5IBYJjhspVmOM.png" alt="00bfb2e0cf79b5338a0bdb06b2994d1.png"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;smartByte需要更新。启动浏览器问题&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png&quot; alt=&quot;fc1f6b7fa29f50e8656173f59335abd.png&quot;&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每天和Dell客服学一招Day7</title>
     <link href="https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay7/"/>
     <id>https://justtchachv.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay7/</id>
@@ -516,32 +542,6 @@
     
     
       <category term="向Dell客服学习" scheme="https://justtchachv.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>From Next：HelloWorld！</title>
-    <link href="https://justtchachv.cn/2020/03/19/%E5%BB%BA%E7%AB%99%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/hello-world/"/>
-    <id>https://justtchachv.cn/2020/03/19/%E5%BB%BA%E7%AB%99%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/hello-world/</id>
-    <published>2020-03-19T11:17:56.136Z</published>
-    <updated>2020-03-29T14:21:10.008Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-    
-      <category term="建博客那些事儿" scheme="https://justtchachv.cn/categories/%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"/>
-    
-    
-      <category term="hexo_Next" scheme="https://justtchachv.cn/tags/hexo-Next/"/>
     
   </entry>
   
