@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mr8god.cn/"/>
-  <updated>2020-04-04T15:39:20.940Z</updated>
+  <updated>2020-04-06T15:52:38.083Z</updated>
   <id>https://mr8god.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java面向对象基础回顾</title>
+    <link href="https://mr8god.cn/2020/04/06/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/"/>
+    <id>https://mr8god.cn/2020/04/06/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/</id>
+    <published>2020-04-06T15:52:38.083Z</published>
+    <updated>2020-04-06T15:52:38.083Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Java面向对象基础回顾"><a href="#Java面向对象基础回顾" class="headerlink" title="Java面向对象基础回顾"></a>Java面向对象基础回顾</h1><p>定义类、创建对象、调用方法</p><h2 id="定义类"><a href="#定义类" class="headerlink" title="定义类"></a>定义类</h2><p>[修饰符] class 类名</p><p>{</p><pre><code>    // 成员变量    // 方法    // 构造器    // 初始化块    // 内部类</code></pre><p>}</p><h2 id="定义成员变量"><a href="#定义成员变量" class="headerlink" title="定义成员变量"></a>定义成员变量</h2><p>[修饰符]    类型    变量名[ = 初始值]；</p><h2 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a>定义方法</h2><p>[修饰符]    返回值类型    方法名（形参列表）</p><p>{</p><pre><code>    // 各种代码。定义变量、赋值语句、流程控制、输出语句</code></pre><p>}</p><h2 id="定义构造器"><a href="#定义构造器" class="headerlink" title="定义构造器"></a>定义构造器</h2><p>[修饰符]    构造器名（形参列表）</p><p>{</p><pre><code>    // 各种代码。定义变量、赋值语句、流程控制、输出语句</code></pre><p>}</p><p>构造器，很像一个特殊的方法</p><p>跟方法的两点区别：</p><ol><li>没有返回值类型声明，</li><li>构造器名必须类名相同。</li></ol><p>构造器作用：用于初始化对象——构造器永远属于实例。它不可能用static修饰。</p><h2 id="类可以用来干什么？"><a href="#类可以用来干什么？" class="headerlink" title="类可以用来干什么？"></a>类可以用来干什么？</h2><ol><li>定义变量。所有类都是引用类型。</li><li>调用类变量或类方法。</li><li>创建对象。</li><li>派生子类。</li></ol><h2 id="对象可以用来干什么？"><a href="#对象可以用来干什么？" class="headerlink" title="对象可以用来干什么？"></a>对象可以用来干什么？</h2><ol><li>调用实例变量</li><li>调用实例方法</li></ol><p>调用方法或变量：</p><pre><code>    调用者.方法([参数]);    调用者.实例变量;</code></pre><h2 id="方法详解"><a href="#方法详解" class="headerlink" title="方法详解"></a>方法详解</h2><ul><li>方法所属性。<ul><li>从定义的角度来看，方法不能独立定义，方法必须定义在类里面。</li><li>从调入的角度来看，方法不能独立执行，方法必须有调入者才能执行。<ul><li>类方法：也称静态方法，在方法前加static关键字，就代表这个方法属于这个类本身，不属于它的任何实例。换句话说，这个方法不通过实例进行调用，并且所有实例都共享这一个方法，对方法的调用各个实例相互可见。</li><li>实例方法：一个方法如果不加上static关键字，那么这个方法就是实例方法。意思是它属于类的某个实例，通过这个实例调用它，对类的其他实例不产生影响。</li><li>无论如何，方法都需要调用者，区别在于你在写的时候，要根据方法的类型，是类方法就用类名，是实例方法就用对象去调用它。有些情况下，</li><li>在同一个类里面的一个方法里面调用另一个方法，这个时候会省略前面的调用者。省略也分两种情况，<ul><li>如果被调用的是实例方法，那么省略的就是；</li><li>如果被调用的是类方法，那么省略的就是类名（不是对象哦！）</li></ul></li></ul></li></ul></li></ul><p>我再补充几句哈，免得有人看不懂，上面其实说得就是这么个意思，如果你用的是静态方法（前头加static的那个），那么这边建议你用类名调用，不建议了，强制比较好一点。然后呢，这边又提出了个省略型，静态方法的调用呢，我们甚至可以省略掉类名，直接上咱们的方法。</p><p>如果你使用的是非静态方法（不加static，亦或者叫做实例方法），那么你就必须得创建一个对象，然后用对象来调用方法。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">fn1</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"fn1"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fn2</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"fn2"</span>);</span><br><span class="line">        Test.fn1();<span class="comment">// 这边也可以直接省略掉Test.，比如说向下边这么写</span></span><br><span class="line">        <span class="comment">//fn1();  // 这就是上面说的，直接省略掉类名，上咱们的方法</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Test t = <span class="keyword">new</span> Test();</span><br><span class="line">        t.fn2();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>形参个数可变的方法</li><li>递归方法：</li><li>方法重载：2同1不同</li><li>方法的传参机制：值传递，传递的是参数的副本，并不是参数本身</li></ul><h2 id="变量的详解"><a href="#变量的详解" class="headerlink" title="变量的详解"></a>变量的详解</h2><p>成员变量（类里面定义）</p><ul><li>类变量。有static。静态变量</li><li>实例变量。无static。非静态变量</li></ul><p>成员变量，无需由程序员显式指定初始值，系统会为之分配默认初始值；</p><p>初始值规则：与数组元素的初始值规则完全相同</p><ul><li><p>类变量：是在第一次用该类的时候，系统会为该类变量分配空间，并初始化。</p><p>每个类的类变量都只有一个</p></li><li><p>实例变量：每次创建对象，系统都会为该对象的实例变量分配空间，并初始化。</p><pre><code>                程序中有几个对象，系统就会为这些对象的实例变量分配对应的空间。</code></pre></li></ul><p>局部变量（方法里定义）</p><ul><li>形参</li><li>方法里局部变量</li><li>代码块的局部变量</li></ul><p>局部变量</p><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>封装、继承、多态——面向对象的3大特征。</p><p>封装包含了两方面的内容</p><ul><li>隐藏：隐藏的内部实现细节。</li><li>暴露：将一些操作界面暴露出来。<br>如果通过暴露的界面来操作对象，该对象的内部状态不会被破坏。</li></ul><p>简而言之：封装要求合理隐藏、合理暴露、</p><ul><li>通过访问控制器实现：</li></ul><p>private -&gt;         不写        -&gt;        protected        -&gt;        public</p><p>private（类访问权限）：该修饰符修饰的成员，只能在该类中被访问。</p><p>不写（包访问权限）：该修饰符修饰的成员，只能在该类及其该类所在包中被访问。</p><p>protected（子类访问权限）：该修饰符修饰的成员，只能在该类、及其该类所在包、该类的子类中被访问。</p><p>public（公共）：该修饰符修饰的成员可以在任意地方被访问。</p><div class="table-container"><table><thead><tr><th></th><th>private</th><th>不写</th><th>protected</th><th>public</th></tr></thead><tbody><tr><td>当前类</td><td>√</td><td>√</td><td>√</td><td>√</td></tr><tr><td>同一个包</td><td>×</td><td>√</td><td>√</td><td>√</td></tr><tr><td>子类</td><td>×</td><td>×</td><td>√</td><td>√</td></tr><tr><td>任意</td><td>×</td><td>×</td><td>×</td><td>√</td></tr><tr><td></td><td>彻底隐藏</td><td>部分隐藏</td><td>部分暴露</td><td>彻底暴露</td></tr></tbody></table></div><p>指导原则：</p><ol><li>成员变量（实例变量），通常用private修饰，为了隐藏实现细节</li><li>为每个成员变量提供getter、setter方法，用于控制该成员变量</li><li>需要暴露的方法，通常用public修饰</li><li>如果希望一个方法主要用于被子类重写，用protected修饰。</li></ol><ul><li><p>包<br>不同公司完全可以定义同名的类，为解决类名冲突的问题，不同公司不同项目的类名重复的问题。<br>Java就引入了“包”的机制。</p><p>举例理解：同一个班的两个同名的同学，为了区别他们，我们通常 会加一些修饰语，比如说“大江”“小江”<br>这边就是在类名前面添加一个前缀。<br>Java如何为类定义包？</p><ul><li>在源代码中用package包名；</li><li>将生成class文件要放在对应的文件结构下。</li></ul><p>包名的命名规范：语法要求，只要标识符即可</p><pre><code>                            专业要求，推荐用公司域名倒写：比如org.fkjava.项目名;就挺好。</code></pre><p>【备注】一旦你为类指定了包名之后，使用该类时应该用完整类名：包名+类名</p></li><li><p>导入包<br>impo的作用：为了省略写包名。</p><pre><code>                    如果不用import，每次用类时都需要使用包名+类名的形式。</code></pre><ul><li>import 包名.类名；——每次导入一个类</li><li>import 包名.* ——导入指定的所有类</li><li>Java程序默认已导入java.lang包下所有包</li></ul></li><li>静态导入 import static<ul><li>import的作用：为了省略写包名。</li><li>import static的作用：可以省略写类名。<pre><code>                                  用于导入指定类的所有静态成员，导入之后，即可省略写类名。</code></pre></li><li>import static 包名.类名.静态成员名; ——每次只导入一个静态成员。</li><li>import static 包名.类名.*;  ——导入指定类的所有静态成员。</li></ul></li><li>Java源程序的结构：<br>一条package语句<br>N条import语句<br>N个class定义</li></ul><h2 id="构造器详解"><a href="#构造器详解" class="headerlink" title="构造器详解"></a>构造器详解</h2><h3 id="构造器规则"><a href="#构造器规则" class="headerlink" title="构造器规则"></a>构造器规则</h3><ol><li>构造器用于初始化对象。</li><li>构造器如何调用？必须用new来调用啦。这样就可以返回一个初始化完成的对象。</li><li>如果你不为一个类提供构造器，那么系统会自动为该类提供一个无参数的构造器</li></ol><h2 id="构造器重载"><a href="#构造器重载" class="headerlink" title="构造器重载"></a>构造器重载</h2><p>一个类中可以定义多个构造器（因此构造器名必然相同），必须要求形参列表不同——这就是构造器的重载</p><p>this调用与this引用</p><p>this引用：this紧跟一个。<br>                    this.name;<br>                    this.walk();</p><p>this调用：this紧跟圆括号。<br>                 this（参数）<br>                    this调用代表调用同一个类中重载的构造器——this调用只能出现在【构造器】的【第一行】</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Java面向对象基础回顾&quot;&gt;&lt;a href=&quot;#Java面向对象基础回顾&quot; class=&quot;headerlink&quot; title=&quot;Java面向对象基础回顾&quot;&gt;&lt;/a&gt;Java面向对象基础回顾&lt;/h1&gt;&lt;p&gt;定义类、创建对象、调用方法&lt;/p&gt;
+&lt;h2 id=&quot;定义类&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://mr8god.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Java" scheme="https://mr8god.cn/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>浅谈Java内存</title>
@@ -511,32 +538,6 @@
 &lt;p&gt;咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）&lt;/p&gt;
 &lt;p&gt;然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈&lt;/p&gt;
 &lt;p&gt;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="向Dell客服学习" scheme="https://mr8god.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每天和Dell客服学一招Day3</title>
-    <link href="https://mr8god.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/"/>
-    <id>https://mr8god.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay3/</id>
-    <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:50.167Z</updated>
-    
-    <content type="html"><![CDATA[<p>由于呢，我是突发奇想要做这一类的博客的，所以很多案例都是之前就发生的。啧啧啧，那么我就倒推来放上我的博客啦</p><p>咳咳，老样子首先问题描述：</p><p><img src="https://i.loli.net/2020/03/25/zGfm1QSMkgTapxX.jpg" alt="71c60863817d7d7da10569ff28a3f5b.jpg"></p><p><img src="https://i.loli.net/2020/03/25/P8OUtYE2bHSBQcJ.jpg" alt="第一个问题.jpg"></p><p><img src="https://i.loli.net/2020/03/25/UdZzmRVfI98Kv7G.png" alt="2e0e8cc7a92c55f9251b5f92554c05b.png"></p><p><img src="https://i.loli.net/2020/03/25/Dfe8WXRx16ZBpmg.jpg" alt="第一个问题2.jpg"></p><p><strong>好嘞 这边来看确实是驱动没有提示要更新呢 那这样哈 咱们这边尝试手动更新一下相关驱动  然后看看是否问题依旧呢  这边麻烦您复制以下链接到浏览器中打开并安装哈<br><a href="https://dell.to/2P2R3IW" target="_blank" rel="noopener">https://dell.to/2P2R3IW</a><br><a href="https://dell.to/2P2R4N0" target="_blank" rel="noopener">https://dell.to/2P2R4N0</a></strong></p><p><img src="https://i.loli.net/2020/03/25/mLZwJynECBKfOb1.png" alt="a4499a56308287f7689477617cdbc53.png"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;由于呢，我是突发奇想要做这一类的博客的，所以很多案例都是之前就发生的。啧啧啧，那么我就倒推来放上我的博客啦&lt;/p&gt;
-&lt;p&gt;咳咳，老样子首先问题描述：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/zGfm1QSMkgTapxX
       
     
     </summary>
