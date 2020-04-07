@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mr8god.cn/"/>
-  <updated>2020-04-07T07:00:45.649Z</updated>
+  <updated>2020-04-07T08:33:49.172Z</updated>
   <id>https://mr8god.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面向对象快速回顾(以便于考试快速回顾哈！)</title>
+    <link href="https://mr8god.cn/2020/04/07/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BF%AB%E9%80%9F%E5%9B%9E%E9%A1%BE/"/>
+    <id>https://mr8god.cn/2020/04/07/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BF%AB%E9%80%9F%E5%9B%9E%E9%A1%BE/</id>
+    <published>2020-04-07T08:32:43.436Z</published>
+    <updated>2020-04-07T08:33:49.172Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="面向对象快速回顾"><a href="#面向对象快速回顾" class="headerlink" title="面向对象快速回顾"></a>面向对象快速回顾</h1><p>345</p><p>3种类型：类、接口、枚举</p><p>4个修饰符：private|protected|public、final、static、abstract</p><p>5个成员</p><h2 id="定义类的语法"><a href="#定义类的语法" class="headerlink" title="定义类的语法"></a>定义类的语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] class 类名 extends 父类</span><br><span class="line">&#123;</span><br><span class="line">&#x2F;&#x2F; 5大成员</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="定义成员变量"><a href="#定义成员变量" class="headerlink" title="定义成员变量"></a>定义成员变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] 类型 变量名[ &#x3D; 初始值];</span><br></pre></td></tr></table></figure><h2 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a>定义方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] 返回值类型 方法名（形参列表）</span><br><span class="line">&#123;</span><br><span class="line">语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="定义构造器"><a href="#定义构造器" class="headerlink" title="定义构造器"></a>定义构造器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] 构造器名（形参列表）</span><br><span class="line">&#123;</span><br><span class="line">语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="定义初始化块"><a href="#定义初始化块" class="headerlink" title="定义初始化块"></a>定义初始化块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[static] &#123;</span><br><span class="line">语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="类用于干甚？"><a href="#类用于干甚？" class="headerlink" title="类用于干甚？"></a>类用于干甚？</h2><ul><li>定义变量</li><li>创建对象</li><li>调用类、方法或者是访问类变量</li><li>派生子类</li></ul><h2 id="对象用于干甚？"><a href="#对象用于干甚？" class="headerlink" title="对象用于干甚？"></a>对象用于干甚？</h2><ul><li>调用实例方法或访问实例变量</li></ul><h2 id="方法（传参机制、递归方法、形参个数可变的方法、方法重载）"><a href="#方法（传参机制、递归方法、形参个数可变的方法、方法重载）" class="headerlink" title="方法（传参机制、递归方法、形参个数可变的方法、方法重载）"></a>方法（传参机制、递归方法、形参个数可变的方法、方法重载）</h2><h2 id="变量（判断变量：先看位置，再看static；成员变量和局部变量）"><a href="#变量（判断变量：先看位置，再看static；成员变量和局部变量）" class="headerlink" title="变量（判断变量：先看位置，再看static；成员变量和局部变量）"></a>变量（判断变量：先看位置，再看static；成员变量和局部变量）</h2><h2 id="构造器（构造器重载、this调用）"><a href="#构造器（构造器重载、this调用）" class="headerlink" title="构造器（构造器重载、this调用）"></a>构造器（构造器重载、this调用）</h2><p>this调用——出现在构造器的第一行，表明调用同一个类中重载的构造器</p><h2 id="初始化块（实例初始化块、类初始化块）"><a href="#初始化块（实例初始化块、类初始化块）" class="headerlink" title="初始化块（实例初始化块、类初始化块）"></a>初始化块（实例初始化块、类初始化块）</h2><p>实力初始化块：本质是构造器所有代码之前的代码；</p><p>类初始化块：本质是该类第一次被主动执行时，只运行一次。</p><h2 id="访问权限修饰符"><a href="#访问权限修饰符" class="headerlink" title="访问权限修饰符"></a>访问权限修饰符</h2><p>private —&gt; 不写 —&gt; protected —&gt; public</p><h2 id="继承、多态"><a href="#继承、多态" class="headerlink" title="继承、多态"></a>继承、多态</h2><p>Java是单继承的。</p><p>方法重写：两同两小一大。</p><p>子类构造器一定会调用父类构造器一次：创建任何对象，都是从Object的构造器开始执行的。</p><p>多态中：</p><p>​    方法执行：总是动态绑定实际类型的方法。<br>​                        强制转换、instanceof - 必须在有继承关系的两个类型之间进行处理，否则会编译报错。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;面向对象快速回顾&quot;&gt;&lt;a href=&quot;#面向对象快速回顾&quot; class=&quot;headerlink&quot; title=&quot;面向对象快速回顾&quot;&gt;&lt;/a&gt;面向对象快速回顾&lt;/h1&gt;&lt;p&gt;345&lt;/p&gt;
+&lt;p&gt;3种类型：类、接口、枚举&lt;/p&gt;
+&lt;p&gt;4个修饰符：private|p
+      
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://mr8god.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Java" scheme="https://mr8god.cn/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Java面向对象基础回顾</title>
@@ -511,33 +539,6 @@
         &lt;p&gt;问题描述：我在每一次使用office的产品，比如说word，抑或者是ppt都会报错，报错显示&lt;/p&gt;
 &lt;p&gt;登录word报错信息为&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/03/25/YisQv72FSe6W3od.jpg&quot; alt
-      
-    
-    </summary>
-    
-    
-    
-      <category term="向Dell客服学习" scheme="https://mr8god.cn/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每天和Dell客服学一招Day2</title>
-    <link href="https://mr8god.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/"/>
-    <id>https://mr8god.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/</id>
-    <published>2020-03-19T12:01:11.000Z</published>
-    <updated>2020-03-29T13:28:47.133Z</updated>
-    
-    <content type="html"><![CDATA[<p>这第二个呢，其实和第一天是同一天啦</p><p>咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）</p><p>然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈</p><p><img src="https://i.loli.net/2020/03/25/nFqUBGHsJ1cuM3i.jpg" alt="DHCPUbuntu子系统之后的问题.jpg"></p><p>问题的解答就是</p><p>一、尝试恢复自动获取</p><p>​    重置IP：按win键（Fn和Alt中间的按键）+x键，选择命令提示符（管理员），或叫windows powershell（管理员），打开后<br>输入ipconfig空格/release 按下回车,<br>输入ipconfig空格/renew按下回车 ,<br>输入ipconfig空格/flushdns按下回车</p><p>二、更新网卡驱动</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这第二个呢，其实和第一天是同一天啦&lt;/p&gt;
-&lt;p&gt;咳咳，首先开始问题描绘：我在安装Windows子系统的时候，打开开发者模式……（略过略过）&lt;/p&gt;
-&lt;p&gt;然后我重启之后，安装完子系统Ubuntu之后出现了DHCP服务无法正常重启的问题。这个我也问了我客服哈&lt;/p&gt;
-&lt;p&gt;
       
     
     </summary>
