@@ -30,27 +30,20 @@
     var CONFIG = {"hostname":"mr8god.cn","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="smartByte需要更新。启动浏览器问题">
+  <meta name="description" content="Java——数组数组：可以一次定义，就可以得到多个类型相同、功能相似的变量，本质还是变量 数组类型java类型可以分成基本类型、应用类型  基本类型：8个 引用类型：数组、类、接口、枚举    数组其实就是一种引用类型。 任何已有的类型，添加一组方括号就可以变成数组类型 int ：属于基本类型 int[]：属于引用类型 int[]（是一个整体，得连在一起写，一定要注意哈！） long">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每天和Dell客服学一招Day5">
-<meta property="og:url" content="https://mr8god.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/index.html">
+<meta property="og:title" content="Java——数组">
+<meta property="og:url" content="https://mr8god.cn/2020/04/09/Java/%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94java/index.html">
 <meta property="og:site_name" content="Mr8god&#39;s blog">
-<meta property="og:description" content="smartByte需要更新。启动浏览器问题">
+<meta property="og:description" content="Java——数组数组：可以一次定义，就可以得到多个类型相同、功能相似的变量，本质还是变量 数组类型java类型可以分成基本类型、应用类型  基本类型：8个 引用类型：数组、类、接口、枚举    数组其实就是一种引用类型。 任何已有的类型，添加一组方括号就可以变成数组类型 int ：属于基本类型 int[]：属于引用类型 int[]（是一个整体，得连在一起写，一定要注意哈！） long">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/25/N73OVQFEemkYIo1.jpg">
-<meta property="og:image" content="https://i.loli.net/2020/03/25/OT6Buo1rcfJ3jiF.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/25/a4FvotCSGrkBX1q.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/25/cRAwTgzPyZ5bOnk.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/25/zX5IBYJjhspVmOM.png">
-<meta property="article:published_time" content="2020-03-19T12:01:11.000Z">
-<meta property="article:modified_time" content="2020-03-29T13:28:54.635Z">
+<meta property="article:published_time" content="2020-04-09T12:59:47.219Z">
+<meta property="article:modified_time" content="2020-04-09T12:59:39.045Z">
 <meta property="article:author" content="Mr8god">
-<meta property="article:tag" content="向Dell客服学习">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png">
 
-<link rel="canonical" href="https://mr8god.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/">
+<link rel="canonical" href="https://mr8god.cn/2020/04/09/Java/%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94java/">
 
 
 <script id="page-configurations">
@@ -63,7 +56,7 @@
   };
 </script>
 
-  <title>每天和Dell客服学一招Day5 | Mr8god's blog</title>
+  <title>Java——数组 | Mr8god's blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162074438-1# <app_id>"></script>
     <script>
@@ -190,7 +183,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/09/Java/%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94java/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -203,7 +196,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          每天和Dell客服学一招Day5
+          Java——数组
         </h1>
 
         <div class="post-meta">
@@ -212,16 +205,19 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-03-19 20:01:11" itemprop="dateCreated datePublished" datetime="2020-03-19T20:01:11+08:00">2020-03-19</time>
+              <time title="创建时间：2020-04-09 20:59:47 / 修改时间：20:59:39" itemprop="dateCreated datePublished" datetime="2020-04-09T20:59:47+08:00">2020-04-09</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-29 21:28:54" itemprop="dateModified" datetime="2020-03-29T21:28:54+08:00">2020-03-29</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
 
           
 
@@ -234,13 +230,64 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>smartByte需要更新。启动浏览器问题</p>
-<p><img src="https://i.loli.net/2020/03/25/8ZxiAuphPEcaNBT.png" alt="fc1f6b7fa29f50e8656173f59335abd.png"></p>
-<p><img src="https://i.loli.net/2020/03/25/N73OVQFEemkYIo1.jpg" alt="smartbyte.jpg"></p>
-<p><img src="https://i.loli.net/2020/03/25/OT6Buo1rcfJ3jiF.png" alt="74c17554962bcc14adca066f157b757.png"></p>
-<p><img src="https://i.loli.net/2020/03/25/a4FvotCSGrkBX1q.png" alt="e23bbb9507808320bd5ee28593e690f.png"></p>
-<p><img src="https://i.loli.net/2020/03/25/cRAwTgzPyZ5bOnk.png" alt="5a406f345f174e6b0e77864239a2a11.png"></p>
-<p><img src="https://i.loli.net/2020/03/25/zX5IBYJjhspVmOM.png" alt="00bfb2e0cf79b5338a0bdb06b2994d1.png"></p>
+        <h1 id="Java——数组"><a href="#Java——数组" class="headerlink" title="Java——数组"></a>Java——数组</h1><p>数组：可以一次定义，就可以得到多个类型相同、功能相似的变量，本质还是变量</p>
+<h2 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h2><p>java类型可以分成基本类型、应用类型</p>
+<ol>
+<li>基本类型：8个<ol>
+<li>引用类型：数组、类、接口、枚举</li>
+</ol>
+</li>
+</ol>
+<p><strong>数组其实就是一种引用类型。</strong></p>
+<p>任何已有的类型，添加一组方括号就可以变成数组类型</p>
+<p>int ：属于基本类型</p>
+<p>int[]：属于引用类型</p>
+<p>int[]（是一个整体，得连在一起写，一定要注意哈！）</p>
+<p>long         -&gt; long[]</p>
+<p>String       -&gt; String[]</p>
+<p>double     -&gt; double[]</p>
+<p>int []         -&gt; int $[][]$</p>
+<p>数组元素的类型：是数组类型去掉一组方括号</p>
+<p> 比如说int[]数组元素的类型，就是int</p>
+<h3 id="创建数组对象（数组初始化）"><a href="#创建数组对象（数组初始化）" class="headerlink" title="创建数组对象（数组初始化）"></a>创建数组对象（数组初始化）</h3><ol>
+<li><p>静态初始化</p>
+<p>new 类型[] {元素1, 元素2,  ……}<br>不指定长度，只指定每个元素。<br><del>静态初始化的简化语法，省略掉in[]，但是这种方法只能在定义数组变量初始值的时候进行使用</del>，只能在定义数组变量，并赋初始值时使用。</p>
+</li>
+<li><p>动态初始化<br>new 类型[] {元素1, 元素2,  ……}<br>只指定长度，不指定每个元素。<br>系统会自动为每个元素分配初始值，其分配规则是：</p>
+<ul>
+<li>所有数组元素为数值类型时，数组元素的初始值为0；</li>
+<li>所有数组元素为boolean类型时，数组元素的初始值为false</li>
+<li>所有数组元素为引用类型时，数组元素的初始值为null</li>
+</ul>
+</li>
+</ol>
+<h3 id="使用数组"><a href="#使用数组" class="headerlink" title="使用数组"></a>使用数组</h3><ol>
+<li><p>数组都有一个length属性，该属性返回数组的长度</p>
+<p>数组一旦创建，其长度是固定的，他在内存中位置也是固定的。</p>
+</li>
+<li><p>每个数组元素，就相当于一个变量。数组元素的类型，就是数组类型去掉一组方括号<br>访问数组元素：<br>数组元素[索引] ——索引从0开始。最后一个元素的索引是length-1<br>使用的元素超出数组长度，就会导致ArrayIndexOutOfBoundsException: 4（数组索引越界异常）</p>
+</li>
+<li><p>遍历数组 - 依次使用每个元素</p>
+</li>
+<li><p>使用for each循环遍历数组<br>for(元素类型 变量名：数组名){</p>
+<p>​        // 可通过变量名访问每个元素、</p>
+<p>}<br>数组有几个元素，该循环就执行几次，变量会自动、依次等于每个元素。<br>foreach遍历只能访问数组元素的值，不能修改数组元素的值。<br><strong>建议</strong>：永远不要在foreach循环中修改计数器的值！</p>
+</li>
+</ol>
+<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="深入理解数组"><a href="#深入理解数组" class="headerlink" title="深入理解数组"></a>深入理解数组</h3><p>数组是一种引用类型，<strong>引用类型和基本类型的区别在哪里？</strong></p>
+<p>java程序的内存可以分成两种：</p>
+<h4 id="堆-heap-内存："><a href="#堆-heap-内存：" class="headerlink" title="-堆(heap)内存："></a>-堆(heap)内存：</h4><p>java虚拟机启动时分配的一块永久的、很大的内存区。堆内存只有一块。</p>
+<p><strong>java程序必须要使用虚拟机才能运行！</strong>。内存区我们是看不到的。java-Xms可以设置初始java堆大小。比如手 java -Xmx256 内存只有245兆。很容易就会爆内存。 </p>
+<p>Error occurred during initialization of VM<br>Too small initial heap</p>
+<p>上面两行就是爆内存的报错</p>
+<h4 id="栈-stack-内存："><a href="#栈-stack-内存：" class="headerlink" title="-栈(stack)内存："></a>-栈(stack)内存：</h4><p>每次方法运行分配一块临时、很小的内存区。</p>
+<p>每个方法都有自己相应的栈区，方法结束时，对应的栈区就会被回收。</p>
+<p>几个方法就有几个栈区</p>
+<h4 id="在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。"><a href="#在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。" class="headerlink" title="-在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。"></a>-在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。</h4><h4 id="new出来的东西，都在堆内存"><a href="#new出来的东西，都在堆内存" class="headerlink" title="-new出来的东西，都在堆内存"></a>-new出来的东西，都在堆内存</h4><p>堆内存中的对象，如果没有引用变量指向它，那它就变成了trash，等待vm的垃圾回收机制回收它。</p>
+<p>计算机的每个内存单元（Byte、字节)在操作系统中都有一个编号，就像是一栋大楼的每个房间号</p>
+<p>【变量赋值的区别：】</p>
+<p>-基本类型的赋值：直接将该值存入变量所在内存</p>
+<p>-引用类型的赋值：将该对象所在第一个内存单元的编号（内存地址）存入变量。</p>
 
     </div>
 
@@ -256,7 +303,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://mr8god.cn/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay5/" title="每天和Dell客服学一招Day5">https://mr8god.cn/2020/03/19/每天和Dell客服学一招/每天和Dell客服学一招Day5/</a>
+    <a href="https://mr8god.cn/2020/04/09/Java/%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94java/" title="Java——数组">https://mr8god.cn/2020/04/09/Java/数组——java/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -283,7 +330,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%90%91Dell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B9%A0/" rel="tag"># 向Dell客服学习</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
           </div>
 
         
@@ -292,13 +339,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay7/" rel="prev" title="每天和Dell客服学一招Day7">
-      <i class="fa fa-chevron-left"></i> 每天和Dell客服学一招Day7
+    <a href="/2020/04/09/Java/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="prev" title="Java——类型转换">
+      <i class="fa fa-chevron-left"></i> Java——类型转换
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/19/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9B/%E6%AF%8F%E5%A4%A9%E5%92%8CDell%E5%AE%A2%E6%9C%8D%E5%AD%A6%E4%B8%80%E6%8B%9BDay2/" rel="next" title="每天和Dell客服学一招Day2">
-      每天和Dell客服学一招Day2 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -358,6 +402,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java——数组"><span class="nav-number">1.</span> <span class="nav-text">Java——数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组类型"><span class="nav-number">1.1.</span> <span class="nav-text">数组类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数组对象（数组初始化）"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建数组对象（数组初始化）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用数组"><span class="nav-number">1.1.2.</span> <span class="nav-text">使用数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">1.1.3.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入理解数组"><span class="nav-number">1.1.4.</span> <span class="nav-text">深入理解数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#堆-heap-内存："><span class="nav-number">1.1.4.1.</span> <span class="nav-text">-堆(heap)内存：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#栈-stack-内存："><span class="nav-number">1.1.4.2.</span> <span class="nav-text">-栈(stack)内存：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">-在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new出来的东西，都在堆内存"><span class="nav-number">1.1.4.4.</span> <span class="nav-text">-new出来的东西，都在堆内存</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
