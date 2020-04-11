@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
@@ -30,20 +30,20 @@
     var CONFIG = {"hostname":"mr8god.cn","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="面向对象快速回顾345 3种类型：类、接口、枚举 4个修饰符：private|protected|public、final、static、abstract 5个成员 定义类的语法1234[修饰符] class 类名 extends 父类&amp;#123;		&#x2F;&#x2F; 5大成员&amp;#125; 定义成员变量1[修饰符] 类型 变量名[ &#x3D; 初始值]; 定义方法1234[修饰符] 返回">
+  <meta name="description" content="Java速记——变量详解Java没有全局变量的概念！！！ Java变量  成员变量： 位置：类中定义成员变量 类变量 ： 有static 实例变量 ： 无static     局部变量 位置：方法中定义局部变量 形参 普通局部变量 代码块的局部变量      判断变量：  首先看位置 然后看修饰符  成员变量：可以不需要显式指定初始值，系统可以自动分配初始值； 初始值规则与数组元素的初始值规则完全">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向对象快速回顾(以便于考试快速回顾哈！)">
-<meta property="og:url" content="https://mr8god.cn/2020/04/07/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BF%AB%E9%80%9F%E5%9B%9E%E9%A1%BE/index.html">
+<meta property="og:title" content="Java速记——变量详解">
+<meta property="og:url" content="https://mr8god.cn/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E5%8F%98%E9%87%8F%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Mr8god&#39;s blog">
-<meta property="og:description" content="面向对象快速回顾345 3种类型：类、接口、枚举 4个修饰符：private|protected|public、final、static、abstract 5个成员 定义类的语法1234[修饰符] class 类名 extends 父类&amp;#123;		&#x2F;&#x2F; 5大成员&amp;#125; 定义成员变量1[修饰符] 类型 变量名[ &#x3D; 初始值]; 定义方法1234[修饰符] 返回">
+<meta property="og:description" content="Java速记——变量详解Java没有全局变量的概念！！！ Java变量  成员变量： 位置：类中定义成员变量 类变量 ： 有static 实例变量 ： 无static     局部变量 位置：方法中定义局部变量 形参 普通局部变量 代码块的局部变量      判断变量：  首先看位置 然后看修饰符  成员变量：可以不需要显式指定初始值，系统可以自动分配初始值； 初始值规则与数组元素的初始值规则完全">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-07T08:32:43.436Z">
-<meta property="article:modified_time" content="2020-04-08T14:06:38.134Z">
+<meta property="article:published_time" content="2020-04-09T12:57:33.307Z">
+<meta property="article:modified_time" content="2020-04-11T05:04:15.608Z">
 <meta property="article:author" content="Mr8god">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://mr8god.cn/2020/04/07/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BF%AB%E9%80%9F%E5%9B%9E%E9%A1%BE/">
+<link rel="canonical" href="https://mr8god.cn/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E5%8F%98%E9%87%8F%E8%AF%A6%E8%A7%A3/">
 
 
 <script id="page-configurations">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title>面向对象快速回顾(以便于考试快速回顾哈！) | Mr8god's blog</title>
+  <title>Java速记——变量详解 | Mr8god's blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162074438-1# <app_id>"></script>
     <script>
@@ -96,11 +96,11 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="Mr8god's blog" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Mr8god's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 <a href="https://github.com/Mr8god/Mr8god.github.io" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -183,7 +183,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/07/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BF%AB%E9%80%9F%E5%9B%9E%E9%A1%BE/">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E5%8F%98%E9%87%8F%E8%AF%A6%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -196,7 +196,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          面向对象快速回顾(以便于考试快速回顾哈！)
+          Java速记——变量详解
         </h1>
 
         <div class="post-meta">
@@ -206,14 +206,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-07 16:32:43" itemprop="dateCreated datePublished" datetime="2020-04-07T16:32:43+08:00">2020-04-07</time>
+              <time title="创建时间：2020-04-09 20:57:33" itemprop="dateCreated datePublished" datetime="2020-04-09T20:57:33+08:00">2020-04-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-08 22:06:38" itemprop="dateModified" datetime="2020-04-08T22:06:38+08:00">2020-04-08</time>
+                <time title="修改时间：2020-04-11 13:04:15" itemprop="dateModified" datetime="2020-04-11T13:04:15+08:00">2020-04-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -236,33 +236,50 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="面向对象快速回顾"><a href="#面向对象快速回顾" class="headerlink" title="面向对象快速回顾"></a>面向对象快速回顾</h1><p>345</p>
-<p>3种类型：类、接口、枚举</p>
-<p>4个修饰符：private|protected|public、final、static、abstract</p>
-<p>5个成员</p>
-<h2 id="定义类的语法"><a href="#定义类的语法" class="headerlink" title="定义类的语法"></a>定义类的语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] class 类名 extends 父类</span><br><span class="line">&#123;</span><br><span class="line">		&#x2F;&#x2F; 5大成员</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="定义成员变量"><a href="#定义成员变量" class="headerlink" title="定义成员变量"></a>定义成员变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] 类型 变量名[ &#x3D; 初始值];</span><br></pre></td></tr></table></figure>
-<h2 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a>定义方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] 返回值类型 方法名（形参列表）</span><br><span class="line">&#123;</span><br><span class="line">		语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="定义构造器"><a href="#定义构造器" class="headerlink" title="定义构造器"></a>定义构造器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] 构造器名（形参列表）</span><br><span class="line">&#123;</span><br><span class="line">			语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="定义初始化块"><a href="#定义初始化块" class="headerlink" title="定义初始化块"></a>定义初始化块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[static] &#123;</span><br><span class="line">	语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="类用于干甚？"><a href="#类用于干甚？" class="headerlink" title="类用于干甚？"></a>类用于干甚？</h2><ul>
-<li>定义变量</li>
-<li>创建对象</li>
-<li>调用类、方法或者是访问类变量</li>
-<li>派生子类</li>
+        <h1 id="Java速记——变量详解"><a href="#Java速记——变量详解" class="headerlink" title="Java速记——变量详解"></a>Java速记——变量详解</h1><p>Java没有全局变量的概念！！！</p>
+<p>Java变量</p>
+<ul>
+<li>成员变量：<ul>
+<li>位置：类中定义成员变量<ul>
+<li>类变量 ： 有static</li>
+<li>实例变量 ： 无static</li>
 </ul>
-<h2 id="对象用于干甚？"><a href="#对象用于干甚？" class="headerlink" title="对象用于干甚？"></a>对象用于干甚？</h2><ul>
-<li>调用实例方法或访问实例变量</li>
+</li>
 </ul>
-<h2 id="方法（传参机制、递归方法、形参个数可变的方法、方法重载）"><a href="#方法（传参机制、递归方法、形参个数可变的方法、方法重载）" class="headerlink" title="方法（传参机制、递归方法、形参个数可变的方法、方法重载）"></a>方法（传参机制、递归方法、形参个数可变的方法、方法重载）</h2><h2 id="变量（判断变量：先看位置，再看static；成员变量和局部变量）"><a href="#变量（判断变量：先看位置，再看static；成员变量和局部变量）" class="headerlink" title="变量（判断变量：先看位置，再看static；成员变量和局部变量）"></a>变量（判断变量：先看位置，再看static；成员变量和局部变量）</h2><h2 id="构造器（构造器重载、this调用）"><a href="#构造器（构造器重载、this调用）" class="headerlink" title="构造器（构造器重载、this调用）"></a>构造器（构造器重载、this调用）</h2><p>this调用——出现在构造器的第一行，表明调用同一个类中重载的构造器</p>
-<h2 id="初始化块（实例初始化块、类初始化块）"><a href="#初始化块（实例初始化块、类初始化块）" class="headerlink" title="初始化块（实例初始化块、类初始化块）"></a>初始化块（实例初始化块、类初始化块）</h2><p>实力初始化块：本质是构造器所有代码之前的代码；</p>
-<p>类初始化块：本质是该类第一次被主动执行时，只运行一次。</p>
-<h2 id="访问权限修饰符"><a href="#访问权限修饰符" class="headerlink" title="访问权限修饰符"></a>访问权限修饰符</h2><p>private —&gt; 不写 —&gt; protected —&gt; public</p>
-<h2 id="继承、多态"><a href="#继承、多态" class="headerlink" title="继承、多态"></a>继承、多态</h2><p>Java是单继承的。</p>
-<p>方法重写：两同两小一大。</p>
-<p>子类构造器一定会调用父类构造器一次：创建任何对象，都是从Object的构造器开始执行的。</p>
-<p>多态中：</p>
-<p>​    方法执行：总是动态绑定实际类型的方法。<br>​                        强制转换、instanceof - 必须在有继承关系的两个类型之间进行处理，否则会编译报错。</p>
+</li>
+<li>局部变量<ul>
+<li>位置：方法中定义局部变量<ul>
+<li>形参</li>
+<li>普通局部变量</li>
+<li>代码块的局部变量</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>判断变量：</p>
+<ol>
+<li>首先看位置</li>
+<li>然后看修饰符</li>
+</ol>
+<h2 id="成员变量："><a href="#成员变量：" class="headerlink" title="成员变量："></a>成员变量：</h2><p>可以不需要显式指定初始值，系统可以自动分配初始值；</p>
+<p>初始值规则与数组元素的初始值规则完全能相同。</p>
+<p><strong>观点</strong>：程序中，类本身只有一个；程序一定先有类，再有对象（实例）！！！</p>
+<h3 id="类变量："><a href="#类变量：" class="headerlink" title="类变量："></a>类变量：</h3><p>类变量属于类本身，当系统初始化类时，就会为类分别分配空间，并执行初始化。</p>
+<h3 id="实例变量："><a href="#实例变量：" class="headerlink" title="实例变量："></a>实例变量：</h3><p>类变量属于对象本身，系统每次创建对象时，都需要为该对象的实例变量分配空间，并执行初始化。</p>
+<ul>
+<li>严格来说：类变量，应该由类本身进行访问。<pre><code>                实例变量，应该由对象进行访问。
+</code></pre>Java的一种不知道有啥用的语法（或许可以出题？）：允许通过对象类访问类变量</li>
+</ul>
+<p>比如说static int test这种设立类变量的方法，但是我们在实际访问的时候，举个情景例子哈</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ComputerTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Computer c1 = <span class="keyword">new</span> Computer();</span><br><span class="line">        </span><br><span class="line">        Computer c2 = <span class="keyword">new</span> Computer();</span><br><span class="line">       </span><br><span class="line">        System.out.println(c1.test);</span><br><span class="line">        System.out.println(c2.test);<span class="comment">// Java允许通过对象类访问类变量</span></span><br><span class="line">        c2.test = <span class="number">20</span>;</span><br><span class="line">        System.out.println(c2.test);</span><br><span class="line">        System.out.println(c1.test);</span><br><span class="line"><span class="comment">//        System.out.println(test);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这边看起来c1，c2看起来是很不错，引用的是咱们的test类变量，其实Java中根本就没有这个玩意儿。这玩意儿开辟出来就是在堆内存中占了个位置，然后谁用它，它就变成谁，说实话目前我还没有找到正确使用这个东西的姿势，over。这边看起来用的c1，c2，其实全是Computer类引用的，效果和下面的代码一样！！！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ComputerTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Computer c1 = <span class="keyword">new</span> Computer();</span><br><span class="line"></span><br><span class="line">        Computer c2 = <span class="keyword">new</span> Computer();</span><br><span class="line"></span><br><span class="line">        System.out.println(Computer.test);</span><br><span class="line">        System.out.println(Computer.test);<span class="comment">// Java允许通过对象类访问类变量</span></span><br><span class="line">        c2.test = <span class="number">20</span>;</span><br><span class="line">        System.out.println(Computer.test);</span><br><span class="line">        System.out.println(Computer.test);</span><br><span class="line"><span class="comment">//        System.out.println(test);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>所以我建议</strong>：暂时我们就使用类调用类变量、类方法。</p>
+<p>如果考试的时候，遇到用对象调用类变量、类方法的情况，第一步先把对象换成类。</p>
+<h2 id="局部变量："><a href="#局部变量：" class="headerlink" title="局部变量："></a>局部变量：</h2><p>必须由程序员显式指定初始值，然后才能使用——否则编译报错；</p>
+<p>局部变量的作用域很小，只在方法里有效；</p>
+<p>离开了方法，局部变量就会失效</p>
 
     </div>
 
@@ -278,7 +295,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://mr8god.cn/2020/04/07/Java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BF%AB%E9%80%9F%E5%9B%9E%E9%A1%BE/" title="面向对象快速回顾(以便于考试快速回顾哈！)">https://mr8god.cn/2020/04/07/Java/面向对象快速回顾/</a>
+    <a href="https://mr8god.cn/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E5%8F%98%E9%87%8F%E8%AF%A6%E8%A7%A3/" title="Java速记——变量详解">https://mr8god.cn/2020/04/09/Java/Java速记——变量详解/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -314,12 +331,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/06/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/" rel="prev" title="Java面向对象基础回顾">
-      <i class="fa fa-chevron-left"></i> Java面向对象基础回顾
+    <a href="/2020/04/08/Java/%E4%BB%8E%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E4%BB%A3%E7%A0%81%E6%88%91%E5%AD%A6%E4%B9%A0%E5%88%B0%E4%BA%86%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F/" rel="prev" title="Java——final变量">
+      <i class="fa fa-chevron-left"></i> Java——final变量
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/04/07/Java/Java%E7%9A%84%E5%8C%85%E8%A3%85%E7%B1%BB/" rel="next" title="Java的包装类">
-      Java的包装类 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" rel="next" title="Java速记——类与对象">
+      Java速记——类与对象 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -380,7 +397,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象快速回顾"><span class="nav-number">1.</span> <span class="nav-text">面向对象快速回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义类的语法"><span class="nav-number">1.1.</span> <span class="nav-text">定义类的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义成员变量"><span class="nav-number">1.2.</span> <span class="nav-text">定义成员变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义方法"><span class="nav-number">1.3.</span> <span class="nav-text">定义方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义构造器"><span class="nav-number">1.4.</span> <span class="nav-text">定义构造器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义初始化块"><span class="nav-number">1.5.</span> <span class="nav-text">定义初始化块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类用于干甚？"><span class="nav-number">1.6.</span> <span class="nav-text">类用于干甚？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象用于干甚？"><span class="nav-number">1.7.</span> <span class="nav-text">对象用于干甚？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法（传参机制、递归方法、形参个数可变的方法、方法重载）"><span class="nav-number">1.8.</span> <span class="nav-text">方法（传参机制、递归方法、形参个数可变的方法、方法重载）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量（判断变量：先看位置，再看static；成员变量和局部变量）"><span class="nav-number">1.9.</span> <span class="nav-text">变量（判断变量：先看位置，再看static；成员变量和局部变量）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造器（构造器重载、this调用）"><span class="nav-number">1.10.</span> <span class="nav-text">构造器（构造器重载、this调用）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化块（实例初始化块、类初始化块）"><span class="nav-number">1.11.</span> <span class="nav-text">初始化块（实例初始化块、类初始化块）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问权限修饰符"><span class="nav-number">1.12.</span> <span class="nav-text">访问权限修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承、多态"><span class="nav-number">1.13.</span> <span class="nav-text">继承、多态</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java速记——变量详解"><span class="nav-number">1.</span> <span class="nav-text">Java速记——变量详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#成员变量："><span class="nav-number">1.1.</span> <span class="nav-text">成员变量：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类变量："><span class="nav-number">1.1.1.</span> <span class="nav-text">类变量：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例变量："><span class="nav-number">1.1.2.</span> <span class="nav-text">实例变量：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部变量："><span class="nav-number">1.2.</span> <span class="nav-text">局部变量：</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -394,7 +411,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -448,7 +465,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共57.5k字</span>
+  <span class="post-count">博客全站共65.3k字</span>
 </div>
         
 
@@ -476,7 +493,7 @@
 <script src="/js/schemes/muse.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/js/next-boot.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
