@@ -180,6 +180,451 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/08/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94final%E5%8F%98%E9%87%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/08/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94final%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">Java速记——final变量</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-08 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-08T15:49:15+08:00">2020-04-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 23:53:15" itemprop="dateModified" datetime="2020-04-14T23:53:15+08:00">2020-04-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Java速记——final变量"><a href="#Java速记——final变量" class="headerlink" title="Java速记——final变量"></a>Java速记——final变量</h1><p>可以修饰变量（各种变量）、方法、类。</p>
+<p>final和abstract是互斥的：永远都不能够同时出现！</p>
+<h2 id="final修饰变量"><a href="#final修饰变量" class="headerlink" title="final修饰变量"></a>final修饰变量</h2><p>作用：该变量被赋初始值之后，不能被重新赋值！<br>            final修饰的变量<strong>必须</strong>被赋值，且只能被赋值<strong>一次</strong></p>
+<h2 id="final修饰成员变量"><a href="#final修饰成员变量" class="headerlink" title="final修饰成员变量"></a>final修饰成员变量</h2><p>普通成员变量（非final的成员变量），程序员可以不显式指定初始值，系统会为之分配默认初始值，初始值分配规则与数组元素的初始值分配规则完全相同！</p>
+<p>final 成员变量，程序员必须显式指定初始值</p>
+<ul>
+<li><p>final实例变量，必须显式指定初始值，<strong>只能指定一次</strong>。<strong>只能在以下三个位置的其中之一指定：</strong></p>
+<ul>
+<li>定义时指定为初始值。</li>
+<li>实例初始化块</li>
+<li>每个构造器都需要显示指定一次初始值</li>
+</ul>
+<p>上面3个位置的本质其实只有一个，就是构造器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Final</span>实例变量 </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> age = <span class="number">20</span>;</span><br><span class="line">    &#123;</span><br><span class="line"><span class="comment">//        age = 24;// 这边错误，被final修饰的成员变量不能被赋值两次</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是我们这样写就没有问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Final</span>实例变量 </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> age;</span><br><span class="line">    &#123;</span><br><span class="line">        age = <span class="number">24</span>;<span class="comment">// 这边错误，被final修饰的成员变量不能被赋值两次</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再一个正确示范</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Final</span>实例变量 </span>&#123;</span><br><span class="line">    <span class="comment">// final实例变量必须显式指定初始值，而且只能在3个位置中指定</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">long</span> lg;</span><br><span class="line">    <span class="keyword">public</span> Final实例变量()</span><br><span class="line">    &#123;</span><br><span class="line">        lg = <span class="number">200</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>final类变量，必须显示指定初始值。只能在以下2个位置的其中之一指定：</p>
+<ul>
+<li>定义时指定初始值</li>
+<li></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/08/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/08/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">Java速记——抽象类和接口</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-08 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-08T15:49:15+08:00">2020-04-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 23:53:30" itemprop="dateModified" datetime="2020-04-14T23:53:30+08:00">2020-04-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Java速记——抽象类和接口"><a href="#Java速记——抽象类和接口" class="headerlink" title="Java速记——抽象类和接口"></a>Java速记——抽象类和接口</h1><ul>
+<li>abstract关键字</li>
+<li>抽象类</li>
+<li>接口</li>
+<li>JDK1.8/1.9接口的新特性</li>
+<li>抽象类和接口的比较</li>
+<li>面向对象的七个原则</li>
+</ul>
+<h2 id="abstract关键字"><a href="#abstract关键字" class="headerlink" title="abstract关键字"></a>abstract关键字</h2><p>主要修饰类和方法<br>一个方法没有方法体，就是抽象方法了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAbstract</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">methodA</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果一个类包含了抽象方法，那么这个类必须就是抽象类</p>
+<p>务必要记得，有花括号就是方法体。是一个方法声明占位，具体实现留待子类覆盖/重写</p>
+<p>如果类里边没有抽象方法，类也可以是抽象类——抽象类可以没有抽象方法</p>
+<p>抽象类不能够使用new初始化对象；如果我不想让别人实例化我的类，就可以采用抽象类的方法。</p>
+<p>举个例子：目前我们所学的Calendar类就是一个典型的抽象类，她只有一个静态方法——getInstance()——作用：根据当前的Date获得日历对象。</p>
+<p>全局变量是强耦合为什么不好的一个典型的例子，比如你修改了全局变量的类型，则所有使用该变量的代码会受到影响，因此必须检查、修改和重新测试所有这些代码。不仅如此，所有使用该变量的方法都将通过该变量而彼此耦合</p>
+<p>我们要<strong>适度耦合</strong></p>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>Java中，接口有两种意思：</p>
+<ol>
+<li>是指概念性的接口，即指系统对外提供的所有服务，类的所有能够被外部使用者访问的方法构成了类的接口</li>
+<li>是指用interface关键字定义的实实在在的接口哦，也称为接口类型</li>
+</ol>
+<p>interface：不怎么提属性，操作，只提这个对象对外提供的功能<br>举例：电视机（按钮接口、红外接口：遥控器）、洗衣机（控制面板、洗衣）</p>
+<p>对于接口来说，只有public、static、final常量，没有实例变量</p>
+<p>JDK1.8之前，一定是抽象方法，不需要使用abstract关键字修饰，接口中的内容可见性默认是public，无论是否用public</p>
+<p>类和接口之间要使用implements关键字（UML：实现realization），意味着类实现了某个接口，类就有这个接口的功能了</p>
+<h3 id="接口的作用"><a href="#接口的作用" class="headerlink" title="接口的作用"></a>接口的作用</h3><ul>
+<li>声明期望实现一个或更多的类的方法</li>
+<li>确定对象的编程接口而无需显示类的实际主体</li>
+<li>捕捉非相关类之间的相似性而无需强制类的关系</li>
+<li>通过声明实现几个接口的类来模拟多重继承</li>
+</ul>
+<h2 id="JDK8的新特性"><a href="#JDK8的新特性" class="headerlink" title="JDK8的新特性"></a>JDK8的新特性</h2><p>增加了默认方法</p>
+<p>如果我们要改接口的话，那么我们使用了接口的所有类都需要更改；</p>
+<p>方法冲突<br>一个类可以实现多个接口，也就是说有可能会发生默认方法冲突</p>
+<ul>
+<li>类中的方法优先级最高</li>
+<li>如果无法根据第一条进行判断，那么子接口的优先级更高；函数签名相同时，优先选择拥有最具体实现的默认方法的接口，即如果B继承了A，那么B就比A更加具体</li>
+<li>最后如果还是无法判断，实现多个接口的类必须<ul>
+<li>创建自己的默认方法，来覆盖重写接口的默认方法</li>
+<li>使用super调用指定接口的默认方法</li>
+</ul>
+</li>
+</ul>
+<h2 id="JDK1-9的新特性"><a href="#JDK1-9的新特性" class="headerlink" title="JDK1.9的新特性"></a>JDK1.9的新特性</h2><p>Java9不仅像Java8一样支持接口默认方法，同时还支持私有方法。<br>在Java9中，一个接口中能定义如下集中变量/方法</p>
+<ul>
+<li>常量</li>
+<li>抽象方法</li>
+<li>默认方法</li>
+<li>静态方法</li>
+<li>私有方法：private</li>
+<li>私有静态方法：private static</li>
+</ul>
+<h2 id="关于抽象类，我再补补课"><a href="#关于抽象类，我再补补课" class="headerlink" title="关于抽象类，我再补补课"></a>关于抽象类，我再补补课</h2><p>abstract（抽象），它只能修饰两个东西：</p>
+<ul>
+<li>方法（抽象方法）</li>
+<li>类（抽象类）</li>
+</ul>
+<p>emmmmm，这边加一个<strong>惨痛经验</strong>，<strong>抽象类的抽象方法，务必不能有方法体</strong><br>这很好理解：我们的抽象类是要给别人去重写的，如果我们给了，那还让人家咋重写，emmmmm，我暂时就这么记了！</p>
+<p>abstract与final是<strong>互斥</strong>的！</p>
+<p> 抽象类的特征：有得有失。<br>抽象类与普通类的区别只有4个字：有得有失。</p>
+<ul>
+<li><p>有得：得到一个新功能：抽象类可以拥有这个抽象方法。</p>
+</li>
+<li><p>有失：抽象类失去了一个功能：创建对象</p>
+</li>
+</ul>
+<h3 id="抽象类必须有构造器"><a href="#抽象类必须有构造器" class="headerlink" title="抽象类必须有构造器"></a>抽象类必须有构造器</h3><p>因为抽象类的主要功能是：派生子类；因为子类的构造器一定会调用父类的构造器一次，因此抽象类必须有构造器。<br>而咱们的final是不能有子类，这就是与abstract互斥的原因啦</p>
+<h4 id="抽象类里边可以没有抽象方法吗？"><a href="#抽象类里边可以没有抽象方法吗？" class="headerlink" title="抽象类里边可以没有抽象方法吗？"></a>抽象类里边可以没有抽象方法吗？</h4><p>可以的！</p>
+<h4 id="抽象类里边能不能没有构造器呀？"><a href="#抽象类里边能不能没有构造器呀？" class="headerlink" title="抽象类里边能不能没有构造器呀？"></a>抽象类里边能不能没有构造器呀？</h4><p>可以的！</p>
+<h4 id="抽象类里边能不能没有初始化块呀？"><a href="#抽象类里边能不能没有初始化块呀？" class="headerlink" title="抽象类里边能不能没有初始化块呀？"></a>抽象类里边能不能没有初始化块呀？</h4><p>可以的！</p>
+<h4 id="抽象类里边能不能有成员变量呀？"><a href="#抽象类里边能不能有成员变量呀？" class="headerlink" title="抽象类里边能不能有成员变量呀？"></a>抽象类里边能不能有成员变量呀？</h4><p>可以的！</p>
+<h4 id="抽象类里边能不能有类变量呀？"><a href="#抽象类里边能不能有类变量呀？" class="headerlink" title="抽象类里边能不能有类变量呀？"></a>抽象类里边能不能有类变量呀？</h4><p>可以的！</p>
+<h4 id="上面开个玩笑哈，只要记住普通类有的，抽象类全都有，只是不能创建对象而已"><a href="#上面开个玩笑哈，只要记住普通类有的，抽象类全都有，只是不能创建对象而已" class="headerlink" title="上面开个玩笑哈，只要记住普通类有的，抽象类全都有，只是不能创建对象而已"></a>上面开个玩笑哈，只要记住普通类有的，抽象类全都有，只是不能创建对象而已</h4><h3 id="抽象方法：只有方法签名，没有方法体的方法"><a href="#抽象方法：只有方法签名，没有方法体的方法" class="headerlink" title="抽象方法：只有方法签名，没有方法体的方法"></a>抽象方法：只有方法签名，没有方法体的方法</h3><p>只有抽象类才能拥有抽象方法，普通类不能有抽象方法</p>
+<p>由于咱们的抽象方法没有方法体，那么很明显这就意味着，抽象方法一定要被子类去重写<br>与此相反的是咱们的final：final的意思是——你可不能重写我的方法哦！ </p>
+<p>抽象方法，一定要交给子类去实现（比如说重写），否则不能调用！</p>
+<h4 id="抽象类的作用"><a href="#抽象类的作用" class="headerlink" title="抽象类的作用"></a>抽象类的作用</h4><ol>
+<li>定义变量。我们的抽象类不能创建实例对象，那么我们的抽象类定义之后要赋值的时候，只能用它的子类的实例。（用子类的实例对父类赋值，这叫做<strong>向上转型</strong>在多态时有学习到这个东西）</li>
+<li>调用类方法和类变量</li>
+<li>派生子类——主要目的</li>
+</ol>
+<h4 id="抽象类派生子类："><a href="#抽象类派生子类：" class="headerlink" title="抽象类派生子类："></a>抽象类派生子类：</h4><p>【得出推论规则】：子类要么重写父类中所有的抽象方法，要么子类也只能是抽象的。</p>
+<h2 id="关于接口，我再补补课"><a href="#关于接口，我再补补课" class="headerlink" title="关于接口，我再补补课"></a>关于接口，我再补补课</h2><h3 id="关于接口的基本知识"><a href="#关于接口的基本知识" class="headerlink" title="关于接口的基本知识"></a>关于接口的基本知识</h3><p>接口相当于一种彻底抽象的类，（其实枚举也类似于一个类）<br>接口体现的是一种规范——要暴露出来供大家遵守的规范。<br>所以接口里的所有东西都用public修饰，不管你写还是不写，始终有public修饰。既然默认都有的话，我们其实可以不用写public修饰。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] interface 接口名 extends 父接口1，父接口2，……</span><br><span class="line">&#123;</span><br><span class="line">		&#x2F;&#x2F; 没有成员变量，只有常量。默认总是会添加public、static、final修饰。		&#x2F;&#x2F; 既然默认都有，我们可以不写</span><br><span class="line">		&#x2F;&#x2F; 抽象方法。Java8之后，类方法、默认方法（抽象添加方法体）</span><br><span class="line">		&#x2F;&#x2F; 内部类</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接口是一种彻底抽象的类，抽象的类的话，那么抽象方法只能存在于抽象类。<br>接口里边只能有抽象方法，现在从Java8之后，接口开始有了类方法、方法体（可以说接口好像是被“污染了”，和以前的语法冲突了），但是呢，为了更大程度的和以前的方法体分开来，于是接口添加了<strong>默认方法</strong>这一概念。其实就是原来的<strong>抽象方法+方法体</strong></p>
+<h4 id="默认方法"><a href="#默认方法" class="headerlink" title="默认方法"></a>默认方法</h4><p>默认方法就是实例方法，与原来抽象方法的规则完全一样，只不过抽象方法不能加方法体，于是默认方法加上default就可以加方法体了</p>
+<p>接口里不能有初始化块，也不能有构造器</p>
+<p>总结：接口里只有三大成员（常量、抽象方法、内部类）</p>
+<p>接口的修饰符：public、<br>接口是彻底抽象，<strong>不能有final</strong>（final和抽象互斥）<br>抽象已经足够抽象了，因此不需要abstract更抽象了</p>
+<p>【随处哔哔】private只能在类里边的类进行修饰，如果在外边那必是没有意义的呀</p>
+<p>接口名：命名规范基本等同于类名。<br>                接口一般推荐使用形容词。<br>                （看看就好看看就好，我暂时还是看《阿里巴巴开发手册》）</p>
+<h3 id="接口里的成员默认会添加public、static、final修饰"><a href="#接口里的成员默认会添加public、static、final修饰" class="headerlink" title="接口里的成员默认会添加public、static、final修饰"></a>接口里的成员默认会添加public、static、final修饰</h3><h4 id="final的变量初始化"><a href="#final的变量初始化" class="headerlink" title="final的变量初始化"></a>final的变量初始化</h4><p>final修饰的类变量必须在两个地方：定义的时候指定初始值、类初始化块指定初始值</p>
+<p>但是接口里没有类初始化块，所以final修饰的变量（其实也是指定的啦，因为final默认在接口中的常量前面进行修饰的），那么很明显，我们默认用final修饰的变量一定且只能在指定初始值的时候进行指定（=）且进行赋初始值</p>
+<h4 id="final的方法"><a href="#final的方法" class="headerlink" title="final的方法"></a>final的方法</h4><p>因为抽象类中的方法默认都是抽象方法，前头都戴着一定隐形的帽子（“abstract”），所以不用写abstract进行修饰</p>
+<h3 id="接口的前世今生"><a href="#接口的前世今生" class="headerlink" title="接口的前世今生"></a>接口的前世今生</h3><h4 id="Java8以前的接口"><a href="#Java8以前的接口" class="headerlink" title="Java8以前的接口"></a>Java8以前的接口</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Eatable</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 所有成员变量前默认有public static final</span></span><br><span class="line">    <span class="keyword">int</span> MAX_PRESERVE = <span class="number">100</span>;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 默认有public abstract ，也就是默认是public abstract void test();</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Java8之后的接口（有了main方法之后）"><a href="#Java8之后的接口（有了main方法之后）" class="headerlink" title="Java8之后的接口（有了main方法之后）"></a>Java8之后的接口（有了main方法之后）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Eatable</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 前头默认public修饰</span></span><br><span class="line">    <span class="keyword">int</span> MAX_PRESERVE = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 默认有public abstract</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Java8之后可以有static方法，所以就能定义main方法</span></span><br><span class="line">    <span class="comment">// 因此接口也可以直接运行</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我再加点东西哈</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Eatable</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 前头默认public修饰</span></span><br><span class="line">    <span class="keyword">int</span> MAX_PRESERVE = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line">        test();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 下面的public可以不写，但是static一定要写，因为不写就成了实例方法了</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"我是类方法，因为我有static"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>【再随处哔哔】方法重载的规则是：两同一不同</p>
+<ul>
+<li>形参列表不同</li>
+<li>方法名相同</li>
+<li>修饰符不同</li>
+</ul>
+<h3 id="接口有什么用呢？"><a href="#接口有什么用呢？" class="headerlink" title="接口有什么用呢？"></a>接口有什么用呢？</h3><ul>
+<li>定义变量，只能用实现类的实例来赋值（向上转型）</li>
+<li>调用类方法或类变量</li>
+<li>派生实现类</li>
+</ul>
+<h3 id="实现接口的语法是？"><a href="#实现接口的语法是？" class="headerlink" title="实现接口的语法是？"></a>实现接口的语法是？</h3><p>首先我们看一下完整的类的语法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] <span class="class"><span class="keyword">class</span> 类名 <span class="keyword">extends</span> 父类 <span class="keyword">implements</span> 父接口1，父接口2，………</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">		<span class="comment">// 五大成员		</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>好了，上面的也是实现接口的语法了！嘿嘿嘿</p>
+<p>重写接口中的方法只能用public修饰！</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/07/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E5%8C%85%E8%A3%85%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/07/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E5%8C%85%E8%A3%85%E7%B1%BB/" class="post-title-link" itemprop="url">Java速记——包装类</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-07 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-07T15:49:15+08:00">2020-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 23:54:26" itemprop="dateModified" datetime="2020-04-14T23:54:26+08:00">2020-04-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Java速记——包装类"><a href="#Java速记——包装类" class="headerlink" title="Java速记——包装类"></a>Java速记——包装类</h1><p>Java有8大基本类型：int、float、double、long、boolean、byte、char、short</p>
+<p>这8个基本类型都不能当成对象使用，不是引用类型，而且也不能接受null值。null值只能赋值给引用类型。</p>
+<p>为了解决上面的问题，Java为8个基本类型提供了对应的包装类——可将它们包装成对象。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>基本数据类型</th>
+<th>对应的包装类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int</td>
+<td>Int</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Char</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>自动装箱</strong>：基本类型的值可以自动当成包装类<br><strong>自动拆箱</strong>：包装类的实例可以自动当成基本类型的值使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 关于自动装箱和自动拆箱的代码实现</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 包装类 </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//int i = null; // 基本类型不接受null值</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2可以自动装箱成Integer</span></span><br><span class="line">        Integer in = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2.3自动装箱Double，Double向上转型为</span></span><br><span class="line">        Object ob = <span class="number">2.3</span>;</span><br><span class="line"></span><br><span class="line">        Boolean b = <span class="keyword">true</span>;<span class="comment">// 自动装箱</span></span><br><span class="line"></span><br><span class="line">        Long lg = <span class="number">3L</span>;</span><br><span class="line"></span><br><span class="line">        Long result =  lg * in;</span><br><span class="line">        System.out.println(result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>【建议】：做项目的时候，通常来说使用包装类来声明变量。<br>                    好处是：反正基本类型能做的，它都可以做；它还可以当成对象使用。还可以接受null</p>
+<p>包装类的方法：<br>                方法可将字符串转成对应的基本类型值。</p>
+<p>NumberFormatException：要转的字符串不符合数值格式，将会引发该异常。</p>
+<p>当程序对Integer使用自动装箱时，它有一个缓存机制，它会缓存在-128 ~ 127之间的对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">heiheihei</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer i = <span class="number">20</span>; <span class="comment">// 在-128 ~ 127之间，缓存</span></span><br><span class="line">        Integer j = <span class="number">20</span>; <span class="comment">// 直接用缓存中对象。</span></span><br><span class="line">        System.out.println(i == j);</span><br><span class="line"></span><br><span class="line">        Integer c = <span class="number">204</span>; <span class="comment">// 不在-128 ~ 127之间，不缓存，因为这里边的204超过范围 了</span></span><br><span class="line">        Integer d = <span class="number">204</span>; <span class="comment">// 重新创建</span></span><br><span class="line">        System.out.println(c == d);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">true</span><br><span class="line">false</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<h2 id="两个要被重写的方法："><a href="#两个要被重写的方法：" class="headerlink" title="两个要被重写的方法："></a>两个要被重写的方法：</h2><h3 id="toString方法"><a href="#toString方法" class="headerlink" title="toString方法"></a>toString方法</h3><p>程序打印对象，或把对象自动转字符串的时候，实际上用的都是该对象的toString()方法的返回值。</p>
+<p>【默认的toString】Object提供的toString返回的是类名@hashCode 方法返回值<br>重写toString：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// toString方法重写实例</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple123</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> weight;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 无参数的构造器</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Apple123</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化全部成员变量的构造器</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Apple123</span><span class="params">(String color, <span class="keyword">double</span> weight)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.color = color;</span><br><span class="line">        <span class="keyword">this</span>.weight = weight;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(String color)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getColor</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.color;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeight</span><span class="params">(<span class="keyword">double</span> weight)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.weight = weight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getWeight</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.weight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Apple[color="</span> + color</span><br><span class="line">                + <span class="string">", weight="</span> + weight</span><br><span class="line">                + <span class="string">"]"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppleTest1</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Apple123 ap = <span class="keyword">new</span> Apple123(<span class="string">"红色"</span> , <span class="number">2.3</span>);</span><br><span class="line">        <span class="comment">// 程序打印对象，或把对象自动转字符串的时候，实际上用的都是该对象的toString()方法的返回值。</span></span><br><span class="line">        <span class="comment">// 下面两行代码是完全相同的</span></span><br><span class="line">        System.out.println(ap);</span><br><span class="line">        System.out.println(ap.toString());</span><br><span class="line"></span><br><span class="line">        Apple123 ap2 = <span class="keyword">new</span> Apple123(<span class="string">"蔡徐坤"</span> , <span class="number">188</span>);</span><br><span class="line">        System.out.println(ap2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 任何对象 + ""，就会变成字符串</span></span><br><span class="line">        String str = ap2 + <span class="string">""</span>;</span><br><span class="line">        System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="equals方法"><a href="#equals方法" class="headerlink" title="equals方法"></a>equals方法</h3><p>== 如果判断两个引用变量，要求两个引用变量指向同一个对象时，才会返回true。</p>
+<p>但是如果我们直接在main里用equals，还是false，原因是：<br>【默认的equals】Object提供的equals方法，判断两个对象相等的标准与 == 是完全一样的。<br>因此我们要重写equals：根据业务规则来提供两个对象相等的标准。<br>实际项目中，用来作为equals比较的关键成员变量，通常并不需要使用全部的成员变量<br>——只要用它们关键的成员变量即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// equals方法重写实例</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Goat</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> weight;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 无参数的构造器</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Goat</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化全部成员变量的构造器</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Goat</span><span class="params">(String color, <span class="keyword">double</span> weight)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.color = color;</span><br><span class="line">        <span class="keyword">this</span>.weight = weight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// color的setter和getter方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(String color)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.color;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// weight</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.weight = weight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getWeight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.weight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// this和obj指向同一个对象</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == obj)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 要求obj不为null，且obj必须是Goat</span></span><br><span class="line">        <span class="keyword">if</span> (obj != <span class="keyword">null</span> &amp;&amp; obj.getClass() == Goat<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">        </span>&#123;</span><br><span class="line">            Goat target = (Goat)obj;</span><br><span class="line">            <span class="comment">// 业务要求有几个关键属性，此处就比较几个关键属性，比如说这边只有一个color需要比较</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.color.equals(target.color)</span><br><span class="line">                    &amp;&amp; <span class="keyword">this</span>.weight == target.weight;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EqualsTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Goat goat1 = <span class="keyword">new</span> Goat(<span class="string">"黑色"</span> , <span class="number">78.2</span>);</span><br><span class="line">        Goat goat2 = <span class="keyword">new</span> Goat(<span class="string">"黑色"</span> , <span class="number">78.2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// goat1与goat2分别指向两个不同的对象，因此==判断返回false。</span></span><br><span class="line">        System.out.println(goat1 == goat2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 重写equals方法，根据业务规则来判断两个对象是否相等。</span></span><br><span class="line">        System.out.println(goat1.equals(goat2));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><h4 id="static并不是静态的意思。"><a href="#static并不是静态的意思。" class="headerlink" title="static并不是静态的意思。"></a>static并不是静态的意思。</h4><p>static是类的意思， 有static的成员属于类成员，没有static的成员属于势力成员</p>
+<p>static是否可以修饰局部变量？——局部变量不属于成员，因此不能用static修饰。</p>
+<p>static能否修饰外部类？ —— 外部类不属于成员，因此不能用static修饰。</p>
+<h4 id="static修饰的成员：成员变量、方法、初始化块、内部类"><a href="#static修饰的成员：成员变量、方法、初始化块、内部类" class="headerlink" title="static修饰的成员：成员变量、方法、初始化块、内部类"></a>static修饰的成员：成员变量、方法、初始化块、内部类</h4><p>所有类成员，都只能用类名调用！</p>
+<p>Java语法是不好，允许通过对象来调用类成员，是没有意义的 from 李刚老师</p>
+<p>面试的笔试题中，如果遇到使用对象来调用类成员的情形，先把对象改成类——题目马上一目了然。</p>
+<h4 id="static考点（笔试中非常常见）"><a href="#static考点（笔试中非常常见）" class="headerlink" title="static考点（笔试中非常常见）"></a>static考点（笔试中非常常见）</h4><p>static成员不能访问非static成员。<br>非static成员可以访问static成员！</p>
+<p>static成员（4种）不能访问非static成员（5种：方法、变量、构造器、内部类、初始化块）；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 方法 </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"info"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        info();//Error:(8, 9) java: 无法从静态上下文中引用非静态 方法 info()</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 变量  </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        System.out.println(age);//Error:(5, 28) java: 无法从静态上下文中引用非静态 变量 age</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 内部类 </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 静态访问，使用了非静态内部类</span></span><br><span class="line"><span class="comment">//        A a = new A();//Error:(9, 15) java: 无法从静态上下文中引用非静态 变量 this</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 初始化块 </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age;<span class="comment">// 静态成员</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        age = <span class="number">20</span>;<span class="comment">// 非静态成员</span></span><br><span class="line">        <span class="comment">//无法从静态上下文中引用非静态 变量 age</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 初始化块2 </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"info 方法"</span>);<span class="comment">// 非静态方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        info();<span class="comment">// 静态成员</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 初始块3 </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        A a = <span class="keyword">new</span> A();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><p>最早来自于建筑行业，早期优秀建筑设计师针对建筑给了很多优秀的建筑建议。比如房子有大窗户会更好一点，诸如此类的建筑建议</p>
+<p>对于一批经常出现的设计场景，前人总结出来的比较成功的设计——这就是设计模式。<br>后面的人就应该学习、并模仿他们，从而提高我们的代码质量。</p>
+<p>其中<strong>单例模式</strong>就是设计模式的一种：在某些场景下，某些类只需要（只能）创建一个实例。<br>比如系统的窗口管理器。只能有一个。<br>数据库引擎访问点，整个数据库，Java程序所在JRE环境……都只需要产生一个实例。<br>此时就应该采用单例模式</p>
+<h3 id="如何设计单例模式？"><a href="#如何设计单例模式？" class="headerlink" title="如何设计单例模式？"></a>如何设计单例模式？</h3><ol>
+<li>隐藏构造器——避免被创建实例</li>
+<li>暴露一个static的方法，该方法用于创建实例<br>该方法还需要保证该类只会产生一个实例 </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton s;</span><br><span class="line">    <span class="comment">// 构造器隐藏</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 暴露一个static方法，用于创建实例变量</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">instance</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">         Singleton s1 = Singleton.instance();</span><br><span class="line">         Singleton s2 = Singleton.instance();</span><br><span class="line"></span><br><span class="line">        System.out.println(s1 == s2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/07/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BF%AB%E9%80%9F%E5%9B%9E%E9%A1%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -204,14 +649,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-07 16:32:43" itemprop="dateCreated datePublished" datetime="2020-04-07T16:32:43+08:00">2020-04-07</time>
+              <time title="创建时间：2020-04-07 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-07T15:49:15+08:00">2020-04-07</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-11 13:27:11" itemprop="dateModified" datetime="2020-04-11T13:27:11+08:00">2020-04-11</time>
+                <time title="修改时间：2020-04-14 23:54:59" itemprop="dateModified" datetime="2020-04-14T23:54:59+08:00">2020-04-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -294,7 +739,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/06/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/" class="post-title-link" itemprop="url">Java面向对象基础回顾</a>
+            <a href="/2020/04/06/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/" class="post-title-link" itemprop="url">Java速记——面向对象基础回顾</a>
         </h2>
 
         <div class="post-meta">
@@ -304,14 +749,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-06 23:52:38" itemprop="dateCreated datePublished" datetime="2020-04-06T23:52:38+08:00">2020-04-06</time>
+              <time title="创建时间：2020-04-06 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-06T15:49:15+08:00">2020-04-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-08 17:28:02" itemprop="dateModified" datetime="2020-04-08T17:28:02+08:00">2020-04-08</time>
+                <time title="修改时间：2020-04-14 23:55:32" itemprop="dateModified" datetime="2020-04-14T23:55:32+08:00">2020-04-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -743,14 +1188,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-04 23:31:53" itemprop="dateCreated datePublished" datetime="2020-04-04T23:31:53+08:00">2020-04-04</time>
+              <time title="创建时间：2020-04-04 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-04T15:49:15+08:00">2020-04-04</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-11 13:44:03" itemprop="dateModified" datetime="2020-04-11T13:44:03+08:00">2020-04-11</time>
+                <time title="修改时间：2020-04-14 23:55:47" itemprop="dateModified" datetime="2020-04-14T23:55:47+08:00">2020-04-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -877,10 +1322,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-03 23:33:37 / 修改时间：23:32:58" itemprop="dateCreated datePublished" datetime="2020-04-03T23:33:37+08:00">2020-04-03</time>
+              <time title="创建时间：2020-04-03 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-03T15:49:15+08:00">2020-04-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 23:56:11" itemprop="dateModified" datetime="2020-04-14T23:56:11+08:00">2020-04-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -963,10 +1414,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-02 16:00:25 / 修改时间：15:59:50" itemprop="dateCreated datePublished" datetime="2020-04-02T16:00:25+08:00">2020-04-02</time>
+              <time title="创建时间：2020-04-02 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-02T15:49:15+08:00">2020-04-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 23:56:28" itemprop="dateModified" datetime="2020-04-14T23:56:28+08:00">2020-04-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -1088,74 +1545,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/01/%E7%94%9F%E6%B4%BB%E9%9C%80%E8%A6%81%E4%B8%80%E4%BA%9B%E8%B6%A3%E5%91%B3%E5%93%A6%EF%BC%81/%E6%98%AF%E4%B8%AA%E5%80%BC%E5%BE%97%E7%BA%AA%E5%BF%B5%E7%9A%84%E6%97%A5%E5%AD%90%E5%91%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/01/%E7%94%9F%E6%B4%BB%E9%9C%80%E8%A6%81%E4%B8%80%E4%BA%9B%E8%B6%A3%E5%91%B3%E5%93%A6%EF%BC%81/%E6%98%AF%E4%B8%AA%E5%80%BC%E5%BE%97%E7%BA%AA%E5%BF%B5%E7%9A%84%E6%97%A5%E5%AD%90%E5%91%A2/" class="post-title-link" itemprop="url">是个值得纪念的日子呢</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-04-01 13:28:32 / 修改时间：13:30:59" itemprop="dateCreated datePublished" datetime="2020-04-01T13:28:32+08:00">2020-04-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB%E9%9C%80%E8%A6%81%E4%B8%80%E4%BA%9B%E8%B6%A3%E5%91%B3/" itemprop="url" rel="index"><span itemprop="name">生活需要一些趣味</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="韶光易逝，劝君惜取少年时！"><a href="#韶光易逝，劝君惜取少年时！" class="headerlink" title="韶光易逝，劝君惜取少年时！"></a>韶光易逝，劝君惜取少年时！</h1><p><img src="https://i.loli.net/2020/04/01/V1cH7yJTen8SgZz.jpg" alt="Screenshot_2020-03-31-18-16-24-491_com.maimemo.an.jpg"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/01/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/%E8%AE%BA%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E4%B8%AD%E7%BB%9F%E8%AE%A1%E9%87%8F%EF%BC%8C%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E9%87%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1179,10 +1568,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-01 13:23:07 / 修改时间：13:23:49" itemprop="dateCreated datePublished" datetime="2020-04-01T13:23:07+08:00">2020-04-01</time>
+              <time title="创建时间：2020-04-01 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-01T15:49:15+08:00">2020-04-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 23:56:52" itemprop="dateModified" datetime="2020-04-14T23:56:52+08:00">2020-04-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -1248,131 +1643,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/03/30/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/%E5%A4%A7%E6%95%B0%E5%AE%9A%E7%90%86%E5%8F%8A%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/30/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/%E5%A4%A7%E6%95%B0%E5%AE%9A%E7%90%86%E5%8F%8A%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/" class="post-title-link" itemprop="url">论概率论中大数定理及中心极限定理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-30 20:11:08" itemprop="dateCreated datePublished" datetime="2020-03-30T20:11:08+08:00">2020-03-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-31 23:15:47" itemprop="dateModified" datetime="2020-03-31T23:15:47+08:00">2020-03-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">数理知识</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="大数定理及中心极限定理"><a href="#大数定理及中心极限定理" class="headerlink" title="大数定理及中心极限定理"></a>大数定理及中心极限定理</h1><h2 id="依概率收敛、切比雪夫不等式"><a href="#依概率收敛、切比雪夫不等式" class="headerlink" title="依概率收敛、切比雪夫不等式"></a>依概率收敛、切比雪夫不等式</h2><h3 id="依概率收敛"><a href="#依概率收敛" class="headerlink" title="依概率收敛"></a>依概率收敛</h3><p><strong>定义</strong></p>
-<p><img src="https://i.loli.net/2020/03/31/76nd8sprowBZkF3.jpg" alt="依概率收敛.jpg"></p>
-<p>稍微解释一下哈，当存在一个任意值ε（大于0哈），当我们的n趋向于无穷大的时候，那么这个概率趋向于零。当然这么说就只是表面意思意思了，我们得详细地去了解一下呀。</p>
-<p>这边需要举个例子了</p>
-<p><img src="https://i.loli.net/2020/03/31/rZAgH74IonLY5CK.jpg" alt="依概率收敛的详细解释.jpg"></p>
-<p>江某人有话说：这里看到贝努利试验，我想大家肯定会松了一大口气，因为这个东西大家肯定都懂。像咱们抛一次硬币就算一次贝努利试验，但是我们抛了n次硬币。这就叫做n重贝努利试验。</p>
-<p>扯回正题哈，当咱们对某一件事件进行观测的时候，若事件A（为了便于解释，就把某一件事件设为事件A了）在一次试验发生的概率为P。利用n次事件中出现了na次事件A，算出事件A出现的频率（n/na）。</p>
-<p>注意了。图中的公式是错误的。也就是，当n越大的时候，并不意味这一次事件的概率与咱们算的频率相等。我们讲的频率“稳定于”概率应该从<strong>可能性角度</strong>来讲。</p>
-<p><img src="https://i.loli.net/2020/03/31/qaprc7XbC5zTJAf.jpg" alt="从可能性来讲概率收敛.jpg"></p>
-<p>得出概念，只有满足以下公式</p>
-<script type="math/tex; mode=display">
-\lim_{n\rightarrow+\infty}P\{|\frac{na}{n}-p|\geq ε\}=0</script><p>（楼上的公式打的不容易呀，害，真刺激！）</p>
-<p>那么这种收敛就称为“依概率收敛”</p>
-<p><strong>依概率收敛的性质：</strong></p>
-<p><img src="https://i.loli.net/2020/03/31/ZYroinA1RM6qgch.jpg" alt="依概率收敛的性质.jpg"></p>
-<p>这边就由我江某人来给大家稍微讲解一下以助于理解哈：</p>
-<p>首先前三行的意思是，当Xn依概率收敛到a，Yn依概率收敛到b，那么当n趋向于无穷是，且函数g(x,y)在点(a,b)上连续，那么g(Xn,Yn)依概率收敛到g(a,b)。</p>
-<p>中间两行的意思是，Xn+Yn会依概率收敛到a+b，Xn/Yn会依概率收敛到a/b，XnxYn会依概率收敛到axb。</p>
-<p>特别需要记住一点的是，最后两行，如果Xn依概率收敛到a，f(x)在a点连续，那么当n趋向于无穷的时候，f(Xn)依概率收敛到f(a)。</p>
-<h3 id="切比雪夫不等式（Chebyshev不等式）"><a href="#切比雪夫不等式（Chebyshev不等式）" class="headerlink" title="切比雪夫不等式（Chebyshev不等式）"></a>切比雪夫不等式（Chebyshev不等式）</h3><p>设随机变量X具有数学期望，且它的数学期望E(X)=μ，方差D(X)=$σ^2$，则对于任意$ε&gt;0$，都有：</p>
-<script type="math/tex; mode=display">
-P\{|X-μ|\geq ε\} \leq \frac{σ^2}{ε^2}</script><p>定理的等价形式为：</p>
-<script type="math/tex; mode=display">
-P\{|X-μ| < ε\} \geq 1-\frac{σ^2}{ε^2}</script><p>// 此处明天补上证明过程。。。</p>
-<p>X与它均值的偏差的绝对值大于等于ε的概率小于<script type="math/tex">\frac{σ^2}{ε^2}</script></p>
-<p>适用范围广，但是结果相对来说比较粗糙。</p>
-<p>//  此处后期补上例题解析</p>
-<h2 id="大数定律"><a href="#大数定律" class="headerlink" title="大数定律"></a>大数定律</h2><p>频率的稳定值记为概率，这句话的意思，可以用一个公式来进行描述。</p>
-<script type="math/tex; mode=display">
-\lim_{n\rightarrow+\infty}P\{|\frac{na}{n}-p|\geq ε\}=0</script><p>这个结论可以用“大数定律”来进行描述</p>
-<p><strong>定理1（贝努力大数定律）</strong></p>
-<p>记na为n重贝努利试验中事件A发生的次数，并记事件A在每次试验中发生的概率为p(0<p<1)，则对于$&forall ε > 0$有</p>
-<script type="math/tex; mode=display">
-\lim_{n\rightarrow+\infty}P\{|\frac{na}{n}-p|\geq ε\}=0</script><p>即$\frac{na}{n}$趋向于P，当n趋向于+$\infty$</p>
-<p>这就说明了，频率是依概率收敛的事件发生的概率的！！！</p>
-<p>证明：略，明天补上。。。</p>
-<p><strong>贝努力大数定律的重要意义：</strong></p>
-<ol>
-<li>提供了用大量重复独立试验中事件出现概率的极限值来确定概率的理论依据，使得概率的概念才有严格的意义。</li>
-<li>提供了通过试验来确定事件概率的方法——可以通过做试验确定某事件发生的频率，并把它作为相应的概率估计，例如：想估计某产品的不合格品率p,可以随机抽取n（n较大）件，将n件产品的不合格品的比例作为p的估计。</li>
-</ol>
-<p><strong>大数定律(Laws of Large Numbers)</strong></p>
-<p>内容：设X1，X2，……，Xn，……是一列随机变量，则在一定条件下，随机变量序列Yn=$\frac{X1+……+Xn}{n} $，收敛到μ，当n趋向于$\infty$的时候。</p>
-<p>这边需要帮助理解的几个点是：</p>
-<ol>
-<li>随机变量序列Yn收敛到μ的含义是什么？答：依概率收敛</li>
-<li>μ是什么？答：当Xi期望相同时，μ = E(Xi)</li>
-<li>一定条件是什么？答：不一样的条件会得到不同的大数定律</li>
-</ol>
-<p><strong>定理2（切比雪夫大数定律的推论）</strong></p>
-<p><strong>定理3（辛钦大数定律）</strong></p>
-<p><strong>辛钦大数定律的意义：</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/03/30/C++/%E7%AC%AC7%E7%AB%A0-%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94C++%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%8B%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1396,10 +1666,16 @@ P\{|X-μ| < ε\} \geq 1-\frac{σ^2}{ε^2}</script><p>// 此处明天补上证明
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-30 00:22:27 / 修改时间：16:06:43" itemprop="dateCreated datePublished" datetime="2020-03-30T00:22:27+08:00">2020-03-30</time>
+              <time title="创建时间：2020-03-30 15:49:15" itemprop="dateCreated datePublished" datetime="2020-03-30T15:49:15+08:00">2020-03-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 23:57:28" itemprop="dateModified" datetime="2020-04-14T23:57:28+08:00">2020-04-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -1451,187 +1727,11 @@ R =\frac  {51×50×49×48×47×46}{6×5×4×3×2×1}</script><p>选择6个数时
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/03/28/%E5%BB%BA%E7%AB%99%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/From%20Mr8god%EF%BC%9Ahexo%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/28/%E5%BB%BA%E7%AB%99%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/From%20Mr8god%EF%BC%9Ahexo%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">From Mr8god：hexo轻松搭建博客</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-28 18:54:20" itemprop="dateCreated datePublished" datetime="2020-03-28T18:54:20+08:00">2020-03-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-05 22:08:18" itemprop="dateModified" datetime="2020-04-05T22:08:18+08:00">2020-04-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" itemprop="url" rel="index"><span itemprop="name">建博客那些事儿</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="环境概述"><a href="#环境概述" class="headerlink" title="环境概述"></a>环境概述</h2><p>我粗略估计了一下哈，大概需要以下东西</p>
-<ul>
-<li>win10系统</li>
-<li>hexo运行环境：node.js</li>
-<li>下载包管理工具：npm</li>
-<li>版本控制工具：git</li>
-<li>IDE：vscode</li>
-<li>主题：我就暂时用初始的landscape了</li>
-</ul>
-<p>当然ide是可以随便换的啦，用记事本也行呢。这种博客后期都是要靠Markdown来上传自己的文章的，且为了要让博客更加的适合自己，做出个性化的博客，需要你们去了解css、js等一些知识。</p>
-<p>如果你学过git，那么这个教程就更简单了，纯粹就是帮你复习一遍git而已啦。</p>
-<p>废话不多说，开始进入正题。</p>
-<h2 id="搭建博客流程"><a href="#搭建博客流程" class="headerlink" title="搭建博客流程"></a>搭建博客流程</h2><h3 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h3><p>node.js需要下载好，官网下载即可</p>
-<p>git也需要提前下载好，官网下载即可</p>
-<h3 id="二、使用hexo博客搭建工具"><a href="#二、使用hexo博客搭建工具" class="headerlink" title="二、使用hexo博客搭建工具"></a>二、使用hexo博客搭建工具</h3><h4 id="Step1-本地新建文件夹"><a href="#Step1-本地新建文件夹" class="headerlink" title="Step1 本地新建文件夹"></a>Step1 本地新建文件夹</h4><p>这个文件夹会存储你博客之后所有的Markdown文件以及你生成的HTML文件</p>
-<h4 id="Step2-进入目录让我们git-bash一下"><a href="#Step2-进入目录让我们git-bash一下" class="headerlink" title="Step2 进入目录让我们git bash一下"></a>Step2 进入目录让我们git bash一下</h4><p>这边我建立了名为“教程演示用博客”的文件夹，右击bash一下</p>
-<p><img src="https://i.loli.net/2020/03/28/sybeN7tziCJREgU.jpg" alt="1.jpg"></p>
-<h4 id="Step3-安装hexo"><a href="#Step3-安装hexo" class="headerlink" title="Step3 安装hexo"></a>Step3 安装hexo</h4><p>命令就是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<p>如果网速慢的话可以采取cnpm安装，这边推荐一个博客讲解cnpm源更改哈：<a href="https://blog.csdn.net/cungudafa/article/details/98739459" target="_blank" rel="noopener">https://blog.csdn.net/cungudafa/article/details/98739459</a></p>
-<p><img src="https://i.loli.net/2020/03/28/FHAVas5SlvbK8XB.jpg" alt="2.jpg"></p>
-<h4 id="Step4-初始化hexo模板"><a href="#Step4-初始化hexo模板" class="headerlink" title="Step4 初始化hexo模板"></a>Step4 初始化hexo模板</h4><p>命令是</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2020/03/28/FEs67nYOLIJpVTN.jpg" alt="3.jpg"></p>
-<p>在这边你或许会遇到一个问题，初始化速度极慢，令人难以忍受，咳咳，仔细思考哈。这个是有npm安装的，那问题自然出在npm上面，咱们换个源就行了，刚刚上一步你换过了的话这里就不用换啦，这边可以换阿里或者淘宝的源，蛮好的，继续偷懒，放上链接：<a href="https://blog.csdn.net/cungudafa/article/details/98739459" target="_blank" rel="noopener">https://blog.csdn.net/cungudafa/article/details/98739459</a></p>
-<h4 id="Step5-初始化后的文件树"><a href="#Step5-初始化后的文件树" class="headerlink" title="Step5 初始化后的文件树"></a>Step5 初始化后的文件树</h4><p><img src="https://i.loli.net/2020/03/28/xwJP2vzKDOsGWVo.png" alt="43.png"></p>
-<p>其中source_posts里边存放的都是Markdown格式文件，也就是咱们日后的博客文件哟</p>
-<p>注意了，上面这幅图呀，只是为了给大家对照一下本地hexo init之后的文件夹是否缺啥漏啥，不要过分纠结哦。</p>
-<p>比如我这边打开我的“教程演示用博客”文件夹，可以看到里边的文件架构和图片上显示的简直一模一样呢！</p>
-<h4 id="Step6-hexo使用教程"><a href="#Step6-hexo使用教程" class="headerlink" title="Step6 hexo使用教程"></a>Step6 hexo使用教程</h4><p>hexo日常三命令</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean <span class="comment"># 清空已有hexo网站文件</span></span><br><span class="line">hexo generate(<span class="keyword">or</span> g) <span class="comment"># 依据网页文本与新的CSS样式生成新网站文件</span></span><br><span class="line">hexo server(<span class="keyword">or</span> s) <span class="comment"># 启动本地服务器，可以在localhost:4000查看网站修改效果</span></span><br></pre></td></tr></table></figure>
-<h5 id="hexo入门教学"><a href="#hexo入门教学" class="headerlink" title="hexo入门教学"></a>hexo入门教学</h5><ol>
-<li>老规矩，在博客页面下git bash一下，直接上面三连，这里边的意思呢，是说把上面三个命令，依次输入到咱们的gitbash上面，然后我们在我们的浏览器中输入localhost:4000，即可看到网站效果</li>
-<li>一般咱们都是默认的landscape主题，后期当提交新文章或者新的样式的时候，往往都是从本地看好结果，确认无误后再部署到服务器上的，当然我在本地记录了各个版本。其实git版本控制器就是有这一部分的命令的，不过我暂时没有完全掌握哈，只能用老办法复制粘贴备份本地的博客</li>
-<li>这边要注意了hexo有很多 主题，各种主题都很好请自己选择，官网主题：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></li>
-<li>主题配置，在博客文件夹下主目录找到_config.yml，打开后，修改theme:landscape为自己选择的主题就行了</li>
-</ol>
-<h5 id="部署服务器教学"><a href="#部署服务器教学" class="headerlink" title="部署服务器教学"></a>部署服务器教学</h5><p>部署服务器呢，这里有这三种方案</p>
-<ol>
-<li>部署到github上<br>好处：免费，且安全，而且受众度广，知名度高<br>缺点：由于服务器不在国内，所以访问速度会慢</li>
-<li>部署到gitee上：<br>楼上说的全部反过来就行了<br>好处：访问速度快<br>缺点：绑定自己家的域名居然还要我花钱？？？？害白嫖党不理解，不安全，发生过事故，而且仓库里的代码居然是保存在人家的服务器（阿里云，腾讯云）上的 你敢信？！！！<br>不过还是挺好的，嗯呢，说心里话呢，鼓励他</li>
-<li>既部署到GitHub上又部署到gitee上：<br>嘿嘿嘿，想不到吧，我还能白嫖，取两家之长处，助自己之力，哈哈哈，<br>自主研发，别人还真没有（网上找不到哦）</li>
-</ol>
-<h6 id="部署到github上"><a href="#部署到github上" class="headerlink" title="部署到github上"></a>部署到github上</h6><ol>
-<li><p>首先申请github账号</p>
-</li>
-<li><p>然后开始建仓库，这个建仓库很有讲究</p>
-<p>仓库名应该是账号名加.github.io<br>比方说我github账号为mr8god，我的仓库名就是mr8god.github.io<br>仓库地址就是Mr8god/Mr8god.github.io<br>然后选择public公开就行了其他就OK了</p>
-</li>
-<li><p><img src="https://i.loli.net/2020/03/28/d34ShBQy2JCUgp7.jpg" alt="5.jpg" style="zoom: 50%;" /></p>
-</li>
-<li><p>建完仓库后你会看到这个页面<br>复制http后边那个ssh的地址，待会用得到这边为了演示，我就创建了我的mr6god仓库哈<br>地址就是：git@github.com:Mr8god/mr6god.github.io.git</p>
-</li>
-<li><p>这边我需要插一句，本地上传到服务器的工具就是Git版本控制工具，如果你能够熟练掌握git的使用，那么做这个博客很简单，也就是复习一下git的使用方法而已，但是如果你不熟悉的话，就略微麻烦而已。</p>
-</li>
-<li><p>这边将本地博客推送到githubpage（就是我刚刚说的服务器）之前，需要用到一个命令，在命令行（gitbash）运行这行命令：$ npm install hexo-deployer-git —save</p>
-</li>
-<li><p>然后咱们就可以使用hexo deployer进行推送，在推送的时候会遇到要求输入账号密码，照着输入就行了。<br>但是我们日后推送的话总不能每一次都输入密码吧，这边推荐SSH key秘钥连接，这边就不赘述了哈，自行百度</p>
-</li>
-<li><p>来了来了，最重要的就是这一步修改文件，还是刚刚的_config.yml文件，在文件末尾修改为：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:&lt;Github账号名称&gt;/&lt;Github账号名称&gt;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注意了，上面仓库填ssh地址，不是HTTP地址，就是这样，这边可以写git@github.com:Mr8god/mr6god.github.io.git</p>
-</li>
-<li><p>然后返回我们的gitbash 输入下面两行代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>过一会访问域名：<br>https://<Github账号名称>.github.io<br>就可以咯，然后就会是你本地的博客页面了</p>
-</li>
-</ol>
-<h6 id="部署到gitee上"><a href="#部署到gitee上" class="headerlink" title="部署到gitee上"></a>部署到gitee上</h6><ol>
-<li><p>老规矩，申请码云账户，新建仓库</p>
-</li>
-<li><p>仓库名字必须和你注册githee的注册名相同，不然css路径会读错</p>
-</li>
-<li><p>得到咱们的仓库地址，复制下来</p>
-</li>
-<li><p>接下来就是和github不同的一点了，码云需要到它的服务页面打开page功能</p>
-<p><img src="https://i.loli.net/2020/03/28/eiyDRVu9GHqQbB1.jpg" alt="6.jpg" style="zoom:50%;" /></p>
-<p><img src="https://i.loli.net/2020/03/28/QsxBjbqgwpt6uI3.jpg" alt="7.jpg" style="zoom:50%;" /></p>
-<p>启动部署即可</p>
-</li>
-<li><p>返回咱们的本地博客目录，修改主目录下的_config.yml文件，在文件末尾修改为：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:&lt;Github账号名称&gt;/&lt;Github账号名称&gt;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这边将本地博客推送到码云仓库之前（就是我刚刚说的服务器），需要用到一个命令，在命令行（gitbash）运行这行命令：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后返回我们的gitbash 输入下面两行代码：</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后输入<br> http://&lt;码云用户名&gt;.gitee.io/<br> 就可以 看到我们本地的博客样子了</p>
-</li>
-</ol>
-<h6 id="既部署到GitHub上又部署到gitee上"><a href="#既部署到GitHub上又部署到gitee上" class="headerlink" title="既部署到GitHub上又部署到gitee上"></a>既部署到GitHub上又部署到gitee上</h6><p>在我们干完上面的两件事之后，其实很多都是重复工作，我们只需要修改一个配置文件就行了，就是咱们的网站配置文件_config.yml</p>
-<p><img src="https://i.loli.net/2020/03/28/kqI9ngwjXp2531O.jpg" alt="8.jpg"></p>
-<p>改成上面这个样子就可以了</p>
-<p>我想讲一下为什么会有第三种方案的诞生哈，因为考虑到github的服务器搭在国外，所以我们日常访问上面的博客的时候它会很慢，于是我们可以靠这种方法去分流哈。分流的意思是，当我访问一个域名（这个域名同时解析了我两个博客page的地址）的时候，会自动根据我们离哪个服务器更近而自动去选择访问哪个服务器。</p>
-<p>其实这种做法有专门的名词，叫做负载均衡。可以使用cdn服务来达到同样一个效果。</p>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>emmmm，说一下之后的发展，已经在搭其他框架了，打算用回归老本行，重拾Django，用这个框架做更细致的博客哈。</p>
-<p>然后gitee肯定是要淘汰掉的，因为他居然要付费才能让我选择自定义的域名，每年一百，啧啧啧，害。而且它也不安全嘛，思来想去，换掉它指日可待。</p>
-<p>暂时就写这么多啦。然后呢，有啥问题要交流的，暂时我就放我的QQ啦：1803357141。因为还没做其他功能。害，就是这样。欢迎交流！</p>
-<p>对了对了，最后感谢一位程序媛的博客对我的帮助，放上她的博客地址哈：<a href="https://cungudafa.gitee.io/" target="_blank" rel="noopener">https://cungudafa.gitee.io/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1697,7 +1797,7 @@ R =\frac  {51×50×49×48×47×46}{6×5×4×3×2×1}</script><p>选择6个数时
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1710,7 +1810,7 @@ R =\frac  {51×50×49×48×47×46}{6×5×4×3×2×1}</script><p>选择6个数时
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1751,7 +1851,7 @@ R =\frac  {51×50×49×48×47×46}{6×5×4×3×2×1}</script><p>选择6个数时
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共65.3k字</span>
+  <span class="post-count">博客全站共57k字</span>
 </div>
         
 

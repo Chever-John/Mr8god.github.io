@@ -40,8 +40,8 @@
 <meta property="og:image" content="https://i.loli.net/2020/04/11/MvF6VlU21SKIfdh.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/04/11/DlvLfm5qPKnFzpX.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/04/11/C8uPNOlLZbco4G7.jpg">
-<meta property="article:published_time" content="2020-04-09T15:48:02.993Z">
-<meta property="article:modified_time" content="2020-04-11T14:34:22.617Z">
+<meta property="article:published_time" content="2020-04-09T07:49:15.000Z">
+<meta property="article:modified_time" content="2020-04-14T15:51:25.036Z">
 <meta property="article:author" content="Mr8god">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -210,14 +210,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-09 23:48:02" itemprop="dateCreated datePublished" datetime="2020-04-09T23:48:02+08:00">2020-04-09</time>
+              <time title="创建时间：2020-04-09 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-09T15:49:15+08:00">2020-04-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-11 22:34:22" itemprop="dateModified" datetime="2020-04-11T22:34:22+08:00">2020-04-11</time>
+                <time title="修改时间：2020-04-14 23:51:25" itemprop="dateModified" datetime="2020-04-14T23:51:25+08:00">2020-04-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -295,6 +295,10 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.shape;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @ Mr8god</span></span><br><span class="line"><span class="comment"> * @ 2020/4/11</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShapeTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Shape sh = <span class="keyword">new</span> Shape();</span><br><span class="line"></span><br><span class="line">        sh.draw();</span><br><span class="line">        sh.erase();</span><br><span class="line">        sh.move();</span><br><span class="line">        sh.getColor();</span><br><span class="line">        sh.setColor();</span><br><span class="line"></span><br><span class="line">        Circle ci = <span class="keyword">new</span> Circle();</span><br><span class="line">        ci.draw();</span><br><span class="line">        ci.erase();</span><br><span class="line">        ci.move();</span><br><span class="line">        ci.getColor();</span><br><span class="line">        ci.setColor();</span><br><span class="line">        ci.doStuff(ci);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>自此输出：</p>
 <p><img src="https://i.loli.net/2020/04/11/C8uPNOlLZbco4G7.jpg" alt="向上转型代码的输出.jpg"></p>
+<h2 id="如何实现控制访问"><a href="#如何实现控制访问" class="headerlink" title="如何实现控制访问"></a>如何实现控制访问</h2><p>Java用三个关键字在类的内部设定边界：public、private、protected。这些访问指定词决定了紧跟其后被定义的东西可以被谁使用。</p>
+<p>public：表示紧随其后的元素对任何人都是可用的</p>
+<p>private：这个关键字表示除类型创建者和类型的内部方法之外的其他任何人都不能访问的元素。private就像你与使用类的程序员之间的一堵墙，如果有人试图访问private成员，就会在编译期间得到错误信息。</p>
+<p>protected：这个关键字与private作用相当，差别仅在于继承的类可以访问protected成员，但是不能访问private成员。</p>
 
     </div>
 
@@ -346,12 +350,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E6%95%B0%E7%BB%84/" rel="prev" title="Java速记——数组">
-      <i class="fa fa-chevron-left"></i> Java速记——数组
+    <a href="/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E5%8F%98%E9%87%8F%E8%AF%A6%E8%A7%A3/" rel="prev" title="Java速记——变量详解">
+      <i class="fa fa-chevron-left"></i> Java速记——变量详解
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/04/11/%E5%BB%BA%E7%AB%99%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/%E5%8F%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%EF%BC%88CI%EF%BC%89/" rel="next" title="可持续集成（CI）">
-      可持续集成（CI） <i class="fa fa-chevron-right"></i>
+    <a href="/2020/04/10/Java/%E4%BB%8E%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E4%BB%A3%E7%A0%81%E6%88%91%E5%AD%A6%E4%B9%A0%E5%88%B0%E4%BA%86%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F/" rel="next" title="从第一个Java代码我学习到了什么呢？">
+      从第一个Java代码我学习到了什么呢？ <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -412,7 +416,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java——初章"><span class="nav-number">1.</span> <span class="nav-text">Java——初章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象概念的由来"><span class="nav-number">1.1.</span> <span class="nav-text">抽象概念的由来</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象方法是怎么出现的呢？"><span class="nav-number">1.1.1.</span> <span class="nav-text">抽象方法是怎么出现的呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OOP面向对象程序设计的特征"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">OOP面向对象程序设计的特征</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的接口"><span class="nav-number">1.2.</span> <span class="nav-text">对象的接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方案的隐藏"><span class="nav-number">1.3.</span> <span class="nav-text">实现方案的隐藏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为啥要控制类中成员的访问权限呢？"><span class="nav-number">1.3.1.</span> <span class="nav-text">为啥要控制类中成员的访问权限呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java如何实现控制呢？"><span class="nav-number">1.3.2.</span> <span class="nav-text">Java如何实现控制呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案的重复使用"><span class="nav-number">1.4.</span> <span class="nav-text">方案的重复使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承：重新使用接口"><span class="nav-number">1.5.</span> <span class="nav-text">继承：重新使用接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#区分父类子类的方法"><span class="nav-number">1.5.1.</span> <span class="nav-text">区分父类子类的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改善父类"><span class="nav-number">1.5.2.</span> <span class="nav-text">改善父类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多形对象的互换使用"><span class="nav-number">1.6.</span> <span class="nav-text">多形对象的互换使用</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java——初章"><span class="nav-number">1.</span> <span class="nav-text">Java——初章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象概念的由来"><span class="nav-number">1.1.</span> <span class="nav-text">抽象概念的由来</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象方法是怎么出现的呢？"><span class="nav-number">1.1.1.</span> <span class="nav-text">抽象方法是怎么出现的呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OOP面向对象程序设计的特征"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">OOP面向对象程序设计的特征</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的接口"><span class="nav-number">1.2.</span> <span class="nav-text">对象的接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方案的隐藏"><span class="nav-number">1.3.</span> <span class="nav-text">实现方案的隐藏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为啥要控制类中成员的访问权限呢？"><span class="nav-number">1.3.1.</span> <span class="nav-text">为啥要控制类中成员的访问权限呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java如何实现控制呢？"><span class="nav-number">1.3.2.</span> <span class="nav-text">Java如何实现控制呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案的重复使用"><span class="nav-number">1.4.</span> <span class="nav-text">方案的重复使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承：重新使用接口"><span class="nav-number">1.5.</span> <span class="nav-text">继承：重新使用接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#区分父类子类的方法"><span class="nav-number">1.5.1.</span> <span class="nav-text">区分父类子类的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改善父类"><span class="nav-number">1.5.2.</span> <span class="nav-text">改善父类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多形对象的互换使用"><span class="nav-number">1.6.</span> <span class="nav-text">多形对象的互换使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现控制访问"><span class="nav-number">1.7.</span> <span class="nav-text">如何实现控制访问</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -426,7 +430,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -439,7 +443,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -480,7 +484,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共65.3k字</span>
+  <span class="post-count">博客全站共57k字</span>
 </div>
         
 
