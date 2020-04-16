@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js ? id=UA-162074438-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162074438-1');
+</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"mr8god.cn","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="多态8.3.1 构造器与多态之构造器的创建顺序1234567891011121314151617181920212223242526272829303132333435363738394041package cn.mr8god.chaptereight;import static net.mindview.util.Print.print;&#x2F;** * @author Mr8god * @date">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java日记——多态">
+<meta property="og:url" content="https://mr8god.cn/2020/04/16/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81/index.html">
+<meta property="og:site_name" content="Mr8god&#39;s blog">
+<meta property="og:description" content="多态8.3.1 构造器与多态之构造器的创建顺序1234567891011121314151617181920212223242526272829303132333435363738394041package cn.mr8god.chaptereight;import static net.mindview.util.Print.print;&#x2F;** * @author Mr8god * @date">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/04/16/MsXKb6vqhkrA2ax.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/16/QzUjJZ2p9VoBC5L.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/17/rmxS71Oe8UsAPTR.jpg">
+<meta property="article:published_time" content="2020-04-16T14:14:05.000Z">
+<meta property="article:modified_time" content="2020-04-16T16:25:04.325Z">
+<meta property="article:author" content="Mr8god">
+<meta property="article:tag" content="Java日记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/04/16/MsXKb6vqhkrA2ax.png">
+
+<link rel="canonical" href="https://mr8god.cn/2020/04/16/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Java日记——多态 | Mr8god's blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162074438-1# <app_id>"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-162074438-1# <app_id>');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Mr8god's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+<a href="https://github.com/Mr8god/Mr8god.github.io" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Mr8god's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">coding,coding,always coding!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/16/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java日记——多态
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-16 22:14:05" itemprop="dateCreated datePublished" datetime="2020-04-16T22:14:05+08:00">2020-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-17 00:25:04" itemprop="dateModified" datetime="2020-04-17T00:25:04+08:00">2020-04-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><h2 id="8-3-1-构造器与多态之构造器的创建顺序"><a href="#8-3-1-构造器与多态之构造器的创建顺序" class="headerlink" title="8.3.1 构造器与多态之构造器的创建顺序"></a>8.3.1 构造器与多态之构造器的创建顺序</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.chaptereight;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> net.mindview.util.Print.print;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/16</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 20:15</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Meal</span></span>&#123;</span><br><span class="line">    Meal()&#123; print(<span class="string">"Meal()"</span>);&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bread</span></span>&#123;</span><br><span class="line">    Bread()&#123; print(<span class="string">"Bread()"</span>);&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cheese</span></span>&#123;</span><br><span class="line">    Cheese()&#123; print(<span class="string">"Cheese()"</span>);&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Lettuce</span></span>&#123;</span><br><span class="line">    Lettuce()&#123; print(<span class="string">"Lettuce()"</span>);&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Lunch</span> <span class="keyword">extends</span> <span class="title">Meal</span></span>&#123;</span><br><span class="line">    Lunch()&#123; print(<span class="string">"Lunch()"</span>);&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PortableLunch</span> <span class="keyword">extends</span> <span class="title">Lunch</span></span>&#123;</span><br><span class="line">    PortableLunch()&#123; print(<span class="string">"PortableLunch()"</span>);&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sandwich</span> <span class="keyword">extends</span> <span class="title">PortableLunch</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Bread b = <span class="keyword">new</span> Bread();</span><br><span class="line">    <span class="keyword">private</span> Cheese c = <span class="keyword">new</span> Cheese();</span><br><span class="line">    <span class="keyword">private</span> Lettuce l = <span class="keyword">new</span> Lettuce();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Sandwich</span><span class="params">()</span></span>&#123; print(<span class="string">"Sandwich()"</span>);&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Sandwich();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 输出结果</span><br><span class="line">Meal()</span><br><span class="line">Lunch()</span><br><span class="line">PortableLunch()</span><br><span class="line">Bread()</span><br><span class="line">Cheese()</span><br><span class="line">Lettuce()</span><br><span class="line">Sandwich()</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2020/04/16/MsXKb6vqhkrA2ax.png" alt="理解组合继承的构建顺序.png"></p>
+<p>快速做了个图来理解这个东西哈！这里边每个类都有自己的<strong>构造方法</strong>，</p>
+<p>其中最值得关注的就是<strong>Sandwich</strong>类，三个继承关系，（若将<strong>Object</strong>的根继承算上的话，那就是四层继承了）。其中还包括了三个成员对象。当我们在<strong>main()</strong>里边创建好一个<strong>Sandwich</strong>对象后，就可以看到输出结果了</p>
+<h3 id="三条规则"><a href="#三条规则" class="headerlink" title="三条规则"></a>三条规则</h3><p>我先说一下复杂对象调用构造器要遵循的<strong>三条规则</strong>吧</p>
+<ol>
+<li>调用基类构造器。这个步骤会不断地反复递归下去，首先是构造这种层次结构的根，然后是下一层导出类，etc，直到最低层的导出类。</li>
+<li>按声明顺序调用成员的初始化方法。</li>
+<li>调用导出类构造器的主体。</li>
+</ol>
+<p>根据输出结果我们可以看到，它首先输出的就是Meal了，为什么会这样呢？因为根据我<strong>main()</strong>函数里定义的四个东西（三个成员对象和一个成员构造函数）来看我的输出应该是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 输出结果</span><br><span class="line">Bread()</span><br><span class="line">Cheese()</span><br><span class="line">Lettuce()</span><br><span class="line">Sandwich()</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<p>才对呀。很正常的思维，哈哈哈。不过呢，出现前两个，其实是为了表明，<strong>Meal</strong>类和<strong>Lunch</strong>类在之前先执行了自己的构造函数，而且又因为<strong>Meal</strong>类是<strong>Lunch</strong>类的基类（父类），所以<strong>Meal</strong>类的构造函数在更前面进行了构造了，这正好说明了我之前所说的<strong>三条规则</strong>中的第一条。</p>
+<p>接下来我们输出的就是三小只了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Bread()</span><br><span class="line">Cheese()</span><br><span class="line">Lettuce()</span><br></pre></td></tr></table></figure>
+<p>这符合我们之前说的，按照声明调用<strong>成员**</strong>成员**的初始化方法进行输出了</p>
+<p>最后就是我们的导出类构造器的主体，与之对应的就是我们<strong>输出结果</strong>中的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sandwich()</span><br></pre></td></tr></table></figure>
+<h3 id="说说心里话"><a href="#说说心里话" class="headerlink" title="说说心里话"></a>说说心里话</h3><p>为什么我们的构造器调用顺序很重要，以至于我专门做了个笔记来讲它呢？</p>
+<p>我们知道当我们导出类（子类）在进行继承的时候，我们是<strong>已经知道了基类（父类）的一切</strong>了，知道它的底细是怎样的呢！不然我们谈何继承呀，只要基类中标注为<strong>protected</strong>和<strong>public</strong>的，都是知道的，这就意味着我们在导出类中，必须假定所有成员<strong>都是有效的</strong>。</p>
+<p>综上所述，我们要确保所有的成员都是有效的，就得从根基做好，先打牢根基，才能走得更远（很像咱们的编程语言学习哦！）。于是我们先启动基类的构造器，确保基类是完好无损的。然后依次向下。</p>
+<p>此外，知道构造器中的所有成员有效也是因为成员对象在类内进行定义的时候，只要有可能，就应该对它们进行初始化。</p>
+<h2 id="8-3-2-继承与清理"><a href="#8-3-2-继承与清理" class="headerlink" title="8.3.2 继承与清理"></a>8.3.2 继承与清理</h2><p>平常我们都是不需要注意清理的问题的，因为毕竟有我们的垃圾处理机制嘛。如果确实遇到了清理的问题，那么就得有心创建<strong>清理方法</strong>了。并且由于是继承的缘故。如果我们有其他作为垃圾回收一部分的特殊清理动作，就必须在导出类中覆盖该<strong>清理方法</strong>。<u>当覆盖被继承类的<strong>清理方法</strong>的时候，务必调用基类版本的<strong>清理方法</strong>，否则，基类的清理就不会发生。</u></p>
+<p>上示范代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.chaptereight;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> net.mindview.util.Print.print;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Characteristic</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String s;</span><br><span class="line">    Characteristic(String s)&#123;</span><br><span class="line">        <span class="keyword">this</span>.s = s;</span><br><span class="line">        print(<span class="string">"Creating Characteristic "</span> + s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispose</span><span class="params">()</span></span>&#123;</span><br><span class="line">        print(<span class="string">"disposing Characteristic "</span> + s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Description</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String s;</span><br><span class="line">    Description(String s)&#123;</span><br><span class="line">        <span class="keyword">this</span>.s = s;</span><br><span class="line">        print(<span class="string">"Creating Description "</span> + s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispose</span><span class="params">()</span></span>&#123;</span><br><span class="line">        print(<span class="string">"disposing Description "</span> + s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LivingCreature</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Characteristic p =</span><br><span class="line">            <span class="keyword">new</span> Characteristic(<span class="string">"is alive"</span>);</span><br><span class="line">    <span class="keyword">private</span> Description t =</span><br><span class="line">            <span class="keyword">new</span> Description(<span class="string">"Basic Living Creature"</span>);</span><br><span class="line">    LivingCreature()&#123;</span><br><span class="line">        print(<span class="string">"LivingCreature()"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispose</span><span class="params">()</span></span>&#123;</span><br><span class="line">        print(<span class="string">"LivingCreature dispose"</span>);</span><br><span class="line">        t.dispose();</span><br><span class="line">        p.dispose();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> <span class="keyword">extends</span> <span class="title">LivingCreature</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Characteristic p =</span><br><span class="line">            <span class="keyword">new</span> Characteristic(<span class="string">"has heart"</span>);</span><br><span class="line">    <span class="keyword">private</span> Description t =</span><br><span class="line">            <span class="keyword">new</span> Description(<span class="string">"Animal not Vegetable"</span>);</span><br><span class="line">    Animal()&#123; print(<span class="string">"Animal()"</span>);&#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispose</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        print(<span class="string">"Animal dispose"</span>);</span><br><span class="line">        t.dispose();</span><br><span class="line">        p.dispose();</span><br><span class="line">        <span class="keyword">super</span>.dispose();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Amphibian</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Characteristic p =</span><br><span class="line">            <span class="keyword">new</span> Characteristic(<span class="string">"can live in water"</span>);</span><br><span class="line">    <span class="keyword">private</span>  Description t =</span><br><span class="line">            <span class="keyword">new</span> Description(<span class="string">"Both water and land"</span>);</span><br><span class="line">    Amphibian()&#123;</span><br><span class="line">        print(<span class="string">"Amphibian"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispose</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        print(<span class="string">"Amphibian dispose"</span>);</span><br><span class="line">        t.dispose();</span><br><span class="line">        p.dispose();</span><br><span class="line">        <span class="keyword">super</span>.dispose();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/16</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 11:19</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Frog</span> <span class="keyword">extends</span> <span class="title">Amphibian</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Characteristic p = <span class="keyword">new</span> Characteristic(<span class="string">"Croaks"</span>);</span><br><span class="line">    <span class="keyword">private</span> Description t = <span class="keyword">new</span> Description(<span class="string">"Eats Bugs"</span>);</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Frog</span><span class="params">()</span> </span>&#123; print(<span class="string">"Frog()"</span>);&#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispose</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        print(<span class="string">"Frog dispose"</span>);</span><br><span class="line">        t.dispose();</span><br><span class="line">        p.dispose();</span><br><span class="line">        <span class="keyword">super</span>.dispose();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Frog frog = <span class="keyword">new</span> Frog();</span><br><span class="line">        print(<span class="string">"Bye!"</span>);</span><br><span class="line">        frog.dispose();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 输出结果</span><br><span class="line">Creating Characteristic is alive</span><br><span class="line">Creating Description Basic Living Creature</span><br><span class="line">LivingCreature()</span><br><span class="line">Creating Characteristic has heart</span><br><span class="line">Creating Description Animal not Vegetable</span><br><span class="line">Animal()</span><br><span class="line">Creating Characteristic can live in water</span><br><span class="line">Creating Description Both water and land</span><br><span class="line">Amphibian</span><br><span class="line">Creating Characteristic Croaks</span><br><span class="line">Creating Description Eats Bugs</span><br><span class="line">Frog()</span><br><span class="line">Bye!</span><br><span class="line">Frog dispose</span><br><span class="line">disposing Description Eats Bugs</span><br><span class="line">disposing Characteristic Croaks</span><br><span class="line">Amphibian dispose</span><br><span class="line">disposing Description Both water and land</span><br><span class="line">disposing Characteristic can live in water</span><br><span class="line">Animal dispose</span><br><span class="line">disposing Description Animal not Vegetable</span><br><span class="line">disposing Characteristic has heart</span><br><span class="line">LivingCreature dispose</span><br><span class="line">disposing Description Basic Living Creature</span><br><span class="line">disposing Characteristic is alive</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2020/04/16/QzUjJZ2p9VoBC5L.png" alt="理解继承与清理.png"></p>
+<p>代码太长，给大家整理了一个<strong>UML类图</strong>，其中<strong>dispose()</strong>就是我用来清理的方法。</p>
+<p>然后呢，我们每个类都包括了<strong>Characteristic</strong>和<strong>Description</strong>这两种类型的成员对象，并且它们必须最终被<strong>销毁</strong>。</p>
+<h3 id="什么是销毁顺序"><a href="#什么是销毁顺序" class="headerlink" title="什么是销毁顺序"></a>什么是销毁顺序</h3><p>谈到<strong>销毁</strong>呀，这里边还得涉及到一个<strong>销毁顺序</strong>，</p>
+<ul>
+<li><p>如果我们遇到某个子对象要依赖于其他对象，那么<strong>销毁的顺序</strong>应该和初始化顺序相反。</p>
+</li>
+<li><p>而对于<strong>字段</strong>，则意味着与声明的顺序相反（因为<strong>字段</strong>的初始化是按照声明的顺序进行的）。</p>
+</li>
+<li>对于基类，首先应该对其导出类进行清理，然后再是基类。</li>
+</ul>
+<p>上面的知识点很简单啦，就是很明白浅显的道理——<strong>先进先出</strong>嘛！</p>
+<p>对于代码的哈，我再来个图解</p>
+<p><img src="https://i.loli.net/2020/04/17/rmxS71Oe8UsAPTR.jpg" alt="清理代码图解.jpg"></p>
+<p>帮助大家理解这是怎样一个过程哈</p>
+<h3 id="代码理解"><a href="#代码理解" class="headerlink" title="代码理解"></a>代码理解</h3><h4 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h4><p>我主函数代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Frog frog = <span class="keyword">new</span> Frog();</span><br></pre></td></tr></table></figure>
+<p>意味着我们开始<strong>Create</strong> <strong>Create</strong> <strong>Create</strong> 了，首先<strong>Frog</strong>中初始化了两个<strong>Characteristic</strong>和<strong>Description</strong>类对象，同时这也是正式开始<strong>Create</strong> <strong>Create</strong> <strong>Create</strong> 了。</p>
+<p>具体我们是会先指向最基本的那个基类<strong>LivingCreature</strong>开始<strong>Create</strong>，然后依次往下，最后到<strong>Frog</strong>结束<strong>Create</strong>。</p>
+<p>输出结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Creating Characteristic is alive</span><br><span class="line">Creating Description Basic Living Creature</span><br><span class="line">LivingCreature()</span><br><span class="line">Creating Characteristic has heart</span><br><span class="line">Creating Description Animal not Vegetable</span><br><span class="line">Animal()</span><br><span class="line">Creating Characteristic can live in water</span><br><span class="line">Creating Description Both water and land</span><br><span class="line">Amphibian</span><br><span class="line">Creating Characteristic Croaks</span><br><span class="line">Creating Description Eats Bugs</span><br><span class="line">Frog()</span><br></pre></td></tr></table></figure>
+<h4 id="然后"><a href="#然后" class="headerlink" title="然后"></a>然后</h4><p>我主函数代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Bye!"</span>);</span><br></pre></td></tr></table></figure>
+<p>暂时小结一下哈！</p>
+<p>输出结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bye!</span><br></pre></td></tr></table></figure>
+<h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>我主函数代码是这样的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frog.dispose();</span><br></pre></td></tr></table></figure>
+<p>这是调用了我<strong>Frog</strong>类中的<strong>dispose()</strong>方法，正式开始<strong>dispose</strong> <strong>dispose</strong> <strong>dispose</strong>了。</p>
+<p><strong>dispose</strong>的顺序与之前<strong>Create</strong>的相反。它是先把底层的，最新的那个导出类（子类）先给<strong>dispose</strong>了，依次向上，最后把最终大Boss <strong>LivingCreature</strong>给<strong>dispose</strong>了，很是简单呢！！！只要花点时间看看就能懂的代码呢，以后我就不打算花时间看书看代码了，直接看我的日记不就得了，哈哈哈！</p>
+<h2 id="未完待续……"><a href="#未完待续……" class="headerlink" title="未完待续……"></a>未完待续……</h2>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr8god
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://mr8god.cn/2020/04/16/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81/" title="Java日记——多态">https://mr8god.cn/2020/04/16/Java/Java日记/Java日记——多态/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+        
+      </div>
+
+      <div>
+        
+          
+        
+      </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java%E6%97%A5%E8%AE%B0/" rel="tag"># Java日记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/15/Java/Java%E6%B7%B1%E8%80%95/Java%E6%B7%B1%E8%80%95%E2%80%94%E2%80%94%E8%A3%85%E7%AE%B1%E6%8B%86%E7%AE%B1%E6%9C%BA%E5%88%B6/" rel="prev" title="Java深耕——自动装箱拆箱机制">
+      <i class="fa fa-chevron-left"></i> Java深耕——自动装箱拆箱机制
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多态"><span class="nav-number">1.</span> <span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-1-构造器与多态之构造器的创建顺序"><span class="nav-number">1.1.</span> <span class="nav-text">8.3.1 构造器与多态之构造器的创建顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三条规则"><span class="nav-number">1.1.1.</span> <span class="nav-text">三条规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说说心里话"><span class="nav-number">1.1.2.</span> <span class="nav-text">说说心里话</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-2-继承与清理"><span class="nav-number">1.2.</span> <span class="nav-text">8.3.2 继承与清理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是销毁顺序"><span class="nav-number">1.2.1.</span> <span class="nav-text">什么是销毁顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码理解"><span class="nav-number">1.2.2.</span> <span class="nav-text">代码理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#首先"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">首先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#然后"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">然后</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最后"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">最后</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续……"><span class="nav-number">1.3.</span> <span class="nav-text">未完待续……</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mr8god</p>
+  <div class="site-description" itemprop="description">Just learning！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">苏 ICP 备 20015778 号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr8god</span>
+</div>
+  <!-- <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+  -->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共60.3k字</span>
+</div>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
