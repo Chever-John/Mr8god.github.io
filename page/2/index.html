@@ -180,6 +180,322 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">Java速记——数组</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-09 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-09T15:49:15+08:00">2020-04-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-15 00:04:34" itemprop="dateModified" datetime="2020-04-15T00:04:34+08:00">2020-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Java——数组"><a href="#Java——数组" class="headerlink" title="Java——数组"></a>Java——数组</h1><p>数组：可以一次定义，就可以得到多个类型相同、功能相似的变量，本质还是变量</p>
+<h2 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h2><p>java类型可以分成基本类型、应用类型</p>
+<ol>
+<li>基本类型：8个<ol>
+<li>引用类型：数组、类、接口、枚举</li>
+</ol>
+</li>
+</ol>
+<p><strong>数组其实就是一种引用类型。</strong></p>
+<p>任何已有的类型，添加一组方括号就可以变成数组类型</p>
+<p>int ：属于基本类型</p>
+<p>int[]：属于引用类型</p>
+<p>int[]（是一个整体，得连在一起写，一定要注意哈！）</p>
+<p>long         -&gt; long[]</p>
+<p>String       -&gt; String[]</p>
+<p>double     -&gt; double[]</p>
+<p>int []         -&gt; int $[][]$</p>
+<p>数组元素的类型：是数组类型去掉一组方括号</p>
+<p> 比如说int[]数组元素的类型，就是int</p>
+<h3 id="创建数组对象（数组初始化）"><a href="#创建数组对象（数组初始化）" class="headerlink" title="创建数组对象（数组初始化）"></a>创建数组对象（数组初始化）</h3><ol>
+<li><p>静态初始化</p>
+<p>new 类型[] {元素1, 元素2,  ……}<br>不指定长度，只指定每个元素。<br><del>静态初始化的简化语法，省略掉in[]，但是这种方法只能在定义数组变量初始值的时候进行使用</del>，只能在定义数组变量，并赋初始值时使用。</p>
+</li>
+<li><p>动态初始化<br>new 类型[] {元素1, 元素2,  ……}<br>只指定长度，不指定每个元素。<br>系统会自动为每个元素分配初始值，其分配规则是：</p>
+<ul>
+<li>所有数组元素为数值类型时，数组元素的初始值为0；</li>
+<li>所有数组元素为boolean类型时，数组元素的初始值为false</li>
+<li>所有数组元素为引用类型时，数组元素的初始值为null</li>
+</ul>
+</li>
+</ol>
+<h3 id="使用数组"><a href="#使用数组" class="headerlink" title="使用数组"></a>使用数组</h3><ol>
+<li><p>数组都有一个length属性，该属性返回数组的长度</p>
+<p>数组一旦创建，其长度是固定的，他在内存中位置也是固定的。</p>
+</li>
+<li><p>每个数组元素，就相当于一个变量。数组元素的类型，就是数组类型去掉一组方括号<br>访问数组元素：<br>数组元素[索引] ——索引从0开始。最后一个元素的索引是length-1<br>使用的元素超出数组长度，就会导致ArrayIndexOutOfBoundsException: 4（数组索引越界异常）</p>
+</li>
+<li><p>遍历数组 - 依次使用每个元素</p>
+</li>
+<li><p>使用for each循环遍历数组<br>for(元素类型 变量名：数组名){</p>
+<p>​        // 可通过变量名访问每个元素、</p>
+<p>}<br>数组有几个元素，该循环就执行几次，变量会自动、依次等于每个元素。<br>foreach遍历只能访问数组元素的值，不能修改数组元素的值。<br><strong>建议</strong>：永远不要在foreach循环中修改计数器的值！</p>
+</li>
+</ol>
+<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="深入理解数组"><a href="#深入理解数组" class="headerlink" title="深入理解数组"></a>深入理解数组</h3><p>数组是一种引用类型，<strong>引用类型和基本类型的区别在哪里？</strong></p>
+<p>java程序的内存可以分成两种：</p>
+<h4 id="堆-heap-内存："><a href="#堆-heap-内存：" class="headerlink" title="-堆(heap)内存："></a>-堆(heap)内存：</h4><p>java虚拟机启动时分配的一块永久的、很大的内存区。堆内存只有一块。</p>
+<p><strong>java程序必须要使用虚拟机才能运行！</strong>。内存区我们是看不到的。java-Xms可以设置初始java堆大小。比如手 java -Xmx256 内存只有245兆。很容易就会爆内存。 </p>
+<p>Error occurred during initialization of VM<br>Too small initial heap</p>
+<p>上面两行就是爆内存的报错</p>
+<h4 id="栈-stack-内存："><a href="#栈-stack-内存：" class="headerlink" title="-栈(stack)内存："></a>-栈(stack)内存：</h4><p>每次方法运行分配一块临时、很小的内存区。</p>
+<p>每个方法都有自己相应的栈区，方法结束时，对应的栈区就会被回收。</p>
+<p>几个方法就有几个栈区</p>
+<h4 id="在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。"><a href="#在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。" class="headerlink" title="-在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。"></a>-在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。</h4><h4 id="new出来的东西，都在堆内存"><a href="#new出来的东西，都在堆内存" class="headerlink" title="-new出来的东西，都在堆内存"></a>-new出来的东西，都在堆内存</h4><p>堆内存中的对象，如果没有引用变量指向它，那它就变成了trash，等待vm的垃圾回收机制回收它。</p>
+<p>计算机的每个内存单元（Byte、字节)在操作系统中都有一个编号，就像是一栋大楼的每个房间号</p>
+<p>【变量赋值的区别：】</p>
+<p>-基本类型的赋值：直接将该值存入变量所在内存</p>
+<p>-引用类型的赋值：将该对象所在第一个内存单元的编号（内存地址）存入变量。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">Java速记——类与对象</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-09 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-09T15:49:15+08:00">2020-04-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 23:52:17" itemprop="dateModified" datetime="2020-04-14T23:52:17+08:00">2020-04-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Java速记——类与对象"><a href="#Java速记——类与对象" class="headerlink" title="Java速记——类与对象"></a>Java速记——类与对象</h1><p>面向对象：Java是一门面向对象的语言</p>
+<p>类：某一类对象的统称。相当于是一个概念性的（不是具体存在的东西）</p>
+<p>对象：现实中所能接触到的各种“东西”。</p>
+<p>三句总决：定义类、创建对象、调用方法</p>
+<h2 id="定义类"><a href="#定义类" class="headerlink" title="定义类"></a>定义类</h2><p>[修饰符] class 类名</p>
+<p>{</p>
+<p>​        // 成员变量</p>
+<p>​        // 方法</p>
+<p>​        // 构造器</p>
+<p>​        // 内部类</p>
+<p>​        // 初始化块</p>
+<p>}————类体</p>
+<p>类中的五大成员</p>
+<ol>
+<li>修饰符：public、final|abstract。其他的都不能出现，顺序是无所谓的，但是void返回类型一定要在修饰符后边</li>
+<li>类名：语法要求——只要是标识符即可<br>从专业角度来看：多个单词连缀而成。</li>
+</ol>
+<h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><p>[修饰符] 类型 变量名 [ = 初始值];</p>
+<p>修饰符： private| protected|public、final|abstract、static、（transient：序列化相关）</p>
+<p>类型：任意基本类型或引用类型</p>
+<p>变量名：驼峰写法，首字母小写，后面每个单词首字母大写。。。 成员变量，用于描述该类或对象的状态，因此通常建议用名词。项目中，只定义项目感兴趣的状态</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>[修饰符] 返回值类型 方法名(形参列表)</p>
+<p>{</p>
+<p>​        // 代码，之前所有的东西，各种流程控制，定义变量（数组），都是在这个里边写的</p>
+<p>如果声明了返回值类型，必须有return语句。</p>
+<p>}————-方法体</p>
+<ol>
+<li><p>修饰符： private| protected|public、final|abstract、static</p>
+</li>
+<li><p>返回值类型：任意基本类型或引用类型，可使用void</p>
+</li>
+<li><p>方法名：</p>
+<ol>
+<li>语法要求：只要是标识符即可</li>
+<li>专业角度：驼峰写法，首字母小写，后面每个单词首字母大写。。。 成员变量，</li>
+<li>方法：用于描述该类或对象的状态，因此通常建议用<strong>动词</strong>。</li>
+<li>项目中，只定义项目感兴趣的状态</li>
+</ol>
+</li>
+<li><p>形参列表：形参类型1 形参名, 形参类型2 形参名2，……</p>
+<p>每个形参都满足“形参类型 形参名”的格式；多个形参之间用逗号隔开。<br>代表调用方法时要传入的参数。</p>
+</li>
+</ol>
+<h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><p>作用：new调用构造器来创建对象</p>
+<p>如果你没有为类写构造器，系统会默认为该类提供一个无参数的构造器！！！！只能隐藏构造器，但是每个类都会是有构造器的</p>
+<p>[修饰符] 构造器名(形参列表)</p>
+<p>{</p>
+<p>​        // 代码：定义变量（包括数组）、变量赋值、流程控制、数据语</p>
+<p>如果声明了返回值类型，必须有return语句。</p>
+<p>}————-构造器体</p>
+<ol>
+<li>修饰符：private|protected|public</li>
+<li>构造器名必须与类名相同</li>
+</ol>
+<p>判断一个类是不是构造器，要看两点：构造器名是否与类名相同、是否有返回值</p>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>类可以用来干什么呢？</p>
+<ol>
+<li>定义变量<br>所有类，都是引用类型。所有类，都可用于声明变量</li>
+<li>调用static修饰方法或static修饰的变量</li>
+<li>创建对象</li>
+<li>派生子类 </li>
+</ol>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><p>对象可以用来做什么</p>
+<ol>
+<li>调用无static修饰的成员变量</li>
+<li>调用无static修饰的方法</li>
+</ol>
+<h4 id="类是引用类型"><a href="#类是引用类型" class="headerlink" title="类是引用类型"></a>类是引用类型</h4><p>数组，也是引用类型</p>
+<p>java中的引用类型有很多，只要你定义了一个类，就多了一个引用类型</p>
+<p>引用类型变量的赋值，只是将对象的首地址存入变量中</p>
+<h3 id="this引用："><a href="#this引用：" class="headerlink" title="this引用："></a>this引用：</h3><p>this可以出现非static的方法、构造器中。作用如下：</p>
+<ol>
+<li>出现非static方法中，this代表了该方法的调用者。<br>“谁调用该方法，this就代表谁”</li>
+<li>出现在构造器中，this就代表该构造器正在初始化的对象。</li>
+</ol>
+<p>this.     的很重要作用就是：用于区分方法或构造器的局部变量。</p>
+<p>尤其是与成员变量同名时——更需要使用this进行区分。</p>
+<h2 id="方法详解："><a href="#方法详解：" class="headerlink" title="方法详解："></a>方法详解：</h2><h3 id="方法的所属性："><a href="#方法的所属性：" class="headerlink" title="方法的所属性："></a>方法的所属性：</h3><ol>
+<li>方法类似于函数。但与函数不同的是，方法不能存在，方法必须定义在类里面。</li>
+<li>定义在类中的方法。从逻辑上来看：<br>如果该方法有static修饰，该方法属于类本身，应该用类调用。<br>如果该方法无static修饰，该方法属于对象本身。</li>
+<li>方法不能独立执行。<br>方法一定要有调用者<br>【规则】如果你调用同一个类中方法，可以省略调用者，此时系统会添加默认的调用者。<pre><code>           如果该方法是无static的方法，添加this作为默认的调用者。
+</code></pre></li>
+</ol>
+<h3 id="形参个数可变的方法："><a href="#形参个数可变的方法：" class="headerlink" title="形参个数可变的方法："></a>形参个数可变的方法：</h3><p>类型… 形参名 ：这就是形参个数可变的方法</p>
+<ul>
+<li>本质就是数组。上面写法等同于：<br>类型[] 形参名</li>
+<li>类型…<br>写法的好处是：调用方法时更加方便。即可直接传入多个元素，系统会自动将它们封装成数组。也可用数组。<br>写法的缺点是：类型…  这种写法只能作为形参列表的最后一个形参。<pre><code>                       【暗示】：一个方法最多只能有一个“个数可变”的形参
+</code></pre></li>
+</ul>
+<h3 id="递归方法"><a href="#递归方法" class="headerlink" title="递归方法"></a>递归方法</h3><p>方法里调用本身——递归带来了隐式循环。</p>
+<p>递归要避免无限递归。一定要在某些情况下，不再调用方法自身，</p>
+<p>这个时候可能就要说了，这些循环用for之类的循环分支语句不都是可以实现的吗？</p>
+<p>对对对，你说的都对，但是有一种情况只能用递归哦    </p>
+<p>假如我们有：</p>
+<p>f(1) = 2;</p>
+<p>f(2) = 5;</p>
+<p>…</p>
+<p>f(n) = f(n+2) - 2 *  f(n+1)</p>
+<p>要计算：f(10)是多少//代码在40/Recursive   </p>
+<p>【难点】：    要保证递归一定能出现递归结束的条件。</p>
+<h3 id="方法重载："><a href="#方法重载：" class="headerlink" title="方法重载："></a>方法重载：</h3><p>在同一个类中有多个同名的方法，但这多个方法的形参列表不同</p>
+<p>口诀：两同一不同</p>
+<ul>
+<li>修饰符不同不算重载；返回值类型不同也不算重载</li>
+<li>当你要确定一个方法的时候，仅有方法名是不够的的，必须还要结合参数才能确定。</li>
+</ul>
+<h3 id="方法的传参机制："><a href="#方法的传参机制：" class="headerlink" title="方法的传参机制："></a>方法的传参机制：</h3><p>如果定义方法时声明了形参，调用方法时必须传入对应的方法</p>
+<p><strong>Java的参数传递机制：值传递 ，传入的只是参数的副本，并不是参数本身！！！</strong></p>
+<ul>
+<li>如果传递的参数是基本参数，方法中对参数所做的修改 ，完全不会影响参数本身！</li>
+<li>如果传递的参数是引用类型，参数的副本与参数本身指向同一个对象。<br>因此方法通过参数副本修改对象时，会影响参数本身所指向的对象</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1687,252 +2003,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/03/C++/%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E5%87%BD%E6%95%B0%E5%B0%8F%E7%9F%A5%E8%AF%86%E2%80%94%E2%80%94%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%8E%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/03/C++/%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E5%87%BD%E6%95%B0%E5%B0%8F%E7%9F%A5%E8%AF%86%E2%80%94%E2%80%94%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%8E%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">你所不知道的函数小知识——结构体与函数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-03 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-03T15:49:15+08:00">2020-04-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-14 23:56:11" itemprop="dateModified" datetime="2020-04-14T23:56:11+08:00">2020-04-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="结构体与函数之间的那点儿事"><a href="#结构体与函数之间的那点儿事" class="headerlink" title="结构体与函数之间的那点儿事"></a>结构体与函数之间的那点儿事</h1><p>正如标题哈，本篇博文讲的就是结构体和函数。不是新手向的教程哈，更多的这是一篇记录经验的文章。话不多说，开始咯！</p>
-<p>我们将注意力从之前的数组转到结构上面。为结构写函数可比为数组写函数要简单得多了。虽然结构变量和数组一样，都可以存储多个数据项。但是在涉及到函数的时候，结构变量的行为更接近与基本的单值变量。这个名词可能太专业了哈。我做一下解释，还是拿数组来做比较，数组中都是一个元素为单位存储的，在结构中，相应的便是将数据组合成一个实体，实体就是数据，数据就是实体。<strong>实体（结构）==元素（数组）</strong>。</p>
-<p>这边实现传值的思想主要是利用了<strong>一个结构可以赋给另外一个结构</strong>这样子的常识知识。就像普通变量一样。我需要额外补充的是，函数将使用原始结构的副本。</p>
-<p>函数也可以返回结构 。这边与<strong>使用数组名就是代表了数组第一个元素的地址</strong>这样的观点不同的是，结构名只是结构的名称，<strong>要获得结构的地址，必须使用地址运算符&amp;</strong>。</p>
-<p>咱们传递结构体的基本方法就是<strong>按值传递</strong>（圈起来，要考！）但是C++作为一门精细的语言，细节到每一个内存都要深挖，不能忍受这种方法的一个缺点：<strong>如果结构非常大的话，复制结构将增加内存要求，降低系统运行的速度。</strong>出于这种原因，我们更愿意的是采取<strong>按地址传递</strong>（没错，又是“该死”的指针，所以说C++指针一定要学好！）。然后使用指针来访问结构的内容。</p>
-<h2 id="首先介绍“按值传递”"><a href="#首先介绍“按值传递”" class="headerlink" title="首先介绍“按值传递”"></a>首先介绍“按值传递”</h2><p>当结构比较小时，按值传递最舒服了用起来。接下来举的例子来源于《C++ Primer Plus（第六版）》</p>
-<p>例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">从a到b城需要3小时50分钟，而从b到g城需要1小时25分钟，对于这种时间，可以使用结构来表示——一个成员表示小时值，另一个成员表示分钟值，将两个时间加起来需要一些技巧，因为可能需要将分钟值转换为小时。例如前面列出的两个时间的总和为4小时75分钟，应将它转化为5小时15分钟，下面开发用于表示时间值的结构，然后再开发一个函数，它接受两个这样的结构为参数并返回表示参数的和的结构。</span><br></pre></td></tr></table></figure>
-<p>突出介绍一下结构函数的写法</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">travel_time</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> hours;</span><br><span class="line">    <span class="keyword">int</span> mins;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在已经定义好时间的结构的前提下，开始声明结构函数</span></span><br><span class="line"></span><br><span class="line"><span class="function">travel_time <span class="title">sum</span><span class="params">(travel_time t1, travel_time t2)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>完整代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">travel_time</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> hours;</span><br><span class="line">    <span class="keyword">int</span> mins;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Mins_per_hr = <span class="number">60</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">travel_time <span class="title">sum</span><span class="params">(travel_time t1, travel_time t2)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_time</span><span class="params">(travel_time t)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    travel_time day1 = &#123;<span class="number">5</span>, <span class="number">45</span>&#125;;</span><br><span class="line">    travel_time day2 = &#123;<span class="number">4</span>, <span class="number">55</span>&#125;;</span><br><span class="line"></span><br><span class="line">    travel_time trip = sum(day1, day2);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Two-day total: "</span>;</span><br><span class="line">    show_time(trip);</span><br><span class="line"></span><br><span class="line">    travel_time day3 = &#123;<span class="number">4</span>, <span class="number">32</span>&#125;;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Three-day total: "</span>;</span><br><span class="line">    show_time(sum(trip, day3));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">travel_time <span class="title">sum</span><span class="params">(travel_time t1, travel_time t2)</span></span>&#123;</span><br><span class="line">    travel_time total;</span><br><span class="line"></span><br><span class="line">    total.mins = (t1.mins + t2.mins) % Mins_per_hr;</span><br><span class="line">    total.hours = t1.hours + t2.hours + (t1.mins + t2.mins) / Mins_per_hr;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_time</span><span class="params">(travel_time t)</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; t.hours &lt;&lt; <span class="string">" hours, "</span> &lt;&lt; t.mins &lt;&lt; <span class="string">" minutes\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h3><p>travel_time 就像是一个标准的类型名，可以用来声明变量、函数的返回类型和函数的参数类型。</p>
-<p>然后试travel_time结构的变量total 和t1，使用成员运算符进行数据的操作。代码很简单，可以看得懂。</p>
-<h2 id="然后介绍“按地址传递”"><a href="#然后介绍“按地址传递”" class="headerlink" title="然后介绍“按地址传递”"></a>然后介绍“按地址传递”</h2><p>这一次我换了个题目，题目的内容我简要地说一下哈：通常我们表示一件物品的位置的时候，都是采取选择参照系利用直角坐标系或者极坐标系进行精确表示的，这边写了一个程序用于两种坐标系之间的转换。就是这样。</p>
-<p>由于和上面的代码极其类似，所以我认为看看例子就能理解欧，就不做解析了。over</p>
-<p>这个代码有一个小东西讲讲熬，就是while里边的cin&gt;&gt; 的用法，cin的特性是可以输入int整型数，但是一旦发现你输入的不是数字的时候，他就会不满足条件，变为0，然后while就会跳出循环，蛮好用的小技巧，推荐学习！</p>
-<p>代码奉上：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">polar</span>&#123;</span></span><br><span class="line">    <span class="keyword">double</span> distance;</span><br><span class="line">    <span class="keyword">double</span> angle;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">rect</span>&#123;</span></span><br><span class="line">    <span class="keyword">double</span> x;</span><br><span class="line">    <span class="keyword">double</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rect_to_polar</span><span class="params">(<span class="keyword">const</span> <span class="built_in">rect</span> * pxy, polar * pda)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_polar</span><span class="params">(<span class="keyword">const</span> polar * pda)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="built_in">rect</span> rplace;</span><br><span class="line">    polar pplace;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Enter the x and y values: "</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; rplace.x &gt;&gt; rplace.y)&#123;</span><br><span class="line">        rect_to_polar(&amp;rplace, &amp;pplace);</span><br><span class="line">        show_polar(&amp;pplace);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Next two numbers (q to quit): "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Done.\n"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rect_to_polar</span><span class="params">(<span class="keyword">const</span> <span class="built_in">rect</span> * pxy, polar * pda)</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    pda-&gt;distance = <span class="built_in">sqrt</span>(pxy-&gt;x * pxy-&gt;x + pxy-&gt;y * pxy-&gt;y);</span><br><span class="line">    pda-&gt;angle = <span class="built_in">atan2</span>(pxy-&gt;y, pxy-&gt;x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_polar</span><span class="params">(<span class="keyword">const</span> polar * pda)</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> Rad_to_deg = <span class="number">57.29577951</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"distance = "</span> &lt;&lt; pda-&gt;distance;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">", angle = "</span> &lt;&lt; pda-&gt;angle * Rad_to_deg;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">" degrees\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/02/C++/C++%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/02/C++/C++%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">C++函数中的指针应用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-02 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-02T15:49:15+08:00">2020-04-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-14 23:56:28" itemprop="dateModified" datetime="2020-04-14T23:56:28+08:00">2020-04-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="函数与数组"><a href="#函数与数组" class="headerlink" title="函数与数组"></a>函数与数组</h1><p>虽然我上面开了两篇博客准备一锅把函数端掉，但是当我想到数组哈，我觉得还是有必要对它好好搞一番。为什么呢？因为当我们在形参中放一个数组时，要开始注意了昂，这个数组是按照数组基本的操作传递值的，它是以指针的方式运转的！！！一提到指针哈，就得好好琢磨琢磨了，毕竟我江某人如今的观点是C++最重要的有两个：指针和STL库。</p>
-<p>要我说，之前讲的两章，着实是对函数基础知识的总结。而我们日常使用中，是不会这么简单的。比如说我们企业中要计算某个项目中每个用户所购买的东西之和。我们很容易想到每个数组可以索引指向一个顾客，要计算总共有多少个东西被买掉了，我们可以使用循环来计算出总和。这不是不可以哈。但是呢，我们其实可以用一个函数来实现它。我们可以在声明函数时，放入一个数组形状的形参，如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">function</span><span class="params">( <span class="keyword">int</span> arr[], <span class="keyword">int</span> a)</span></span></span><br></pre></td></tr></table></figure>
-<p>很明显，这里边arr就是咱们即将要传递的数组，[]里边是空的，说明我们待会要传递的数组的长度是需要额外设置的。但是我再强调一点哈，这个arr实际上并不是数组，而是一个指针！但是呢，我们在编写函数的时候，是可以将arr看做是数组的。</p>
-<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><p>下面是我写的一个小example</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ArSize = <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sums</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">int</span> counts[ArSize] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>, <span class="number">32</span>, <span class="number">64</span>,<span class="number">128</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> sum = sums(counts, ArSize);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Total counts: "</span> &lt;&lt; sum &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sums</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> total = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        total = total + arr[i];</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>接下来我来详细讲一讲哈，其实我们当初在学习数组的时候就知道，数组名是可以当做指针来用的，数组名指向该数组的第一个元素的地址。但是呢，这边在函数中讨论数组和指针的话。我得把需要注意的几个点额外说一哈</p>
-<ol>
-<li>数组声明使用数组名来表示存储位置</li>
-<li>对数组使用sizeof得到的是整个数组的长度，举个例子哈，int aaa[8]，int是4个字节，对这个数组使用sizeof的话，我们得到的长度为32位字节</li>
-<li>如果我们使用取地址符&amp;的话，我们得到的也会是一个长度为32字节的内存块的地址。</li>
-</ol>
-<p>arr是咱们的数组名，根据C++规则，arr指代的是第一个元素的地址。 所以咱们的函数传递的也是地址哈。元素的类型是int，那么咱们的指针也应该是int类型的。因此，我们可以使用int *来表示。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = sums(<span class="keyword">int</span> * arr, <span class="keyword">int</span> n)</span><br></pre></td></tr></table></figure>
-<p>易知，int * arr 替换了int arr[]，这两个的含义是相同的。</p>
-<p>但是呢，其实这两种表达方法也是有区别的，</p>
-<p>数组表达式（int arr[])提醒咱们的程序员，arr不仅指向int，还指向了int数组的第一个int。当指针指向数组的第一个元素时，本书使用了数组表达法；</p>
-<p>指针表达式可以用在当我们指针指向一个独立的值，而不是第一个值的时候。</p>
-<p>！！！要记住只有在这边是可以的等价的，在其他地方都是不等价的哦。例如我们不能再函数体中将两者相替换。</p>
-<p>经过我们的挖掘后，知道了arr数组名实际上是一个指针的事实后，我们也可以 用方括号数组表示法来访问数组元素。无论arr是指针还是数组名，表达式arr[3]都指的是数组的第4 个元素。</p>
-<p>这边总结出两个式子，希望能记住：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr[i] == *(ar + i)</span><br><span class="line">&amp;arr[i] == ar + i</span><br></pre></td></tr></table></figure>
-<p>在强调一点，指针加一的意义，指的是加上一个与指针指向的类型的长度。例如上文中的32字节内存块。对于遍历数组而言，使用指针加法和数组下标是等效的。</p>
-<h2 id="数组作为参数有啥意义呢？"><a href="#数组作为参数有啥意义呢？" class="headerlink" title="数组作为参数有啥意义呢？"></a>数组作为参数有啥意义呢？</h2><p>讲得更加清楚一点，实际上数组内容并没有传递给函数，而是将数组的地址、包含的元素类型以及元素数目提交给了函数。有了这些信息后，函数便可以使用原来的数组。传递<strong>常规变量时</strong>，函数将<strong>使用该变量的拷贝</strong>；但传递<strong>数组</strong>时，函数将<strong>使用原来的数组</strong>。</p>
-<p>一种是拷贝了原始数据，并进行操作，一种是使用指针，直接操作原始数据。都实现了函数的值传递。但是我想两种方法肯定是有利有弊的呀。继续往下分析。</p>
-<h3 id="数组名与指针对应是否是好事呢？"><a href="#数组名与指针对应是否是好事呢？" class="headerlink" title="数组名与指针对应是否是好事呢？"></a>数组名与指针对应是否是好事呢？</h3><p>先说回答哈，确实是一件好事。将数组地址作为参数可以节省复制整个数组所需要的时间和内存。如果数组很大的话。则使用拷贝的系统开销将非常大；程序不仅需要更多的计算机内存，还需要花费时间来复制大块的数据。</p>
-<p>但是呢，有利有弊哈，我们使用指针其本质上时使用了原始数据，增加了破坏数据的风险。不过不怕，C++可以解决它，ANSI C也可以解决它，那就是const限定符了。稍后我在写例子哈。</p>
-<p>这边再写一个例子，用于演示咱们的指针是如何运转的：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ArSize = <span class="number">8</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sums</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> things[ArSize] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">16</span>,<span class="number">32</span>,<span class="number">64</span>,<span class="number">128</span>&#125;;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; things &lt;&lt; <span class="string">" = arr address, "</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(things) &lt;&lt; <span class="string">" = sizeof things\n"</span>;</span><br><span class="line">    <span class="keyword">int</span> sum = sums(things, ArSize);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Total things: "</span> &lt;&lt; sum &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    sum = sums(things, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"First tree people buy "</span> &lt;&lt; sum &lt;&lt; <span class="string">" things.\n"</span>;</span><br><span class="line">    sum = sums(things + <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Last four people buy "</span> &lt;&lt; sum &lt;&lt; <span class="string">" things.\n"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sums</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> total = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; arr &lt;&lt; <span class="string">" = arr, "</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(* arr) &lt;&lt; <span class="string">" = sizeof  arr\n "</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span>  i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        total += arr[i];</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这边的地址值和数组的长度会随着系统的变化而变化哈，如果你和你的小伙伴们运行出不一样的结果，不要诧异哦！此外，有些C++实现 的是以十进制而不是十六进制格式显示地址哈，所以不要太大惊小怪，显得见识浅薄了些。还有一些编译器以十六进制显示地址时，会加上前缀0x呢。</p>
-<p><strong>代码说明：</strong></p>
-<p>首先我这边things和arr指向了同一个地址。但是sizeof(things)的值为32，而sizeof(arr)为4（是我电脑上运行的结果哈）。这是由于sizeof(things)是整个数组的长度，而sizeof(arr)只是指针变量的长度。顺道加一个知识点，这也是必须显式传递数组长度，而不能在sums()中使用sizeof(arr)的原因；指针本身并没有之处数组的长度。</p>
-<p>因为咱们的sums()只能通过第二个参数获知数组中的元素数量，我们可以对函数做修改。例如，程序第二次使用该函数时，这样调用它：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum = sums(things， <span class="number">3</span>)；</span><br></pre></td></tr></table></figure>
-<p>通过告诉函数things有3个元素，可以让它计算前3个元素的总和。</p>
-<p>也可以提供假的数组起始位置：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum = sums(things + <span class="number">4</span>, <span class="number">4</span>);</span><br></pre></td></tr></table></figure>
-<p>由于things是第一个元素的地址，因此things+4是第五个元素的地址。这条语句将计算数组第5、6、7、8个元素的总和。请注意输出中第三次函数调用选择将不同于前两个调用的地址赋给arr的。</p>
-<p><strong>Attention！</strong></p>
-<p>我们可以数组类型和元素数量告诉数组处理函数，通过两个不同的参数来传递他们：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sums</span><span class="params">(<span class="keyword">int</span> * arr, <span class="keyword">int</span> n)</span></span></span><br></pre></td></tr></table></figure>
-<p>而不要试图使用方括号表示法来传递数组长度：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sums</span><span class="params">(<span class="keyword">int</span> arr[<span class="built_in">size</span>])</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="各种例子，来更深入了解数组函数"><a href="#各种例子，来更深入了解数组函数" class="headerlink" title="各种例子，来更深入了解数组函数"></a>各种例子，来更深入了解数组函数</h2><h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><p>假设要使用一个数组来记录房地产的价值。</p>
-<h4 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h4><p>首先要明确使用哪种类型。当然double的取值范围比int和long大，并且提供了足够多的有效位数来精确地表示这些值。</p>
-<p>接下来必须决定数组元素的数目。（这边不考虑动态数组）如果房地产数目不超过5个，则可以使用一个包含5个元素的double数组。</p>
-<p>考虑操作：两个基本的操作，一、将值读入到数组中和显示数组内容。二、重新评估每种房地产的值。</p>
-<p>简单起见，我们规定房地产以相同比率增加或者减少。</p>
-<h3 id="1-填充数组"><a href="#1-填充数组" class="headerlink" title="1.填充数组"></a>1.填充数组</h3><p>顾客不止一个，所以我们可以做多个数组，房产得有上限，毕竟我这边不搞花里胡哨的动态数组。所以函数定义为：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fill_array</span><span class="params">(<span class="keyword">double</span> arr[], <span class="keyword">int</span> limit)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>该函数接受两个参数，一个是数组名，另一个指定了要读取的最大元素数；该函数返回实际读取的元素数。例如，如果使用该函数处理一个包含了5个元素的数组，则将5作为第二个参数。如果只输入3个值，则该函数将返回3.</p>
-<p>可有循环连续地将值读入到数组中，但是我们该如何提早结束循环呢？有两种思路，一、使用一个特殊值来指定输出结束。由于所有的属性不为负，我们可以使用负值来指出输入结束。二、该函数应对错误输入做出反应，如停止输入等。代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fill_array</span><span class="params">(<span class="keyword">double</span> arr[], <span class="keyword">int</span> limit)</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">double</span> temp;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; limit; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Enter value # "</span> &lt;&lt; (i + <span class="number">1</span>) &lt;&lt; <span class="string">": "</span>;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; temp;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">cin</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cin</span>.<span class="built_in">clear</span>();</span><br><span class="line">            <span class="keyword">while</span> (<span class="built_in">cin</span>.<span class="built_in">get</span>() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Bad input; input process terminated.\n"</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (temp &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        arr[i] = temp;   </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面函数可以判断输入是否出错，比如说负值啦等等。如果输入正确的话，则循环将会在读取最大数目的值后结束。循环完成的最后一项工作后，将i加1，因此循环结束后，i将比最后一个数组索引大1，即等于填充的元素数目。然后，函数返回这个值。</p>
-<h3 id="2-显示数组及用const保护数组"><a href="#2-显示数组及用const保护数组" class="headerlink" title="2.显示数组及用const保护数组"></a>2.显示数组及用const保护数组</h3><p>不是啥高大的东西，就是显示元素的数组，但是最重要的东西应该是const保护数组。</p>
-<p>当我们用数组名表示指针传递值时，会导致原始数据受到威胁。这个时候我呼应了上文中所要讲的方法const保护数组不被修改。</p>
-<p>为了防止函数无意中修改数组的内容，我们可以在声明形参时使用关键字const：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_array</span><span class="params">(<span class="keyword">const</span> <span class="keyword">double</span> arr[], <span class="keyword">int</span> n)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>该声明表明，指针arr指向的是常量数据。这意味着不能使用arr修改该数据，也就是说，可以使用值，但是不会修改。咳咳，这并不是意味着原始数组必须是常量，而只是意味着不能在show_array()函数中使用arr来修改数据。因此该函数将数组视为只读数据。 如果你要在函数中给原数组赋值的话，是会报错的。</p>
-<p>show_array函数代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_array</span><span class="params">(<span class="keyword">const</span> <span class="keyword">double</span> arr[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Property #"</span> &lt;&lt; (i + <span class="number">1</span>) &lt;&lt; <span class="string">": $"</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; arr[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-修改数组"><a href="#3-修改数组" class="headerlink" title="3.修改数组"></a>3.修改数组</h3><p>实现的功能是对数组中每个元素与同一个重新评估因子相乘。需要给函数传递3个参数：因子、数组和元素数目。该函数不需要返回值，因此代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_array</span><span class="params">(<span class="keyword">const</span> <span class="keyword">double</span> arr[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Property #"</span> &lt;&lt; (i + <span class="number">1</span>) &lt;&lt; <span class="string">": $"</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; arr[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个就和上一个函数不一样了，这边是必须要修改值的，所以不能加const</p>
-<h2 id="4-组合代码解出题目"><a href="#4-组合代码解出题目" class="headerlink" title="4.组合代码解出题目"></a>4.组合代码解出题目</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Max = <span class="number">5</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fill_array</span><span class="params">(<span class="keyword">double</span> arr[], <span class="keyword">int</span> limit)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_array</span><span class="params">(<span class="keyword">const</span> <span class="keyword">double</span> arr[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">revalue</span><span class="params">(<span class="keyword">double</span> r, <span class="keyword">double</span> arr[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">double</span> properties[Max];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">size</span> = fill_array(properties, Max);</span><br><span class="line">    show_array(properties, <span class="built_in">size</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">size</span> &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Enter revaluation factor: "</span>;</span><br><span class="line">        <span class="keyword">double</span> factor;</span><br><span class="line">        <span class="keyword">while</span> (!(<span class="built_in">cin</span> &gt;&gt; factor))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cin</span>.<span class="built_in">clear</span>();</span><br><span class="line">            <span class="keyword">while</span> (<span class="built_in">cin</span>.<span class="built_in">get</span>() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Bad input; Please enter a number: "</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        revalue(factor, properties, <span class="built_in">size</span>);</span><br><span class="line">        show_array(properties, <span class="built_in">size</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Done.\n"</span>;</span><br><span class="line">    <span class="built_in">cin</span>.<span class="built_in">get</span>();</span><br><span class="line">    <span class="built_in">cin</span>.<span class="built_in">get</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fill_array</span><span class="params">(<span class="keyword">double</span> arr[], <span class="keyword">int</span> limit)</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">double</span> temp;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; limit; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Enter value #"</span> &lt;&lt; (i + <span class="number">1</span>) &lt;&lt; <span class="string">": "</span>;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; temp;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">cin</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cin</span>.<span class="built_in">clear</span>();</span><br><span class="line">            <span class="keyword">while</span>(<span class="built_in">cin</span>.<span class="built_in">get</span>() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Bad input; input process terminated.\n"</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (temp &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        arr[i] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_array</span><span class="params">(<span class="keyword">const</span> <span class="keyword">double</span> arr[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Property #"</span> &lt;&lt; (i + <span class="number">1</span>) &lt;&lt; <span class="string">": $"</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; arr[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">revalue</span><span class="params">(<span class="keyword">double</span> r, <span class="keyword">double</span> arr[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        arr[i] *= r;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="5-程序说明"><a href="#5-程序说明" class="headerlink" title="5.程序说明"></a>5.程序说明</h3><p>回顾一下整个过程。我们首先考虑的是通过数据类型和设计适当的函数来处理数据，然后讲这些函数组合成一个程序。有时这个也称为自下而上的程序设计（bottom-up programming)，因为设计过程是从组建到整体进行。这种方法非常适合于OOP——它首先强调的是数据表示和操纵。</p>
-<p>以前的过程性编程倾向于从上而下的程序设计，首先指定模块化设计方案，然后在研究细节，</p>
-<p>最终产品都是模块化程序，也就是我们最后得到的东西都是模块化的东西，据我目前的经验来看，当代程序的思路都是模块化！</p>
-<h3 id="6-数组处理函数的常用编写方式"><a href="#6-数组处理函数的常用编写方式" class="headerlink" title="6.数组处理函数的常用编写方式"></a>6.数组处理函数的常用编写方式</h3><p>总结一下数组处理函数无非就两种情况</p>
-<p>情况一：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f_modify</span><span class="params">(<span class="keyword">double</span> ar[], <span class="keyword">int</span> n)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>情况二：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> _f_no_change(<span class="keyword">const</span> <span class="keyword">double</span> ar[], <span class="keyword">int</span> n);</span><br></pre></td></tr></table></figure>
-<p>再扯几句哈，函数原型是可以省略变量名的，也可以将返回类型作指定，比如这边就指定了void。</p>
-<h3 id="7-使用数组区间的函数"><a href="#7-使用数组区间的函数" class="headerlink" title="7.使用数组区间的函数"></a>7.使用数组区间的函数</h3><p>上面我们讲数组和函数的时候，用的是传统的C++方法，将指向数组起始处的指针作为一个参数，将数组长度作为第二个参数（指针指出数组的位置和数组类型），这样便给函数提供了找到所有数据所需要的信息。</p>
-<p>我们处理数组的C++函数，必须将数组中的数据种类、数组的起始位置和数组中元素数量给函数。</p>
-<p>还有一种给函数提供所需信息的方法是，即指定元素区间，这可以通过传递两个指针来完成：一个指针表示数组的开头，另一个指针标识数组的尾部。（C++标准模板库STL中将区间方法广义化了，STL方法使用“ 超尾”概念来指定区间，也就是说，对于数组而言，标识数组结尾的参数将是指向最后一个元素后面的指针。举个例子：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> elboud[<span class="number">20</span>];</span><br></pre></td></tr></table></figure>
-<p>指针elboud和elboud+20定义了区间。唉，其实就是数组名+多少个（数字）从而做出区间，写个小例子便于理解：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ArSize = <span class="number">8</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sums</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> * <span class="built_in">begin</span>, <span class="keyword">const</span> <span class="keyword">int</span> * <span class="built_in">end</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">int</span> things[ArSize] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>, <span class="number">32</span>, <span class="number">64</span>, <span class="number">128</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> sum = sums(things, things + ArSize);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Total things eaten: "</span> &lt;&lt; sum &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    sum = sums(things, things + <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"First three people buy "</span> &lt;&lt; sum &lt;&lt; <span class="string">" things.\n"</span>;</span><br><span class="line">    sum = sums(things + <span class="number">4</span>, things + <span class="number">8</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Last four people buy "</span> &lt;&lt; sum &lt;&lt; <span class="string">" things.\n"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sums</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> * <span class="built_in">begin</span>, <span class="keyword">const</span> <span class="keyword">int</span> * <span class="built_in">end</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> * pt;</span><br><span class="line">    <span class="keyword">int</span> total = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(pt = <span class="built_in">begin</span>; pt != <span class="built_in">end</span>; pt++)</span><br><span class="line">        total += *pt;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>太简单了，不解释了！</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -2003,7 +2073,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2057,7 +2127,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共60.3k字</span>
+  <span class="post-count">博客全站共65.1k字</span>
 </div>
         
 

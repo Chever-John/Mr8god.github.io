@@ -180,6 +180,199 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/20/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E6%8C%81%E6%9C%89%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%B0%B1%E6%98%AF%E5%AE%B9%E5%99%A8%E5%95%A6%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/20/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E6%8C%81%E6%9C%89%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%B0%B1%E6%98%AF%E5%AE%B9%E5%99%A8%E5%95%A6%EF%BC%89/" class="post-title-link" itemprop="url">Java日记——持有对象（就是容器啦）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-20 21:18:39" itemprop="dateCreated datePublished" datetime="2020-04-20T21:18:39+08:00">2020-04-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-21 23:05:45" itemprop="dateModified" datetime="2020-04-21T23:05:45+08:00">2020-04-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Java日记——持有对象（就是容器啦）"><a href="#Java日记——持有对象（就是容器啦）" class="headerlink" title="Java日记——持有对象（就是容器啦）"></a>Java日记——持有对象（就是容器啦）</h1><p>攒了两天，都在好好看容器类，Java的容器类还只是看了个大概哈，今天给大家带来我初学的Java容器中的<strong>迭代器</strong></p>
+<h2 id="迭代器简介"><a href="#迭代器简介" class="headerlink" title="迭代器简介"></a>迭代器简介</h2><p>迭代器也是一种设计模式，广泛用于情景比如：不需要重写代码就可以应用于不同类型的容器，可能大家不太理解哈，我换句话简单来讲：比如我们原本使用<strong>List</strong>进行编码的，但是后来发现如果能够把相同的代码应用于<strong>Set</strong>，将会显得非常方便，此时我们应该怎么做呢？从头开始编写通用的代码？<strong>nonono</strong>，其实他们只是使用<strong>容器</strong>而已，并不会在乎容器的类型，那么如何才能不重写代码就可以应用于不同类型的容器呢？</p>
+<p>在<strong>Java</strong>中迭代器就是<strong>Iterator</strong>这个东西。迭代器其实也是一个对象，它的工作就是遍历并选择序列中的对象，而客户端程序员不必知道或关心序列底层的结构，就可以使用序列了。</p>
+<p>此外，迭代器通常被称为<strong>轻量级对象</strong>：创建它的代价小。因此，经常可见到对迭代器有些奇怪的限制，例如<strong>Java</strong>中的<strong>Iterator</strong>只能单向移动，这个<strong>Iterator</strong>只能用来：</p>
+<ol>
+<li>使用方法<strong>iterator()</strong>要求容器返回一个<strong>Iterator</strong>。<strong>Iterator</strong>将准备好返回序列的第一个元素。</li>
+<li>使用<strong>next()</strong>获得序列中的下一个元素。</li>
+<li>使用<strong>hasNext()</strong>检查序列中是否还有元素。</li>
+<li>使用<strong>remove()</strong>将迭代器新近返回的元素删除。</li>
+</ol>
+<p>接下来会有代码展示</p>
+<h3 id="代码展示（Iterator）"><a href="#代码展示（Iterator）" class="headerlink" title="代码展示（Iterator）"></a>代码展示（Iterator）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.kchaptereleven;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> typeinfo.pets.Pet;</span><br><span class="line"><span class="keyword">import</span> typeinfo.pets.Pets;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/20</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 9:59</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleIteration</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Pet&gt; pets = Pets.arrayList(<span class="number">12</span>);</span><br><span class="line">        System.out.println(pets);</span><br><span class="line">        Iterator&lt;Pet&gt; it = pets.iterator();</span><br><span class="line">        <span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">            Pet p = it.next();</span><br><span class="line">            System.out.print(p.id() + <span class="string">":"</span> + p + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        <span class="keyword">for</span> (Pet p :</span><br><span class="line">                pets) &#123;</span><br><span class="line">            System.out.print(p.id() + <span class="string">":"</span> + p + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        it = pets.iterator();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)&#123;</span><br><span class="line">            it.next();</span><br><span class="line">            it.remove();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(pets);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码很简单，就一个点是之前没有遇到过的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;Pet&gt; it = pets.iterator();</span><br></pre></td></tr></table></figure>
+<p>这个就是使用<strong>Iterator</strong>来遍历了<strong>pets</strong>了，</p>
+<p>之后我们就可以使用<strong>hasNext()</strong>或<strong>next()</strong>了</p>
+<p>如果你只是向前遍历<strong>List</strong>， 并不打算修改<strong>List</strong>对象本身，那么你可以看到<strong>foreach</strong>语法会显得更加的简洁。</p>
+<p><strong>Iterator</strong>还可以移除由<strong>next()</strong>产生的最后一个元素，这意味着在调用<strong>remove()</strong>之前必须先调用<strong>next()</strong>。同理，我之后的<strong>previous</strong>也是这么个理</p>
+<p>接收对象容器并传递它，从而在每个对象上都执行操作，这种思想就是<strong>Iterator</strong>了，当然我感觉这正是<strong>Java</strong>的精髓。</p>
+<h3 id="代码展示二（不必知晓容器的确切类型）"><a href="#代码展示二（不必知晓容器的确切类型）" class="headerlink" title="代码展示二（不必知晓容器的确切类型）"></a>代码展示二（不必知晓容器的确切类型）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.kchaptereleven;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> typeinfo.pets.Pet;</span><br><span class="line"><span class="keyword">import</span> typeinfo.pets.Pets;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/20</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 10:41</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrossContainterIteration</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">(Iterator&lt;Pet&gt; it)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext())&#123;</span><br><span class="line">            Pet p = it.next();</span><br><span class="line">            System.out.print(p.id() + <span class="string">":"</span> + p + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;Pet&gt; pets = Pets.arrayList(<span class="number">8</span>);</span><br><span class="line">        LinkedList&lt;Pet&gt; petsLL = <span class="keyword">new</span> LinkedList&lt;Pet&gt;(pets);</span><br><span class="line">        HashSet&lt;Pet&gt; petsHs = <span class="keyword">new</span> HashSet&lt;Pet&gt;(pets);</span><br><span class="line">        TreeSet&lt;Pet&gt; petsTs = <span class="keyword">new</span> TreeSet&lt;Pet&gt;(pets);</span><br><span class="line">        display(pets.iterator());</span><br><span class="line">        display(petsLL.iterator());</span><br><span class="line">        display(petsHs.iterator());</span><br><span class="line">        display(petsTs.iterator());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里边的<strong>display()</strong>方法不包含任何有关它所遍历的序列的类型信息，</p>
+<p>这正展示了<strong>Iterator</strong> 的真正威力：能够将遍历序列的操作与序列底层的结构分离。</p>
+<p>正由于此，我们有时会说：迭代器统一了对容器的访问方式。</p>
+<h2 id="异军突起——ListIterator"><a href="#异军突起——ListIterator" class="headerlink" title="异军突起——ListIterator"></a>异军突起——ListIterator</h2><p><strong>ListIterator</strong>是一个更加强大的<strong>Iterator</strong> 的子类型，它只能用于各种<strong>List</strong>类的访问。尽管<strong>Iterator</strong>只能向前移动，但是<strong>ListIterator</strong>可以双向移动。</p>
+<p><strong>ListIterator</strong>还可以产生相对于迭代器在列表中指向的当前位置的前一个和后一个元素的索引，并且可以使用<strong>set()</strong>方法替换它访问过的最后一个元素。</p>
+<p>你可以通过调用<strong>listIterator(n)</strong>方法产生一个指向<strong>List</strong>开始处的<strong>ListIterator</strong>， 并且还可以通过调用<strong>listIterator(n)</strong>方法创建一个一开始就指向列表索引为<strong>n</strong>的元素处的<strong>ListIterator</strong>。</p>
+<h3 id="代码展示（ListIterator）"><a href="#代码展示（ListIterator）" class="headerlink" title="代码展示（ListIterator）"></a>代码展示（ListIterator）</h3><p>下面举代码展示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.kchaptereleven;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> typeinfo.pets.Pet;</span><br><span class="line"><span class="keyword">import</span> typeinfo.pets.Pets;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.ListIterator;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/20</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 20:11</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListIteration</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Pet&gt; pets = Pets.arrayList(<span class="number">8</span>);</span><br><span class="line">        ListIterator&lt;Pet&gt; it = pets.listIterator();</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext())&#123;</span><br><span class="line">            System.out.print(it.next() + <span class="string">", "</span> + it.nextIndex() + <span class="string">", "</span> + it.previousIndex() + <span class="string">"; "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        <span class="keyword">while</span> (it.hasPrevious())&#123;</span><br><span class="line">            System.out.print(it.previous().id() + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(pets);</span><br><span class="line">        it = pets.listIterator(<span class="number">3</span>);</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">            it.next();</span><br><span class="line">            it.set(Pets.randomPet());</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(pets );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码展示（自个写的倒序）"><a href="#代码展示（自个写的倒序）" class="headerlink" title="代码展示（自个写的倒序）"></a>代码展示（自个写的倒序）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.kchaptereleven.self;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.ListIterator;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/21</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 21:51</span></span><br><span class="line"><span class="comment"> * 这个代码是《Java编程思想》第十一章持有对象的练习12（3）：</span></span><br><span class="line"><span class="comment"> * 创建并组装一个List,然后再创建第二个具有相同尺寸的List，</span></span><br><span class="line"><span class="comment"> * 将第一个List列表反序插入第二个列表中</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 这里边我的思路是首先用hasNext将LsIterator的指针滑到了容器的最后的位置</span></span><br><span class="line"><span class="comment"> * 然后我再使用previous，一步步，慢慢的往前滑，顺便赋值给int2</span></span><br><span class="line"><span class="comment"> * 其实我大可不必这么复杂，还调用previous，直接for倒序赋值就完事了</span></span><br><span class="line"><span class="comment"> * 但是这么一来我对previous的理解深入了，确实，这段代码中如果没有hasNext的话</span></span><br><span class="line"><span class="comment"> * previous是无法运行的，会报错，会爆越界，确实，我指针指在了第一个，</span></span><br><span class="line"><span class="comment"> * 我还要赋值，拿什么给他赋值呀，over，收获良多</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExerciseTwelve</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; int1 = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">10</span>);</span><br><span class="line">        List&lt;Integer&gt; int2 = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">10</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">            int1.add(i);</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        System.out.println(int1);</span></span><br><span class="line">        <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">        ListIterator&lt;Integer&gt; lulala = int1.listIterator();</span><br><span class="line">        <span class="keyword">while</span> (lulala.hasNext()) &#123;</span><br><span class="line">            System.out.print(lulala.next() + <span class="string">"("</span> + counter++ + <span class="string">") , "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">            int2.add(lulala.previous());</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(int2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>网上的例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.kchaptereleven.self;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.ListIterator;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/21</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 22:28</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExerciseTwelveTwolist</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">    List&lt;Integer&gt; list1 = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(length);</span><br><span class="line">    List&lt;Integer&gt; list2 = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(length);</span><br><span class="line">    ListIterator&lt;Integer&gt; li;</span><br><span class="line">    <span class="comment">// 构造函数，给list1赋值，并且将li指向list1的最末尾的一个元素</span></span><br><span class="line">     ExerciseTwelveTwolist(<span class="keyword">int</span> length)&#123;</span><br><span class="line">        <span class="keyword">this</span>.length = length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; length; i++)&#123;</span><br><span class="line">            list1.add(i);</span><br><span class="line">        &#125;</span><br><span class="line">        li = list1.listIterator(length - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 对list2进行初始化</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">list2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (li.hasPrevious())&#123;</span><br><span class="line">            <span class="comment">// 当ListIterator li前面具有元素时，将当前的元素</span></span><br><span class="line">            <span class="comment">// 赋值给list2，并且向前移动（即li.previous的功能）</span></span><br><span class="line">            list2.add(li.previous());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">out1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(list1);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">out2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(list2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">            ExerciseTwelveTwolist ett = <span class="keyword">new</span> ExerciseTwelveTwolist(<span class="number">10</span>);</span><br><span class="line">            ett.list2();</span><br><span class="line">            ett.out1();</span><br><span class="line">            ett.out2();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/18/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E6%8E%A5%E5%8F%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/18/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">Java日记——接口</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-18 00:29:18 / 修改时间：00:56:39" itemprop="dateCreated datePublished" datetime="2020-04-18T00:29:18+08:00">2020-04-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><h2 id="9-3-完全解耦"><a href="#9-3-完全解耦" class="headerlink" title="9.3 完全解耦"></a>9.3 完全解耦</h2><p>假设我们有一组电子滤波器，它们适用于<strong>Apply.process()</strong>方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Apply.process()方法</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> net.mindview.util.Print.print;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apply</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(Processor p, Object s)</span> </span>&#123;</span><br><span class="line">        print(<span class="string">"Using Processor "</span> + p.name() );</span><br><span class="line">        print(p.process(s));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="电子滤波器代码包在下边"><a href="#电子滤波器代码包在下边" class="headerlink" title="电子滤波器代码包在下边"></a>电子滤波器代码包在下边</h3><h4 id="第一版"><a href="#第一版" class="headerlink" title="第一版"></a>第一版</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Waveform</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.filters;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:16</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Waveform</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> counter;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">long</span> id = counter++;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Waveform&#123;"</span> +</span><br><span class="line">                <span class="string">"id="</span> + id +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Filter</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.filters;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:17</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">name</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getClass().getSimpleName();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Waveform <span class="title">process</span><span class="params">(Waveform input)</span></span>&#123; <span class="keyword">return</span> input; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// LowPass</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.filters;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:19</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LowPass</span> <span class="keyword">extends</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> cutoff;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LowPass</span><span class="params">(<span class="keyword">double</span> cutoff)</span></span>&#123; <span class="keyword">this</span>.cutoff = cutoff; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Waveform <span class="title">process</span><span class="params">(Waveform input)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> input;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HighPass</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.filters;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:20</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HighPass</span> <span class="keyword">extends</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> cutoff;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HighPass</span><span class="params">(<span class="keyword">double</span> cutoff)</span></span>&#123; <span class="keyword">this</span>.cutoff = cutoff; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Waveform <span class="title">process</span> <span class="params">(Waveform input)</span></span>&#123; <span class="keyword">return</span> input; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BandPass</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.filters;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:22</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BandPass</span> <span class="keyword">extends</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> lowCutoff, highCutoff;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BandPass</span><span class="params">(<span class="keyword">double</span> lowCut, <span class="keyword">double</span> highCut)</span></span>&#123;</span><br><span class="line">        lowCutoff = lowCut;</span><br><span class="line">        highCutoff = highCut;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Waveform <span class="title">process</span><span class="params">(Waveform input)</span> </span>&#123; <span class="keyword">return</span> input; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>虽然<strong>Filter</strong>和<strong>Processor</strong>（代码我贴在这段话下面）具有相同的接口元素（且它们俩输出都是<strong>Waveform</strong>），但是因为<strong>Filter</strong>并非继承自<strong>Processor</strong>因此咱不能将<strong>Filter</strong>用于<strong>Apply.process()</strong>方法，即便这样做可以正常运行。</p>
+<p>出现这个问题就是因为<strong>Apply.process()</strong>方法和<strong>Processor</strong>之间的耦合度太高了，已经超出所需要的程度了，这就使得应该复用<strong>Apply.process()</strong>的代码的时候，复用却被禁止了。</p>
+<h4 id="第二段改良版本"><a href="#第二段改良版本" class="headerlink" title="第二段改良版本"></a>第二段改良版本</h4><p><u>但是如果<strong>Processor</strong>是一个接口，那么这些限制就谈不上限制了，使得你可以复用<strong>Apply.process()</strong>的代码了。</u></p>
+<p>上代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这就是被写成接口的Processor</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:29</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Processor</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">Object <span class="title">process</span><span class="params">(Object input)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Apply</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> net.mindview.util.Print.print;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apply</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(Processor p, Object s)</span> </span>&#123;</span><br><span class="line">        print(<span class="string">"Using Processor "</span> + p.name() );</span><br><span class="line">        print(p.process(s));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>复用代码的<strong>第一种方式</strong>是客户端程序员遵循制定好的接口来编写自己的类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:43</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">StringProcessor</span> <span class="keyword">implements</span> <span class="title">Processor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">name</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getClass().getSimpleName();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">process</span><span class="params">(Object input)</span></span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String s = <span class="string">"If she weighs the same as a duck, she's made of wood"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Apply.process(<span class="keyword">new</span> Upcase(), s);</span><br><span class="line">        Apply.process(<span class="keyword">new</span> Downcase(), s);</span><br><span class="line">        Apply.process(<span class="keyword">new</span> Splitter(), s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Upcase</span> <span class="keyword">extends</span> <span class="title">StringProcessor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">process</span><span class="params">(Object input)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ((String) input).toUpperCase();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Downcase</span> <span class="keyword">extends</span> <span class="title">StringProcessor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">process</span><span class="params">(Object input)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ((String) input).toLowerCase();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Splitter</span> <span class="keyword">extends</span> <span class="title">StringProcessor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">process</span><span class="params">(Object input)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Arrays.toString(((String)input).split(<span class="string">" "</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="第三段改良版本"><a href="#第三段改良版本" class="headerlink" title="第三段改良版本"></a>第三段改良版本</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// processor的接口</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:29</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Processor</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">Object <span class="title">process</span><span class="params">(Object input)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Apply的类</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> net.mindview.util.Print.print;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apply</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(Processor p, Object s)</span> </span>&#123;</span><br><span class="line">        print(<span class="string">"Using Processor "</span> + p.name() );</span><br><span class="line">        print(p.process(s));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.mr8god.chapternine.filters.*;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FilterAdapter</span> <span class="keyword">implements</span> <span class="title">Processor</span> </span>&#123;</span><br><span class="line">    Filter filter;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FilterAdapter</span><span class="params">(Filter filter)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.filter = filter;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">name</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> filter.name();&#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Waveform <span class="title">process</span><span class="params">(Object input)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> filter.process((Waveform)input);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:31</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilterProcessor</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Waveform w = <span class="keyword">new</span> Waveform();</span><br><span class="line">        Apply.process(<span class="keyword">new</span> FilterAdapter(<span class="keyword">new</span> LowPass(<span class="number">1.0</span>)), w);</span><br><span class="line">        Apply.process(<span class="keyword">new</span> FilterAdapter(<span class="keyword">new</span> HighPass(<span class="number">2.0</span>)), w);</span><br><span class="line">        Apply.process(<span class="keyword">new</span> FilterAdapter(<span class="keyword">new</span> BandPass(<span class="number">3.0</span>, <span class="number">4.0</span>)), w);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>说一下这一次改良的目的为何，在电子滤波器这个例子中，类库是被发现而非被创建的。在这些情况下，可以使用<strong>适配器设计模式</strong>。适配器中的代码将接受你所拥有的接口，并产生你所需要的接口。相当于做了一个二道贩子。</p>
+<p>此外这种方法，<strong>FilterAdapter</strong>的构造器接受你所拥有的接口<strong>Filter</strong>，然后生成具有你所需要的<strong>Processor</strong>接口的对象。</p>
+<p>哦对了，这里边的<strong>FilterAdapter</strong>还用到了<strong>代理</strong>（第七章复用类里边的，是一种介于继承和组合之间的思想）</p>
+<p>将接口从具体实现中<strong>解耦</strong>使得接口可以应用于多种不同的具体实现，因此代码也就更具可复用性。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/16/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -211,7 +404,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-17 00:25:04" itemprop="dateModified" datetime="2020-04-17T00:25:04+08:00">2020-04-17</time>
+                <time title="修改时间：2020-04-17 15:02:52" itemprop="dateModified" datetime="2020-04-17T15:02:52+08:00">2020-04-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -291,7 +484,40 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frog.dispose();</span><br></pre></td></tr></table></figure>
 <p>这是调用了我<strong>Frog</strong>类中的<strong>dispose()</strong>方法，正式开始<strong>dispose</strong> <strong>dispose</strong> <strong>dispose</strong>了。</p>
 <p><strong>dispose</strong>的顺序与之前<strong>Create</strong>的相反。它是先把底层的，最新的那个导出类（子类）先给<strong>dispose</strong>了，依次向上，最后把最终大Boss <strong>LivingCreature</strong>给<strong>dispose</strong>了，很是简单呢！！！只要花点时间看看就能懂的代码呢，以后我就不打算花时间看书看代码了，直接看我的日记不就得了，哈哈哈！</p>
-<h2 id="未完待续……"><a href="#未完待续……" class="headerlink" title="未完待续……"></a>未完待续……</h2>
+<h2 id="8-3-2-继承与清理-为之前扫扫盲"><a href="#8-3-2-继承与清理-为之前扫扫盲" class="headerlink" title="8.3.2 继承与清理+为之前扫扫盲"></a>8.3.2 继承与清理+为之前扫扫盲</h2><p>为什么说是扫扫盲呢，难道是说我江某人在之前的学习没有努力？不不不，不是这样子的。在编程语言的学习中，我们其实不能够学完所有，得分一步步，慢慢来才能学习完整个语言，但是呢，我们在学习基础的时候，如果要写一些例子，光靠基础知识是不能够的呀，所以我们就会将后边”较<strong>高级</strong>的知识先拿来用，就好比我们的C++中漂漂亮亮的前三行，刚开始不也是想都不想先输上去为敬嘛。</p>
+<p>好了，还是赶紧上我们的正餐，上代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.chaptereight;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> net.mindview.util.Print.print;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shared</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> refcount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">long</span> id = counter++;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Shared</span><span class="params">()</span></span>&#123;</span><br><span class="line">        print(<span class="string">"Creating "</span> + <span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addRef</span><span class="params">()</span></span>&#123; refcount++; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispose</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (--refcount == <span class="number">0</span>)&#123;</span><br><span class="line">            print(<span class="string">"Disposing "</span> + <span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Shared&#123;"</span> +</span><br><span class="line">                <span class="string">"id="</span> + id +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Composing</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Shared shared;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">long</span> id = counter++;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Composing</span><span class="params">(Shared shared)</span></span>&#123;</span><br><span class="line">        print(<span class="string">"Creating "</span> + <span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">this</span>.shared = shared;</span><br><span class="line">        <span class="keyword">this</span>.shared.addRef();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispose</span><span class="params">()</span></span>&#123;</span><br><span class="line">        print(<span class="string">"disposing "</span> + <span class="keyword">this</span>);</span><br><span class="line">        shared.dispose();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Composing&#123;"</span> +</span><br><span class="line">                <span class="string">"id="</span> + id +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/16</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 21:52</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReferenceCounting</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Shared shared = <span class="keyword">new</span> Shared();</span><br><span class="line">        Composing[] composing = &#123; </span><br><span class="line">                <span class="keyword">new</span> Composing(shared),</span><br><span class="line">                <span class="keyword">new</span> Composing(shared),</span><br><span class="line">                <span class="keyword">new</span> Composing(shared),</span><br><span class="line">                <span class="keyword">new</span> Composing(shared),</span><br><span class="line">                <span class="keyword">new</span> Composing(shared)</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">for</span> (Composing c :</span><br><span class="line">                composing) &#123;</span><br><span class="line">            c.dispose();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这还是一个关于<strong>继承与清理</strong> 的例子，但是它和上一个不同的地方在于<u>这次的代码中<strong>成员对象</strong>存在<strong>与其他一个或多个对象共享</strong>的情况</u>，问题变得复杂起来了。这次就不能简单地调用<strong>dispose()</strong>就能解决了，必须使用<strong>引用计数</strong>来跟踪仍旧访问着共享对象的对象数量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Creating Shared&#123;id&#x3D;0&#125;</span><br><span class="line">Creating Composing&#123;id&#x3D;0&#125;</span><br><span class="line">Creating Composing&#123;id&#x3D;1&#125;</span><br><span class="line">Creating Composing&#123;id&#x3D;2&#125;</span><br><span class="line">Creating Composing&#123;id&#x3D;3&#125;</span><br><span class="line">Creating Composing&#123;id&#x3D;4&#125;</span><br><span class="line">disposing Composing&#123;id&#x3D;0&#125;</span><br><span class="line">disposing Composing&#123;id&#x3D;1&#125;</span><br><span class="line">disposing Composing&#123;id&#x3D;2&#125;</span><br><span class="line">disposing Composing&#123;id&#x3D;3&#125;</span><br><span class="line">disposing Composing&#123;id&#x3D;4&#125;</span><br><span class="line">Disposing Shared&#123;id&#x3D;0&#125;</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<p>这段代码我分三段来讲</p>
+<h3 id="第一段"><a href="#第一段" class="headerlink" title="第一段"></a>第一段</h3><p>在看任何代码之前，我们都要注意<strong>static</strong>这个关键字，因为它总是在任何代码执行之前而被执行。这里就有这么一行代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> counter = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>主代码中是这一段</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Shared shared = <span class="keyword">new</span> Shared();</span><br></pre></td></tr></table></figure>
+<p>这小小的一段代码直接指向了<strong>Shared</strong>这个类，我们先来看看这个类的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shared</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> refcount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">long</span> id = counter++;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Shared</span><span class="params">()</span></span>&#123;</span><br><span class="line">        print(<span class="string">"Creating "</span> + <span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addRef</span><span class="params">()</span></span>&#123; refcount++; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispose</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (--refcount == <span class="number">0</span>)&#123;</span><br><span class="line">            print(<span class="string">"Disposing "</span> + <span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Shared&#123;"</span> +</span><br><span class="line">                <span class="string">"id="</span> + id +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>开始执行代码了首先它先做了两个变量的初始化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> refcount = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">long</span> id = counter++;</span><br></pre></td></tr></table></figure>
+<p>这边的变量<strong>refcount</strong>是我们在第三段调用<strong>dispose()</strong>时需要用到的，暂时不看。<br>这里的变量<strong>counter</strong>是我们在第二段正式调用<strong>Create()</strong>时需要用到的，暂时不看。</p>
+<p>接下来，就是第一段的正事了，代码先跑到了<strong>Shared()</strong>方法里，使用<strong>print</strong>方法（过后真正用到该方法，我会贴源码的），方法里的东西有一个是有趣，就是我们在第四章的老朋友<strong>this</strong>了，这边的<strong>this</strong>指的是我们调用它的对象——主函数中的<strong>shared</strong>，哦了，解释完毕。</p>
+<p>看<strong>print</strong>源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.PrintStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Print</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        System.out.println(obj);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printnb</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        System.out.print(obj);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PrintStream <span class="title">printf</span><span class="params">(String format, Object... args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> System.out.printf(format, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是，接下来<strong>print(this)</strong>会干什么呢？<strong>this</strong>相当于一种低级的类，或者说是一种子类。我们可以看到我们的<strong>this</strong>低级类被强转了，或者叫做<strong>向上转型</strong>。成功的称为上流社会<strong>Object</strong>类了。然后理所应当地调用<strong>toString</strong>方法，只不过我们这边重写了这个方法，于是它就按照我们重写的方法执行了，来到了本地的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Shared&#123;"</span> +</span><br><span class="line">            <span class="string">"id="</span> + id +</span><br><span class="line">            <span class="string">'&#125;'</span>;</span><br></pre></td></tr></table></figure>
+<p>中去，最终实现了输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Creating Shared&#123;id&#x3D;0&#125;</span><br></pre></td></tr></table></figure>
+<p>光荣使命！！！没想到以前的一个小小的输出就要涉及这么多东西呀，害，太难了。理解上面的内容，你还需要在心中明确这样一点<strong>system.out.println()都是直接调用toString打印的</strong>。</p>
+<h3 id="第二段"><a href="#第二段" class="headerlink" title="第二段"></a>第二段</h3><p>代码的第二段就是持续的执行我主函数中的<strong>Composing</strong>数组了，里边的五个成员，依次进行初始化。输出结果的原理和第一段一样，</p>
+<p>说一下我们先前没有讲的<strong>counter</strong>变量，这个变量的用途就是计数，然后赋值给<strong>id</strong>然后进行输出的时候变得好看一点的操作，over。<strong>counter</strong>会从1变到5，然后赋值给<strong>id</strong>并进行输出</p>
+<p>但是我们在此基础上增加了一个<strong>“心眼”</strong>，我们还使用<strong>addRef()</strong>方法。该方法的作用就是使咱们的<strong>refcount</strong>凑效，使其开始赋值，从0到5，然后以备我们第三段代码中被用到。</p>
+<p>关于<strong>addRef()</strong>方法，我这边还有点话要说。<br><strong>Composing</strong>类的构造函数和<strong>Shared</strong>类的构造函数出现了一丢丢区别。我们看代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Composing</span><span class="params">(Shared shared)</span></span>&#123;</span><br><span class="line">    print(<span class="string">"Creating "</span> + <span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">this</span>.shared = shared;</span><br><span class="line">    <span class="keyword">this</span>.shared.addRef();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这边涉及到我们的<strong>this</strong>知识，是关于我<strong>this</strong>的第二种用法，<strong>在构造器中调用构造器</strong>。方法的具体实现是这样子的，<br>首先，由于没有继承关系，我们在<strong>Composing</strong>中设了一个<strong>Shared</strong>的对象。然后该对象就到了我们的构造方法中了<br>然后，我们可以看到我们在构造方法中，是这样调用<strong>Shared</strong>的<strong>addRef</strong>方法的。我们先把传进来的<strong>Shared</strong>赋值给我们的<strong>this.shared</strong>于是把传进来的<strong>Shared</strong>与之前特意设立的<strong>Shared</strong>通过<strong>this</strong>联系在一起。<br>接下来，我们就这样的使用<strong>引用的引用</strong>最终用我们在主函数中的<strong>shared</strong>对象使用了远在天边近在眼前的<strong>Shared</strong>类中的<strong>addRef()</strong>方法，对，你没有听错，就是这样，这就很<strong>Java</strong>——一步一步调用类中的对象，再用对象调用方法，如果中间有一步因为某些原因断掉了，那就很抱歉，就无法实现目标（调用方法）了。</p>
+<p>好啦好啦，当我们运行完所有的第二段代码后，我们会得到一个计数为5的<strong>refcount</strong>变量，以及下面的输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Creating Composing&#123;id&#x3D;0&#125;</span><br><span class="line">Creating Composing&#123;id&#x3D;1&#125;</span><br><span class="line">Creating Composing&#123;id&#x3D;2&#125;</span><br><span class="line">Creating Composing&#123;id&#x3D;3&#125;</span><br><span class="line">Creating Composing&#123;id&#x3D;4&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第三段"><a href="#第三段" class="headerlink" title="第三段"></a>第三段</h3><p>第三段就没啥讲的了，重要的概念理解前两段都讲完了，这边就是单独又引用了一个<strong>dispose</strong>方法。然后输出了，平平无奇！</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对了，对了，在将一个共享对象附着到类上时，必须记得调用<strong>addRef()</strong>但是<strong>disposing()</strong>将跟踪引用数<strong>refcount</strong>，并决定何时执行清理。使用这种技巧需要加倍地细心，但是如果你正在共享需要清理的对象，那么你就会陷入很麻烦的境地，就更要细心了。</p>
+
       
     </div>
 
@@ -1058,322 +1284,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E6%95%B0%E7%BB%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">Java速记——数组</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-09 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-09T15:49:15+08:00">2020-04-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-15 00:04:34" itemprop="dateModified" datetime="2020-04-15T00:04:34+08:00">2020-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Java——数组"><a href="#Java——数组" class="headerlink" title="Java——数组"></a>Java——数组</h1><p>数组：可以一次定义，就可以得到多个类型相同、功能相似的变量，本质还是变量</p>
-<h2 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h2><p>java类型可以分成基本类型、应用类型</p>
-<ol>
-<li>基本类型：8个<ol>
-<li>引用类型：数组、类、接口、枚举</li>
-</ol>
-</li>
-</ol>
-<p><strong>数组其实就是一种引用类型。</strong></p>
-<p>任何已有的类型，添加一组方括号就可以变成数组类型</p>
-<p>int ：属于基本类型</p>
-<p>int[]：属于引用类型</p>
-<p>int[]（是一个整体，得连在一起写，一定要注意哈！）</p>
-<p>long         -&gt; long[]</p>
-<p>String       -&gt; String[]</p>
-<p>double     -&gt; double[]</p>
-<p>int []         -&gt; int $[][]$</p>
-<p>数组元素的类型：是数组类型去掉一组方括号</p>
-<p> 比如说int[]数组元素的类型，就是int</p>
-<h3 id="创建数组对象（数组初始化）"><a href="#创建数组对象（数组初始化）" class="headerlink" title="创建数组对象（数组初始化）"></a>创建数组对象（数组初始化）</h3><ol>
-<li><p>静态初始化</p>
-<p>new 类型[] {元素1, 元素2,  ……}<br>不指定长度，只指定每个元素。<br><del>静态初始化的简化语法，省略掉in[]，但是这种方法只能在定义数组变量初始值的时候进行使用</del>，只能在定义数组变量，并赋初始值时使用。</p>
-</li>
-<li><p>动态初始化<br>new 类型[] {元素1, 元素2,  ……}<br>只指定长度，不指定每个元素。<br>系统会自动为每个元素分配初始值，其分配规则是：</p>
-<ul>
-<li>所有数组元素为数值类型时，数组元素的初始值为0；</li>
-<li>所有数组元素为boolean类型时，数组元素的初始值为false</li>
-<li>所有数组元素为引用类型时，数组元素的初始值为null</li>
-</ul>
-</li>
-</ol>
-<h3 id="使用数组"><a href="#使用数组" class="headerlink" title="使用数组"></a>使用数组</h3><ol>
-<li><p>数组都有一个length属性，该属性返回数组的长度</p>
-<p>数组一旦创建，其长度是固定的，他在内存中位置也是固定的。</p>
-</li>
-<li><p>每个数组元素，就相当于一个变量。数组元素的类型，就是数组类型去掉一组方括号<br>访问数组元素：<br>数组元素[索引] ——索引从0开始。最后一个元素的索引是length-1<br>使用的元素超出数组长度，就会导致ArrayIndexOutOfBoundsException: 4（数组索引越界异常）</p>
-</li>
-<li><p>遍历数组 - 依次使用每个元素</p>
-</li>
-<li><p>使用for each循环遍历数组<br>for(元素类型 变量名：数组名){</p>
-<p>​        // 可通过变量名访问每个元素、</p>
-<p>}<br>数组有几个元素，该循环就执行几次，变量会自动、依次等于每个元素。<br>foreach遍历只能访问数组元素的值，不能修改数组元素的值。<br><strong>建议</strong>：永远不要在foreach循环中修改计数器的值！</p>
-</li>
-</ol>
-<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="深入理解数组"><a href="#深入理解数组" class="headerlink" title="深入理解数组"></a>深入理解数组</h3><p>数组是一种引用类型，<strong>引用类型和基本类型的区别在哪里？</strong></p>
-<p>java程序的内存可以分成两种：</p>
-<h4 id="堆-heap-内存："><a href="#堆-heap-内存：" class="headerlink" title="-堆(heap)内存："></a>-堆(heap)内存：</h4><p>java虚拟机启动时分配的一块永久的、很大的内存区。堆内存只有一块。</p>
-<p><strong>java程序必须要使用虚拟机才能运行！</strong>。内存区我们是看不到的。java-Xms可以设置初始java堆大小。比如手 java -Xmx256 内存只有245兆。很容易就会爆内存。 </p>
-<p>Error occurred during initialization of VM<br>Too small initial heap</p>
-<p>上面两行就是爆内存的报错</p>
-<h4 id="栈-stack-内存："><a href="#栈-stack-内存：" class="headerlink" title="-栈(stack)内存："></a>-栈(stack)内存：</h4><p>每次方法运行分配一块临时、很小的内存区。</p>
-<p>每个方法都有自己相应的栈区，方法结束时，对应的栈区就会被回收。</p>
-<p>几个方法就有几个栈区</p>
-<h4 id="在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。"><a href="#在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。" class="headerlink" title="-在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。"></a>-在方法中定义的、局部变量（不管是什么类型），都会放入相应的方法栈中去。</h4><h4 id="new出来的东西，都在堆内存"><a href="#new出来的东西，都在堆内存" class="headerlink" title="-new出来的东西，都在堆内存"></a>-new出来的东西，都在堆内存</h4><p>堆内存中的对象，如果没有引用变量指向它，那它就变成了trash，等待vm的垃圾回收机制回收它。</p>
-<p>计算机的每个内存单元（Byte、字节)在操作系统中都有一个编号，就像是一栋大楼的每个房间号</p>
-<p>【变量赋值的区别：】</p>
-<p>-基本类型的赋值：直接将该值存入变量所在内存</p>
-<p>-引用类型的赋值：将该对象所在第一个内存单元的编号（内存地址）存入变量。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">Java速记——类与对象</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-09 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-09T15:49:15+08:00">2020-04-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-14 23:52:17" itemprop="dateModified" datetime="2020-04-14T23:52:17+08:00">2020-04-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Java速记——类与对象"><a href="#Java速记——类与对象" class="headerlink" title="Java速记——类与对象"></a>Java速记——类与对象</h1><p>面向对象：Java是一门面向对象的语言</p>
-<p>类：某一类对象的统称。相当于是一个概念性的（不是具体存在的东西）</p>
-<p>对象：现实中所能接触到的各种“东西”。</p>
-<p>三句总决：定义类、创建对象、调用方法</p>
-<h2 id="定义类"><a href="#定义类" class="headerlink" title="定义类"></a>定义类</h2><p>[修饰符] class 类名</p>
-<p>{</p>
-<p>​        // 成员变量</p>
-<p>​        // 方法</p>
-<p>​        // 构造器</p>
-<p>​        // 内部类</p>
-<p>​        // 初始化块</p>
-<p>}————类体</p>
-<p>类中的五大成员</p>
-<ol>
-<li>修饰符：public、final|abstract。其他的都不能出现，顺序是无所谓的，但是void返回类型一定要在修饰符后边</li>
-<li>类名：语法要求——只要是标识符即可<br>从专业角度来看：多个单词连缀而成。</li>
-</ol>
-<h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><p>[修饰符] 类型 变量名 [ = 初始值];</p>
-<p>修饰符： private| protected|public、final|abstract、static、（transient：序列化相关）</p>
-<p>类型：任意基本类型或引用类型</p>
-<p>变量名：驼峰写法，首字母小写，后面每个单词首字母大写。。。 成员变量，用于描述该类或对象的状态，因此通常建议用名词。项目中，只定义项目感兴趣的状态</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>[修饰符] 返回值类型 方法名(形参列表)</p>
-<p>{</p>
-<p>​        // 代码，之前所有的东西，各种流程控制，定义变量（数组），都是在这个里边写的</p>
-<p>如果声明了返回值类型，必须有return语句。</p>
-<p>}————-方法体</p>
-<ol>
-<li><p>修饰符： private| protected|public、final|abstract、static</p>
-</li>
-<li><p>返回值类型：任意基本类型或引用类型，可使用void</p>
-</li>
-<li><p>方法名：</p>
-<ol>
-<li>语法要求：只要是标识符即可</li>
-<li>专业角度：驼峰写法，首字母小写，后面每个单词首字母大写。。。 成员变量，</li>
-<li>方法：用于描述该类或对象的状态，因此通常建议用<strong>动词</strong>。</li>
-<li>项目中，只定义项目感兴趣的状态</li>
-</ol>
-</li>
-<li><p>形参列表：形参类型1 形参名, 形参类型2 形参名2，……</p>
-<p>每个形参都满足“形参类型 形参名”的格式；多个形参之间用逗号隔开。<br>代表调用方法时要传入的参数。</p>
-</li>
-</ol>
-<h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><p>作用：new调用构造器来创建对象</p>
-<p>如果你没有为类写构造器，系统会默认为该类提供一个无参数的构造器！！！！只能隐藏构造器，但是每个类都会是有构造器的</p>
-<p>[修饰符] 构造器名(形参列表)</p>
-<p>{</p>
-<p>​        // 代码：定义变量（包括数组）、变量赋值、流程控制、数据语</p>
-<p>如果声明了返回值类型，必须有return语句。</p>
-<p>}————-构造器体</p>
-<ol>
-<li>修饰符：private|protected|public</li>
-<li>构造器名必须与类名相同</li>
-</ol>
-<p>判断一个类是不是构造器，要看两点：构造器名是否与类名相同、是否有返回值</p>
-<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>类可以用来干什么呢？</p>
-<ol>
-<li>定义变量<br>所有类，都是引用类型。所有类，都可用于声明变量</li>
-<li>调用static修饰方法或static修饰的变量</li>
-<li>创建对象</li>
-<li>派生子类 </li>
-</ol>
-<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><p>对象可以用来做什么</p>
-<ol>
-<li>调用无static修饰的成员变量</li>
-<li>调用无static修饰的方法</li>
-</ol>
-<h4 id="类是引用类型"><a href="#类是引用类型" class="headerlink" title="类是引用类型"></a>类是引用类型</h4><p>数组，也是引用类型</p>
-<p>java中的引用类型有很多，只要你定义了一个类，就多了一个引用类型</p>
-<p>引用类型变量的赋值，只是将对象的首地址存入变量中</p>
-<h3 id="this引用："><a href="#this引用：" class="headerlink" title="this引用："></a>this引用：</h3><p>this可以出现非static的方法、构造器中。作用如下：</p>
-<ol>
-<li>出现非static方法中，this代表了该方法的调用者。<br>“谁调用该方法，this就代表谁”</li>
-<li>出现在构造器中，this就代表该构造器正在初始化的对象。</li>
-</ol>
-<p>this.     的很重要作用就是：用于区分方法或构造器的局部变量。</p>
-<p>尤其是与成员变量同名时——更需要使用this进行区分。</p>
-<h2 id="方法详解："><a href="#方法详解：" class="headerlink" title="方法详解："></a>方法详解：</h2><h3 id="方法的所属性："><a href="#方法的所属性：" class="headerlink" title="方法的所属性："></a>方法的所属性：</h3><ol>
-<li>方法类似于函数。但与函数不同的是，方法不能存在，方法必须定义在类里面。</li>
-<li>定义在类中的方法。从逻辑上来看：<br>如果该方法有static修饰，该方法属于类本身，应该用类调用。<br>如果该方法无static修饰，该方法属于对象本身。</li>
-<li>方法不能独立执行。<br>方法一定要有调用者<br>【规则】如果你调用同一个类中方法，可以省略调用者，此时系统会添加默认的调用者。<pre><code>           如果该方法是无static的方法，添加this作为默认的调用者。
-</code></pre></li>
-</ol>
-<h3 id="形参个数可变的方法："><a href="#形参个数可变的方法：" class="headerlink" title="形参个数可变的方法："></a>形参个数可变的方法：</h3><p>类型… 形参名 ：这就是形参个数可变的方法</p>
-<ul>
-<li>本质就是数组。上面写法等同于：<br>类型[] 形参名</li>
-<li>类型…<br>写法的好处是：调用方法时更加方便。即可直接传入多个元素，系统会自动将它们封装成数组。也可用数组。<br>写法的缺点是：类型…  这种写法只能作为形参列表的最后一个形参。<pre><code>                       【暗示】：一个方法最多只能有一个“个数可变”的形参
-</code></pre></li>
-</ul>
-<h3 id="递归方法"><a href="#递归方法" class="headerlink" title="递归方法"></a>递归方法</h3><p>方法里调用本身——递归带来了隐式循环。</p>
-<p>递归要避免无限递归。一定要在某些情况下，不再调用方法自身，</p>
-<p>这个时候可能就要说了，这些循环用for之类的循环分支语句不都是可以实现的吗？</p>
-<p>对对对，你说的都对，但是有一种情况只能用递归哦    </p>
-<p>假如我们有：</p>
-<p>f(1) = 2;</p>
-<p>f(2) = 5;</p>
-<p>…</p>
-<p>f(n) = f(n+2) - 2 *  f(n+1)</p>
-<p>要计算：f(10)是多少//代码在40/Recursive   </p>
-<p>【难点】：    要保证递归一定能出现递归结束的条件。</p>
-<h3 id="方法重载："><a href="#方法重载：" class="headerlink" title="方法重载："></a>方法重载：</h3><p>在同一个类中有多个同名的方法，但这多个方法的形参列表不同</p>
-<p>口诀：两同一不同</p>
-<ul>
-<li>修饰符不同不算重载；返回值类型不同也不算重载</li>
-<li>当你要确定一个方法的时候，仅有方法名是不够的的，必须还要结合参数才能确定。</li>
-</ul>
-<h3 id="方法的传参机制："><a href="#方法的传参机制：" class="headerlink" title="方法的传参机制："></a>方法的传参机制：</h3><p>如果定义方法时声明了形参，调用方法时必须传入对应的方法</p>
-<p><strong>Java的参数传递机制：值传递 ，传入的只是参数的副本，并不是参数本身！！！</strong></p>
-<ul>
-<li>如果传递的参数是基本参数，方法中对参数所做的修改 ，完全不会影响参数本身！</li>
-<li>如果传递的参数是引用类型，参数的副本与参数本身指向同一个对象。<br>因此方法通过参数副本修改对象时，会影响参数本身所指向的对象</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1444,7 +1354,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1498,7 +1408,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共60.3k字</span>
+  <span class="post-count">博客全站共65.1k字</span>
 </div>
         
 
