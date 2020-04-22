@@ -180,6 +180,141 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/04/Java/Java%E6%B7%B1%E8%80%95/Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%B1%E8%80%95%E2%80%94%E2%80%94%E5%86%85%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/04/Java/Java%E6%B7%B1%E8%80%95/Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%B1%E8%80%95%E2%80%94%E2%80%94%E5%86%85%E5%AD%98/" class="post-title-link" itemprop="url">Java虚拟机深耕——内存</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-04 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-04T15:49:15+08:00">2020-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 23:55:47" itemprop="dateModified" datetime="2020-04-14T23:55:47+08:00">2020-04-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="浅谈Java内存"><a href="#浅谈Java内存" class="headerlink" title="浅谈Java内存"></a>浅谈Java内存</h1><h2 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h2><p><img src="https://i.loli.net/2020/04/04/RMaGdC8hxOqc9SY.jpg" alt="Java虚拟机运行时数据区.jpg"></p>
+<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a><strong>程序计数器</strong></h3><ol>
+<li>作用：当前线程所执行的字节码的行号指示器。</li>
+<li>字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</li>
+<li>存在的意义：Java虚拟机的多线程是通过线程轮流切换实现的，类似于操作系统的时间片算法来分配核心（处理器）的执行时间。所以，为了线程每一次切换后能够恢复到之前正确的执行位置，每个线程就需要各自独立的程序计数器。</li>
+<li>如果线程此时正在执行的是一个Java方法，计数器记录的即是正在执行的虚拟机字节码指令的地址；如果正在执行的是Nativie方法，这个计数器即是空（Undefined）。</li>
+</ol>
+<h3 id="Java虚拟机栈（就是大家常说的栈内存）"><a href="#Java虚拟机栈（就是大家常说的栈内存）" class="headerlink" title="Java虚拟机栈（就是大家常说的栈内存）"></a><strong>Java虚拟机栈</strong>（就是大家常说的栈内存）</h3><p>虚拟机栈描述的是Java方法执行的内存模型：每个方法被执行的时候都会同时创建一个<strong>栈帧</strong>，用于存储局部变量表、操作栈、动态链接、方法出口等信息。</p>
+<p>每一个方法被调用直至执行完成的过程，就对应着一个<strong>栈帧</strong>在虚拟机栈中从入栈到出栈的过程。</p>
+<p>大部分程序员把Java的内存区域划分为堆内存（Heap）和栈内存（Stack），事实上Java内存区域的划分远比这复杂。其中所指的“堆”在后边会聊到，而所指的“栈”就是现在讲的虚拟机栈，或者说是虚拟机栈中的局部变量表部分。</p>
+<h4 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h4><p>局部变量表存放了编译期可知的8种基本数据类型（int、char、byte、short、long、double、boolean、float）、对象引用和returnAddress类型</p>
+<p>这边插一句关于对象引用类型的分析解释：字如其意，是一种引用，就是C中的指针嘛，我们来看一个例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>];</span><br></pre></td></tr></table></figure>
+<p>=左边的arr是变量部分，=右边的是一个对象。</p>
+<p>右边只是一个指向对象起始地址的引用指针。</p>
+<p>左边的arr是变量，所以被存放在栈内存中。右边的是对象， 所以被存放在堆内存中，两者靠指针来维系关系。上面这句话应该这么来理解。</p>
+<p>continue！继续聊局部变量表，8种基本数据类型里64位长度的long和double类型的数据会占用2个局部变量空间，其余的数据类型只占用1个。</p>
+<p>局部变量表所需的内存空间在编译期间就完成了分配，当进入一个方法时，这个方法需要在帧中分配多大的局部变量空间是早就确定好的，而且我们在方法运行期间不会改变 局部变量表的大小。</p>
+<p>continue！继续聊虚拟机栈，我们聊报错</p>
+<h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><p>有两种：</p>
+<ol>
+<li>StackOverflowError异常：如果线程请求的栈深度大于虚拟机所允许的深度</li>
+<li>OutOfMemoryError异常：当我们使用的虚拟机栈的内存不够时就会出现这个报错</li>
+</ol>
+<h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><p>与虚拟机栈作用相似 ，区别在于虚拟机栈是为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈则是为虚拟机使用的Native方法服务。</p>
+<p>甚至于有的虚拟机（比如Sun HotSpot虚拟机）直接将本地方法栈和虚拟机栈合二为一。</p>
+<p>与虚拟机栈一样，本地方法栈区域也会抛出两种报错StackOverflowError和OutOfMemoryError。</p>
+<h3 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h3><p>是Java虚拟机所管理的内存中最大的一块。在虚拟机启动时就被创建了。</p>
+<p>唯一目的就是存放对象实例，只要我们new的对象实例都在这边分配了内存。</p>
+<p>Java对可以处于物理上不连续的内存空间中，只要逻辑上是连续的即可。</p>
+<p>当前主流的虚拟机都是按照可扩展来实现的（通过 -Xmx：最大多少内存空间，-Xms：最小多少内存空间   来控制）</p>
+<p>如果堆中内存不够的话，将会抛出OutOfMemoryError异常，我称之为爆内存，并且在下面给出爆内存的具体例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 爆内存 </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> it = <span class="number">20</span>;</span><br><span class="line">        <span class="keyword">long</span>[] arr = <span class="keyword">new</span> <span class="keyword">long</span>[<span class="number">100</span>];</span><br><span class="line">        arr[<span class="number">99</span>] = <span class="number">33</span>;</span><br><span class="line">        System.out.println(arr[<span class="number">99</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//教你如何爆内存哈，在终端输入Java -Xmx256 爆内存</span></span><br></pre></td></tr></table></figure>
+<p>当然爆内存知识OutOfMemoryError异常三种情况中的一种，之后我也会仔细围绕这个好好讲讲，<a href="https://blog.csdn.net/z453588/article/details/83743837，可以先看看这个博客解解馋" target="_blank" rel="noopener">https://blog.csdn.net/z453588/article/details/83743837，可以先看看这个博客解解馋</a></p>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>与Java堆一样，是各个线程共享的内存区域，用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
+<p>可以和Java堆一样不需要连续的内存 和可以选择固定大小或者可扩展外</p>
+<p>还可以选择不识闲垃圾回收。相对而言，垃圾收集行为在这个区域很少见。但是并非是说数据进入方法区就永久存在了。</p>
+<p>这个区域的内存回收目标主要是针对常量池的回收和对类型的卸载。</p>
+<h3 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h3><p>是方法区的一部分。</p>
+<p>Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池，用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中。</p>
+<p>运行时常量池相对于Class文件常量池的另外一个重要特征就是<strong>具备动态性</strong>。</p>
+<p>动态性：Java语言并不要求常量一定只能在编译期产生，运行期间也可能将新的常量放入池中。这种特性被开发人员用的较多的就是String类的intern()方法。</p>
+<p>既然运行时常量池是方法区的一部分，自然会受到方法区内存的限制，当无法再申请到内存时会抛出OutOfMemoryError异常。</p>
+<h3 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h3><p>直接内存不是虚拟机运行时数据区的一部分，也不是Java虚拟机规范中定义的内存区域，但是这部分内存也被频繁地使用，而且也可能导致OutOfMemoryError异常出现。</p>
+<p>JDK1.4中新加入了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆里面的DirectByteBuffer对象作为这块内存的引用来进行操作。这样在一些场景中能显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。</p>
+<p>既然是直接内存，那么这一部分内存是不会受到Java堆大小的限制的咯，</p>
+<p>但是既然是内存，则肯定还是会受到本机总共内存的大小和处理器寻址空间的限制。</p>
+<p>服务器管理员配置虚拟机参数时，一般会根据实际内存设置 -Xmx等参数信息，但经常会忽略掉直接内存，使得各个内存区域的总和大于物理内存限制（包括物理上的限制和操作系统级的限制），从而导致动态扩展时出现OutOfMemoryError异常。</p>
+<h3 id="对象访问"><a href="#对象访问" class="headerlink" title="对象访问"></a>对象访问</h3><p>上面都是从Java虚拟机的运行时数据区来讨论的，这边在讨论一个话题：对象访问是如何进行的呢？</p>
+<p>对象访问是Java中的常客，即使是最简答的访问，也会涉及到Java栈、Java堆、方法区这三个最重要内存区域之间的关联关系。举个例子说明：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br></pre></td></tr></table></figure>
+<p>等号左边的一部分会被保存在Java栈的本地变量表里，我之前也有所涉及，作为一个reference类型数据出现，一个引用类型嘛。</p>
+<p>而右边的部分会被存储到Java堆中去。形成一块连在一起的结构化内存（类似于数组一样的结构）</p>
+<p>另外在Java堆中还必须包含能查找到此对象类型数据（如对象类型、父类、实现的接口、方法等）的地址信息，这些类型数据则存储在方法区中。</p>
+<h4 id="对象访问的两种方法：使用句柄和直接指针"><a href="#对象访问的两种方法：使用句柄和直接指针" class="headerlink" title="对象访问的两种方法：使用句柄和直接指针"></a>对象访问的两种方法：使用句柄和直接指针</h4><p>如果<strong>使用句柄访问方式</strong>，Java堆中将会划分出一块内存来作为句柄池，栈内存中存储的就是<strong>对象的句柄地址</strong>，而句柄中包含了对象实例数据和类型数据各自的具体地址信息。</p>
+<p><img src="https://i.loli.net/2020/04/04/a8p6zHbD1cl9NEF.jpg" alt="通过句柄访问对象.jpg"></p>
+<p>如果使用<strong>直接指针访问方式</strong>，Java堆对象的布局就必须要考虑如何放置访问类型数据的相关信息，栈内存中直接存储的就是<strong>对象地址</strong></p>
+<p><img src="https://i.loli.net/2020/04/04/9FjKNb6Xy3zU2tx.jpg" alt="通过直接指针访问对象.jpg"></p>
+<p>各有优势：</p>
+<p>使用句柄访问方式的最大好处就是堆内存中存储的是稳定的句柄地址，在对象被移动时只会改变句柄中的实例数据指针就行了。</p>
+<p>使用直接指针访问方式的最大好处是速度更快，它节省了一次指针定位的时间开销，由于对象的访问在Java中非常频繁，因此此类开销积少成多后会非常可观。</p>
+<h2 id="各种异常实战"><a href="#各种异常实战" class="headerlink" title="各种异常实战"></a>各种异常实战</h2><p>明儿个再补充</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/03/C++/%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E5%87%BD%E6%95%B0%E5%B0%8F%E7%9F%A5%E8%AF%86%E2%80%94%E2%80%94%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%8E%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2736,114 +2871,6 @@ P\{|X-μ| < ε\} \geq 1-\frac{σ^2}{ε^2}</script><p>// 此处明天补上证明
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/03/22/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/URI%20URL%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E8%AF%86%E7%AC%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/22/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/URI%20URL%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E8%AF%86%E7%AC%A6/" class="post-title-link" itemprop="url">URI URL统一资源标识符</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-22 15:49:15" itemprop="dateCreated datePublished" datetime="2020-03-22T15:49:15+08:00">2020-03-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-15 00:07:09" itemprop="dateModified" datetime="2020-04-15T00:07:09+08:00">2020-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">网站开发</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="URI（Uniform-Resource-Identifier"><a href="#URI（Uniform-Resource-Identifier" class="headerlink" title="URI（Uniform Resource Identifier)"></a>URI（Uniform Resource Identifier)</h2><p>采用一种特定语法标识一个资源的字符串</p>
-<p><strong>格式：</strong></p>
-<p>模式：模式特定部分（模式特定部分的语法取决于所用的模式）</p>
-<p>模式包括：</p>
-<p>由小写字母、数字和加号、点及连号符组成</p>
-<p>data链接中直接包含的Base64编码数据</p>
-<p>file本地磁盘的文件</p>
-<p>ftp FTP服务器</p>
-<p>HTTP使用超文本传输协议的国际互联网服务器</p>
-<p>mailto电子邮件地址</p>
-<p>magnet可以通过对等网络下载的资源</p>
-<p>Telnet与基于Telnet的服务连接</p>
-<p><strong>模式特定部分包扩：</strong></p>
-<p><strong>//authority/path?query(//授权机构/路径？查询字符串)</strong></p>
-<p>由ASCII字母数字符号组成，还可以使用标点符号-、_、·、!、~</p>
-<p>定界符（/、？、&amp;、=）可以有其预定义用途</p>
-<p>所有其他字符及内容中需用到的定界符也应用%转义（空格%20/%2F)</p>
-<p><strong>authority</strong>:负责解析该URI其余部分的授权机构 授权机构是Internet主机，还可提供可选的用户名和端口 如：ftp://mp3:mp3@ci43198-a.ashvill.nc.home.com:33/VanHalen-Jump.mp3</p>
-<p><strong>path</strong>:授权机构用来确定所标识资源的字符串</p>
-<h2 id="URL最常见的URI"><a href="#URL最常见的URI" class="headerlink" title="URL最常见的URI"></a>URL最常见的URI</h2><p>两者区别：URI表示资源是什么，URL表示资源的具体位置，URI是URL的抽象。Java中URL对象对应网络获取的应用层协议的一个表示，而URI对象纯粹用于解析和处理字符串。</p>
-<h3 id="绝对URL"><a href="#绝对URL" class="headerlink" title="绝对URL"></a>绝对URL</h3><p><strong>protocol://userInfo@host.port/path?query#fragment</strong></p>
-<p>host 提供所需资源服务区的名字（主机/服务器ip地址）</p>
-<p>userInfo 可选，服务器登录信息</p>
-<p>port 可选，服务在其默认端口运行，无需此部分</p>
-<p>path 指定服务器上的一个特定目录文件系统，路径相对于服务器的文档跟目录，向公众开放的服务器不会将其整个文件系统展示给客户端，而只是展示指定目录中的内容</p>
-<p>query 向服务器提供附加参数，一般只在http URL中使用，其中包含表单数据，作为输入提供给服务端的运行程序</p>
-<p>fragment 指向远程资源的某个特定部分 HTML 锚 XML XPointer  段  ref     片段标识符在HTML文档中用id属性创建 </p>
-<p>包含片段标识符的是URL引用，不是URL</p>
-<h3 id="相对URL继承了-父文档部分信息的URL"><a href="#相对URL继承了-父文档部分信息的URL" class="headerlink" title="相对URL继承了 父文档部分信息的URL"></a>相对URL继承了 父文档部分信息的URL</h3><p>在相对URL中，缺少的各部分都与所在文档的URL中对应的部分相同</p>
-<p>例如浏览<a href="http://www.ibiblio.org/java/faq/javatutoial.html时" target="_blank" rel="noopener">http://www.ibiblio.org/java/faq/javatutoial.html时</a></p>
-<p><strong>若无”/“开头</strong> 例如<a href="javafaq.html"></p>
-<p>相当于<a href="http://www.ibiblio.org/java/faq/javafaq.html" target="_blank" rel="noopener">http://www.ibiblio.org/java/faq/javafaq.html</a></p>
-<p><strong>若以”/“开头</strong> 如<a href="/projects/ipv61"></p>
-<p>则相当于<a href="http://www.ibiblio.org/projects/ipv61" target="_blank" rel="noopener">http://www.ibiblio.org/projects/ipv61</a></p>
-<p>相对URL允许用多种协议来提供一个文档树，且相对URL允许将整个文档树从一个网站移动或复制到另一个网站，而不会破坏所有的内部连接。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -2914,7 +2941,7 @@ P\{|X-μ| < ε\} \geq 1-\frac{σ^2}{ε^2}</script><p>// 此处明天补上证明
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2968,7 +2995,7 @@ P\{|X-μ| < ε\} \geq 1-\frac{σ^2}{ε^2}</script><p>// 此处明天补上证明
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共65.1k字</span>
+  <span class="post-count">博客全站共69.6k字</span>
 </div>
         
 
