@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mr8god.cn/"/>
-  <updated>2020-05-04T16:04:07.751Z</updated>
+  <updated>2020-05-05T01:56:24.965Z</updated>
   <id>https://mr8god.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://mr8god.cn/2020/05/04/%E5%9F%BA%E4%BA%8ESpringboot%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/"/>
     <id>https://mr8god.cn/2020/05/04/%E5%9F%BA%E4%BA%8ESpringboot%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/</id>
     <published>2020-05-04T15:52:06.000Z</published>
-    <updated>2020-05-04T16:04:07.751Z</updated>
+    <updated>2020-05-05T01:56:24.965Z</updated>
     
     <content type="html"><![CDATA[<h1 id="基于Spring-Boot的个人博客"><a href="#基于Spring-Boot的个人博客" class="headerlink" title="基于Spring Boot的个人博客"></a>基于Spring Boot的个人博客</h1><h3 id="涉及技术及工具"><a href="#涉及技术及工具" class="headerlink" title="涉及技术及工具"></a>涉及技术及工具</h3><ul><li>核心框架：SpringBoot</li><li>ORM框架：MyBatis</li><li>MyBatis工具：MyBatis Mapper</li><li>MVC框架：Spring MVC</li><li>模板引擎：Freemarker</li><li>编译辅助插件：Lombok</li><li>CSS框架：BootStrap4.0</li><li>数据库：MySQL</li></ul>]]></content>
     
@@ -35,6 +35,10 @@
     </summary>
     
     
+      <category term="技术" scheme="https://mr8god.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Java" scheme="https://mr8god.cn/tags/Java/"/>
     
   </entry>
   
