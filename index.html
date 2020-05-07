@@ -180,6 +180,119 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/05/07/Maven/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/07/Maven/" class="post-title-link" itemprop="url">Maven</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-07 09:47:38 / 修改时间：11:10:29" itemprop="dateCreated datePublished" datetime="2020-05-07T09:47:38+08:00">2020-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><p>​        <strong>Maven</strong>项目对象模型（POM）， 可以通过一小段描述信息来管理项目的构建、报告和文档的项目管理工具软件。<br>​        <strong>Maven</strong>除了以程序构建能力为特色之外，还提供高级项目管理工具。由于<strong>Maven</strong>的缺省构建规则有较高的可重用性能，所以常常用两三行<strong>Maven</strong>构建脚本就可以构建简单的项目。由于<strong>Maven</strong>的面向项目的属性，很多项目发布时都会使用<strong>Maven</strong>，所以目前使用<strong>Maven</strong>技术的比例在持续增长。<br>​        总而言之，<strong>Maven</strong>是一个可以用来构建和管理任何基于Java的项目的工具，主要目标是让开发人员在最短的时间内了解开发工作的完整状态。</p>
+<h2 id="Maven的优点如下"><a href="#Maven的优点如下" class="headerlink" title="Maven的优点如下"></a><strong>Maven</strong>的优点如下</h2><blockquote>
+<p>简化构建过程<br>提供统一的构建系统<br>提供优质的项目信息<br>提供最佳实践开发指南<br>允许透明迁移新功能</p>
+</blockquote>
+<h3 id="简化构建过程"><a href="#简化构建过程" class="headerlink" title="简化构建过程"></a>简化构建过程</h3><p>虽然使用<strong>Maven</strong>时偶尔也需要你对底层细节有所了解！但是，<strong>Maven</strong> 确实屏蔽了很多细节，它已经大大简化了开发人员的工作。</p>
+<h3 id="提供统一的构建系统"><a href="#提供统一的构建系统" class="headerlink" title="提供统一的构建系统"></a>提供统一的构建系统</h3><p><strong>Maven</strong> 使用项目对象模型（<strong>POM</strong>）和一组所有项目共享的插件来构建项目，从而提供统一的构建系统。开发人员使用 <strong>Maven</strong> 构建项目的话，后期维护项目会节省大量时间。</p>
+<h3 id="提供优质的项目信息"><a href="#提供优质的项目信息" class="headerlink" title="提供优质的项目信息"></a>提供优质的项目信息</h3><p><strong>Maven</strong> 提供了大量有用的项目信息，这些信息部分来自您的<strong>POM</strong>，部分来自项目源。例如，<strong>Maven</strong>可以提供：</p>
+<blockquote>
+<p>更改从源代码控制直接创建的日志文档<br>交叉引用的来源<br>邮件列表<br>依赖列表<br>单元测试报告包括报道</p>
+</blockquote>
+<p>由于 <strong>Maven</strong> 改进了提供的信息，所有这些信息对 <strong>Maven</strong> 用户都是透明的。<br>通过 <strong>Maven</strong> 插件，其他产品可以将自己的项目信息兼容 <strong>Maven</strong> 的标准信息，所有信息同样基于<strong>POM</strong>。</p>
+<h3 id="提供最佳实践开发指南"><a href="#提供最佳实践开发指南" class="headerlink" title="提供最佳实践开发指南"></a>提供最佳实践开发指南</h3><p><strong>Maven</strong> 会汇总当前最佳开发实践的原则，并通过 <strong>Maven</strong> 影响其他项目。</p>
+<p>例如，<strong>Maven</strong> 的正常构建周期中的单元测试的规范，执行和报告。</p>
+<p>当前的单元测试最佳实践被用作指导原则：</p>
+<blockquote>
+<p>将测试源代码保存在独立的、并行的源代码树中；</p>
+<p>规范测试用例命名，便于来定位和执行测试；</p>
+<p>为测试用例设置的环境，不依赖与客户化的定制构建和测试准备。</p>
+</blockquote>
+<p><strong>Maven</strong>还旨在工作流程中协助项目开发，如发布管理和问题跟踪。</p>
+<h3 id="允许透明迁移到新功能"><a href="#允许透明迁移到新功能" class="headerlink" title="允许透明迁移到新功能"></a>允许透明迁移到新功能</h3><p>Maven 为 Maven 客户端提供了一种安装更新的简单方法，开发人员可以简单便捷的利用 Maven 的最新特性。</p>
+<p>从第三方或 Maven 安装新的插件变得非常的简单。</p>
+<h2 id="在Java中Maven项目跟Web项目的区别（distinction）"><a href="#在Java中Maven项目跟Web项目的区别（distinction）" class="headerlink" title="在Java中Maven项目跟Web项目的区别（distinction）"></a>在Java中Maven项目跟Web项目的区别（distinction）</h2><h3 id="定义不同："><a href="#定义不同：" class="headerlink" title="定义不同："></a>定义不同：</h3><p><strong>Web</strong>项目是网页的编码，像</p>
+<p><strong>jsp</strong>(<a href="https://baike.baidu.com/item/JSP/141543" target="_blank" rel="noopener">https://baike.baidu.com/item/JSP/141543</a>)<br><strong>servlet</strong>(<a href="https://baike.baidu.com/item/servlet" target="_blank" rel="noopener">https://baike.baidu.com/item/servlet</a>)<br><strong>struts</strong>(<a href="https://baike.baidu.com/item/struts" target="_blank" rel="noopener">https://baike.baidu.com/item/struts</a>)</p>
+<p><strong>Java Maven</strong>项目是<br><strong>AWT</strong>(<a href="https://baike.baidu.com/item/AWT)、**SWING**(https://baike.baidu.com/item/Swing/3286527" target="_blank" rel="noopener">https://baike.baidu.com/item/AWT)、**SWING**(https://baike.baidu.com/item/Swing/3286527</a>)<br>这类的编码</p>
+<h4 id="举例说明："><a href="#举例说明：" class="headerlink" title="举例说明："></a>举例说明：</h4><p>Java不仅是一门编程语言，还是一个平台，通过JRuby和Jython，我们可以在<a href="https://www.baidu.com/s?wd=Java平台&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">Java平台</a>上编写和运行Ruby和Python程序；</p>
+<p>Maven不仅是构建工具，还是一个依赖管理工具和项目信息管理工具；</p>
+<p>web项目是网页的编码项目，需要在服务器上运行。</p>
+<h3 id="作用不同："><a href="#作用不同：" class="headerlink" title="作用不同："></a>作用不同：</h3><p><strong>Java</strong>可以用来编写桌面应用程序、Web应用程序、分布式系统和嵌入式系统应用程序等 ；</p>
+<p><strong>Maven</strong>由项目对象模型、标准集合、项目生命周期和依赖关系管理系统构成，可以经过项目对象模型描述信息来管理项目的构建、报告和文档，还可以生成站点和管理JAR文件；</p>
+<p><strong>web</strong>是建立在Internet上的一种网络服务，包含了超文本、超媒体和超文本传输协议，可以提供图形化的直观的网页浏览界面，信息可以实时更新。</p>
+<h3 id="特点不同"><a href="#特点不同" class="headerlink" title="特点不同"></a>特点不同</h3><p><strong>Java</strong>是一门面向对象编程语言，<strong>Java</strong>具有简单性、面向对象、分布式、健壮性、安全性、平台独立与可移植性、多线程、动态性等特点。</p>
+<p><strong>Maven</strong> 有一个生命周期，当你运行 <strong>mvn install</strong> 的时候被调用，这条命令告诉 <strong>Maven</strong> 执行一系列的有序的步骤，直到到达你指定的生命周期。遍历生命周期旅途中的一个影响就是，<strong>Maven</strong> 运行了许多默认的插件目标，这些目标完成了像编译和创建一个 JAR 文件这样的工作。</p>
+<p><strong>web</strong>即全球广域网，也称为万维网，它是一种基于超文本和<strong>HTTP</strong>的、全球性的、动态交互的、跨平台的分布式图形信息系统。是建立在<strong>Internet</strong>上的一种网络服务，为浏览者在<strong>Internet</strong>上查找和浏览信息提供了图形化的、易于访问的直观界面。</p>
+<h2 id="Maven常用命令"><a href="#Maven常用命令" class="headerlink" title="Maven常用命令"></a>Maven常用命令</h2><p>mvn archetype:generate 创建Maven项目</p>
+<p>mvn compile 编译源代码</p>
+<p>mvn deploy 发布项目</p>
+<p>mvn test-compile 编译测试源代码</p>
+<p>mvn test 运行应用程序中的单元测试</p>
+<p>mvn site 生成项目相关信息的网站</p>
+<p>mvn clean 清除项目目录中的生成结果</p>
+<p>mvn package 根据项目生成的jar</p>
+<p>mvn install 在本地Repository中安装jar</p>
+<p>mvn eclipse:eclipse 生成eclipse项目文件</p>
+<p>mvnjetty:run 启动jetty服务</p>
+<p>mvntomcat:run 启动tomcat服务</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/05/04/%E5%9F%BA%E4%BA%8ESpringboot%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -973,95 +1086,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/18/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E6%8E%A5%E5%8F%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/18/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">Java日记——接口</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-04-18 00:29:18 / 修改时间：00:56:39" itemprop="dateCreated datePublished" datetime="2020-04-18T00:29:18+08:00">2020-04-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><h2 id="9-3-完全解耦"><a href="#9-3-完全解耦" class="headerlink" title="9.3 完全解耦"></a>9.3 完全解耦</h2><p>假设我们有一组电子滤波器，它们适用于<strong>Apply.process()</strong>方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Apply.process()方法</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> net.mindview.util.Print.print;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apply</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(Processor p, Object s)</span> </span>&#123;</span><br><span class="line">        print(<span class="string">"Using Processor "</span> + p.name() );</span><br><span class="line">        print(p.process(s));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="电子滤波器代码包在下边"><a href="#电子滤波器代码包在下边" class="headerlink" title="电子滤波器代码包在下边"></a>电子滤波器代码包在下边</h3><h4 id="第一版"><a href="#第一版" class="headerlink" title="第一版"></a>第一版</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Waveform</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.filters;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:16</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Waveform</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> counter;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">long</span> id = counter++;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Waveform&#123;"</span> +</span><br><span class="line">                <span class="string">"id="</span> + id +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Filter</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.filters;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:17</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">name</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getClass().getSimpleName();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Waveform <span class="title">process</span><span class="params">(Waveform input)</span></span>&#123; <span class="keyword">return</span> input; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// LowPass</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.filters;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:19</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LowPass</span> <span class="keyword">extends</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> cutoff;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LowPass</span><span class="params">(<span class="keyword">double</span> cutoff)</span></span>&#123; <span class="keyword">this</span>.cutoff = cutoff; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Waveform <span class="title">process</span><span class="params">(Waveform input)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> input;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HighPass</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.filters;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:20</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HighPass</span> <span class="keyword">extends</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> cutoff;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HighPass</span><span class="params">(<span class="keyword">double</span> cutoff)</span></span>&#123; <span class="keyword">this</span>.cutoff = cutoff; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Waveform <span class="title">process</span> <span class="params">(Waveform input)</span></span>&#123; <span class="keyword">return</span> input; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BandPass</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.filters;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:22</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BandPass</span> <span class="keyword">extends</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> lowCutoff, highCutoff;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BandPass</span><span class="params">(<span class="keyword">double</span> lowCut, <span class="keyword">double</span> highCut)</span></span>&#123;</span><br><span class="line">        lowCutoff = lowCut;</span><br><span class="line">        highCutoff = highCut;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Waveform <span class="title">process</span><span class="params">(Waveform input)</span> </span>&#123; <span class="keyword">return</span> input; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>虽然<strong>Filter</strong>和<strong>Processor</strong>（代码我贴在这段话下面）具有相同的接口元素（且它们俩输出都是<strong>Waveform</strong>），但是因为<strong>Filter</strong>并非继承自<strong>Processor</strong>因此咱不能将<strong>Filter</strong>用于<strong>Apply.process()</strong>方法，即便这样做可以正常运行。</p>
-<p>出现这个问题就是因为<strong>Apply.process()</strong>方法和<strong>Processor</strong>之间的耦合度太高了，已经超出所需要的程度了，这就使得应该复用<strong>Apply.process()</strong>的代码的时候，复用却被禁止了。</p>
-<h4 id="第二段改良版本"><a href="#第二段改良版本" class="headerlink" title="第二段改良版本"></a>第二段改良版本</h4><p><u>但是如果<strong>Processor</strong>是一个接口，那么这些限制就谈不上限制了，使得你可以复用<strong>Apply.process()</strong>的代码了。</u></p>
-<p>上代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这就是被写成接口的Processor</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:29</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Processor</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">Object <span class="title">process</span><span class="params">(Object input)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Apply</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> net.mindview.util.Print.print;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apply</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(Processor p, Object s)</span> </span>&#123;</span><br><span class="line">        print(<span class="string">"Using Processor "</span> + p.name() );</span><br><span class="line">        print(p.process(s));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>复用代码的<strong>第一种方式</strong>是客户端程序员遵循制定好的接口来编写自己的类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:43</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">StringProcessor</span> <span class="keyword">implements</span> <span class="title">Processor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">name</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getClass().getSimpleName();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">process</span><span class="params">(Object input)</span></span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String s = <span class="string">"If she weighs the same as a duck, she's made of wood"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Apply.process(<span class="keyword">new</span> Upcase(), s);</span><br><span class="line">        Apply.process(<span class="keyword">new</span> Downcase(), s);</span><br><span class="line">        Apply.process(<span class="keyword">new</span> Splitter(), s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Upcase</span> <span class="keyword">extends</span> <span class="title">StringProcessor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">process</span><span class="params">(Object input)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ((String) input).toUpperCase();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Downcase</span> <span class="keyword">extends</span> <span class="title">StringProcessor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">process</span><span class="params">(Object input)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ((String) input).toLowerCase();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Splitter</span> <span class="keyword">extends</span> <span class="title">StringProcessor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">process</span><span class="params">(Object input)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Arrays.toString(((String)input).split(<span class="string">" "</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="第三段改良版本"><a href="#第三段改良版本" class="headerlink" title="第三段改良版本"></a>第三段改良版本</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// processor的接口</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:29</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Processor</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">Object <span class="title">process</span><span class="params">(Object input)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Apply的类</span></span><br><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> net.mindview.util.Print.print;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apply</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(Processor p, Object s)</span> </span>&#123;</span><br><span class="line">        print(<span class="string">"Using Processor "</span> + p.name() );</span><br><span class="line">        print(p.process(s));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.chapternine.interfaceprocessor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.mr8god.chapternine.filters.*;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FilterAdapter</span> <span class="keyword">implements</span> <span class="title">Processor</span> </span>&#123;</span><br><span class="line">    Filter filter;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FilterAdapter</span><span class="params">(Filter filter)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.filter = filter;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">name</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> filter.name();&#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Waveform <span class="title">process</span><span class="params">(Object input)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> filter.process((Waveform)input);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/17</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 23:31</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilterProcessor</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Waveform w = <span class="keyword">new</span> Waveform();</span><br><span class="line">        Apply.process(<span class="keyword">new</span> FilterAdapter(<span class="keyword">new</span> LowPass(<span class="number">1.0</span>)), w);</span><br><span class="line">        Apply.process(<span class="keyword">new</span> FilterAdapter(<span class="keyword">new</span> HighPass(<span class="number">2.0</span>)), w);</span><br><span class="line">        Apply.process(<span class="keyword">new</span> FilterAdapter(<span class="keyword">new</span> BandPass(<span class="number">3.0</span>, <span class="number">4.0</span>)), w);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>说一下这一次改良的目的为何，在电子滤波器这个例子中，类库是被发现而非被创建的。在这些情况下，可以使用<strong>适配器设计模式</strong>。适配器中的代码将接受你所拥有的接口，并产生你所需要的接口。相当于做了一个二道贩子。</p>
-<p>此外这种方法，<strong>FilterAdapter</strong>的构造器接受你所拥有的接口<strong>Filter</strong>，然后生成具有你所需要的<strong>Processor</strong>接口的对象。</p>
-<p>哦对了，这里边的<strong>FilterAdapter</strong>还用到了<strong>代理</strong>（第七章复用类里边的，是一种介于继承和组合之间的思想）</p>
-<p>将接口从具体实现中<strong>解耦</strong>使得接口可以应用于多种不同的具体实现，因此代码也就更具可复用性。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1132,7 +1156,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1145,7 +1169,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1186,7 +1210,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共73.4k字</span>
+  <span class="post-count">博客全站共74.8k字</span>
 </div>
         
 

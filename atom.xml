@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mr8god.cn/"/>
-  <updated>2020-05-05T01:56:24.965Z</updated>
+  <updated>2020-05-07T03:10:29.335Z</updated>
   <id>https://mr8god.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Maven</title>
+    <link href="https://mr8god.cn/2020/05/07/Maven/"/>
+    <id>https://mr8god.cn/2020/05/07/Maven/</id>
+    <published>2020-05-07T01:47:38.000Z</published>
+    <updated>2020-05-07T03:10:29.335Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><p>​        <strong>Maven</strong>项目对象模型（POM）， 可以通过一小段描述信息来管理项目的构建、报告和文档的项目管理工具软件。<br>​        <strong>Maven</strong>除了以程序构建能力为特色之外，还提供高级项目管理工具。由于<strong>Maven</strong>的缺省构建规则有较高的可重用性能，所以常常用两三行<strong>Maven</strong>构建脚本就可以构建简单的项目。由于<strong>Maven</strong>的面向项目的属性，很多项目发布时都会使用<strong>Maven</strong>，所以目前使用<strong>Maven</strong>技术的比例在持续增长。<br>​        总而言之，<strong>Maven</strong>是一个可以用来构建和管理任何基于Java的项目的工具，主要目标是让开发人员在最短的时间内了解开发工作的完整状态。</p><h2 id="Maven的优点如下"><a href="#Maven的优点如下" class="headerlink" title="Maven的优点如下"></a><strong>Maven</strong>的优点如下</h2><blockquote><p>简化构建过程<br>提供统一的构建系统<br>提供优质的项目信息<br>提供最佳实践开发指南<br>允许透明迁移新功能</p></blockquote><h3 id="简化构建过程"><a href="#简化构建过程" class="headerlink" title="简化构建过程"></a>简化构建过程</h3><p>虽然使用<strong>Maven</strong>时偶尔也需要你对底层细节有所了解！但是，<strong>Maven</strong> 确实屏蔽了很多细节，它已经大大简化了开发人员的工作。</p><h3 id="提供统一的构建系统"><a href="#提供统一的构建系统" class="headerlink" title="提供统一的构建系统"></a>提供统一的构建系统</h3><p><strong>Maven</strong> 使用项目对象模型（<strong>POM</strong>）和一组所有项目共享的插件来构建项目，从而提供统一的构建系统。开发人员使用 <strong>Maven</strong> 构建项目的话，后期维护项目会节省大量时间。</p><h3 id="提供优质的项目信息"><a href="#提供优质的项目信息" class="headerlink" title="提供优质的项目信息"></a>提供优质的项目信息</h3><p><strong>Maven</strong> 提供了大量有用的项目信息，这些信息部分来自您的<strong>POM</strong>，部分来自项目源。例如，<strong>Maven</strong>可以提供：</p><blockquote><p>更改从源代码控制直接创建的日志文档<br>交叉引用的来源<br>邮件列表<br>依赖列表<br>单元测试报告包括报道</p></blockquote><p>由于 <strong>Maven</strong> 改进了提供的信息，所有这些信息对 <strong>Maven</strong> 用户都是透明的。<br>通过 <strong>Maven</strong> 插件，其他产品可以将自己的项目信息兼容 <strong>Maven</strong> 的标准信息，所有信息同样基于<strong>POM</strong>。</p><h3 id="提供最佳实践开发指南"><a href="#提供最佳实践开发指南" class="headerlink" title="提供最佳实践开发指南"></a>提供最佳实践开发指南</h3><p><strong>Maven</strong> 会汇总当前最佳开发实践的原则，并通过 <strong>Maven</strong> 影响其他项目。</p><p>例如，<strong>Maven</strong> 的正常构建周期中的单元测试的规范，执行和报告。</p><p>当前的单元测试最佳实践被用作指导原则：</p><blockquote><p>将测试源代码保存在独立的、并行的源代码树中；</p><p>规范测试用例命名，便于来定位和执行测试；</p><p>为测试用例设置的环境，不依赖与客户化的定制构建和测试准备。</p></blockquote><p><strong>Maven</strong>还旨在工作流程中协助项目开发，如发布管理和问题跟踪。</p><h3 id="允许透明迁移到新功能"><a href="#允许透明迁移到新功能" class="headerlink" title="允许透明迁移到新功能"></a>允许透明迁移到新功能</h3><p>Maven 为 Maven 客户端提供了一种安装更新的简单方法，开发人员可以简单便捷的利用 Maven 的最新特性。</p><p>从第三方或 Maven 安装新的插件变得非常的简单。</p><h2 id="在Java中Maven项目跟Web项目的区别（distinction）"><a href="#在Java中Maven项目跟Web项目的区别（distinction）" class="headerlink" title="在Java中Maven项目跟Web项目的区别（distinction）"></a>在Java中Maven项目跟Web项目的区别（distinction）</h2><h3 id="定义不同："><a href="#定义不同：" class="headerlink" title="定义不同："></a>定义不同：</h3><p><strong>Web</strong>项目是网页的编码，像</p><p><strong>jsp</strong>(<a href="https://baike.baidu.com/item/JSP/141543" target="_blank" rel="noopener">https://baike.baidu.com/item/JSP/141543</a>)<br><strong>servlet</strong>(<a href="https://baike.baidu.com/item/servlet" target="_blank" rel="noopener">https://baike.baidu.com/item/servlet</a>)<br><strong>struts</strong>(<a href="https://baike.baidu.com/item/struts" target="_blank" rel="noopener">https://baike.baidu.com/item/struts</a>)</p><p><strong>Java Maven</strong>项目是<br><strong>AWT</strong>(<a href="https://baike.baidu.com/item/AWT)、**SWING**(https://baike.baidu.com/item/Swing/3286527" target="_blank" rel="noopener">https://baike.baidu.com/item/AWT)、**SWING**(https://baike.baidu.com/item/Swing/3286527</a>)<br>这类的编码</p><h4 id="举例说明："><a href="#举例说明：" class="headerlink" title="举例说明："></a>举例说明：</h4><p>Java不仅是一门编程语言，还是一个平台，通过JRuby和Jython，我们可以在<a href="https://www.baidu.com/s?wd=Java平台&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">Java平台</a>上编写和运行Ruby和Python程序；</p><p>Maven不仅是构建工具，还是一个依赖管理工具和项目信息管理工具；</p><p>web项目是网页的编码项目，需要在服务器上运行。</p><h3 id="作用不同："><a href="#作用不同：" class="headerlink" title="作用不同："></a>作用不同：</h3><p><strong>Java</strong>可以用来编写桌面应用程序、Web应用程序、分布式系统和嵌入式系统应用程序等 ；</p><p><strong>Maven</strong>由项目对象模型、标准集合、项目生命周期和依赖关系管理系统构成，可以经过项目对象模型描述信息来管理项目的构建、报告和文档，还可以生成站点和管理JAR文件；</p><p><strong>web</strong>是建立在Internet上的一种网络服务，包含了超文本、超媒体和超文本传输协议，可以提供图形化的直观的网页浏览界面，信息可以实时更新。</p><h3 id="特点不同"><a href="#特点不同" class="headerlink" title="特点不同"></a>特点不同</h3><p><strong>Java</strong>是一门面向对象编程语言，<strong>Java</strong>具有简单性、面向对象、分布式、健壮性、安全性、平台独立与可移植性、多线程、动态性等特点。</p><p><strong>Maven</strong> 有一个生命周期，当你运行 <strong>mvn install</strong> 的时候被调用，这条命令告诉 <strong>Maven</strong> 执行一系列的有序的步骤，直到到达你指定的生命周期。遍历生命周期旅途中的一个影响就是，<strong>Maven</strong> 运行了许多默认的插件目标，这些目标完成了像编译和创建一个 JAR 文件这样的工作。</p><p><strong>web</strong>即全球广域网，也称为万维网，它是一种基于超文本和<strong>HTTP</strong>的、全球性的、动态交互的、跨平台的分布式图形信息系统。是建立在<strong>Internet</strong>上的一种网络服务，为浏览者在<strong>Internet</strong>上查找和浏览信息提供了图形化的、易于访问的直观界面。</p><h2 id="Maven常用命令"><a href="#Maven常用命令" class="headerlink" title="Maven常用命令"></a>Maven常用命令</h2><p>mvn archetype:generate 创建Maven项目</p><p>mvn compile 编译源代码</p><p>mvn deploy 发布项目</p><p>mvn test-compile 编译测试源代码</p><p>mvn test 运行应用程序中的单元测试</p><p>mvn site 生成项目相关信息的网站</p><p>mvn clean 清除项目目录中的生成结果</p><p>mvn package 根据项目生成的jar</p><p>mvn install 在本地Repository中安装jar</p><p>mvn eclipse:eclipse 生成eclipse项目文件</p><p>mvnjetty:run 启动jetty服务</p><p>mvntomcat:run 启动tomcat服务</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Maven&quot;&gt;&lt;a href=&quot;#Maven&quot; class=&quot;headerlink&quot; title=&quot;Maven&quot;&gt;&lt;/a&gt;Maven&lt;/h1&gt;&lt;p&gt;​        &lt;strong&gt;Maven&lt;/strong&gt;项目对象模型（POM）， 可以通过一小段描述信息来管理
+      
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://mr8god.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="项目开发" scheme="https://mr8god.cn/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>基于Springboot的个人博客网站开发</title>
@@ -485,33 +511,6 @@
       
         &lt;h1 id=&quot;Java——数组&quot;&gt;&lt;a href=&quot;#Java——数组&quot; class=&quot;headerlink&quot; title=&quot;Java——数组&quot;&gt;&lt;/a&gt;Java——数组&lt;/h1&gt;&lt;p&gt;数组：可以一次定义，就可以得到多个类型相同、功能相似的变量，本质还是变量&lt;/p&gt;
 &lt;h2 i
-      
-    
-    </summary>
-    
-    
-      <category term="技术" scheme="https://mr8god.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="Java" scheme="https://mr8god.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java速记——类与对象</title>
-    <link href="https://mr8god.cn/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/"/>
-    <id>https://mr8god.cn/2020/04/09/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/</id>
-    <published>2020-04-09T07:49:15.000Z</published>
-    <updated>2020-04-14T15:52:17.436Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Java速记——类与对象"><a href="#Java速记——类与对象" class="headerlink" title="Java速记——类与对象"></a>Java速记——类与对象</h1><p>面向对象：Java是一门面向对象的语言</p><p>类：某一类对象的统称。相当于是一个概念性的（不是具体存在的东西）</p><p>对象：现实中所能接触到的各种“东西”。</p><p>三句总决：定义类、创建对象、调用方法</p><h2 id="定义类"><a href="#定义类" class="headerlink" title="定义类"></a>定义类</h2><p>[修饰符] class 类名</p><p>{</p><p>​        // 成员变量</p><p>​        // 方法</p><p>​        // 构造器</p><p>​        // 内部类</p><p>​        // 初始化块</p><p>}————类体</p><p>类中的五大成员</p><ol><li>修饰符：public、final|abstract。其他的都不能出现，顺序是无所谓的，但是void返回类型一定要在修饰符后边</li><li>类名：语法要求——只要是标识符即可<br>从专业角度来看：多个单词连缀而成。</li></ol><h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><p>[修饰符] 类型 变量名 [ = 初始值];</p><p>修饰符： private| protected|public、final|abstract、static、（transient：序列化相关）</p><p>类型：任意基本类型或引用类型</p><p>变量名：驼峰写法，首字母小写，后面每个单词首字母大写。。。 成员变量，用于描述该类或对象的状态，因此通常建议用名词。项目中，只定义项目感兴趣的状态</p><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>[修饰符] 返回值类型 方法名(形参列表)</p><p>{</p><p>​        // 代码，之前所有的东西，各种流程控制，定义变量（数组），都是在这个里边写的</p><p>如果声明了返回值类型，必须有return语句。</p><p>}————-方法体</p><ol><li><p>修饰符： private| protected|public、final|abstract、static</p></li><li><p>返回值类型：任意基本类型或引用类型，可使用void</p></li><li><p>方法名：</p><ol><li>语法要求：只要是标识符即可</li><li>专业角度：驼峰写法，首字母小写，后面每个单词首字母大写。。。 成员变量，</li><li>方法：用于描述该类或对象的状态，因此通常建议用<strong>动词</strong>。</li><li>项目中，只定义项目感兴趣的状态</li></ol></li><li><p>形参列表：形参类型1 形参名, 形参类型2 形参名2，……</p><p>每个形参都满足“形参类型 形参名”的格式；多个形参之间用逗号隔开。<br>代表调用方法时要传入的参数。</p></li></ol><h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><p>作用：new调用构造器来创建对象</p><p>如果你没有为类写构造器，系统会默认为该类提供一个无参数的构造器！！！！只能隐藏构造器，但是每个类都会是有构造器的</p><p>[修饰符] 构造器名(形参列表)</p><p>{</p><p>​        // 代码：定义变量（包括数组）、变量赋值、流程控制、数据语</p><p>如果声明了返回值类型，必须有return语句。</p><p>}————-构造器体</p><ol><li>修饰符：private|protected|public</li><li>构造器名必须与类名相同</li></ol><p>判断一个类是不是构造器，要看两点：构造器名是否与类名相同、是否有返回值</p><h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>类可以用来干什么呢？</p><ol><li>定义变量<br>所有类，都是引用类型。所有类，都可用于声明变量</li><li>调用static修饰方法或static修饰的变量</li><li>创建对象</li><li>派生子类 </li></ol><h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><p>对象可以用来做什么</p><ol><li>调用无static修饰的成员变量</li><li>调用无static修饰的方法</li></ol><h4 id="类是引用类型"><a href="#类是引用类型" class="headerlink" title="类是引用类型"></a>类是引用类型</h4><p>数组，也是引用类型</p><p>java中的引用类型有很多，只要你定义了一个类，就多了一个引用类型</p><p>引用类型变量的赋值，只是将对象的首地址存入变量中</p><h3 id="this引用："><a href="#this引用：" class="headerlink" title="this引用："></a>this引用：</h3><p>this可以出现非static的方法、构造器中。作用如下：</p><ol><li>出现非static方法中，this代表了该方法的调用者。<br>“谁调用该方法，this就代表谁”</li><li>出现在构造器中，this就代表该构造器正在初始化的对象。</li></ol><p>this.     的很重要作用就是：用于区分方法或构造器的局部变量。</p><p>尤其是与成员变量同名时——更需要使用this进行区分。</p><h2 id="方法详解："><a href="#方法详解：" class="headerlink" title="方法详解："></a>方法详解：</h2><h3 id="方法的所属性："><a href="#方法的所属性：" class="headerlink" title="方法的所属性："></a>方法的所属性：</h3><ol><li>方法类似于函数。但与函数不同的是，方法不能存在，方法必须定义在类里面。</li><li>定义在类中的方法。从逻辑上来看：<br>如果该方法有static修饰，该方法属于类本身，应该用类调用。<br>如果该方法无static修饰，该方法属于对象本身。</li><li>方法不能独立执行。<br>方法一定要有调用者<br>【规则】如果你调用同一个类中方法，可以省略调用者，此时系统会添加默认的调用者。<pre><code>           如果该方法是无static的方法，添加this作为默认的调用者。</code></pre></li></ol><h3 id="形参个数可变的方法："><a href="#形参个数可变的方法：" class="headerlink" title="形参个数可变的方法："></a>形参个数可变的方法：</h3><p>类型… 形参名 ：这就是形参个数可变的方法</p><ul><li>本质就是数组。上面写法等同于：<br>类型[] 形参名</li><li>类型…<br>写法的好处是：调用方法时更加方便。即可直接传入多个元素，系统会自动将它们封装成数组。也可用数组。<br>写法的缺点是：类型…  这种写法只能作为形参列表的最后一个形参。<pre><code>                       【暗示】：一个方法最多只能有一个“个数可变”的形参</code></pre></li></ul><h3 id="递归方法"><a href="#递归方法" class="headerlink" title="递归方法"></a>递归方法</h3><p>方法里调用本身——递归带来了隐式循环。</p><p>递归要避免无限递归。一定要在某些情况下，不再调用方法自身，</p><p>这个时候可能就要说了，这些循环用for之类的循环分支语句不都是可以实现的吗？</p><p>对对对，你说的都对，但是有一种情况只能用递归哦    </p><p>假如我们有：</p><p>f(1) = 2;</p><p>f(2) = 5;</p><p>…</p><p>f(n) = f(n+2) - 2 *  f(n+1)</p><p>要计算：f(10)是多少//代码在40/Recursive   </p><p>【难点】：    要保证递归一定能出现递归结束的条件。</p><h3 id="方法重载："><a href="#方法重载：" class="headerlink" title="方法重载："></a>方法重载：</h3><p>在同一个类中有多个同名的方法，但这多个方法的形参列表不同</p><p>口诀：两同一不同</p><ul><li>修饰符不同不算重载；返回值类型不同也不算重载</li><li>当你要确定一个方法的时候，仅有方法名是不够的的，必须还要结合参数才能确定。</li></ul><h3 id="方法的传参机制："><a href="#方法的传参机制：" class="headerlink" title="方法的传参机制："></a>方法的传参机制：</h3><p>如果定义方法时声明了形参，调用方法时必须传入对应的方法</p><p><strong>Java的参数传递机制：值传递 ，传入的只是参数的副本，并不是参数本身！！！</strong></p><ul><li>如果传递的参数是基本参数，方法中对参数所做的修改 ，完全不会影响参数本身！</li><li>如果传递的参数是引用类型，参数的副本与参数本身指向同一个对象。<br>因此方法通过参数副本修改对象时，会影响参数本身所指向的对象</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Java速记——类与对象&quot;&gt;&lt;a href=&quot;#Java速记——类与对象&quot; class=&quot;headerlink&quot; title=&quot;Java速记——类与对象&quot;&gt;&lt;/a&gt;Java速记——类与对象&lt;/h1&gt;&lt;p&gt;面向对象：Java是一门面向对象的语言&lt;/p&gt;
-&lt;p&gt;类：某
       
     
     </summary>
