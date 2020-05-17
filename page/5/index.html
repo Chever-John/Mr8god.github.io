@@ -180,6 +180,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/03/22/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/URI%20URL%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E8%AF%86%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/22/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/URI%20URL%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E8%AF%86%E7%AC%A6/" class="post-title-link" itemprop="url">URI URL统一资源标识符</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-22 15:49:15" itemprop="dateCreated datePublished" datetime="2020-03-22T15:49:15+08:00">2020-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-15 00:07:09" itemprop="dateModified" datetime="2020-04-15T00:07:09+08:00">2020-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">网站开发</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="URI（Uniform-Resource-Identifier"><a href="#URI（Uniform-Resource-Identifier" class="headerlink" title="URI（Uniform Resource Identifier)"></a>URI（Uniform Resource Identifier)</h2><p>采用一种特定语法标识一个资源的字符串</p>
+<p><strong>格式：</strong></p>
+<p>模式：模式特定部分（模式特定部分的语法取决于所用的模式）</p>
+<p>模式包括：</p>
+<p>由小写字母、数字和加号、点及连号符组成</p>
+<p>data链接中直接包含的Base64编码数据</p>
+<p>file本地磁盘的文件</p>
+<p>ftp FTP服务器</p>
+<p>HTTP使用超文本传输协议的国际互联网服务器</p>
+<p>mailto电子邮件地址</p>
+<p>magnet可以通过对等网络下载的资源</p>
+<p>Telnet与基于Telnet的服务连接</p>
+<p><strong>模式特定部分包扩：</strong></p>
+<p><strong>//authority/path?query(//授权机构/路径？查询字符串)</strong></p>
+<p>由ASCII字母数字符号组成，还可以使用标点符号-、_、·、!、~</p>
+<p>定界符（/、？、&amp;、=）可以有其预定义用途</p>
+<p>所有其他字符及内容中需用到的定界符也应用%转义（空格%20/%2F)</p>
+<p><strong>authority</strong>:负责解析该URI其余部分的授权机构 授权机构是Internet主机，还可提供可选的用户名和端口 如：ftp://mp3:mp3@ci43198-a.ashvill.nc.home.com:33/VanHalen-Jump.mp3</p>
+<p><strong>path</strong>:授权机构用来确定所标识资源的字符串</p>
+<h2 id="URL最常见的URI"><a href="#URL最常见的URI" class="headerlink" title="URL最常见的URI"></a>URL最常见的URI</h2><p>两者区别：URI表示资源是什么，URL表示资源的具体位置，URI是URL的抽象。Java中URL对象对应网络获取的应用层协议的一个表示，而URI对象纯粹用于解析和处理字符串。</p>
+<h3 id="绝对URL"><a href="#绝对URL" class="headerlink" title="绝对URL"></a>绝对URL</h3><p><strong>protocol://userInfo@host.port/path?query#fragment</strong></p>
+<p>host 提供所需资源服务区的名字（主机/服务器ip地址）</p>
+<p>userInfo 可选，服务器登录信息</p>
+<p>port 可选，服务在其默认端口运行，无需此部分</p>
+<p>path 指定服务器上的一个特定目录文件系统，路径相对于服务器的文档跟目录，向公众开放的服务器不会将其整个文件系统展示给客户端，而只是展示指定目录中的内容</p>
+<p>query 向服务器提供附加参数，一般只在http URL中使用，其中包含表单数据，作为输入提供给服务端的运行程序</p>
+<p>fragment 指向远程资源的某个特定部分 HTML 锚 XML XPointer  段  ref     片段标识符在HTML文档中用id属性创建 </p>
+<p>包含片段标识符的是URL引用，不是URL</p>
+<h3 id="相对URL继承了-父文档部分信息的URL"><a href="#相对URL继承了-父文档部分信息的URL" class="headerlink" title="相对URL继承了 父文档部分信息的URL"></a>相对URL继承了 父文档部分信息的URL</h3><p>在相对URL中，缺少的各部分都与所在文档的URL中对应的部分相同</p>
+<p>例如浏览<a href="http://www.ibiblio.org/java/faq/javatutoial.html时" target="_blank" rel="noopener">http://www.ibiblio.org/java/faq/javatutoial.html时</a></p>
+<p><strong>若无”/“开头</strong> 例如<a href="javafaq.html"></p>
+<p>相当于<a href="http://www.ibiblio.org/java/faq/javafaq.html" target="_blank" rel="noopener">http://www.ibiblio.org/java/faq/javafaq.html</a></p>
+<p><strong>若以”/“开头</strong> 如<a href="/projects/ipv61"></p>
+<p>则相当于<a href="http://www.ibiblio.org/projects/ipv61" target="_blank" rel="noopener">http://www.ibiblio.org/projects/ipv61</a></p>
+<p>相对URL允许用多种协议来提供一个文档树，且相对URL允许将整个文档树从一个网站移动或复制到另一个网站，而不会破坏所有的内部连接。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/03/21/Python/%E4%BB%8A%E5%A4%A9%E4%B8%BB%E8%A6%81%E5%BC%80%E5%A7%8B%E6%88%91%E7%9A%84%E4%BB%A5Django%E6%A1%86%E6%9E%B6%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E5%95%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -577,7 +685,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -590,7 +698,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -631,7 +739,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共75.3k字</span>
+  <span class="post-count">博客全站共77.9k字</span>
 </div>
         
 
