@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mr8god.cn/"/>
-  <updated>2020-05-29T15:32:45.954Z</updated>
+  <updated>2020-05-31T13:53:28.637Z</updated>
   <id>https://mr8god.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java注释</title>
+    <link href="https://mr8god.cn/2020/05/31/Java/Java%E6%97%A5%E8%AE%B0/java%E6%B3%A8%E9%87%8A/"/>
+    <id>https://mr8god.cn/2020/05/31/Java/Java%E6%97%A5%E8%AE%B0/java%E6%B3%A8%E9%87%8A/</id>
+    <published>2020-05-31T13:51:33.000Z</published>
+    <updated>2020-05-31T13:53:28.637Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Java-注释"><a href="#Java-注释" class="headerlink" title="Java 注释"></a>Java 注释</h2><p><a href="https://www.zhihu.com/question/47449512/answer/658228092" target="_blank" rel="noopener">https://www.zhihu.com/question/47449512/answer/658228092</a></p><p>这一篇讲的挺棒的</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Java-注释&quot;&gt;&lt;a href=&quot;#Java-注释&quot; class=&quot;headerlink&quot; title=&quot;Java 注释&quot;&gt;&lt;/a&gt;Java 注释&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/47449512/a
+      
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://mr8god.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Java日记" scheme="https://mr8god.cn/tags/Java%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>第一部分——算法基础知识</title>
@@ -493,32 +519,6 @@
     
     
       <category term="Java" scheme="https://mr8god.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客文章组织结构图解</title>
-    <link href="https://mr8god.cn/2020/04/12/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84%E5%9B%BE%E8%A7%A3/"/>
-    <id>https://mr8god.cn/2020/04/12/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84%E5%9B%BE%E8%A7%A3/</id>
-    <published>2020-04-12T05:21:45.000Z</published>
-    <updated>2020-04-12T05:43:17.147Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="本博客文章组织结构图（分类篇）"><a href="#本博客文章组织结构图（分类篇）" class="headerlink" title="本博客文章组织结构图（分类篇）"></a>本博客文章组织结构图（分类篇）</h2><p><img src="https://i.loli.net/2020/04/12/acgHqINPdTx298w.png" alt="Mr8god博客文章组织结构图（分类篇）.png"></p><h2 id="本博客文章组织结构图（标签篇）"><a href="#本博客文章组织结构图（标签篇）" class="headerlink" title="本博客文章组织结构图（标签篇）"></a>本博客文章组织结构图（标签篇）</h2><p><img src="https://i.loli.net/2020/04/12/OPf6VKuyH5DLwFU.png" alt="Mr8god博客文章组织结构图（标签篇）.png"></p><h2 id="2020年4月12日13-42发布"><a href="#2020年4月12日13-42发布" class="headerlink" title="2020年4月12日13:42发布"></a>2020年4月12日13:42发布</h2><h2 id="未完待续……"><a href="#未完待续……" class="headerlink" title="未完待续……"></a>未完待续……</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;本博客文章组织结构图（分类篇）&quot;&gt;&lt;a href=&quot;#本博客文章组织结构图（分类篇）&quot; class=&quot;headerlink&quot; title=&quot;本博客文章组织结构图（分类篇）&quot;&gt;&lt;/a&gt;本博客文章组织结构图（分类篇）&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://
-      
-    
-    </summary>
-    
-    
-      <category term="建站那些事儿" scheme="https://mr8god.cn/categories/%E5%BB%BA%E7%AB%99%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"/>
-    
-    
-      <category term="hexo_Next" scheme="https://mr8god.cn/tags/hexo-Next/"/>
     
   </entry>
   
