@@ -30,17 +30,20 @@
     var CONFIG = {"hostname":"mr8god.cn","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Just learning！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mr8god&#39;s blog">
-<meta property="og:url" content="https://mr8god.cn/tags/Java%E6%97%A5%E8%AE%B0/index.html">
+  <meta name="description" content="Java日记——jdbc连接数据库（包括MySQL和SQLserver）(12条消息)jdbc配置总结（sql server）_数据库_resumebb的博客-CSDN博客 (12条消息)使用Intellij Idea 创建一个JDBC连接数据库的程序步骤_数据库_zhc_24的博客-CSDN博客 给了两个jdbc配置SqlServer和MySQL的教程，地址是在我的印象笔记&gt;专业知识&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java日记——jdbc连接数据库（包括MySQL和SQLserver）">
+<meta property="og:url" content="https://mr8god.cn/2020/06/01/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94jdbc%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E5%8C%85%E6%8B%ACMySQL%E5%92%8CSQLserver%EF%BC%89/index.html">
 <meta property="og:site_name" content="Mr8god&#39;s blog">
-<meta property="og:description" content="Just learning！">
+<meta property="og:description" content="Java日记——jdbc连接数据库（包括MySQL和SQLserver）(12条消息)jdbc配置总结（sql server）_数据库_resumebb的博客-CSDN博客 (12条消息)使用Intellij Idea 创建一个JDBC连接数据库的程序步骤_数据库_zhc_24的博客-CSDN博客 给了两个jdbc配置SqlServer和MySQL的教程，地址是在我的印象笔记&gt;专业知识&amp;gt">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-01T00:45:34.000Z">
+<meta property="article:modified_time" content="2020-06-01T00:51:08.464Z">
 <meta property="article:author" content="Mr8god">
+<meta property="article:tag" content="Java日记">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://mr8god.cn/tags/Java%E6%97%A5%E8%AE%B0/">
+<link rel="canonical" href="https://mr8god.cn/2020/06/01/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94jdbc%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E5%8C%85%E6%8B%ACMySQL%E5%92%8CSQLserver%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -48,12 +51,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: Java日记 | Mr8god's blog</title>
+  <title>Java日记——jdbc连接数据库（包括MySQL和SQLserver） | Mr8god's blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162074438-1# <app_id>"></script>
     <script>
@@ -172,153 +175,131 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Java日记
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/06/01/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94jdbc%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E5%8C%85%E6%8B%ACMySQL%E5%92%8CSQLserver%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java日记——jdbc连接数据库（包括MySQL和SQLserver）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-01 08:45:34 / 修改时间：08:51:08" itemprop="dateCreated datePublished" datetime="2020-06-01T08:45:34+08:00">2020-06-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-01T08:45:34+08:00"
-              content="2020-06-01">
-          06-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/06/01/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94jdbc%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E5%8C%85%E6%8B%ACMySQL%E5%92%8CSQLserver%EF%BC%89/" itemprop="url">
-            <span itemprop="name">Java日记——jdbc连接数据库（包括MySQL和SQLserver）</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-31T21:51:33+08:00"
-              content="2020-05-31">
-          05-31
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/05/31/Java/Java%E6%97%A5%E8%AE%B0/java%E6%B3%A8%E9%87%8A/" itemprop="url">
-            <span itemprop="name">Java注释</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-29T21:18:39+08:00"
-              content="2020-04-29">
-          04-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/04/29/Java/Java%E6%97%A5%E8%AE%B0/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%97%A5%E8%AE%B0/" itemprop="url">
-            <span itemprop="name">Java多线程日记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-22T22:32:52+08:00"
-              content="2020-04-22">
-          04-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/04/22/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E5%85%B3%E4%BA%8EHashSet%E7%9A%84%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/" itemprop="url">
-            <span itemprop="name">Java日记——关于HashSet的源码剖析</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-20T21:18:39+08:00"
-              content="2020-04-20">
-          04-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/04/20/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E6%8C%81%E6%9C%89%E5%AF%B9%E8%B1%A1%EF%BC%88%E5%B0%B1%E6%98%AF%E5%AE%B9%E5%99%A8%E5%95%A6%EF%BC%89/" itemprop="url">
-            <span itemprop="name">Java日记——持有对象（就是容器啦）</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-16T22:14:05+08:00"
-              content="2020-04-16">
-          04-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/04/16/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81/" itemprop="url">
-            <span itemprop="name">Java日记——多态</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        <h1 id="Java日记——jdbc连接数据库（包括MySQL和SQLserver）"><a href="#Java日记——jdbc连接数据库（包括MySQL和SQLserver）" class="headerlink" title="Java日记——jdbc连接数据库（包括MySQL和SQLserver）"></a>Java日记——jdbc连接数据库（包括MySQL和SQLserver）</h1><p><a href="https://app.yinxiang.com/shard/s24/nl/23656734/ec8bce6c-7ca4-41b3-aee7-8c13238a4c5c" target="_blank" rel="noopener">(12条消息)jdbc配置总结（sql server）_数据库_resumebb的博客-CSDN博客</a></p>
+<p><a href="https://app.yinxiang.com/shard/s24/nl/23656734/e1c9c958-635d-49c2-a0ea-bd52c403939e" target="_blank" rel="noopener">(12条消息)使用Intellij Idea 创建一个JDBC连接数据库的程序步骤_数据库_zhc_24的博客-CSDN博客</a></p>
+<p>给了两个jdbc配置SqlServer和MySQL的教程，地址是在我的印象笔记&gt;专业知识&gt;Java中，就是这样。</p>
+<p>需要注意的一点是</p>
+<p>这里边MySQL在连接的时候，会遇到两种串（虽然SqlServer也会遇到两种串）</p>
+<p>分别是：“com.mysql.cj.jdbc.Driver”和“com.mysql.jdbc.Driver”</p>
 
     </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr8god
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://mr8god.cn/2020/06/01/Java/Java%E6%97%A5%E8%AE%B0/Java%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94jdbc%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E5%8C%85%E6%8B%ACMySQL%E5%92%8CSQLserver%EF%BC%89/" title="Java日记——jdbc连接数据库（包括MySQL和SQLserver）">https://mr8god.cn/2020/06/01/Java/Java日记/Java日记——jdbc连接数据库（包括MySQL和SQLserver）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+        
+      </div>
+
+      <div>
+        
+          
+        
+      </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java%E6%97%A5%E8%AE%B0/" rel="tag"># Java日记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/31/Java/Java%E6%97%A5%E8%AE%B0/java%E6%B3%A8%E9%87%8A/" rel="prev" title="Java注释">
+      <i class="fa fa-chevron-left"></i> Java注释
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -369,6 +350,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java日记——jdbc连接数据库（包括MySQL和SQLserver）"><span class="nav-number">1.</span> <span class="nav-text">Java日记——jdbc连接数据库（包括MySQL和SQLserver）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

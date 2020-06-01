@@ -180,6 +180,107 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/08/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94final%E5%8F%98%E9%87%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/08/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94final%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">Java速记——final变量</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-08 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-08T15:49:15+08:00">2020-04-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 23:53:15" itemprop="dateModified" datetime="2020-04-14T23:53:15+08:00">2020-04-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Java速记——final变量"><a href="#Java速记——final变量" class="headerlink" title="Java速记——final变量"></a>Java速记——final变量</h1><p>可以修饰变量（各种变量）、方法、类。</p>
+<p>final和abstract是互斥的：永远都不能够同时出现！</p>
+<h2 id="final修饰变量"><a href="#final修饰变量" class="headerlink" title="final修饰变量"></a>final修饰变量</h2><p>作用：该变量被赋初始值之后，不能被重新赋值！<br>            final修饰的变量<strong>必须</strong>被赋值，且只能被赋值<strong>一次</strong></p>
+<h2 id="final修饰成员变量"><a href="#final修饰成员变量" class="headerlink" title="final修饰成员变量"></a>final修饰成员变量</h2><p>普通成员变量（非final的成员变量），程序员可以不显式指定初始值，系统会为之分配默认初始值，初始值分配规则与数组元素的初始值分配规则完全相同！</p>
+<p>final 成员变量，程序员必须显式指定初始值</p>
+<ul>
+<li><p>final实例变量，必须显式指定初始值，<strong>只能指定一次</strong>。<strong>只能在以下三个位置的其中之一指定：</strong></p>
+<ul>
+<li>定义时指定为初始值。</li>
+<li>实例初始化块</li>
+<li>每个构造器都需要显示指定一次初始值</li>
+</ul>
+<p>上面3个位置的本质其实只有一个，就是构造器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Final</span>实例变量 </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> age = <span class="number">20</span>;</span><br><span class="line">    &#123;</span><br><span class="line"><span class="comment">//        age = 24;// 这边错误，被final修饰的成员变量不能被赋值两次</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是我们这样写就没有问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Final</span>实例变量 </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> age;</span><br><span class="line">    &#123;</span><br><span class="line">        age = <span class="number">24</span>;<span class="comment">// 这边错误，被final修饰的成员变量不能被赋值两次</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再一个正确示范</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Final</span>实例变量 </span>&#123;</span><br><span class="line">    <span class="comment">// final实例变量必须显式指定初始值，而且只能在3个位置中指定</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">long</span> lg;</span><br><span class="line">    <span class="keyword">public</span> Final实例变量()</span><br><span class="line">    &#123;</span><br><span class="line">        lg = <span class="number">200</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>final类变量，必须显示指定初始值。只能在以下2个位置的其中之一指定：</p>
+<ul>
+<li>定义时指定初始值</li>
+<li></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/08/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1626,131 +1727,6 @@ R =\frac  {51×50×49×48×47×46}{6×5×4×3×2×1}</script><p>选择6个数时
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/03/30/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/%E5%A4%A7%E6%95%B0%E5%AE%9A%E7%90%86%E5%8F%8A%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/30/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/%E5%A4%A7%E6%95%B0%E5%AE%9A%E7%90%86%E5%8F%8A%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/" class="post-title-link" itemprop="url">论概率论中大数定理及中心极限定理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-30 15:49:15" itemprop="dateCreated datePublished" datetime="2020-03-30T15:49:15+08:00">2020-03-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-14 23:57:07" itemprop="dateModified" datetime="2020-04-14T23:57:07+08:00">2020-04-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E7%90%86%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">数理知识</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="大数定理及中心极限定理"><a href="#大数定理及中心极限定理" class="headerlink" title="大数定理及中心极限定理"></a>大数定理及中心极限定理</h1><h2 id="依概率收敛、切比雪夫不等式"><a href="#依概率收敛、切比雪夫不等式" class="headerlink" title="依概率收敛、切比雪夫不等式"></a>依概率收敛、切比雪夫不等式</h2><h3 id="依概率收敛"><a href="#依概率收敛" class="headerlink" title="依概率收敛"></a>依概率收敛</h3><p><strong>定义</strong></p>
-<p><img src="https://i.loli.net/2020/03/31/76nd8sprowBZkF3.jpg" alt="依概率收敛.jpg"></p>
-<p>稍微解释一下哈，当存在一个任意值ε（大于0哈），当我们的n趋向于无穷大的时候，那么这个概率趋向于零。当然这么说就只是表面意思意思了，我们得详细地去了解一下呀。</p>
-<p>这边需要举个例子了</p>
-<p><img src="https://i.loli.net/2020/03/31/rZAgH74IonLY5CK.jpg" alt="依概率收敛的详细解释.jpg"></p>
-<p>江某人有话说：这里看到贝努利试验，我想大家肯定会松了一大口气，因为这个东西大家肯定都懂。像咱们抛一次硬币就算一次贝努利试验，但是我们抛了n次硬币。这就叫做n重贝努利试验。</p>
-<p>扯回正题哈，当咱们对某一件事件进行观测的时候，若事件A（为了便于解释，就把某一件事件设为事件A了）在一次试验发生的概率为P。利用n次事件中出现了na次事件A，算出事件A出现的频率（n/na）。</p>
-<p>注意了。图中的公式是错误的。也就是，当n越大的时候，并不意味这一次事件的概率与咱们算的频率相等。我们讲的频率“稳定于”概率应该从<strong>可能性角度</strong>来讲。</p>
-<p><img src="https://i.loli.net/2020/03/31/qaprc7XbC5zTJAf.jpg" alt="从可能性来讲概率收敛.jpg"></p>
-<p>得出概念，只有满足以下公式</p>
-<script type="math/tex; mode=display">
-\lim_{n\rightarrow+\infty}P\{|\frac{na}{n}-p|\geq ε\}=0</script><p>（楼上的公式打的不容易呀，害，真刺激！）</p>
-<p>那么这种收敛就称为“依概率收敛”</p>
-<p><strong>依概率收敛的性质：</strong></p>
-<p><img src="https://i.loli.net/2020/03/31/ZYroinA1RM6qgch.jpg" alt="依概率收敛的性质.jpg"></p>
-<p>这边就由我江某人来给大家稍微讲解一下以助于理解哈：</p>
-<p>首先前三行的意思是，当Xn依概率收敛到a，Yn依概率收敛到b，那么当n趋向于无穷是，且函数g(x,y)在点(a,b)上连续，那么g(Xn,Yn)依概率收敛到g(a,b)。</p>
-<p>中间两行的意思是，Xn+Yn会依概率收敛到a+b，Xn/Yn会依概率收敛到a/b，XnxYn会依概率收敛到axb。</p>
-<p>特别需要记住一点的是，最后两行，如果Xn依概率收敛到a，f(x)在a点连续，那么当n趋向于无穷的时候，f(Xn)依概率收敛到f(a)。</p>
-<h3 id="切比雪夫不等式（Chebyshev不等式）"><a href="#切比雪夫不等式（Chebyshev不等式）" class="headerlink" title="切比雪夫不等式（Chebyshev不等式）"></a>切比雪夫不等式（Chebyshev不等式）</h3><p>设随机变量X具有数学期望，且它的数学期望E(X)=μ，方差D(X)=$σ^2$，则对于任意$ε&gt;0$，都有：</p>
-<script type="math/tex; mode=display">
-P\{|X-μ|\geq ε\} \leq \frac{σ^2}{ε^2}</script><p>定理的等价形式为：</p>
-<script type="math/tex; mode=display">
-P\{|X-μ| < ε\} \geq 1-\frac{σ^2}{ε^2}</script><p>// 此处明天补上证明过程。。。</p>
-<p>X与它均值的偏差的绝对值大于等于ε的概率小于<script type="math/tex">\frac{σ^2}{ε^2}</script></p>
-<p>适用范围广，但是结果相对来说比较粗糙。</p>
-<p>//  此处后期补上例题解析</p>
-<h2 id="大数定律"><a href="#大数定律" class="headerlink" title="大数定律"></a>大数定律</h2><p>频率的稳定值记为概率，这句话的意思，可以用一个公式来进行描述。</p>
-<script type="math/tex; mode=display">
-\lim_{n\rightarrow+\infty}P\{|\frac{na}{n}-p|\geq ε\}=0</script><p>这个结论可以用“大数定律”来进行描述</p>
-<p><strong>定理1（贝努力大数定律）</strong></p>
-<p>记na为n重贝努利试验中事件A发生的次数，并记事件A在每次试验中发生的概率为p(0<p<1)，则对于$&forall ε > 0$有</p>
-<script type="math/tex; mode=display">
-\lim_{n\rightarrow+\infty}P\{|\frac{na}{n}-p|\geq ε\}=0</script><p>即$\frac{na}{n}$趋向于P，当n趋向于+$\infty$</p>
-<p>这就说明了，频率是依概率收敛的事件发生的概率的！！！</p>
-<p>证明：略，明天补上。。。</p>
-<p><strong>贝努力大数定律的重要意义：</strong></p>
-<ol>
-<li>提供了用大量重复独立试验中事件出现概率的极限值来确定概率的理论依据，使得概率的概念才有严格的意义。</li>
-<li>提供了通过试验来确定事件概率的方法——可以通过做试验确定某事件发生的频率，并把它作为相应的概率估计，例如：想估计某产品的不合格品率p,可以随机抽取n（n较大）件，将n件产品的不合格品的比例作为p的估计。</li>
-</ol>
-<p><strong>大数定律(Laws of Large Numbers)</strong></p>
-<p>内容：设X1，X2，……，Xn，……是一列随机变量，则在一定条件下，随机变量序列Yn=$\frac{X1+……+Xn}{n} $，收敛到μ，当n趋向于$\infty$的时候。</p>
-<p>这边需要帮助理解的几个点是：</p>
-<ol>
-<li>随机变量序列Yn收敛到μ的含义是什么？答：依概率收敛</li>
-<li>μ是什么？答：当Xi期望相同时，μ = E(Xi)</li>
-<li>一定条件是什么？答：不一样的条件会得到不同的大数定律</li>
-</ol>
-<p><strong>定理2（切比雪夫大数定律的推论）</strong></p>
-<p><strong>定理3（辛钦大数定律）</strong></p>
-<p><strong>辛钦大数定律的意义：</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1821,7 +1797,7 @@ P\{|X-μ| < ε\} \geq 1-\frac{σ^2}{ε^2}</script><p>// 此处明天补上证明
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1875,7 +1851,7 @@ P\{|X-μ| < ε\} \geq 1-\frac{σ^2}{ε^2}</script><p>// 此处明天补上证明
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共81.1k字</span>
+  <span class="post-count">博客全站共81.2k字</span>
 </div>
         
 
