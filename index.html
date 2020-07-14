@@ -180,6 +180,335 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/07/14/binary-search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/14/binary-search/" class="post-title-link" itemprop="url">binary search</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-14 10:51:46 / 修改时间：10:52:48" itemprop="dateCreated datePublished" datetime="2020-07-14T10:51:46+08:00">2020-07-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cassert&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ArSize = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binary_search</span><span class="params">(<span class="keyword">int</span> arr[],<span class="keyword">int</span> n,<span class="keyword">int</span> valueforsearch)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> wait_for_search[ArSize] = &#123; <span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">55</span> &#125;;</span><br><span class="line">	<span class="comment">/*basic information*/</span></span><br><span class="line">	<span class="comment">/*std::cout &lt;&lt; wait_for_search &lt;&lt; "=array's address";</span></span><br><span class="line"><span class="comment">	std::cout &lt;&lt; sizeof wait_for_search &lt;&lt; "=sizeof wait_for_search\n";*/</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/*Please input what num you want to search*/</span></span><br><span class="line">	<span class="keyword">int</span> value_to_be_searched;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Please input what num you want to search for: "</span>;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; value_to_be_searched;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*sort the array*/</span></span><br><span class="line">	<span class="built_in">std</span>::sort(wait_for_search, wait_for_search + ArSize);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*search for the num we want*/</span></span><br><span class="line">	<span class="keyword">int</span> returned_value = binary_search(wait_for_search, ArSize, value_to_be_searched);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*cout the num we want*/</span></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"the value we want is in the arr["</span> &lt;&lt; returned_value &lt;&lt; <span class="string">"]"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binary_search</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> length_of_arr, <span class="keyword">int</span> valueforsearch)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> mid;</span><br><span class="line">	<span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> high = length_of_arr - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (low&lt;=high) &#123;</span><br><span class="line">		mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (valueforsearch &lt; arr[mid]) &#123;</span><br><span class="line">			high = mid - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (valueforsearch &gt; arr[mid]) &#123;</span><br><span class="line">			low = mid + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/07/11/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/%E8%8B%A5%E4%BE%9D%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B0%8F%E5%B0%8F%E8%AF%95%E6%8E%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/11/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/%E8%8B%A5%E4%BE%9D%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B0%8F%E5%B0%8F%E8%AF%95%E6%8E%A2/" class="post-title-link" itemprop="url">若依前后端分离项目的小小试探</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-11 22:07:28" itemprop="dateCreated datePublished" datetime="2020-07-11T22:07:28+08:00">2020-07-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-13 20:00:27" itemprop="dateModified" datetime="2020-07-13T20:00:27+08:00">2020-07-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">网站开发</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Ruo-Yi-Vue"><a href="#Ruo-Yi-Vue" class="headerlink" title="Ruo Yi-Vue"></a>Ruo Yi-Vue</h1><p>本博文受BiliBili网站up主CodeSheep的视频《项目下载、运行、配置、构建、打包、部署：全步骤实战演示。前后端分离式项目实战部署（含nginx、tomcat部署配置）视频教程》的影响而完成的。</p>
+<p>这个是视频的地址：<a href="https://www.bilibili.com/v/technology/" target="_blank" rel="noopener">知识</a><a href="https://www.bilibili.com/v/technology/wild/" target="_blank" rel="noopener">野生技术协会</a></p>
+<h2 id="平台简介"><a href="#平台简介" class="headerlink" title="平台简介"></a>平台简介</h2><p>这是一个基于SpringBoot，Spring Security，JWT，Vue &amp; Element 的前后端分离权限管理系统</p>
+<blockquote>
+<p>一直想做一款后台管理系统，看了很多优秀的开源项目但是发现没有合适的。于是利用空闲休息时间开始自己写了一套后台系统。如此有了若依。她可以用于所有的Web应用程序，如网站管理后台，网站会员中心，CMS，CRM，OA。所有前端后台代码封装过后十分精简易上手，出错概率低。同时支持移动客户端访问。系统会陆续更新一些实用功能。</p>
+<p>若依是给还没有出生女儿取的名字（寓意：你若不离不弃，我必生死相依）</p>
+</blockquote>
+<h2 id="成功搭建平台的截图"><a href="#成功搭建平台的截图" class="headerlink" title="成功搭建平台的截图"></a>成功搭建平台的截图</h2><p><img src="https://i.loli.net/2020/07/11/4dUKcePsXIaERNo.jpg" alt="若依登录页面"></p>
+<p><img src="https://i.loli.net/2020/07/11/ARn2K4aryz7qvF8.jpg" alt="ruoyi-1"></p>
+<p><img src="https://i.loli.net/2020/07/11/zSsxI9182mZCwE7.jpg" alt="ruoyi-2"></p>
+<p><img src="https://i.loli.net/2020/07/11/KlSNxYjEbMUq8cJ.jpg" alt="ruoyi-3"></p>
+<p><img src="D:\blog&#39;s new house\blog\source\我博客所有的图片文件备份\网站开发\若依前后端分离项目的小小试探\ruoyi-4.jpg" alt="ruoyi-4"></p>
+<p><img src="https://i.loli.net/2020/07/11/hawzpd9BSYbcUKk.jpg" alt="ruoyi-5"></p>
+<p><img src="https://i.loli.net/2020/07/11/uIDrHnWqclAiUJP.jpg" alt="ruoyi-6"></p>
+<h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2><h3 id="虚拟机上先安装Centos"><a href="#虚拟机上先安装Centos" class="headerlink" title="虚拟机上先安装Centos"></a>虚拟机上先安装Centos</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>本次项目是使用前后端开发的思想开发的，所以我们也以前后端的思想部署项目。我们将准备三个Centos服务器用于搭建，一个服务器作为运行前端项目的服务器，另外两个服务器制作成一个集群，存放后端项目。</p>
+<p><img src="https://i.loli.net/2020/07/13/Cm4aQMDJW2v5Ig3.jpg" alt="若依服务器部署图示"></p>
+<h4 id="开始制作虚拟机"><a href="#开始制作虚拟机" class="headerlink" title="开始制作虚拟机"></a>开始制作虚拟机</h4><p>我使用的配置如下<br>CentOS-7-x86_64-DVD-2003<br>VMwareWorkstation15</p>
+<h4 id="遇到的第一个问题：Centos-7的镜像下载"><a href="#遇到的第一个问题：Centos-7的镜像下载" class="headerlink" title="遇到的第一个问题：Centos 7的镜像下载"></a>遇到的第一个问题：Centos 7的镜像下载</h4><p><strong>以下是解决方法</strong></p>
+<p>官网下载链接：<a href="http://isoredirect.centos.org/centos/7.4.1708/isos/x86_64/" target="_blank" rel="noopener">http://isoredirect.centos.org/centos/7/isos/x86_64/</a></p>
+<p><strong>step1: 进入下载页，选择阿里云站点进行下载</strong></p>
+<p>Actual Country 国内资源          Nearby Countries 周边国家资源</p>
+<p>阿里云站点：<a href="http://mirrors.aliyun.com/centos/7/isos/x86_64/" target="_blank" rel="noopener">http://mirrors.aliyun.com/centos/7/isos/x86_64/</a></p>
+<p>每个链接都包括了镜像文件的地址、类型及版本号等信息</p>
+<p>选择当前国家资源区站点下载，获取资源速度比较快</p>
+<p><strong>step2: 进入阿里云站点，选择</strong> CentOS-7-x86_64-DVD-1804.iso下载</p>
+<p><img src="https://i.loli.net/2020/07/13/aheVA2GZI7sPM3z.jpg" alt="centos7各类镜像"></p>
+<p>各个版本的ISO镜像文件说明：</p>
+<p>CentOS-7-x86_64-DVD-1708.iso        标准安装版（推荐）</p>
+<p>CentOS-7-x86_64-Everything-1708.iso    完整版，集成所有软件（以用来补充系统的软件或者填充本地镜像）</p>
+<p>CentOS-7-x86_64-LiveGNOME-1708.iso     GNOME桌面版 </p>
+<p>CentOS-7-x86_64-LiveKDE-1708.iso      KDE桌面版  </p>
+<p>CentOS-7-x86_64-Minimal-1708.iso      精简版，自带的软件最少</p>
+<p>CentOS-7-x86_64-NetInstall-1708.iso    网络安装版（从网络安装或者救援系统）  </p>
+<h4 id="遇到的第二个问题：虚拟机的网卡配置"><a href="#遇到的第二个问题：虚拟机的网卡配置" class="headerlink" title="遇到的第二个问题：虚拟机的网卡配置"></a>遇到的第二个问题：虚拟机的网卡配置</h4><p>将镜像安装到虚拟机中的操作，应该是不难的，网上也有很多教材，这边也给出一个例子</p>
+<p><img src="https://i.loli.net/2020/07/13/zw8WJ3brkZXidgs.jpg" alt="虚拟机一"></p>
+<p><img src="upload\image-20200713190523205.png" alt="image-20200713190523205"></p>
+<p><img src="https://i.loli.net/2020/07/13/nFxlY1k3dBUDJfC.jpg" alt="虚拟机三"></p>
+<p><img src="https://i.loli.net/2020/07/13/xRHIVhrSgAqnTtY.jpg" alt="虚拟机四"></p>
+<p><img src="https://i.loli.net/2020/07/13/5toy3Uc9G8IMl7D.jpg" alt="虚拟机五"></p>
+<p><img src="https://i.loli.net/2020/07/13/O248tvQwhk61nDz.jpg" alt="虚拟机六"></p>
+<p><img src="https://i.loli.net/2020/07/13/Fqbz1Ik7HXQZs4y.jpg" alt="7虚拟机"></p>
+<p><img src="https://i.loli.net/2020/07/13/WZTvuJxCjpUQqem.jpg" alt="8虚拟机"></p>
+<p><img src="https://i.loli.net/2020/07/13/OjM9lXbvPSHAZxm.jpg" alt="9虚拟机"></p>
+<p><img src="https://i.loli.net/2020/07/13/rAmWJe1Bd2qfQU5.jpg" alt="10虚拟机"></p>
+<p><img src="https://i.loli.net/2020/07/13/mnsFTiqJ2EM9OUx.jpg" alt="11虚拟机"></p>
+<p><img src="https://i.loli.net/2020/07/13/fYibgPLnpzsCKy3.jpg" alt="12虚拟机"></p>
+<p><img src="https://i.loli.net/2020/07/13/AtJCpGXoSmzrxEU.jpg" alt="13虚拟机"></p>
+<p><img src="https://i.loli.net/2020/07/13/vJqmyD1XLS7TAKx.jpg" alt="14虚拟机"></p>
+<p>但是我们在使用网络，配置网络的时候，还是要非常注意了，网络的类型有四种</p>
+<p><img src="https://i.loli.net/2020/07/13/WZTvuJxCjpUQqem.jpg" alt="8虚拟机"></p>
+<p>这四种，建议好好去了解一下为什么</p>
+<p>我们选择的是NAT</p>
+<h4 id="网卡配置细讲"><a href="#网卡配置细讲" class="headerlink" title="网卡配置细讲"></a>网卡配置细讲</h4><p>首先我们先看一下编辑-&gt;虚拟机网络编辑器下VMnet8中NAT设置里的网关和DHCP设置里的起始/结束ip地址，这里尤其要记住ip地址范围哦。</p>
+<p><img src="https://i.loli.net/2020/07/13/elaORHY1oCviDMm.jpg" alt="15虚拟机"></p>
+<p><img src="https://i.loli.net/2020/07/13/IQsmSEULc35k4HD.jpg" alt="16虚拟机"></p>
+<p>记住网关（Gateway）</p>
+<p><img src="https://i.loli.net/2020/07/13/Q2Vj1TPEdk4wJpK.jpg" alt="17虚拟机——记住网关"></p>
+<p>记住这里边的起始IP地址和结束IP地址</p>
+<p><img src="https://i.loli.net/2020/07/13/7bInBrtDwVFaeup.jpg" alt="18虚拟机——起始地址和结束地址"></p>
+<p>然后我们打开虚拟机上的Centos服务器，先拿一台做示范</p>
+<h5 id="Step1：在虚拟机中打开了一台Centos服务器"><a href="#Step1：在虚拟机中打开了一台Centos服务器" class="headerlink" title="Step1：在虚拟机中打开了一台Centos服务器"></a>Step1：在虚拟机中打开了一台Centos服务器</h5><p><img src="https://i.loli.net/2020/07/13/FpVMBI3XZCAsOdz.jpg" alt="3配置网卡之开启服务器"></p>
+<h5 id="Step2：使用MobaXterm工具中的SSH连接方式，连接了服务器"><a href="#Step2：使用MobaXterm工具中的SSH连接方式，连接了服务器" class="headerlink" title="Step2：使用MobaXterm工具中的SSH连接方式，连接了服务器"></a>Step2：使用MobaXterm工具中的SSH连接方式，连接了服务器</h5><p><img src="https://i.loli.net/2020/07/13/dQFwMEH3yBf51tg.jpg" alt="1MobaXterm"></p>
+<p><img src="https://i.loli.net/2020/07/13/WXJsS4crpZKu3Qf.jpg" alt="2配置网卡之便捷配置文件ens33"></p>
+<p><img src="https://i.loli.net/2020/07/13/WCJI29sBPcebSq7.jpg" alt="4444配置网卡之打开配置文件"></p>
+<p><img src="https://i.loli.net/2020/07/13/SBU1Fcn2mRqyTMp.jpg" alt="5555配置网卡之便捷咯"></p>
+<p>编辑成上面这个样子就差不多啦，要注意的是：</p>
+<ol>
+<li>IPADDR后边填的是你要设置的，在初始IP地址和结束IP地址中间的任一处IP地址。可以看到<br>原本我的初始IP地址和结束IP地址分别为192.168.242.128和192.168.242.254，于是我给我第一个服务器设置的是192.168.242.129 。然后接下来的第二台第三台依次就成</li>
+<li>然后上边要改两个点，总之上面改成跟我一样的就是了</li>
+<li>网关Gateway，就填我刚刚记下的就行了</li>
+<li>子网掩码也是</li>
+<li>DNS1这个是可以选择的，去百度上搜一个就成，我这边的是谷歌的</li>
+</ol>
+<h5 id="Step3：输入ping命令测试一下"><a href="#Step3：输入ping命令测试一下" class="headerlink" title="Step3：输入ping命令测试一下"></a>Step3：输入ping命令测试一下</h5><p><img src="https://i.loli.net/2020/07/13/o5vbJXeZRIO9BkC.jpg" alt="6666配置网卡之成功了"></p>
+<p>当你整完上面的所有之后，便可以算作服务器已经安装好了</p>
+<h3 id="开始配置服务器上的编程环境和必要软件的安装"><a href="#开始配置服务器上的编程环境和必要软件的安装" class="headerlink" title="开始配置服务器上的编程环境和必要软件的安装"></a>开始配置服务器上的编程环境和必要软件的安装</h3><p>这边给必要的东西列个表</p>
+<ol>
+<li>Git工具安装</li>
+<li>JDK（Java环境）安装</li>
+<li>Node环境安装</li>
+<li>Python环境安装</li>
+<li>Maven项目构建和管理工具安装</li>
+<li>MySQL数据库部署和安装</li>
+<li>Redis缓存安装部署</li>
+<li>消息队列RabbitMQ安装部署</li>
+<li>应用型服务器Tomcat安装部署</li>
+<li>Web服务器Nginx安装部署</li>
+<li>Docker环境安装</li>
+<li>Kubernetes集群部署</li>
+<li>ElasticSearch集群部署</li>
+<li>ZooKeeper安装部署</li>
+<li>消息队列Kafka安装部署</li>
+</ol>
+<p>以上的东西只要按照我下面给出的github（<a href="https://github.com/hansonwang99/JavaCollection）上项目手册的说明来走，一般都不会有问题" target="_blank" rel="noopener">https://github.com/hansonwang99/JavaCollection）上项目手册的说明来走，一般都不会有问题</a></p>
+<p>但是我还是想要说一下，我踩过的坑</p>
+<h4 id="Git工具安装"><a href="#Git工具安装" class="headerlink" title="Git工具安装"></a>Git工具安装</h4><p>按照手册来说，是有两种方法可以安装的，第一种是通过包管理器安装，第二种是通过源码编译安装。</p>
+<p>区别就是，前者简单、但是安装的不是最新的。后者复杂一点、但是安装的可以是任意版本，能最新。</p>
+<h4 id="JDK（java环境）安装"><a href="#JDK（java环境）安装" class="headerlink" title="JDK（java环境）安装"></a>JDK（java环境）安装</h4><p>这个没难度</p>
+<p>过</p>
+<h4 id="Node环境安装"><a href="#Node环境安装" class="headerlink" title="Node环境安装"></a>Node环境安装</h4><p>这个也太简单了，我表示无话可说</p>
+<h4 id="Python环境安装"><a href="#Python环境安装" class="headerlink" title="Python环境安装"></a>Python环境安装</h4><p>也无话可说</p>
+<h4 id="Maven项目构建和管理工具安装"><a href="#Maven项目构建和管理工具安装" class="headerlink" title="Maven项目构建和管理工具安装"></a>Maven项目构建和管理工具安装</h4><p>配置加速镜像源难了一点，但是也可以接受</p>
+<h4 id="MySQL数据库部署和安装"><a href="#MySQL数据库部署和安装" class="headerlink" title="MySQL数据库部署和安装"></a>MySQL数据库部署和安装</h4><p>这个如果整错了就重新来过，这边我想说一点，VMwareWordstation15的快照功能超好用，一键恢复到之前的状态</p>
+<h4 id="redis缓存安装部署"><a href="#redis缓存安装部署" class="headerlink" title="redis缓存安装部署"></a>redis缓存安装部署</h4><p>很简单，过</p>
+<h4 id="消息队列RabbitMQ安装部署"><a href="#消息队列RabbitMQ安装部署" class="headerlink" title="消息队列RabbitMQ安装部署"></a>消息队列RabbitMQ安装部署</h4><p>在安装erlang环境的时候会遇到一个不常见的知识点——curl命令</p>
+<p>这一命令可用的范围很广，可以用于配置安装的仓库、可以用于在前端即时编写脚本回调后端的接口进行测试。这边把本次所用到的命令写一遍</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash</span><br></pre></td></tr></table></figure>
+<p>意思是安装erlang环境对应的包仓库</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/07/09/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/09/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" class="post-title-link" itemprop="url">端口转发</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-09 17:48:12 / 修改时间：18:19:56" itemprop="dateCreated datePublished" datetime="2020-07-09T17:48:12+08:00">2020-07-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">网站开发</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="端口转发（Port-forwarding）"><a href="#端口转发（Port-forwarding）" class="headerlink" title="端口转发（Port forwarding）"></a>端口转发（Port forwarding）</h1><p>端口转发是<strong>安全壳（ssh）</strong>为了<strong>网络安全通信</strong>而使用的一种方法。</p>
+<p>SSH可以利用<strong>端口转发技术</strong>来传输其他TCP/IP协议的<strong>报文</strong></p>
+<p>当使用这种方法的时候，SSH就为其他服务在<strong>客户端</strong>和<strong>服务器</strong>端<strong>建立</strong>了<strong>一条安全的传输管道</strong>。</p>
+<p><strong>端口转发</strong>利用本地客户机端口映射到服务器端口来工作</p>
+<p>SSH可以映射所有的服务器端口到本地端口，但是1024以下的端口需要根用户权限。</p>
+<p>在使用防火墙的网络中，如果设置了允许SSH服务通过（即开启了22端口），从而阻断了其他服务，则被阻断了的服务仍然可以通过端口转发技术转发数据包</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>端口转发服务是由一组<strong>端口转发规则定义</strong>的策略。一个端口转发服务可以应用到一个或更多的虚拟机。然后虚拟机的入站网络访问就根据端口转发服务所定义的策略进行管理。可以根据需要指定一个或多个CIDR来过滤源lP地址，以允许来自特定IP地址的请求被转发  。</p>
+<p>虚拟机可以应用任意数量的端口转发服务。端口转发服务也可以先定义好，但暂时不应用到虚拟机上。如果虚拟机属于多个网络，则只有在默认网络中定义的端口转发规则才会生效  。</p>
+<p>不能使用端口转发打开弹性lP地址的端口。当使用弹性IP时，外部访问通过使用安全组来控制 。</p>
+<h3 id="区分端口映射和端口转发"><a href="#区分端口映射和端口转发" class="headerlink" title="区分端口映射和端口转发"></a>区分端口映射和端口转发</h3><p>端口映射场景：<br>外网主机A想访问内网主机B上的服务<br>端口转发场景：<br>外网主机A已经可以任意内网主机B上的端口，但是无法访问内网主机C上的端口<br>此时可以将C主机的端口到B主机的端口，那么外网主机A访问B主机的某某端口就相当于访问了C主机的某某<br>总结：<br>端口转发和端口映射原理是一样的只不过是应用场景不一样，假如我们将本机的端口转发到远程主机端口，我们可以叫端口映射，也可以叫端口转发，看下图【注意图上文字】<br><img src="https://i.loli.net/2020/07/09/UcHk2OKbQw5AgME.png" alt="图一"></p>
+<p>我们如果把本机可以访问到的任意 IP<br> 的端口转发到另外一台服务器的端口，我们叫他端口转发，看下图【注意图上文字】</p>
+<p><img src="https://i.loli.net/2020/07/09/tM6jfwBHRCXPWgK.png" alt="图二"></p>
+<h2 id="端口转发和代理工具"><a href="#端口转发和代理工具" class="headerlink" title="端口转发和代理工具"></a>端口转发和代理工具</h2><p> Lcx<br> Htran<br> Netcat<br> frp<br> ngrok</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/06/16/the_homework_of_eliauk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1258,287 +1587,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/05/23/ubuntu-s-files/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/23/ubuntu-s-files/" class="post-title-link" itemprop="url">CodesFromUbuntu</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-23 22:38:27 / 修改时间：22:40:21" itemprop="dateCreated datePublished" datetime="2020-05-23T22:38:27+08:00">2020-05-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="CodesFromUbuntu"><a href="#CodesFromUbuntu" class="headerlink" title="CodesFromUbuntu"></a>CodesFromUbuntu</h1><blockquote>
-<p>Description：This catalog contains content of “Cmake &amp; make” ,thread examples and Shell scripts.<br>repositories: <a href="https://github.com/Mr8god/CodesFromUbuntu" target="_blank" rel="noopener">https://github.com/Mr8god/CodesFromUbuntu</a></p>
-</blockquote>
-<p><img src="https://i.loli.net/2020/05/23/r1UB8WZe3fh4Axw.jpg" alt="文件目录"></p>
-<h2 id="Cmake-amp-make"><a href="#Cmake-amp-make" class="headerlink" title="Cmake &amp; make"></a>Cmake &amp; make</h2><h3 id="Files"><a href="#Files" class="headerlink" title="Files"></a>Files</h3><p>CMakeFiles、cmake_install.cmake、CMakeCache.txt、CMakeList.txt、Makefile</p>
-<h3 id="Some-ideas"><a href="#Some-ideas" class="headerlink" title="Some ideas"></a>Some ideas</h3><p>1、使用 cmake 增加学习成本（小项目）<br>2、makefile 这么简单都搞不清楚的脑子，还指望搞得清 cmake ?<br>3、cmake 是解决多个编译器的兼容问题，我又不支持 gcc 之外的编译器。<br>4、关键是解决什么问题？你要给白痴用，用 cmake 还要多敲键盘；你要理解构建过程，cmake 多加个间接层，不是更难搞明白？<br>5、你说，你要不出问题吧，cmake 还需要额外安装，还要多敲一行指令；你说要出了问题自己解决吧，cmake 并不解决构建问题，它只是生成其它构建工具的脚本，结果你最终在什么平台出的问题，一样要自己搞清楚 makefile gcc 这些东西怎么用，不然你还是解决不了问题。<br>6、你用 cmake 到底想解决啥问题？cmake 只会更加复杂。<br>7、cmake 解决的是你的项目要在不同平台不同编译器下都可以写一致构建脚本的问题，它要抽象各个不同环境为一致的环境。你必须学习这个抽象方法。<br>8、然后你工作在哪个平台，还是要学习那个平台具体的构建方法。等于你至少要学习两套：一套 cmake 一套你的目标平台。你不跨 3 个平台以上，根本值不回学习成本。<br>9、两个平台的话，你分别学两套就够了，用不着多学 cmake。只学 cmake 没任何用啊，必须加学目标环境的东西。cmake 又不帮你解决编译器怎么开关的问题。<br>10、只学了 cmake 等于什么都没学，构建遇到问题肯定一抹黑。<br>11、cmake 解决的问题和 make 解决的问题是两码事。比如你编译要加个警告开关，你要写在编译指令里，这个不是 cmake 要解决的问题。cmake 帮你解决的是，你在不同环境要做同一个事情，怎么写在同一个脚本分发，它本身不解决具体加什么编译开关的问题。比方说你的编译流程有一步要把一个文件复制到另一个位置，cmake 并不解决拷贝文件的问题，它解决的是让你在 windows 下用 copy ， unix 下用 cp ，怎么把两套指令写在同一套构建文件的问题。<br>12、这是两个层面不同的问题。cmake 解决的只是跨平台和开发环境时，怎么把不同的编译工具的调用方法写在同一套脚本里的问题；并没有解决怎么把项目从源代码构建成目标程序的问题。<br>13、cmake 可能提供了一些默认脚本把一些默认的构建行为写好了给你调用，但是当你要自定义构建行为时，学习成本是很高的。因为你要兼顾各种不同的平台。<br>14、如果你不要跨很多平台，cmake 解决的那个层次的问题对你本来就是不存在的。<br>15、ide 解决的是另一个层次的问题，和 cmake make 更不一样。<br>————————————————<br>版权声明：本文为CSDN博主「TTC」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/liutianshx2012/article/details/80811175" target="_blank" rel="noopener">https://blog.csdn.net/liutianshx2012/article/details/80811175</a></p>
-<h2 id="Thread-example"><a href="#Thread-example" class="headerlink" title="Thread example"></a>Thread example</h2><h3 id="Files-1"><a href="#Files-1" class="headerlink" title="Files"></a>Files</h3><p>demos、example、homework</p>
-<h2 id="Shell-scripts"><a href="#Shell-scripts" class="headerlink" title="Shell scripts"></a>Shell scripts</h2><h3 id="Files-2"><a href="#Files-2" class="headerlink" title="Files"></a>Files</h3><p>scripts</p>
-<p>脚本运行命令分别是：source test.sh 182219605113 和  sh forc.sh</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/05/17/%E5%B7%A5%E7%A8%8B%E7%AE%A1%E7%90%86/makefile/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/17/%E5%B7%A5%E7%A8%8B%E7%AE%A1%E7%90%86/makefile/" class="post-title-link" itemprop="url">跟我一起写 Makefile</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-17 22:29:05 / 修改时间：22:29:47" itemprop="dateCreated datePublished" datetime="2020-05-17T22:29:05+08:00">2020-05-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="跟我一起写-Makefile"><a href="#跟我一起写-Makefile" class="headerlink" title="跟我一起写 Makefile"></a>跟我一起写 Makefile</h1><p> 陈皓</p>
-<p>概述<br>——</p>
-<p>什么是makefile？或许很多Winodws的程序员都不知道这个东西，因为那些Windows的IDE都为你做了这个工作，但我觉得要作一个好的和professional的程序员，makefile还是要懂。这就好像现在有这么多的HTML的编辑器，但如果你想成为一个专业人士，你还是要了解HTML的标识的含义。特别在Unix下的软件编译，你就不能不自己写makefile了，会不会写makefile，从一个侧面说明了一个人是否具备完成大型工程的能力。</p>
-<p>因为，makefile关系到了整个工程的编译规则。一个工程中的源文件不计数，其按类型、功能、模块分别放在若干个目录中，makefile定义了一系列的规则来指定，哪些文件需要先编译，哪些文件需要后编译，哪些文件需要重新编译，甚至于进行更复杂的功能操作，因为makefile就像一个Shell脚本一样，其中也可以执行操作系统的命令。</p>
-<p>makefile带来的好处就是——“自动化编译”，一旦写好，只需要一个make命令，整个工程完全自动编译，极大的提高了软件开发的效率。make是一个命令工具，是一个解释makefile中指令的命令工具，一般来说，大多数的IDE都有这个命令，比如：Delphi的make，Visual C++的nmake，Linux下GNU的make。可见，makefile都成为了一种在工程方面的编译方法。</p>
-<p>现在讲述如何写makefile的文章比较少，这是我想写这篇文章的原因。当然，不同产商的make各不相同，也有不同的语法，但其本质都是在“文件依赖性”上做文章，这里，我仅对GNU的make进行讲述，我的环境是RedHat Linux 8.0，make的版本是3.80。必竟，这个make是应用最为广泛的，也是用得最多的。而且其还是最遵循于IEEE 1003.2-1992 标准的（POSIX.2）。</p>
-<p>在这篇文档中，将以C/C++的源码作为我们基础，所以必然涉及一些关于C/C++的编译的知识，相关于这方面的内容，还请各位查看相关的编译器的文档。这里所默认的编译器是UNIX下的GCC和CC。</p>
-<p>关于程序的编译和链接<br>——————————</p>
-<p>在此，我想多说关于程序编译的一些规范和方法，一般来说，无论是C、C++、还是pas，首先要把源文件编译成中间代码文件，在Windows下也就是 .obj 文件，UNIX下是 .o 文件，即 Object File，这个动作叫做编译（compile）。然后再把大量的Object File合成执行文件，这个动作叫作链接（link）。</p>
-<p>编译时，编译器需要的是语法的正确，函数与变量的声明的正确。对于后者，通常是你需要告诉编译器头文件的所在位置（头文件中应该只是声明，而定义应该放在C/C++文件中），只要所有的语法正确，编译器就可以编译出中间目标文件。一般来说，每个源文件都应该对应于一个中间目标文件（O文件或是OBJ文件）。</p>
-<p>链接时，主要是链接函数和全局变量，所以，我们可以使用这些中间目标文件（O文件或是OBJ文件）来链接我们的应用程序。链接器并不管函数所在的源文件，只管函数的中间目标文件（Object File），在大多数时候，由于源文件太多，编译生成的中间目标文件太多，而在链接时需要明显地指出中间目标文件名，这对于编译很不方便，所以，我们要给中间目标文件打个包，在Windows下这种包叫“库文件”（Library File)，也就是 .lib 文件，在UNIX下，是Archive File，也就是 .a 文件。</p>
-<p>总结一下，源文件首先会生成中间目标文件，再由中间目标文件生成执行文件。在编译时，编译器只检测程序语法，和函数、变量是否被声明。如果函数未被声明，编译器会给出一个警告，但可以生成Object File。而在链接程序时，链接器会在所有的Object File中找寻函数的实现，如果找不到，那到就会报链接错误码（Linker Error），在VC下，这种错误一般是：Link 2001错误，意思说是说，链接器未能找到函数的实现。你需要指定函数的Object File.</p>
-<p>好，言归正传，GNU的make有许多的内容，闲言少叙，还是让我们开始吧。</p>
-<p>Makefile 介绍<br>———————</p>
-<p>make命令执行时，需要一个 Makefile 文件，以告诉make命令需要怎么样的去编译和链接程序。</p>
-<p>首先，我们用一个示例来说明Makefile的书写规则。以便给大家一个感兴认识。这个示例来源于GNU的make使用手册，在这个示例中，我们的工程有8个C文件，和3个头文件，我们要写一个Makefile来告诉make命令如何编译和链接这几个文件。我们的规则是：<br>    1）如果这个工程没有编译过，那么我们的所有C文件都要编译并被链接。<br>    2）如果这个工程的某几个C文件被修改，那么我们只编译被修改的C文件，并链接目标程序。<br>    3）如果这个工程的头文件被改变了，那么我们需要编译引用了这几个头文件的C文件，并链接目标程序。</p>
-<p>只要我们的Makefile写得够好，所有的这一切，我们只用一个make命令就可以完成，make命令会自动智能地根据当前的文件修改的情况来确定哪些文件需要重编译，从而自己编译所需要的文件和链接目标程序。</p>
-<p>一、Makefile的规则</p>
-<p>在讲述这个Makefile之前，还是让我们先来粗略地看一看Makefile的规则。</p>
-<pre><code>target ... : prerequisites ...
-        command
-        ...
-        ...
-
-target也就是一个目标文件，可以是Object File，也可以是执行文件。还可以是一个标签（Label），对于标签这种特性，在后续的“伪目标”章节中会有叙述。
-
-prerequisites就是，要生成那个target所需要的文件或是目标。
-
-command也就是make需要执行的命令。（任意的Shell命令）
-</code></pre><p>这是一个文件的依赖关系，也就是说，target这一个或多个的目标文件依赖于prerequisites中的文件，其生成规则定义在command中。说白一点就是说，prerequisites中如果有一个以上的文件比target文件要新的话，command所定义的命令就会被执行。这就是Makefile的规则。也就是Makefile中最核心的内容。</p>
-<p>说到底，Makefile的东西就是这样一点，好像我的这篇文档也该结束了。呵呵。还不尽然，这是Makefile的主线和核心，但要写好一个Makefile还不够，我会以后面一点一点地结合我的工作经验给你慢慢到来。内容还多着呢。：）</p>
-<p>二、一个示例</p>
-<p>正如前面所说的，如果一个工程有3个头文件，和8个C文件，我们为了完成前面所述的那三个规则，我们的Makefile应该是下面的这个样子的。</p>
-<pre><code>edit : main.o kbd.o command.o display.o /
-       insert.o search.o files.o utils.o
-        cc -o edit main.o kbd.o command.o display.o /
-                   insert.o search.o files.o utils.o
-
-main.o : main.c defs.h
-        cc -c main.c
-kbd.o : kbd.c defs.h command.h
-        cc -c kbd.c
-command.o : command.c defs.h command.h
-        cc -c command.c
-display.o : display.c defs.h buffer.h
-        cc -c display.c
-insert.o : insert.c defs.h buffer.h
-        cc -c insert.c
-search.o : search.c defs.h buffer.h
-        cc -c search.c
-files.o : files.c defs.h buffer.h command.h
-        cc -c files.c
-utils.o : utils.c defs.h
-        cc -c utils.c
-clean :
-        rm edit main.o kbd.o command.o display.o /
-           insert.o search.o files.o utils.o
-</code></pre><p>反斜杠（/）是换行符的意思。这样比较便于Makefile的易读。我们可以把这个内容保存在文件为“Makefile”或“makefile”的文件中，然后在该目录下直接输入命令“make”就可以生成执行文件edit。如果要删除执行文件和所有的中间目标文件，那么，只要简单地执行一下“make clean”就可以了。</p>
-<p>在这个makefile中，目标文件（target）包含：执行文件edit和中间目标文件（*.o），依赖文件（prerequisites）就是冒号后面的那些 .c 文件和 .h文件。每一个 .o 文件都有一组依赖文件，而这些 .o 文件又是执行文件 edit 的依赖文件。依赖关系的实质上就是说明了目标文件是由哪些文件生成的，换言之，目标文件是哪些文件更新的。</p>
-<p>在定义好依赖关系后，后续的那一行定义了如何生成目标文件的操作系统命令，一定要以一个Tab键作为开头。记住，make并不管命令是怎么工作的，他只管执行所定义的命令。make会比较targets文件和prerequisites文件的修改日期，如果prerequisites文件的日期要比targets文件的日期要新，或者target不存在的话，那么，make就会执行后续定义的命令。</p>
-<p>这里要说明一点的是，clean不是一个文件，它只不过是一个动作名字，有点像C语言中的lable一样，其冒号后什么也没有，那么，make就不会自动去找文件的依赖性，也就不会自动执行其后所定义的命令。要执行其后的命令，就要在make命令后明显得指出这个lable的名字。这样的方法非常有用，我们可以在一个makefile中定义不用的编译或是和编译无关的命令，比如程序的打包，程序的备份，等等。<br>————————————————<br>版权声明：本文为CSDN博主「haoel」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/haoel/article/details/2886" target="_blank" rel="noopener">https://blog.csdn.net/haoel/article/details/2886</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/05/13/%E6%83%B3%E6%B3%95/3D%E8%A7%86%E8%A7%89%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E4%B8%8B%E7%9A%84%E6%99%BA%E8%83%BD%E5%AE%89%E9%98%B2%E7%B3%BB%E7%BB%9F%E6%80%9D%E6%83%B3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/13/%E6%83%B3%E6%B3%95/3D%E8%A7%86%E8%A7%89%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E4%B8%8B%E7%9A%84%E6%99%BA%E8%83%BD%E5%AE%89%E9%98%B2%E7%B3%BB%E7%BB%9F%E6%80%9D%E6%83%B3/" class="post-title-link" itemprop="url">3D视觉技术应用下的智能安防系统思想</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-13 22:12:07 / 修改时间：22:39:33" itemprop="dateCreated datePublished" datetime="2020-05-13T22:12:07+08:00">2020-05-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="3D视觉技术应用下的智能安防系统思想"><a href="#3D视觉技术应用下的智能安防系统思想" class="headerlink" title="3D视觉技术应用下的智能安防系统思想"></a>3D视觉技术应用下的智能安防系统思想</h1><h2 id="What？"><a href="#What？" class="headerlink" title="What？"></a>What？</h2><p>1.项目设计</p>
-<p>项目主要从基于3D视觉技术的面部识别模块、基于行为分析的AI智能模块两方面体现新型安防系统的主题概念。</p>
-<p>首先对于面部识别模块，我们通过运用当下流行的3D深感摄像头，如Realsense、ZED、PrimeSense等，实现三维图像数据的获取。针对3D视觉技术的优缺点，相应地制定方案，放大其准确度高的优点，进行诸如面部识别进入屋室等能最大化技术优点的操作。对于3D视觉技术所负责的面部识别模块，项目基本设计如下流程图：<img src="https://i.loli.net/2020/05/13/R1kxdtu2ijglnLb.png" alt="3D摄像头开发流程图"></p>
-<p>然后为体现智能模块的智能性，我们对寻常摄像头所捕获的图像进行行为分析，进而建立模型，通过对不同人物行为的分析，我们可以评估得出不同的危险等级，及时提醒本系统用户，做到防范危险于未然。对于基于行为分析的AI智能3D摄像头，项目基本设计如下：</p>
-<p><img src="https://i.loli.net/2020/05/13/uB7LIxFeb38NlDr.png" alt="AI模型开发流程图"></p>
-<h2 id="How-Hard"><a href="#How-Hard" class="headerlink" title="How Hard?"></a>How Hard?</h2><p>目前关于3D视觉技术所应用的摄像头文档资源太少，一切都需要摸索。此外由于摄像头的推广不足，导致由其本身采集的数据较少，无法做到高精度体现。此外关于系统所需要的预测模型缺少，也需要为其合理的设计提供相关强力的理论依据。</p>
-<p>重难点一：三维图像数据的难以分析</p>
-<p>对于三维和二维的差距不可谓不大，目前还没有找到一个合适的方案来进行三维图像数据的分析。</p>
-<p>重难点二：当前技术的限制</p>
-<p>目前理论上最为适合实际应用的三种常用3D技术方案（双目立体视觉、结构光、飞行时间TOF技术）的结合技术尚未有实际产品问世，所以目前的系统还有待提升的空间。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1609,7 +1657,7 @@ clean :
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1622,7 +1670,7 @@ clean :
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1663,7 +1711,7 @@ clean :
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共96.4k字</span>
+  <span class="post-count">博客全站共98.9k字</span>
 </div>
         
 
