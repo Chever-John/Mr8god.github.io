@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mr8god.cn/"/>
-  <updated>2020-07-14T02:52:48.147Z</updated>
+  <updated>2020-07-15T02:28:58.041Z</updated>
   <id>https://mr8god.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test page</title>
+    <link href="https://mr8god.cn/2020/07/15/test-page/"/>
+    <id>https://mr8god.cn/2020/07/15/test-page/</id>
+    <published>2020-07-15T02:28:31.000Z</published>
+    <updated>2020-07-15T02:28:58.041Z</updated>
+    
+    <content type="html"><![CDATA[<p>就是测试页</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;就是测试页&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://mr8god.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="https://mr8god.cn/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>binary search</title>
@@ -485,32 +512,6 @@
     
     
       <category term="Java日记" scheme="https://mr8god.cn/tags/Java%E6%97%A5%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java多线程日记</title>
-    <link href="https://mr8god.cn/2020/04/29/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/"/>
-    <id>https://mr8god.cn/2020/04/29/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</id>
-    <published>2020-04-29T03:18:39.000Z</published>
-    <updated>2020-04-28T16:37:50.395Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="数据库学习日记"><a href="#数据库学习日记" class="headerlink" title="数据库学习日记"></a>数据库学习日记</h1><h2 id="界面操作（单指SQLServerManagement）"><a href="#界面操作（单指SQLServerManagement）" class="headerlink" title="界面操作（单指SQLServerManagement）"></a>界面操作（单指SQLServerManagement）</h2><p>数据库：创建、删除、分离、附加、生成脚本（架构，数据）</p><p>表：创建、修改、删除</p><p>字段类型介绍：int、bit、datetime、decimal、char/varchar/nvarchar<br>带不带n：</p><ul><li>带n：表示Unicode编码，每个字符占一个字节</li><li>不带n：表示非Unicode编码，英文或数字占一个字节，中文占两个字节</li></ul><p>带不带var：举列子char(5)，要存入’abc’</p><ul><li>不带var：’abc<em> </em>‘    后边会有两个空格（固定式，不可变长度，会在末尾补空格，能用固定就用固定，比如说固定的电话号码长度，这样性能会更高）</li><li>带var：’abc’     后边不带空格（非固定式，可变长度，性能会低一点，但是对于一些长度不定的，比如说姓名，会有奇效）</li></ul><h2 id="利用SQL语句创建数据库"><a href="#利用SQL语句创建数据库" class="headerlink" title="利用SQL语句创建数据库"></a>利用SQL语句创建数据库</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> [<span class="keyword">database</span><span class="string">'s name]</span></span><br><span class="line"><span class="string">on primary</span></span><br><span class="line"><span class="string">                 (</span></span><br><span class="line"><span class="string">                 name = '</span>stuDB_data<span class="string">',</span></span><br><span class="line"><span class="string">                 filename = '</span>D:\stuDB_data.mdf<span class="string">',</span></span><br><span class="line"><span class="string">                 size = 5mb,</span></span><br><span class="line"><span class="string">                 maxsize = 100mb,</span></span><br><span class="line"><span class="string">                 filegrowth = 15%</span></span><br><span class="line"><span class="string">                 )</span></span><br><span class="line"><span class="string">                 </span></span><br><span class="line"><span class="string">log on</span></span><br><span class="line"><span class="string">                 (</span></span><br><span class="line"><span class="string">                 name = '</span>stuDB_logo<span class="string">',</span></span><br><span class="line"><span class="string">                 filename = '</span>D:\stuDB_logo.ldf<span class="string">',</span></span><br><span class="line"><span class="string">                 size = 2mb,</span></span><br><span class="line"><span class="string">                 maxsize = 1mb,</span></span><br><span class="line"><span class="string">                 filegrowth = 15%</span></span><br><span class="line"><span class="string">                 )</span></span><br></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> database_name </span><br><span class="line"><span class="keyword">ON</span>    </span><br><span class="line">&#123;  [ PRIMARY ]  </span><br><span class="line">( </span><br><span class="line">                 <span class="keyword">NAME</span> = logical_file_name ,    </span><br><span class="line">FILENAME = ‘os_file_name’ </span><br><span class="line">[ , <span class="keyword">SIZE</span> = <span class="keyword">size</span>]  </span><br><span class="line">[ , <span class="keyword">MAXSIZE</span> = &#123; max_size | <span class="keyword">UNLIMITED</span> &#125; ] </span><br><span class="line">[ , FILEGROWTH = growth_increment ])</span><br><span class="line">&#125; [ ,...n ] </span><br><span class="line"><span class="keyword">LOG</span> <span class="keyword">ON</span> </span><br><span class="line">&#123;  [ PRIMARY ]  ( </span><br><span class="line">    <span class="keyword">NAME</span> = logical_file_name ,   </span><br><span class="line">FILENAME = ‘os_file_name’ </span><br><span class="line">[ , <span class="keyword">SIZE</span> = <span class="keyword">size</span>] </span><br><span class="line">[ , <span class="keyword">MAXSIZE</span> = &#123; max_size | <span class="keyword">UNLIMITED</span> &#125; ] </span><br><span class="line">[ , FILEGROWTH = growth_increment ])</span><br><span class="line">&#125; [ ,...n ]</span><br></pre></td></tr></table></figure><h2 id="利用SQL语句操作表"><a href="#利用SQL语句操作表" class="headerlink" title="利用SQL语句操作表"></a>利用SQL语句操作表</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;数据库学习日记&quot;&gt;&lt;a href=&quot;#数据库学习日记&quot; class=&quot;headerlink&quot; title=&quot;数据库学习日记&quot;&gt;&lt;/a&gt;数据库学习日记&lt;/h1&gt;&lt;h2 id=&quot;界面操作（单指SQLServerManagement）&quot;&gt;&lt;a href=&quot;#界面操作（单
-      
-    
-    </summary>
-    
-    
-      <category term="技术" scheme="https://mr8god.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="数据库" scheme="https://mr8god.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
