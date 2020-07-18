@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mr8god.cn/2020/07/18/electron/</loc>
+    
+    <lastmod>2020-07-18T10:38:03.260Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mr8god.cn/2020/07/14/binary-search/</loc>
+    
+    <lastmod>2020-07-16T02:40:01.252Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://mr8god.cn/2020/07/15/test-page/</loc>
     
-    <lastmod>2020-07-15T02:33:38.300Z</lastmod>
+    <lastmod>2020-07-15T02:39:24.688Z</lastmod>
     
   </url>
   
@@ -23,7 +37,7 @@
   </url>
   
   <url>
-    <loc>https://mr8god.cn/2020/07/14/binary-search/</loc>
+    <loc>https://mr8god.cn/2020/07/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/algorithm/binary-search/</loc>
     
     <lastmod>2020-07-14T02:52:48.147Z</lastmod>
     
