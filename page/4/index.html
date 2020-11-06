@@ -180,6 +180,271 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/15/Java/Java%E6%B7%B1%E8%80%95/Java%E6%B7%B1%E8%80%95%E2%80%94%E2%80%94%E8%A3%85%E7%AE%B1%E6%8B%86%E7%AE%B1%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/15/Java/Java%E6%B7%B1%E8%80%95/Java%E6%B7%B1%E8%80%95%E2%80%94%E2%80%94%E8%A3%85%E7%AE%B1%E6%8B%86%E7%AE%B1%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">Java深耕——自动装箱拆箱机制</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-15 21:33:29" itemprop="dateCreated datePublished" datetime="2020-04-15T21:33:29+08:00">2020-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-16 22:09:39" itemprop="dateModified" datetime="2020-04-16T22:09:39+08:00">2020-04-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Java深耕——在深入理解Java自动装箱拆箱机制"><a href="#Java深耕——在深入理解Java自动装箱拆箱机制" class="headerlink" title="Java深耕——在深入理解Java自动装箱拆箱机制"></a>Java深耕——在深入理解Java自动装箱拆箱机制</h1><h2 id="自动装箱与拆箱的定义"><a href="#自动装箱与拆箱的定义" class="headerlink" title="自动装箱与拆箱的定义"></a>自动装箱与拆箱的定义</h2><p>装箱就是自动将基本数据类型转换为包装器类型；拆箱就是，自动将包装器类型转换为基本数据类型</p>
+<p>Java中的数据类型分为两类：一类是基本数据类型，另一类是引用数据类型</p>
+<p><img src="https://i.loli.net/2020/04/15/FseJUGTZ628OwoV.jpg" alt="基本数据类型的分类.jpg"></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">简单类型</th>
+<th style="text-align:center">二进制位数</th>
+<th style="text-align:center">封装器类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">Integer</td>
+</tr>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">Byte</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">Long</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">Float</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">double</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">Character</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Boolean</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="上自动装箱代码"><a href="#上自动装箱代码" class="headerlink" title="上自动装箱代码"></a>上自动装箱代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        <span class="keyword">int</span> a=<span class="number">3</span>;</span><br><span class="line">        <span class="comment">//定义一个基本数据类型的变量a赋值3</span></span><br><span class="line">        Integer b=a;</span><br><span class="line">        <span class="comment">//b是Integer 类定义的对象，直接用int 类型的a赋值    </span></span><br><span class="line">        System.out.println(b);</span><br><span class="line">        <span class="comment">//打印结果为3</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中的Integer b = a;就是我们所说的自动装箱的过程，上面代码在执行的时候调用了Integer.valueOf(int i)方法简化后的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;       </span><br><span class="line">        <span class="keyword">if</span> (i &gt;= -<span class="number">128</span> &amp;&amp; i &lt;= <span class="number">127</span>)</span><br><span class="line">            <span class="keyword">return</span> IntegerCache.cache[i + <span class="number">127</span>];</span><br><span class="line">            <span class="comment">//如果i的值大于-128小于127则返回一个缓冲区中的一个Integer对象</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span><br><span class="line">        <span class="comment">//否则返回 new 一个Integer 对象</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到Integer.valueOf(a)其实是返回了一个Integer的对象。因此由于自动装箱的存在Integer b = a这段代码是没有问题的，并且我们可以简化的来这样写：Integer b = 3;</p>
+<p>同样也等价于这样写：Integer b = Integer.valueOf(3)。</p>
+<h2 id="上自动拆箱代码"><a href="#上自动拆箱代码" class="headerlink" title="上自动拆箱代码"></a>上自动拆箱代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line"></span><br><span class="line">        Integer b=<span class="keyword">new</span> Integer(<span class="number">3</span>);</span><br><span class="line">        <span class="comment">//b为Integer的对象</span></span><br><span class="line">        <span class="keyword">int</span> a=b;</span><br><span class="line">        <span class="comment">//a为一个int的基本数据类型</span></span><br><span class="line">        System.out.println(a);</span><br><span class="line">        <span class="comment">//打印输出3。</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>上面有一个：int a = b;  代码中把一个对象赋给了基本类型。其实这就等于int a = b.intValue()。</p>
+<p>根据源码中可知道intValue是什么</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">intValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法就是返回了value值嘛，但是这里的value又是怎么一回事呢？继续找源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Integer</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = value;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>原来这里的value就是，Integer后边括号里的值呀，于是我们的拆箱代码其实本质上是这样写的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line"></span><br><span class="line">        Integer b=<span class="keyword">new</span> Integer(<span class="number">3</span>);</span><br><span class="line">        <span class="comment">//b为Integer的对象</span></span><br><span class="line">        <span class="keyword">int</span> a=b.intValue();</span><br><span class="line">        <span class="comment">//其中b.intValue()返回实例化b时构造函数new Integer(3);赋的值3。</span></span><br><span class="line">        System.out.println(a);</span><br><span class="line">        <span class="comment">//打印输出3。</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="范围概念"><a href="#范围概念" class="headerlink" title="范围概念"></a>范围概念</h2><p>这里边是一个挺重要的知识点，至少我之前看的疯狂Java视频资料，以及我看的《Java编程思想》这本书，都有这方面的介绍。先看一个代码哈：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer a = <span class="number">1000</span>,b=<span class="number">1000</span>;</span><br><span class="line">		Integer c=<span class="number">100</span>,d=<span class="number">100</span>;</span><br><span class="line">		System.out.println(a==b);</span><br><span class="line">		System.out.println(c==d);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>原本我会以为是输出的是：true    true啦，但是实际上不对，正确答案是false    true。为甚呢？细细道来。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;        </span><br><span class="line">        <span class="comment">//1</span></span><br><span class="line">        Integer a=<span class="keyword">new</span> Integer(<span class="number">123</span>);</span><br><span class="line">        Integer b=<span class="keyword">new</span> Integer(<span class="number">123</span>);</span><br><span class="line">        System.out.println(a==b);<span class="comment">//输出 false</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//2 </span></span><br><span class="line">        Integer c=<span class="number">123</span>;</span><br><span class="line">        Integer d=<span class="number">123</span>;  </span><br><span class="line">        System.out.println(c==d);<span class="comment">//输出 true</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//3</span></span><br><span class="line">        Integer e=<span class="number">129</span>;</span><br><span class="line">        Integer f=<span class="number">129</span>;</span><br><span class="line">        System.out.println(e==f);<span class="comment">//输出 false</span></span><br><span class="line">        <span class="comment">//4</span></span><br><span class="line">        <span class="keyword">int</span> g=<span class="number">59</span>;</span><br><span class="line">        Integer h=<span class="keyword">new</span> Integer(<span class="number">59</span>);</span><br><span class="line">        System.out.println(g==h);<span class="comment">//输出 true</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2020/04/15/JAFCoyUKmtDWNn4.jpg" alt="常量池.jpg"></p>
+<p>第一部分输出false，很好理解，因为比较的是堆中指向的对象是不是同一个嘛，a,b是栈中对象的引用分别指向堆中的两个不同的对象。而a==b这条语句就是判断a、b在堆中指向的对象是不是统一个，因此输出为false。</p>
+<p>第二部分输出true也很好理解，正是用了我们的自动装箱技术</p>
+<p>我带大家这次仔细的看自动装箱的源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;       </span><br><span class="line">        <span class="keyword">if</span> (i &gt;= -<span class="number">128</span> &amp;&amp; i &lt;= <span class="number">127</span>)</span><br><span class="line">            <span class="keyword">return</span> IntegerCache.cache[i + <span class="number">127</span>];</span><br><span class="line">            <span class="comment">//如果i的值大于-128小于127则返回一个缓冲区中的一个Integer对象</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span><br><span class="line">        <span class="comment">//否则返回 new 一个Integer 对象</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码中：IntegerCache.cache[i + 127];   表示狠眼生，继续看代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerCache</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> Integer cache[];</span><br><span class="line">        <span class="comment">//定义一个Integer类型的数组且数组不可变</span></span><br><span class="line">        <span class="keyword">static</span> &#123;  </span><br><span class="line">        <span class="comment">//利用静态代码块对数组进行初始化。                     </span></span><br><span class="line">            cache = <span class="keyword">new</span> Integer[<span class="number">256</span>];</span><br><span class="line">            <span class="keyword">int</span> j = -<span class="number">128</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; cache.length; k++)</span><br><span class="line">                cache[k] = <span class="keyword">new</span> Integer(j++);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//cache[]原来是一个Integer 类型的数组（也可以称为常量池），value 从-128到127，</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;   </span><br><span class="line">        <span class="keyword">if</span> (i &gt;=-<span class="number">128</span> &amp;&amp; i &lt;= <span class="number">127</span>)        </span><br><span class="line">            <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</span><br><span class="line">            <span class="comment">//如果装箱时值在-128到127之间，之间返回常量池中的已经初始化后的Integer对象。</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span><br><span class="line">        <span class="comment">//否则返回一个新的对象。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>原来IntegerCache类在初始化的时候，生成了一个大小为256的integer类型的常量池，并且integer.val的值从-128~127，当我们运行Integer c = a（临时做的一个小栗子哈）的时候，如果-128 &lt;= a &lt;= 127，就不会再生成新的integer对象。于是我们第二部分的c和d指向的是同一个对象，所以比较的时候是相等的，所以我们输出true。</p>
+<p>第三部分，理解如第二部分</p>
+<p>第四部分：代码中g指向的是栈中的变量，h指向的是堆中的对象，但是我们的g == h为什么还是true呢？这就是<strong>自动插箱</strong>干的好事，g == h这代码执行的时候就是：g == h.IntValue()，而h.IntValue()=59，所以两边其实是两个int在比较而已。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>简单一句话：</p>
+<p><strong>装箱</strong>就是自动将基本数据类型转换为包装器类型；</p>
+<p><strong>拆箱</strong>就是自动将包装器类型转换为基本数据类型。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/14/Java/Java%E6%B7%B1%E8%80%95/Java%E6%B7%B1%E8%80%95%E2%80%94%E2%80%94%E7%AC%AC%E5%9B%9B%E7%AB%A0%E4%B9%8Bthis%E5%85%B3%E9%94%AE%E5%AD%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr8god">
+      <meta itemprop="description" content="Just learning！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr8god's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/14/Java/Java%E6%B7%B1%E8%80%95/Java%E6%B7%B1%E8%80%95%E2%80%94%E2%80%94%E7%AC%AC%E5%9B%9B%E7%AB%A0%E4%B9%8Bthis%E5%85%B3%E9%94%AE%E5%AD%97/" class="post-title-link" itemprop="url">Java深耕——第四章之this关键字</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-14 15:49:15 / 修改时间：23:15:53" itemprop="dateCreated datePublished" datetime="2020-04-14T15:49:15+08:00">2020-04-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Java深耕——第四章之this关键字"><a href="#Java深耕——第四章之this关键字" class="headerlink" title="Java深耕——第四章之this关键字"></a>Java深耕——第四章之this关键字</h1><p>本文灵感来源于知乎文章（<a href="https://zhuanlan.zhihu.com/p/62779357）" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/62779357）</a><br>以及《Java编程思想》P85页</p>
+<h2 id="使用this关键字之前"><a href="#使用this关键字之前" class="headerlink" title="使用this关键字之前"></a>使用this关键字之前</h2><p>Java提供了一个叫做<strong>this</strong>关键字，<strong>this</strong>关键字总是指向调用该方法的对象。根据this出现的位置不同，this作为对象的默认引用有两种情况。</p>
+<ol>
+<li>构造器中引用该构造器正在初始化的对象</li>
+<li>在方法中引用调用该方法的对象</li>
+</ol>
+<h2 id="在方法中引用调用该方法的对象"><a href="#在方法中引用调用该方法的对象" class="headerlink" title="在方法中引用调用该方法的对象"></a>在方法中引用调用该方法的对象</h2><h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>那我们直接上了概念，肯定是不能够被大家理解的哈，我们转念换个角度来想一想，我们如果没有<strong>this</strong>关键字，会面临一个什么样子的情况呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="comment">//定义一个move()方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在执行move()方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//定义一个eat()方法，eat()方法需要借助move()方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Person p = <span class="keyword">new</span> Person();</span><br><span class="line">        p.move();</span><br><span class="line">        System.out.println(<span class="string">"正在执行eat()方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建Person对象</span></span><br><span class="line">        Person p = <span class="keyword">new</span> Person();</span><br><span class="line">        <span class="comment">//调用Person的eat()方法</span></span><br><span class="line">        p.eat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 代码来源于：https://zhuanlan.zhihu.com/p/62779357</span></span><br></pre></td></tr></table></figure>
+<p>运行结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">正在执行move()方法</span><br><span class="line">正在执行eat()方法</span><br></pre></td></tr></table></figure>
+<h3 id="代码讲解"><a href="#代码讲解" class="headerlink" title="代码讲解"></a>代码讲解</h3><p>上述的方式确实能够做到eat()方法里调用move()方法，但是我们在main()方法里可以看到我们总共创建了两个对象：main()方法里创建了一个对象；eat()方法里创建了一个对象。但是实际上我们是不需要两个对象的，因为在程序调用第一个eat()方法时一定会提供一个Person对象，而不需要重新创建一个Person了。</p>
+<p>因此我们可以通过<strong>this</strong>关键字在eat()方法中获得调用该方法的对象。<strong>this</strong>关键字只能在方法内部使用，表示对”调用方法的那个对象“的引用。</p>
+<p>于是上面的代码Person类中的eat()方法改为下面这种方式较为合适：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个eat()方法，eat()方法需要借助move()方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//使用this引用调用eat()方法的对象</span></span><br><span class="line">    <span class="keyword">this</span>.move();</span><br><span class="line">    System.out.println(<span class="string">"正在执行eat()方法"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不过呢，虽然接下来要说的，可能会让读者同学感觉我是在耍你哈。但是可不是哦，上面这么多我只是做个引子而已，用来引导大家的。我先说我要说的知识点吧</p>
+<p><strong>this</strong>关键字的用法和其他对象引用并无不同。但是如果要在方法内部调用同一个类的另一个方法，就不必使用this，直接调用即可。当前方法的this引用会自动应用用途同一类中的其他方法。所以上述代码也可以这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个eat()方法，eat()方法需要借助move()方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">    move();</span><br><span class="line">    System.out.println(<span class="string">"正在执行eat()方法"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>整体代码可以如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.example;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/14</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 16:09</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"正在执行move()方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        move();</span><br><span class="line">        System.out.println(<span class="string">"正在执行eat()方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person p = <span class="keyword">new</span> Person();</span><br><span class="line">        p.eat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>暂时的小总结</strong>：</p>
+<p>​        在eat()方法内部，你可以写this.move()，但无此必要。编译器能够帮你自动添加。只有当明确指出对当前对象的引用时，才需要使用<strong>this</strong>关键字。例如，当需要返回对当前对象的引用的时候，就常常在return语句里这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.chapterfive;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/14</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 11:18</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leaf</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="function">Leaf <span class="title">increment</span><span class="params">()</span></span>&#123;</span><br><span class="line">        i++;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"i = "</span> + i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Leaf x = <span class="keyword">new</span> Leaf();</span><br><span class="line">        x.increment().increment().increment().print();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码中，由于increment()通过<strong>this</strong>关键字返回了对当前对象的引用，所以很容易就可以在一条语句里对同一个对象执行多次操作。</p>
+<p><strong>this</strong>关键字对于将当前对象传递给其他方法也很有用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.chapterfive;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/14</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 11:21</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(Apple apple)</span></span>&#123;</span><br><span class="line">        Apple peeled = apple.getPeeled();</span><br><span class="line">        System.out.println(<span class="string">"Yummy"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Peeler</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> Apple <span class="title">peel</span><span class="params">(Apple apple)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> apple;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span></span>&#123;</span><br><span class="line">    <span class="function">Apple <span class="title">getPeeled</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> Peeler.peel(<span class="keyword">this</span>); &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PassingThis</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Person().eat(<span class="keyword">new</span> Apple());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Apple</strong>需要调用<strong>Peeler.peel()</strong>方法，这个方法是一个外部的工具方法，将执行由于某种原因而必须放在<strong>Apple</strong>外部的操作。为了将其自身传递给外部方法，<strong>Apple</strong>必须使用<strong>this</strong>关键字。</p>
+<h2 id="在构造器中调用构造器"><a href="#在构造器中调用构造器" class="headerlink" title="在构造器中调用构造器"></a>在构造器中调用构造器</h2><p>另一种情形是：<strong>this</strong>关键字可以用于构造器中作为默认引用，由于构造器是直接使用<strong>new</strong>关键字来调用的，而不是使用对象来调用的，所以<strong>this</strong>在构造器中代表该构造器正在初始化的对象。</p>
+<h3 id="例一"><a href="#例一" class="headerlink" title="例一"></a>例一</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.example;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/14</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 17:05</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> age = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.age = <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="keyword">new</span> Person().age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>与普通方法类似，大部分时候，我们在构造器中访问其他成员变量和方法时都可以省略<strong>this</strong>前缀，但是如果构造器中有一个与成员变量同名的局部变量，又必须在构造器中访问这个被覆盖的成员变量，则必须使用<strong>this</strong>前缀。正如上面的程序所示。</p>
+<p>当<strong>this</strong>作为对象的默认引用使用时，程序可以像访问普通引用变量一样来访问这个<strong>this</strong>引用，甚至可以把<strong>this</strong>当成普通方法的返回值。如下面的程序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Person <span class="title">grow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        age ++;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person p = <span class="keyword">new</span> Person();</span><br><span class="line">        <span class="comment">//可以连续调用同一个方法</span></span><br><span class="line">        p.grow().grow().grow();</span><br><span class="line">        System.out.println(<span class="string">"p对象的age的值是："</span>+p.age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p对象的age的值是：3</span><br></pre></td></tr></table></figure>
+<p>上面的代码中可以看到，如果在某个方法中把this作为返回值，则可以多次连续调用同一个方法，从而使得代码变得更加的简洁。</p>
+<h3 id="例二"><a href="#例二" class="headerlink" title="例二"></a>例二</h3><p>有时候为一个类写了多个构造器，我们可能想在一个构造器中调用另一个构造器，以避免重复代码。可以使用<strong>this</strong>关键字做到这一点。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.chapterfive;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> net.mindview.util.Print.print;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/14</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@time</span> 11:31</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Flower</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> petalCount = <span class="number">0</span>;</span><br><span class="line">    String s = <span class="string">"initial value"</span>;</span><br><span class="line">    Flower(<span class="keyword">int</span> petals)&#123;</span><br><span class="line">        petalCount = petals;</span><br><span class="line">        print(<span class="string">"Constructor w/ int arg only, petalCount= "</span></span><br><span class="line">        + petalCount);</span><br><span class="line">    &#125;</span><br><span class="line">    Flower(String ss)&#123;</span><br><span class="line">        print(<span class="string">"Constructor w/ String arg only, s = "</span> + ss);</span><br><span class="line">        s = ss;</span><br><span class="line">    &#125;</span><br><span class="line">    Flower(String s, <span class="keyword">int</span> petals)&#123;</span><br><span class="line">        <span class="keyword">this</span>(petals);</span><br><span class="line">        <span class="keyword">this</span>.s = s;</span><br><span class="line">        print(<span class="string">"String &amp; int args"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Flower()&#123;</span><br><span class="line">        <span class="keyword">this</span>(<span class="string">"hi"</span>, <span class="number">47</span>);</span><br><span class="line">        print(<span class="string">"default constructor (no args)"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printPetalCount</span><span class="params">()</span></span>&#123;</span><br><span class="line">        print(<span class="string">"petalCount = "</span> + petalCount + <span class="string">" s = "</span> + s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Flower x = <span class="keyword">new</span> Flower(<span class="string">"江晨玥"</span>,<span class="number">222</span>);</span><br><span class="line"><span class="comment">//        Flower x = new Flower();</span></span><br><span class="line">        x.printPetalCount();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这串代码如果给初学者看的话，会有一点不明确的地方，毕竟代码太长了嘛，这边给个建议，就只看我们的this指针部分哦！</p>
+<p>然后代码中，我选择初始化了一个Flower(“江晨玥”, 222)的方法，首先这行代码会被用到上面的Flower(String s, int petals)里边，很好的实现了方法的重载嘛。然后我们就可以直观地看到这边，我讲解几个可能会有疑问的地方哈</p>
+<h4 id="可能会有疑问一"><a href="#可能会有疑问一" class="headerlink" title="可能会有疑问一"></a>可能会有疑问一</h4><p>这边</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Flower(String s, <span class="keyword">int</span> petals)&#123;</span><br><span class="line">        <span class="keyword">this</span>(petals);</span><br><span class="line">        <span class="keyword">this</span>.s = s;</span><br><span class="line">        print(<span class="string">"String &amp; int args"</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>代码中的this(petals)到底是怎么一回事，其实有这个疑问还是要算你的<strong>this</strong>关键字没有理解到家，this其实在这里指的是Flower，相当于我在这个Flower(String s, int petals)里引用了Flower(int petals)方法。</p>
+<h4 id="可能会有疑问二"><a href="#可能会有疑问二" class="headerlink" title="可能会有疑问二"></a>可能会有疑问二</h4><p>这边的this.s = s，可能也会有疑问，其实这个也展示了this的另外一种用法。由于参数s的名称和数据成员s的名字相同，所以会很容易产生歧义。使用<strong>this.s</strong>就可以来代表数据成员解决这个问题。Java日常编程经常会这样的哦</p>
+<h4 id="讲解一"><a href="#讲解一" class="headerlink" title="讲解一"></a>讲解一</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printPetalCount()</span><br></pre></td></tr></table></figure>
+<p>方法表明，除构造器之外，编译器禁止在其他任何方法中调用构造器，不信？你可以试试！</p>
+<h2 id="Over！"><a href="#Over！" class="headerlink" title="Over！"></a>Over！</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/12/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84%E5%9B%BE%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1240,239 +1505,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/09/Java/Java%E6%B7%B1%E8%80%95/Java%E6%B7%B1%E8%80%95%E2%80%94%E2%80%94%E5%88%9D%E7%AB%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/09/Java/Java%E6%B7%B1%E8%80%95/Java%E6%B7%B1%E8%80%95%E2%80%94%E2%80%94%E5%88%9D%E7%AB%A0/" class="post-title-link" itemprop="url">Java深耕——初章</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-09 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-09T15:49:15+08:00">2020-04-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-14 23:51:25" itemprop="dateModified" datetime="2020-04-14T23:51:25+08:00">2020-04-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Java——初章"><a href="#Java——初章" class="headerlink" title="Java——初章"></a>Java——初章</h1><p>Java是一种面向对象编程(OOP)的语言。<br>掌握Java需要付出的代价就是，思考对象的时候，需要采用 形象思维（一种抽象思维），而不是程序化的思维。<br>特别是在尝试创建可重复使用（可再生） 的对象的时候，我们都会面临着一项痛苦的抉择。<br>事实上，正是由于这样的特性，很难有人能够设计出完美的东西，只有一些Java的编程专家才能编写出可以让大多数人使用的代码，而我江某人学习编程的目的就在于此，成为编程专家。</p>
-<p>初章主要是描述了Java的多项设计思想，并从概念上解释面向对象的程序设计。</p>
-<h2 id="抽象概念的由来"><a href="#抽象概念的由来" class="headerlink" title="抽象概念的由来"></a>抽象概念的由来</h2><h3 id="抽象方法是怎么出现的呢？"><a href="#抽象方法是怎么出现的呢？" class="headerlink" title="抽象方法是怎么出现的呢？"></a>抽象方法是怎么出现的呢？</h3><p>​        起因是我们在解决实际问题的时候发现每一类问题都有其自己的特征。而我们在C或一切其他语言中学到的都只是根据一类问题设计一套方法来解决它。以至于当超出这个问题的时候，方法就会显得特别笨拙。<br>​        面向对象的程序设计就是在以上基础跨出一大步。我们利用一些概念去描述表达实际问题中的元素。我们利用“<strong>对象</strong>”这个概念建立起实际问题和方法之间的联系。如果一些问题在后期出现了更多的问题，我们就可以相应的在代码中加入其它对象<br>通过添加新的对象类型，程序可以灵活的进行调整。与特定的问题打配合。从而达到解决问题的目的。<br>​        毫无疑问，<strong>面向对象程序设计语言</strong>是一门灵活、强大的语言抽象方法。它允许我们<strong>根据问题来描述问题，而不是单纯地根据方案。</strong></p>
-<h4 id="OOP面向对象程序设计的特征"><a href="#OOP面向对象程序设计的特征" class="headerlink" title="OOP面向对象程序设计的特征"></a>OOP面向对象程序设计的特征</h4><p>通过上面讲述的这些特征，我们可以理解“纯粹”的面向对象程序设计方法是什么样子的：<br>(1)    所有东西都是对象。可以将对象想象成一种新型变量；它保存着数据，但可要求它对它自身进行一些操作，比如说增加点方法，增加点变量。理论上来讲，我们可以从问题中找出所有概念性的东西，然后在我们的程序中将其表达为一个对象。</p>
-<p>(2)    程序将会是一大堆对象的组合；通过对象与对象之间的消息传递（传参），各个对象都知道自己该干什么，不该干什么。为了向另外一个对象发出请求，就需要向那个对象发送消息。<strong>具体来讲</strong>，我们可以将消息想象为一个调用请求，它调用的是从属于目标对象的一个子例程或函数。</p>
-<p>(3)    每个对象都有自己的存储空间，可以容纳其他对象。或者是通过封装现有对象，进而制造出新的对象。所以尽管先前我们讲的对象看起来很简单，其实在每一个程序中，这些概念都能上升到一个任意高的复杂程度。</p>
-<p>(4)    每个对象都有一种类型。根据Java的基本语法，每个对象都是某一个“类”的一个“实例”。而不同类与类之间的区别是什么呢？我抽象地讲，是“<strong>能将什么消息发给它？</strong>”</p>
-<p>(5)    <strong>同一类的所有对象都能接收相同的消息。</strong>举例子举例子，这边有圆（Circle）、形状（Shape）两个类。由于圆其实也是形状嘛，我可以这样说，圆（Circle）的一个对象也属于类型为形状（Shape）的一个对象，所以一个圆能够完全接收来自形状（Shape）的任意消息。这就意味着我们可以让程序代码统一指挥形状（Shape），令其自动控制所有符合形状（Shape）描述的对象，其中自然包括圆（Circle）类的那个对象。这一特性叫做对象的”可替换性“，是OOP最重要的概念之一。</p>
-<h2 id="对象的接口"><a href="#对象的接口" class="headerlink" title="对象的接口"></a>对象的接口</h2><p>上头我已经为大家引入了类与对象的概念，其实很好理解。类就相当于一样东西，比如说程序员就是一类。而对象呢，按照程序员类来说，这边的对象就是具体的一个程序员，比如说我江某人，就是一个程序员类的对象。</p>
-<p>​        每一个对象都隶属于一个特定的“类”，那个类具有自己的通用特征与行为。</p>
-<p>​        我们该如何让对象完成真正有用的工作呢？比如说让我江某人程序员对象完成一个C++的代码工作。我们可以在类中定义“<strong>接口</strong>”，对象的“类”就规定了它的接口形式。“类”和“接口”的等价或对应关系就是面向对象程序设计的基础。</p>
-<p>​        下面来一个图解</p>
-<p><img src="https://i.loli.net/2020/04/11/MvF6VlU21SKIfdh.jpg" alt="接口的讲解.jpg"></p>
-<p>在上面这个图解中，，类的名字叫做Light，我们可以向Light对象发出的请求包括有打开（on）、关闭（off）、变得更明亮（brighten）、变得更黯淡（dim）。我们可以简单地声明一个名字（lt），我们为Light对象创建了一个“句柄”（就是名字，咱们对象的名字，在这边名字就叫做lt），这里边lt，也就是咱们的句柄，指向了刚刚新建的对象。然后我们用new关键字新建类型为Light的一个对象。再用等号将其赋值给句柄。</p>
-<p>​        为了向对象发送一条消息，我们使用下面的格式来将句柄名、句点符号、和消息名称（on、off之类的）连接起来：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lt.on();</span><br></pre></td></tr></table></figure>
-<h2 id="实现方案的隐藏"><a href="#实现方案的隐藏" class="headerlink" title="实现方案的隐藏"></a>实现方案的隐藏</h2><p>这部分我将谈谈我们为什么要隐藏我们的类成员，类中的方法</p>
-<p>​        首先我想就程序员的分类来讲，目前使用面向对象程序设计语言的程序员主要是分为两类的，一类是类的创建者，一类是类的使用者。前者制造出了包含各种使用的类包，后者会用前者的类包，解决各种问题。</p>
-<p>​        这个时候，我们就需要考虑一个问题了，类创建者创建的类包里不能所有东西都能被使用者调用呀。如果任何人都能使用一个类的所有成员，那么使用者就可以对那个类做出任何事情。即使是一些不能够给使用者使用的类内包含的一些成员。如若不能进行控制的话，就没有办法组织这一情况的发生。</p>
-<h3 id="为啥要控制类中成员的访问权限呢？"><a href="#为啥要控制类中成员的访问权限呢？" class="headerlink" title="为啥要控制类中成员的访问权限呢？"></a>为啥要控制类中成员的访问权限呢？</h3><p>综上，我们有两方面的原因促使我们需要对类中成员的访问权限进行控制。<br>原因一：防止使用者程序员接触他们不该接触的东西——通常是一些内部数据类型的设计思想。若只是为了使用类包解决问题，用户只需要操作接口就行了，不需要明白这些信息。我们向用户提供的实际是一种服务。<br>原因二：允许类包设计人员修改内部结构，不用担心它对使用者程序员造成影响。假如我们（类设计程序员）最开始写了一个简单的类包，以便简化开发。以后又决定进行改写，使其更快地运行。若接口与实现方法早已经隔离开了，并分别受到保护，就可以放心做到这一点。</p>
-<h3 id="Java如何实现控制呢？"><a href="#Java如何实现控制呢？" class="headerlink" title="Java如何实现控制呢？"></a>Java如何实现控制呢？</h3><p>Java采用三个显式（明确）关键字以及一个隐式（暗示）关键字来设置类边界：public、private、protected 以及暗示性的friendly。若未明确指定其他关键字，则默认为后者。</p>
-<p>解释这些关键字：</p>
-<p>public（公共）：意味着后续的定义，任何人均可使用。<br>private（私有）：意味着除您自己、类型的创建者以及那个类型的内部函数成员之外，其他任何人都不能访问后续的定义信息。private在类创建者和类使用者之间竖起了一堵墙。若有人试图调用，便会在编译期报错。<br>friendly（友好的）涉及“包装”或“封装”（Package）的概念——即Java用来构建库的方法。若某样东西是“友好的”，意味着它只能在这个包装的范围内使用（所以这一访问级别有时也叫做“包装访问”）<br>protected（受保护的）：与“private”相似，只是一个继承的类就可以访问咱们的受保护成员，但是依旧不能访问私有成员。</p>
-<h2 id="方案的重复使用"><a href="#方案的重复使用" class="headerlink" title="方案的重复使用"></a>方案的重复使用</h2><p>创建并测试好一个类后，这个好不容易创建好的类其实往往有很多缺点。只有较多经验以及洞察力的人才能 设计出一个好的方案。</p>
-<p>​        为了重复使用一个类，最简单的方法就是仅直接使用那个类的对象。同时也将那个类的一个对象植入一个新类中。我们把这叫做“创建一个成员对象”。新类可以由任意数量和类型的其他对象构成。这个概念叫做“组织”——在现有类的基础上组织一个新类。有时组织也称为“包含”关系，比如“一辆车包含了一个变速箱”</p>
-<p>​        对象的组织具有极大的灵活性。新类的“成员对象”通常设为“私有”，使用这个类的使用者程序员不能访问它们。</p>
-<h2 id="继承：重新使用接口"><a href="#继承：重新使用接口" class="headerlink" title="继承：重新使用接口"></a>继承：重新使用接口</h2><p>当我们费尽心思做出一种数据类型之后，加入不得不又新建一种类型，令其实现大致相同的功能，那会是一件很麻烦的事情。但是若能利用已有的数据类型，对其进行“克隆模仿”，再根据实际情况进行添加或修改，那情况就会好多了。“继承”正是针对这个目标而设计的。但是继承并不完全等价于克隆。在继承的过程中，如果父类发生了变化，子类（继承后产生的新类）也会反映出这种变化。</p>
-<p>在Java中继承是通过extends关键字实现的。使用继承时，相当于创建了一个新类。这个新类不仅包含了现有类型的所有成员（除了不能被访问的private成员）。其中最最重要的是它还复制了父类的接口。也就是说，能向父类发送的消息，亦可原样发给子类的对象。</p>
-<p>由于父类和子类拥有相同的接口了，但是我们的子类不能一模一样呀，那样还跟父类有什么区别？为了做出区分，所以那个接口也必须进行特殊的设计。下面讲一下两种区分父类和子类的方法：</p>
-<h3 id="区分父类子类的方法"><a href="#区分父类子类的方法" class="headerlink" title="区分父类子类的方法"></a>区分父类子类的方法</h3><p><strong>方法一</strong>：为子类添加新函数（功能）。这些新函数并非父类接口的一部分。为什么会有这种方法的出现呢？一般是因为我们发现父类原有的功能已经不能满足我们的需求了，于是我们就要添加更多的函数。这是一种最简单最基本的继承用法。</p>
-<p><strong>方法二</strong>：近看extends关键字看上去是让我们要为接口“扩展”新功能，但实情并非肯定得照办。为了区分我们的新类，第二个办法就是改变父类，“改善”父类。</p>
-<h3 id="改善父类"><a href="#改善父类" class="headerlink" title="改善父类"></a>改善父类</h3><p>为了改善一个父类，我们无非就是改善父类中的函数（或者叫方法），那么我们相应的只需要在子类中的函数中建立一个新的定义就可以了。我们的目标是：”尽管使用的函数接口未变，但他的新版本具有不同的表现“，但是万物没有这么绝对，我们还有另外情况，这边引用两个概念：<strong>等价关系</strong>和<strong>类似关系</strong></p>
-<p>等价关系：子类完全照搬父类的所有的东西<br>类似关系：我们在子类中新加入了新的东西，那是原来父类中没有的东西。新的子类依旧拥有旧的父类的接口，但也包含了其他一些新的东西。所以就变成了不是上面所说的那种“等价关系”。</p>
-<p>举一个例子：假定我有一个房间，房间连好了用于制冷的各种控制装置，用程序员思维来看，就是说我们已经拥有了必要的“接口”来控制制冷。现在假设我们的制冷机坏掉了，于是我将它换成了一台新型的冷、热两用空调，冬天制热、夏天制冷嘛。冷热空调“<strong>类似</strong>“制冷机，但是能做更多的事情。但是呢，由于我们的房间只安装了控制制冷的设备”<strong>接口</strong>“，所以”<strong>接口</strong>“们只能同新机器的制冷部分打交道。新机器的接口已得到扩展，但现有的系统并不知情，也不能够接触除了原始接口以外的任何东西。</p>
-<p>当我们明确了等价和类似两种概念之后，以后在面对情况的时候就可以合理选择了。</p>
-<h2 id="多形对象的互换使用"><a href="#多形对象的互换使用" class="headerlink" title="多形对象的互换使用"></a>多形对象的互换使用</h2><p>继承的结果往往会是创造了一系列的类，而这所有的类都是建立在统一的接口基础上的。如图</p>
-<p><img src="https://i.loli.net/2020/04/11/DlvLfm5qPKnFzpX.jpg" alt="向上转型的形象描述.jpg"></p>
-<p>这边要讲一个很重要的概念了哈，我们一定要把子类的对象当做父类的对象来对待。这一点是非常重要的。这就意味着我们只需编写代码就行了，不需要注意类的特定细节，只与父类打交道。</p>
-<p>根据图例我们可以看到通过集成，这边有三个子类。那么我们为三个子类新编写的代码也会像在父类中那样良好工作。所以说程序具备了“扩展能力”，具有扩展性。</p>
-<p>假设我们新加了一个函数：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">doStuff</span><span class="params">(Shape s)</span>&#125;</span>&#123;</span><br><span class="line">	s.erase();</span><br><span class="line">	<span class="comment">// 等等等等等</span></span><br><span class="line">	s.draw();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样一个函数可以用途任何“几何形状”（Shape）通信，例如我这边又安排了一个代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Circle c = <span class="keyword">new</span> Circle();</span><br><span class="line">Triangle t = <span class="keyword">new</span> Triangle();</span><br><span class="line">Line l = <span class="keyword">new</span> Line();</span><br><span class="line">doStuff(c);</span><br><span class="line">doStuff(t);</span><br><span class="line">doStuff(l);</span><br></pre></td></tr></table></figure>
-<p>这边我就分析一下doStuff(c)这串代码的意思（事实就是：我确实后边安排了这个代码）<br>此时，一个Circle句柄传递给了一个本来期待Shape句柄的函数。但是由于咱们的圆也是一种几何形状，所以doStuff()能够正确地进行处理。也就是说，凡是doStuff()能发给一个Shape的消息，Circle也能接收。所以这样子写是正确的，不会有报错。</p>
-<p>我们把这种生成子类的方法叫做向上转型。向上是因为继承的方向是从“上面”来的——即父类位于顶部，子类在下方展开。</p>
-<p>注意了哦，doStuff()里面的代码，它并非是这样表达的：”如果你是一个Circle，就这样作；如果你是一个Square，就按照那样做；等等诸如此类“。若那样子写代码的话，得累死你，就需要检查Shape所有可能的类型，如圆、矩形、四边形等等等等。这显然是非常麻烦的，而且每次添加了一种新的Shape类型后，都要相应地进行修改，在这里，我们只需要这样做：”你是一种几何形状，我知道你能将自己删掉（即代码里面的erase()），请自己放手去干吧，并且自己去控制所有的细节吧。“</p>
-<p>这边我写了三个代码有助于我们理解：</p>
-<p>代码一（Shape父类）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.shape;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.System.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/1120:28</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span></span>&#123;</span><br><span class="line">        out.println(<span class="string">"我是父类中的draw()方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">erase</span><span class="params">()</span></span>&#123;</span><br><span class="line">        out.println(<span class="string">"我是父类中的erase()方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span></span>&#123;</span><br><span class="line">        out.println(<span class="string">"我是父类中的move()方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getColor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        out.println(<span class="string">"我是父类中的getColor()方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        out.println(<span class="string">"我是父类中的setColor()方法"</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>代码二（Circle继承类）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.shape;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.System.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr8god</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/4/822:04</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">extends</span> <span class="title">Shape</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doStuff</span><span class="params">(Shape s)</span></span>&#123;</span><br><span class="line">        s.erase();</span><br><span class="line">        out.println(<span class="string">"我是来自子类Circle里边的doStuff方法。"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>代码三（ShapeTest类）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mr8god.shape;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @ Mr8god</span></span><br><span class="line"><span class="comment"> * @ 2020/4/11</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShapeTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Shape sh = <span class="keyword">new</span> Shape();</span><br><span class="line"></span><br><span class="line">        sh.draw();</span><br><span class="line">        sh.erase();</span><br><span class="line">        sh.move();</span><br><span class="line">        sh.getColor();</span><br><span class="line">        sh.setColor();</span><br><span class="line"></span><br><span class="line">        Circle ci = <span class="keyword">new</span> Circle();</span><br><span class="line">        ci.draw();</span><br><span class="line">        ci.erase();</span><br><span class="line">        ci.move();</span><br><span class="line">        ci.getColor();</span><br><span class="line">        ci.setColor();</span><br><span class="line">        ci.doStuff(ci);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>自此输出：</p>
-<p><img src="https://i.loli.net/2020/04/11/C8uPNOlLZbco4G7.jpg" alt="向上转型代码的输出.jpg"></p>
-<h2 id="如何实现控制访问"><a href="#如何实现控制访问" class="headerlink" title="如何实现控制访问"></a>如何实现控制访问</h2><p>Java用三个关键字在类的内部设定边界：public、private、protected。这些访问指定词决定了紧跟其后被定义的东西可以被谁使用。</p>
-<p>public：表示紧随其后的元素对任何人都是可用的</p>
-<p>private：这个关键字表示除类型创建者和类型的内部方法之外的其他任何人都不能访问的元素。private就像你与使用类的程序员之间的一堵墙，如果有人试图访问private成员，就会在编译期间得到错误信息。</p>
-<p>protected：这个关键字与private作用相当，差别仅在于继承的类可以访问protected成员，但是不能访问private成员。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mr8god.cn/2020/04/08/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94final%E5%8F%98%E9%87%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr8god">
-      <meta itemprop="description" content="Just learning！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr8god's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/08/Java/Java%E9%80%9F%E8%AE%B0%E2%80%94%E2%80%94final%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">Java速记——final变量</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-08 15:49:15" itemprop="dateCreated datePublished" datetime="2020-04-08T15:49:15+08:00">2020-04-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-14 23:53:15" itemprop="dateModified" datetime="2020-04-14T23:53:15+08:00">2020-04-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Java速记——final变量"><a href="#Java速记——final变量" class="headerlink" title="Java速记——final变量"></a>Java速记——final变量</h1><p>可以修饰变量（各种变量）、方法、类。</p>
-<p>final和abstract是互斥的：永远都不能够同时出现！</p>
-<h2 id="final修饰变量"><a href="#final修饰变量" class="headerlink" title="final修饰变量"></a>final修饰变量</h2><p>作用：该变量被赋初始值之后，不能被重新赋值！<br>            final修饰的变量<strong>必须</strong>被赋值，且只能被赋值<strong>一次</strong></p>
-<h2 id="final修饰成员变量"><a href="#final修饰成员变量" class="headerlink" title="final修饰成员变量"></a>final修饰成员变量</h2><p>普通成员变量（非final的成员变量），程序员可以不显式指定初始值，系统会为之分配默认初始值，初始值分配规则与数组元素的初始值分配规则完全相同！</p>
-<p>final 成员变量，程序员必须显式指定初始值</p>
-<ul>
-<li><p>final实例变量，必须显式指定初始值，<strong>只能指定一次</strong>。<strong>只能在以下三个位置的其中之一指定：</strong></p>
-<ul>
-<li>定义时指定为初始值。</li>
-<li>实例初始化块</li>
-<li>每个构造器都需要显示指定一次初始值</li>
-</ul>
-<p>上面3个位置的本质其实只有一个，就是构造器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Final</span>实例变量 </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> age = <span class="number">20</span>;</span><br><span class="line">    &#123;</span><br><span class="line"><span class="comment">//        age = 24;// 这边错误，被final修饰的成员变量不能被赋值两次</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是我们这样写就没有问题</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Final</span>实例变量 </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> age;</span><br><span class="line">    &#123;</span><br><span class="line">        age = <span class="number">24</span>;<span class="comment">// 这边错误，被final修饰的成员变量不能被赋值两次</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>再一个正确示范</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Final</span>实例变量 </span>&#123;</span><br><span class="line">    <span class="comment">// final实例变量必须显式指定初始值，而且只能在3个位置中指定</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">long</span> lg;</span><br><span class="line">    <span class="keyword">public</span> Final实例变量()</span><br><span class="line">    &#123;</span><br><span class="line">        lg = <span class="number">200</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>final类变量，必须显示指定初始值。只能在以下2个位置的其中之一指定：</p>
-<ul>
-<li>定义时指定初始值</li>
-<li></li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1543,7 +1575,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1597,7 +1629,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共99.3k字</span>
+  <span class="post-count">博客全站共99.6k字</span>
 </div>
         
 
